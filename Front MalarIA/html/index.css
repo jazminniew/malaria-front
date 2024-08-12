@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('https://img.freepik.com/vector-gratis/fondo-formas-geometricas-abstractas_23-2148783208.jpg?t=st=1723421328~exp=1723424928~hmac=cd9a6de5bdc5152dabbbf39b82226dacfc12540aca9f3e30fb0a40a293dbf68a&w=1060');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000000;
+    text-align: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0;
+    color: #000000;
+}
+
+h1 img {
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.btn {
+    padding: 15px 40px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    background-color: #333;
+}
+
+.btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.btn::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #5d45ae, #5d45ae, #5d45ae, #5d45ae
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -2;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    border-radius: 12px;
+    transition: opacity .3s ease-in-out;
+}
