@@ -4,30 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIA</title>
+    <link rel="stylesheet" href="crear-cuenta.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div>
+    <div class="wrapper">
     <form>
-        <h1>Cree su cuenta</h1>
-        <fieldset>
-            <legend>Informacion Basica</legend>
-                <input type="text" placeholder="Nombre"> 
-                <input type="text" placeholder="Apellido">
-                <input type="date">
-                <input type="text" placeholder="Telefono">
-                <!--HACER UN SELECT DE PAIS <input type="text" placeholder="Pais">-->
-                <!--HACER UN SELECT DE ESTUDIANTE, TRABAJADOR <input type="text" placeholder="Pais">-->
-        </fieldset>
-        <fieldset>
-            <legend>Informacion de contacto</legend> 
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Contraseña">
-                
-        </fieldset>        
-        <button type="submit">Crear cuenta</button>
+        <h1>Crear cuenta</h1>
+        <!--Nombre--> 
+        <div class="form-input">
+            <input type="text" placeholder="Nombre" required> 
+            <i class='bx bxs-user'></i>
+        </div>
+        <!--Apellido-->
+        <div class="form-input">
+            <input type="text" placeholder="Apellido" required>
+            <i class='bx bxs-user'></i>
+        </div>        
+        <!--Fecha de Nacimiento-->
+        <div class="form-input">
+            <input type="date" required>
+            <i class='bx bxs-calendar'></i>
+        </div>
+        <!--Telefono-->
+        <div class="form-input">
+            <input type="text" placeholder="Telefono" required>
+            <i class='bx bxs-phone'></i>
+        </div>
+        <!--Pais-->
+        <div class="form-input">
+            <select name="pais">
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+            </select>
+            <i class='bx bx-world'></i>
+            <!--Ocupacion-->
+            <div class="form-input">
+                <select name="pais">
+                    <option value="Estudiante">Estudiante</option>
+                    <option value="Trabajador">Trabajador</option>
+                </select>
+                <i class='bx bxs-briefcase'></i>
+        </div>
+        <!--Email-->
+        <div class="form-input">
+            <input type="email" placeholder="Email" required>
+            <i class='bx bxl-gmail'></i>
+        </div>
+        <!--Contraseña-->
+        <div class="form-input">
+            <input type="password" placeholder="Contraseña" required>
+            <i class='bx bxs-lock-alt'></i>
+        </div>         
+    </div>
+    <button type="submit" class="btn" onclick="location.href='iniciar-sesion.html'">Crear Cuenta</button>
+        <div class="login-link">
+            <p>¿Ya tienes una cuenta? <a href="iniciar-sesion.html">Iniciar Sesion</a></p>
+        </div>
+        </div>
     </form>
     </div>
-    
-    <a href="iniciarsesion.html">Continuar</a>
 </body>
 </html>
