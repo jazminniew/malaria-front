@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIA</title>
+    <link rel="stylesheet" href="iniciar-sesion.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 <div>
     <form>
-        <h1>Iniciar sesion</h1>
-        <fieldset>
-            <legend>Ingrese sus datos</legend>
-            <div>
-                <input type="email" placeholder="Mail">
-            </div>
-            <div>
-                <input type="password" placeholder="Contraseña">
-            </div>
-            <div>
-                <label>
-                    <input type="checkbox">Recordame</label>
-                    <a href="olvidastecontraseña.html">¿Te olvidaste la contraseña?</a>
-                </label>
-            </div>
-            <button type="submit">Iniciar Sesion</button>
-            <div>
-                <p>¿No tenes cuenta?</p>
-                <a href="crearcuenta.html">Crear cuenta</a>
-            </div>
-        </fieldset>
-    </form>
-</div>
-    <a href="home.html">Iniciar Sesion</a>
+        <div class="wrapper">
+            <form action="">
+                <h1>Iniciar sesion</h1>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class='bx bxl-gmail'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Contraseña" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Recordame</label>
+                    <a href="olvidaste-contraseña.html">¿Te olvidaste la contraseña?</a>
+                </div>
+                <button type="submit" class="btn">Continuar</button> <!--Chequear si va iniciar sesion o continuar o que va--> 
+                <div class="register-link">
+                    <p>¿No tienes una cuenta? <a href="crear-cuenta.html">Registrate</a></p>
+                </div>
+                </div>
+            </form>
+        </div>
 </body>
 </html>
