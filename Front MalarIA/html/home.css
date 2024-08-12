@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-*{
+* {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-:root{
-    /*Colores*/
+
+:root {
+    /* Colores */
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
     --primary-color: #695CFE;
@@ -14,18 +15,21 @@
     --toggle-color: #DDD;
     --text-color: #707070;
 
-    /*Transiciones*/
+    /* Transiciones */
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.4s ease;
     --tran-05: all 0.5s ease;
 }
-body{
+
+body {
     height: 100vh;
     background: var(--body-color);
     transition: var(--tran-04);
 }
-body.dark{
+
+/* Colores dark mode */
+body.dark {
     --body-color: #18191A;
     --sidebar-color: #242526;
     --primary-color: #3A3B3C;
@@ -34,81 +38,119 @@ body.dark{
     --text-color: #CCC;
 }
 
-/*CSS reusable*/
-.sidebar .text{
-    font-size: 16px;
+/* CSS reusable */
+/* Texto del sidebar */
+.sidebar .text {
+    font-size: 14px;
     font-weight: 500;
     color: var(--text-color);
     transition: var(--tran-04);
-    white-space: nowrap;
+    white-space:nowrap;
     opacity: 1;
+    overflow: hidden;
 }
-.sidebar.close text{
+
+/* Texto del sidebar cerrado*/
+.sidebar.close .text {
     opacity: 0;
+    width: 0;
+    transition: var(--tran-04);
 }
-.sidebar .image{
+/* Logo */
+.sidebar .image {
     min-width: 60px;
     display: flex;
     align-items: center;
+    padding-left: 4px;
 }
-/*Sidebar*/
-.sidebar{
+
+/* Sidebar */
+.sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 10;
     height: 100%;
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
 }
-.sidebar.close{
+
+.sidebar.close {
     width: 78px;
 }
-.sidebar li{
+
+/*Paginas del sidebar*/
+.sidebar li {
     height: 50px;
     margin-top: 10px;
     list-style: none;
     align-items: center;
     display: flex;
 }
-.sidebar li .icon{
+
+/* Iconos */
+.sidebar li .icon {
     align-items: center;
     display: flex;
     min-width: 60px;
-    font-size: 20px;
+    font-size: 18px; /*20 o 18?*/
 }
+
 .sidebar li .icon,
-.sidebar li .text{
+.sidebar li .text {
     color: var(--text-color);
     transition: var(--tran-02);
 }
 
-.sidebar header{
+.sidebar header {
     position: relative;
 }
-.sidebar .image-text img{
+
+.sidebar .image-text img {
     width: 40px;
     border-radius: 6px;
 }
-.sidebar header .image-text{
+
+.sidebar header .image-text {
     display: flex;
     align-items: center;
 }
-.sidebar header .header-text{
+
+header .image-text .header-text{
     display: flex;
     flex-direction: column;
 }
-.header-text .name{
+
+.sidebar header .header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name {
     font-weight: 600;
 }
-.header-text .profession{
+
+.header-text .profession {
     margin-top: -2px;
 }
-.sidebar header .bx-chevron-right{
+
+.sidebar header .toggle{
     position: absolute;
     top: 50%;
-    right: -15px; /* Ajustado para que esté mitad adentro, mitad afuera */
+    right: -25px;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.sidebar header .bx-chevron-left {
+    position: absolute;
+    top: 50%;
+    left: 220px;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -119,26 +161,32 @@ body.dark{
     border-radius: 50%;
     color: var(--sidebar-color);
     font-size: 22px;
-    transition: var(--tran-05); /* Para animar la flecha si se mueve */
+    transition: var(--tran-05);
+    cursor: pointer;
 }
-.sidebar .search-box{
+
+.sidebar.close .bx-chevron-left {
+    transform: translateY(-50%) rotate(180deg);
+    left: 50px;
+}
+
+.sidebar .search-box {
     background: var(--primary-color-light);
     border-radius: 6px;
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0px;
     height: 45px;
+    width: 60%;
+    margin-left: 0%;
 }
-.sidebar .search-box input{
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    background: none;
-    color: var(--text-color);
-    font-size: 16px;
+
+.sidebar .search-box .text.nav-text {
+    font-size: 14px; 
+    
 }
-.sidebar li a{
+
+.sidebar li a {
     text-decoration: none;
     height: 100%;
     width: 100%;
@@ -146,63 +194,82 @@ body.dark{
     align-items: center;
     border-radius: 6px;
     transition: var(--tran-04);
-    padding: 0 10px; /* Ajustado para que el hover cubra todo el botón */
+    padding: 0 10px;
 }
-.sidebar li a:hover{
+
+.sidebar li a:hover {
     background: var(--primary-color);
+    color: #000000;
 }
+
 .sidebar li a:hover .icon,
-.sidebar li a:hover .text{
-    color: black;
+.sidebar li a:hover .text {
+    color: #000000;
 }
-.sidebar .menu-bar{
+
+.sidebar .menu-bar {
     height: calc(100% - 50px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.menu-bar .mode{
+.menu-bar .mode {
     background: var(--primary-color-light);
     margin-top: 10px;
     padding: 0 10px;
     border-radius: 6px;
     display: flex;
     align-items: center;
-    position: relative;
     justify-content: space-between;
-    position: relative; /* Añadido para controlar mejor las posiciones relativas de los elementos */
 }
-.menu-bar .mode .moon-sun{
+
+.menu-bar .mode .moon-sun {
     display: flex;
     align-items: center;
-    position: relative; /* Ajustado para evitar que se superponga con el texto */
-    width: 60px; /* Ancho fijo para evitar superposiciones */
+    position: relative;
+    width: 50px;
 }
-.menu-bar .mode i{
+
+.menu-bar .mode i {
     position: absolute;
     border-radius: 6px;
-    transition: var(--tran-04); /* Animación suave para la opacidad */
+    transition: var(--tran-04);
 }
-.menu-bar .mode i.sun{
+
+.menu-bar .mode i.sun {
     opacity: 0;
 }
-.menu-bar .toggle-switch{
+
+body.dark .mode i.sun {
+    opacity: 1;
+}
+
+body.dark .mode i.moon {
+    opacity: 0;
+}
+
+.menu-bar .toggle-switch {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-width: 60px;
-    position: absolute;
+    min-width: 40px;
+    position: relative;
+    margin-left: -5px;
 }
-.toggle-switch .switch{
+
+.toggle-switch .switch {
     position: relative;
     height: 22px;
     width: 44px;
     border-radius: 25px;
     background: var(--toggle-color);
+    cursor: pointer;
+    transition: var(--tran-03);
 }
-.switch::before{
+
+.switch::before {
     content: '';
     position: absolute;
     height: 15px;
@@ -212,9 +279,9 @@ body.dark{
     left: 5px;
     transform: translateY(-50%);
     background: var(--sidebar-color);
-    cursor: pointer;
     transition: var(--tran-03);
 }
-body.dark .switch::before{
-    left:25px;  
+
+body.dark .switch::before {
+    left: 25px;
 }
