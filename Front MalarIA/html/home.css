@@ -45,7 +45,7 @@ body.dark {
     font-weight: 500;
     color: var(--text-color);
     transition: var(--tran-04);
-    white-space:nowrap;
+    white-space: nowrap;
     opacity: 1;
     overflow: hidden;
 }
@@ -68,12 +68,13 @@ body.dark {
 .sidebar {
     position: fixed;
     top: 0;
-    left: 10;
+    left: 0;
     height: 100%;
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
+    z-index: 1;
 }
 
 .sidebar.close {
@@ -178,13 +179,17 @@ header .image-text .header-text{
     padding: 0px;
     height: 45px;
     width: 60%;
-    margin-left: 0%;
 }
 
 .sidebar .search-box .text.nav-text {
     font-size: 14px; 
     
 }
+/* Ocultar el botón de búsqueda */
+#search-container button {
+    display: none;
+}
+
 
 .sidebar li a {
     text-decoration: none;
@@ -286,31 +291,37 @@ body.dark .switch::before {
     left: 25px;
 }
 
-
-
-
-
-
-
-.wrapper{
-    width: 95%;
-    margin: 0 auto;
+/* Contenedor principal */
+.wrapper {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: var(--tran-05);
 }
-#search-container{
+
+.sidebar.close ~ .wrapper {
+    width: calc(100% - 78px);
+    margin-left: 78px;
+}
+
+/* Contenedor de búsqueda */
+#search-container {
     margin: 1em 0;
-    margin-left:90px;
 }
-#search-container input{
+
+#search-container input {
     background-color: #dadada;
-    width: 87%;
-    padding: 1em 0.3em;
+    width: 100%; /* Asegúrate de que ocupe todo el espacio disponible */
+    padding: 1em 2em; /* Ajusta los valores para el espaciado interno */
     border-radius: 50px;
     border: none;
+    margin-right: 0.5em; /* Ajusta el margen derecho para separar el botón */
 }
-#search-container input:focus{
+
+#search-container input:focus {
     border-bottom-color: #6759ff;
 }
-#search-container button{
+
+#search-container button {
     padding: 1em 2em;
     margin-left: 1em;
     background-color: #6759ff;
@@ -319,37 +330,79 @@ body.dark .switch::before {
     margin-top: 0.5em;
     border: none;
 }
-.button-value {
-    background-color: transparent;
-    border: 2px solid #6759ff;
-    padding: 1em 2.2em;
-    border-radius: 3em;
-    color: #6759ff;
-    cursor: pointer;
 
+#buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
 }
-.active{
-    background-color:#6759ff ;
+
+.button-value {
+    background-color: #f1f3f4; /* Color de fondo similar a Google Drive */
+    border: 1px solid #dadada; /* Borde sutil */
+    padding: 0.5em 1em; /* Ajusta el padding para el tamaño del botón */
+    border-radius: 24px; /* Bordes redondeados */
+    color: #333; /* Color del texto */
+    font-size: 14px; /* Tamaño de fuente */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición suave para efectos */
+    margin-right: 0.5em; /* Espacio entre botones */
+}
+
+.button-value:hover {
+    background-color: #e0e0e0; /* Color de fondo en hover */
+    border-color: #c0c0c0; /* Color del borde en hover */
+}
+
+/* Estado activo del botón (cuando se selecciona) */
+.button-value.active {
+    background-color: #4285f4; /* Color de fondo activo */
+    color: #fff; /* Color del texto activo */
+    border-color: #4285f4; /* Color del borde activo */
+}
+
+.active {
+    background-color: #6759ff;
     color: #fff;
 }
-#products{
+
+#products {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 1.5em;
     padding: 2em 0;
 }
-.card{
+
+.card {
     background-color: #fff;
     max-width: 18em;
     margin-top: 1em;
     border-radius: 5px;
     box-shadow: 1em 2em 2.5em rgba(1,2,68,0.08);
 }
-.image-container{
+
+.image-container {
     text-align: center;
 }
-img{
+
+img {
     max-width: 100%;
     object-fit: contain;
     height: 15em;
+}
+
+/* Añadir margen izquierdo al searchbar */
+#search-container {
+    margin: 1em 0;
+    margin-left: 30px; /* Ajusta este valor según la distancia deseada */
+}
+
+/* Añadir margen izquierdo a los botones de filtro */
+#buttons {
+    margin-left: 30px; /* Ajusta este valor según la distancia deseada */
+}
+
+/* Opcional: Ajustar el margen izquierdo del contenedor de productos para mantener la consistencia */
+#products {
+    margin-left: 30px; /* Ajusta este valor según la distancia deseada */
 }
