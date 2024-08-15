@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+:root{
+    --color-barra-lateral: rgb(255,255,255);
+
+    --color-texto:rgb(0,0,0);
+    --color-texto-menu:rgb(134,136,144);
+
+    --color-boton: rgb(0,0,0);
+    --color-boton-texto:rgb(255,255,255);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    height: 100vh;
+    width: 100%;
+}
+.barra-lateral{
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    padding: 20px 15px;
+    background-color: var(--color-barra-lateral );
+    transition: width 0.5s ease;
+}
+.mini-barra-lateral{
+    width: 80px;
+}
+
+.barra-lateral .nombre-pagina{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+.barra-lateral .nombre.pagina ion-icon{
+    min-width: 50px;
+    font-size: 40px;
+    cursor: pointer;
+}
+.barra-lateral .nombre-pagina span{
+    font-size: 25px;
+    margin-left: 5px;
+}
+.barra-lateral .nombre-pagina span.oculto{
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/*Boton*/
+.barra-lateral .boton{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+}
+
+.barra-lateral .boton ion-icon{
+    min-width: 50px;
+    font-size: 25px;
+}
