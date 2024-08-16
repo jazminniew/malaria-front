@@ -387,3 +387,27 @@ main.min-main{
         display: block; /* Muestra el ícono de cerrar cuando la barra lateral está activa */
     }
 }
+.wrapper{
+    width: 95%;
+    margin: 0 auto;
+}
+#search-container{
+    margin: 1em 0;
+}
+#search-container input{
+    background-color: transparent;
+    width: 40%;
+    border-bottom: 2px solid #110f29;
+    padding: 1em 0.3em;
+}
+#search-container input:focus{
+    border-bottom-color: #6759ff;
+}
+#search-container button{
+    padding: 1em 2em;
+    margin-left: 1em;
+    background-color: #6759ff;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
