@@ -20,6 +20,9 @@
     --color-scroll-hover:rgb(134,134,134);
 
     --background-color:rgb(208, 208, 208);
+
+    --fondo-flecha: #000;
+    --flecha: #fff;
     
 }
 .dark-mode{
@@ -43,6 +46,9 @@
     --color-scroll-hover:rgb(85,85,85);
 
     --background-color:rgb(0,0,0);
+
+    --fondo-flecha: #fff;
+    --flecha: #000;
 }
 *{
     margin: 0;
@@ -55,7 +61,29 @@ body{
     width: 100%;
     background-color: var(--background-color);
 }
-
+/*Flecha*/
+.barra-lateral .bx-chevron-left {
+    position: absolute;
+    top: 7%; /* Centra verticalmente */
+    right: -10px; /* Ajustar según tu necesidad */
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    background: var(--fondo-flecha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--flecha);
+    font-size: 20px;
+    transition: var(--tran-05);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.barra-lateral .mini-barra-lateral .bx-chevron-left {
+    left: 10px; /* Ajusta según tu diseño */
+    transform: translateY(-50%) rotate(180deg); /* Rotar cuando está minimizado */
+}
 /*Menu*/
 .menu{
     background-color: var(--color-boton);
@@ -73,7 +101,6 @@ body{
     top: 15px;
     z-index: 100;
 }
-
 /*Barra lateral*/
 .barra-lateral{
     width: 250px;
@@ -88,6 +115,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
 
 .mini-barra-lateral{
@@ -116,7 +144,6 @@ body{
 .barra-lateral .nombre-pagina ion-icon{
     min-width: 50px;
     font-size: 40px;
-    cursor: pointer;
 }
 .barra-lateral .nombre-pagina span{
     margin: 5px;

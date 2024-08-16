@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIa</title>
@@ -11,7 +12,8 @@
         <ion-icon name="menu-outline"></ion-icon>
         <ion-icon name="close-outline"></ion-icon>
     </div>
-    <div class="barra-lateral max-barra-lateral">
+    <div #id="flecha" class="barra-lateral max-barra-lateral">
+        <i class='bx bx-chevron-left toggle'></i>
             <div class="nombre-pagina">
                 <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
                 <span>MalarIa</span>
@@ -42,7 +44,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="Cerrar-sesion">
                             <ion-icon name="log-out-outline"></ion-icon>
                             <span>Cerrar Sesion</span>
                         </a>
@@ -75,8 +77,7 @@
         </div>
         </div>
     </div>
-    <main>
-        
+    <main>     
 
 
 
