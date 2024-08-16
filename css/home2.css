@@ -62,7 +62,7 @@ body{
     color: var(--color-boton-texto);
     position: fixed;
     width: 50px;
-    height: 50px;
+    height: 500px;
     font-size: 30px;
     display: none;
     justify-content: center;
@@ -141,16 +141,16 @@ body{
 /*Boton*/
 .barra-lateral .boton{
     width: 100%;
-    height: 100%;
+    height: 50px;
     display:flex;
     align-items: center;
+    padding: 10px;
     justify-content: center;
     border: none;
     border-radius: 10px;
     background-color: var(--color-boton);
     color: var(--color-boton-texto);
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .barra-lateral .boton ion-icon{
@@ -200,7 +200,7 @@ body{
 .barra-lateral .linea{
     width: 100%;
     height: 1px;
-    margin-top: 150px;
+    margin-top: 110px;
     background-color: var(--color-linea);
 }
 
