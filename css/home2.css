@@ -141,8 +141,8 @@ body{
 /*Boton*/
 .barra-lateral .boton{
     width: 100%;
-    height: 45px;
-    display: flex;
+    height: 100%;
+    display:flex;
     align-items: center;
     justify-content: center;
     border: none;
@@ -150,6 +150,7 @@ body{
     background-color: var(--color-boton);
     color: var(--color-boton-texto);
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .barra-lateral .boton ion-icon{
@@ -199,7 +200,7 @@ body{
 .barra-lateral .linea{
     width: 100%;
     height: 1px;
-    margin-top: 170px;
+    margin-top: 150px;
     background-color: var(--color-linea);
 }
 
@@ -222,6 +223,14 @@ body{
 .barra-lateral .modo-oscuro ion-icon{
     width: 50px;
     font-size: 20px;
+}
+
+.barra-lateral .modo-oscuro ion-icon.sunny-outline {
+    opacity: 0;
+}
+
+body.barra-lateral .modo-oscuro ion-icon.sunny-outline {
+    opacity: 1;
 }
 /*Switch*/
 .barra-lateral .modo-oscuro .switch{
