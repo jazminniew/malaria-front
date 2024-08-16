@@ -79,20 +79,21 @@
     </div>
     <main>     
         <div class="wrapper">
-            <div class="search-container">
-                <input type="text" id="search-imput" placeholder="Search product name here...">
-                <button id="search">Search</button>
+            <div id="search-container">
+                <input type="search" id="placeholder" placeholder="Busque su paciente aqui">
             </div>
             <div id="buttons">
-                <button class="button-value">Orden Alfabetico</button>
-                <button class="button-value">Abiertos recientemente</button>
-                <button class="button-value">Menos reciente</button>
+                <button id="first" ="button-value" onclick="filterProduct('topwear')">Mas recientes</button>
+                <button class="button-value"onclick="filterProduct('BottomWear')">Mas antiguos</button>
+                <button class="button-value" onclick="filterProduct('all')">Tienen malaria</button>
+                <button class="button-value" onclick="filterProduct('all')">No tienen malaria</button>
             </div>
         </div>
     </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/js/home2.js"></script>    
+    </div>
     
 </body>
 </html>
