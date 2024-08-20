@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MalarIA</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/seleccionar-imagen.css">
+</head>
+<body>
+    <div class="container">
+        <input type="file" id="file" accept="image/'" hidden>
+        <div class="img-area active" data-img="hello.png">
+            <i class='bx bxs-cloud-upload'></i>
+            <h3>Sube la imagen</h3>
+            <p>El tamaño de la imagen debe ser menor a <span>2MB</span></p>
+        </div>
+        <button class="select-image">Seleccione la imagen</button>
+    </div>
+    <script src="/js/seleccionar-imagen.js"></script>
+</body>
+</html>
