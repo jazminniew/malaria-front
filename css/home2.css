@@ -19,7 +19,7 @@
     --color-scroll:rgb(192,192,192);
     --color-scroll-hover:rgb(134,134,134);
 
-    --background-color:rgb(208, 208, 208);
+    --background-color:#f8fafd;
 
     --fondo-flecha: #000;
     --flecha: #fff;
@@ -105,7 +105,7 @@ body{
 .barra-lateral{
     width: 250px;
     height: 100%;
-    background-color: var(--color-barra-lateral); /* Color de fondo */
+    background: #f3f3f3;
     position: fixed; /* Fijado en la pantalla */
     left: 0; /* Asegura que esté alineado a la izquierda */
     top: 0; /* Asegura que esté alineado en la parte superior */
@@ -209,7 +209,7 @@ body{
     align-items: center;
     text-decoration: none;
     border-radius: 10px;
-    background-color: var(--color-barra-lateral);
+    background: #f3f3f3;
     color: var(--color-texto-menu);
     margin-top: 5px;
 }
@@ -400,39 +400,46 @@ main.min-main{
 /* Añadir margen izquierdo a los botones de filtro */
 #buttons {
     margin-left: 70px; /* Ajusta este valor según la distancia deseada */
+    align-items: center;
+    color: #1f1f1f;
+    display: flex;
+    flex-basis: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px 0px 0px 16px;
 }
 
 #search-container input{
-    background-color: #e9e5e5;
-    border-radius: 20px;
+    background-color: #e9eefc;
+    color: #e3e3e3;
+    border-radius: 24px;
     width: 100%;
-    border: none;
-    padding: 1em 0.3em;
+    border: 1px #fff;
+    padding: 11px 0px;
     height: 40px;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 27px;
 }
 #search-container input:focus{
     border-bottom-color: #6759ff;
 }
-#search-container placeholder{
-    margin: 100px;
+#placeholder {
+    margin: 0px;
 }
 .button-value{
-    border: 2px solid  #000000;
-    padding: 0.5em 1em;
-    border-radius: 3em;
-    background-color: #b9b9b9;
-    color: #434343;
-    margin: 3px;
-    cursor: pointer;
-}
-#first{
-    margin-left: 10px;
-    border: 2px solid  #000000;
-    padding: 0.5em 1em;
-    border-radius: 3em;
-    background-color: #b9b9b9;
-    color: #434343;
-    margin: 3px;
+    background-color: #fff;
+    border-color: #747775;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    color: #444746;
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 4px 4px 4px 4px;
+    padding: 8px;
     cursor: pointer;
 }
 
@@ -510,21 +517,20 @@ img{
 
 .search-container.barra-lateral-open {
     transform: translateX(250px); /* move search bar to the right when sidebar is open */
-  }
-  
-  .search-container.barra-lateral-closed {
+}
+.search-container.barra-lateral-closed {
     transform: translateX(0); /* move search bar to the left when sidebar is closed */
-  }
+}
 
 
-  .FONDOPACIENTES{
-    width: 59em;
+.FONDOPACIENTES{
+    width: 66em;
     height: 27em;
-    background: #828282;
+    background: #ebebeb;
     backdrop-filter: blur(10px);
     color: #fff;
     border-radius: 12px;
     padding: 30px 40px;
     margin: 10px 96px;
-  }
+}
 
