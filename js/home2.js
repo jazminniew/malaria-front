@@ -6,6 +6,12 @@ const circulo = document.querySelector(".circulo");
 const menu = document.querySelector(".menu");
 const main = document.querySelector("main");
 
+const sidebarToggle = document.getElementById('sidebarToggle');
+const content = document.getElementById('content');
+const searchBar = document.querySelector('.search-bar');
+
+
+
 menu.addEventListener("click", () => {
     menu.addEventListener("click", () => {
         barraLateral.classList.toggle("max-barra-lateral");
@@ -196,4 +202,9 @@ searchInput.addEventListener("keydown", function(event) {
         alert("Buscando: " + searchInput.value);
         // Por ejemplo, podrías llamar a una función para filtrar los productos o hacer una búsqueda en el servidor
     }
+});
+barraLateralToggle.addEventListener('click', function() {
+    barraLateral.classList.toggle('collapsed');
+    content.classList.toggle('collapsed');
+    searchBar.classList.toggle('collapsed');
 });

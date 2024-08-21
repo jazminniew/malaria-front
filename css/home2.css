@@ -19,7 +19,7 @@
     --color-scroll:rgb(192,192,192);
     --color-scroll-hover:rgb(134,134,134);
 
-    --background-color:#f8fafd;
+    --background-color:#d9d9d9;
 
     --fondo-flecha: #000;
     --flecha: #fff;
@@ -388,48 +388,47 @@ main.min-main{
     }
 }
 .wrapper{
-    width: 95%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 0 6em ;
 }
-/* Añadir margen izquierdo al searchbar */
-#search-container {
-    margin: 0.1em 0 1em 0;
-    margin-left: 70px; /* Ajusta este valor según la distancia deseada */
-}
-
 /* Añadir margen izquierdo a los botones de filtro */
 #buttons {
-    margin-left: 70px; /* Ajusta este valor según la distancia deseada */
     align-items: center;
     color: #1f1f1f;
     display: flex;
     flex-basis: 100%;
     font-size: 14px;
     line-height: 20px;
-    padding: 0px 0px 0px 16px;
 }
 
 #search-container input{
     background-color: #e9eefc;
     color: #e3e3e3;
-    border-radius: 24px;
-    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    border-radius: 12px;
+    width: 50em;
     border: 1px #fff;
-    padding: 11px 0px;
     height: 40px;
-    display: inline-block;
+    display: flex;
     font-size: 13px;
     line-height: 27px;
+    justify-content: flex-start; 
+    margin: 0.1em 0 1em 0;
 }
-#search-container input:focus{
-    border-bottom-color: #6759ff;
+
+/* Opcionalmente, puedes agregar más estilos si es necesario */
+input[type="search"] { /* Ajusta el ancho según sea necesario */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
+
 #placeholder {
     margin: 0px;
 }
 .button-value{
     background-color: #fff;
-    border-color: #747775;
+    border-color: #a0a0a0;
     border-radius: 8px;
     border-style: solid;
     border-width: 1px;
@@ -515,22 +514,50 @@ img{
     transform: translateX(-250px); /* hide sidebar */
 }
 
-.search-container.barra-lateral-open {
-    transform: translateX(250px); /* move search bar to the right when sidebar is open */
-}
-.search-container.barra-lateral-closed {
-    transform: translateX(0); /* move search bar to the left when sidebar is closed */
-}
-
-
 .FONDOPACIENTES{
     width: 66em;
     height: 27em;
-    background: #ebebeb;
+    background: #f3f3f3;
     backdrop-filter: blur(10px);
     color: #fff;
     border-radius: 12px;
-    padding: 30px 40px;
+    padding: 40px 0px;
     margin: 10px 96px;
+    display: flex;
+}
+.file-container {
+    width: 200px;
+    height: 200px;
+    background-color: #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 0px 0px 50px;
+}
+
+
+.file-header {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 10px 10px 0 10px;
+    background-color: #dddddd;
+}
+
+.file-name {
+    color: #5d5d5d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.file-preview {
+    padding: 10px;
+}
+
+.file-preview img {
+    width: 90%;
+    border-radius: 5px;
+    margin: 0 10px;
+    border-radius: 10px;
 }
 
