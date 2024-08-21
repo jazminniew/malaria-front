@@ -399,7 +399,7 @@ main.min-main{
 
 /* Añadir margen izquierdo a los botones de filtro */
 #buttons {
-    margin-left: 30px; /* Ajusta este valor según la distancia deseada */
+    margin-left: 70px; /* Ajusta este valor según la distancia deseada */
 }
 
 #search-container input{
@@ -412,6 +412,9 @@ main.min-main{
 }
 #search-container input:focus{
     border-bottom-color: #6759ff;
+}
+#search-container placeholder{
+    margin: 100px;
 }
 .button-value{
     border: 2px solid  #000000;
@@ -497,4 +500,31 @@ img{
     z-index: 2;
 }
 
+.barra-lateral.open {
+    transform: translateX(0); /* show sidebar */
+}
+
+.barra-lateral.closed {
+    transform: translateX(-250px); /* hide sidebar */
+}
+
+.search-container.barra-lateral-open {
+    transform: translateX(250px); /* move search bar to the right when sidebar is open */
+  }
+  
+  .search-container.barra-lateral-closed {
+    transform: translateX(0); /* move search bar to the left when sidebar is closed */
+  }
+
+
+  .FONDOPACIENTES{
+    width: 59em;
+    height: 27em;
+    background: #828282;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin: 10px 96px;
+  }
 

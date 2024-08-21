@@ -7,7 +7,12 @@ const menu = document.querySelector(".menu");
 const main = document.querySelector("main");
 
 menu.addEventListener("click", () => {
-    barraLateral.classList.toggle("max-barra-lateral");
+    menu.addEventListener("click", () => {
+        barraLateral.classList.toggle("max-barra-lateral");
+        document.querySelector("#search-container").classList.toggle("barra-lateral-open");
+        document.querySelector("#search-container").classList.toggle("barra-lateral-closed");
+        // ... rest of your code ...
+    });
     if (barraLateral.classList.contains("max-barra-lateral")) {
         menu.children[0].style.display = "none";
         menu.children[1].style.display = "block";
@@ -35,13 +40,14 @@ cloud.addEventListener("click", () => {
     barraLateral.classList.toggle("mini-barra-lateral");
     main.classList.toggle("min-main");
 
-    // Alterna las clases de los spans
-    spans.forEach((span) => {
-        span.classList.toggle("oculto");
-    });
 
-    // Alterna la rotación de la flecha
-    cloud.classList.toggle("rotated");
+// Alterna las clases de los spans
+spans.forEach((span) => {
+    span.classList.toggle("oculto");
+});
+
+// Alterna la rotación de la flecha
+cloud.classList.toggle("rotated");
 });
 
 // Para el caso de que la flecha esté rotada, asegurarse de volver a su estado original
@@ -151,17 +157,17 @@ function filterProduct(value) {
 
     // Seleccionar todas las tarjetas
     let elements = document.querySelectorAll(".card");
-    elements.forEach((element) => {
-        if (value === "Todos") {
+elements.forEach((element) => {
+    if (value === "Todos") {
+        element.classList.remove("hide");
+    } else {
+        if (element.classList.contains(value)) {
             element.classList.remove("hide");
         } else {
-            if (element.classList.contains(value)) {
-                element.classList.remove("hide");
-            } else {
-                element.classList.add("hide");
-            }
+            element.classList.add("hide");
         }
-    });
+    }
+});
 }
 
 // Botón de búsqueda
