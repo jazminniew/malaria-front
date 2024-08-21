@@ -9,13 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <input type="file" id="file" accept="image/'" hidden>
-        <div class="img-area active" data-img="hello.png">
+        <div class="name-container">
+            <input type="text" class="info" placeholder="Ingrese el nombre" required>
+            <input type="text" class="info" placeholder="Ingrese el apellido" required>
+        </div>
+        <input type="file" id="file" accept="image/'" hidden required>
+        <div class="img-area active" >
             <i class='bx bxs-cloud-upload'></i>
-            <h3>Sube la imagen</h3>
+            <h3>Arrastra la imagen o <a class="select-image">buscala</a></h3>
             <p>El tamaño de la imagen debe ser menor a <span>2MB</span></p>
         </div>
-        <button class="select-image">Seleccione la imagen</button>
+        <button type="submit" class="subir">Subir</button>
     </div>
     <script src="/js/seleccionar-imagen.js"></script>
 </body>

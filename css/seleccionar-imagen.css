@@ -5,9 +5,9 @@
     font-family: sans-serif;
 }
 :root{
-    --blue: #0071FF;
+    --blue: #262626;
     --light-blue:ֳ;
-    --dark-blue: #005DD1;
+    --dark-blue: #000;
     --grey: #f2f2f2;
     --light-blue: #B6DBF6;
 }
@@ -16,20 +16,26 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--light-blue);
+    background: url(https://img.freepik.com/vector-gratis/fondo-formas-geometricas-abstractas_23-2148783208.jpg?t=st=1723426048~exp=1723429648~hmac=1cfb7e68abab5cccdf74a075ae945d550dd0d5f412825e82e3170dfc7d028d9c&w=1060) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .container{
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
-    background: #fff;
-    padding: 30px;
-    border-radius: 30px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    color: #000;
+    border-radius: 12px;
+    padding: 50px 40px 30px;
+    margin: 50px 0 50px 0;
 }
 .img-area{
     position: relative;
     width: 100%;
     height: 240px;
-    background: var(--grey);
+    border: 2px dashed rgba(0, 0, 0, 0.378);
     margin-bottom: 30px;
     border-radius: 15px;
     overflow: hidden;
@@ -38,6 +44,8 @@ body{
     align-items: center;
     flex-direction: column;
 }
+
+
 .img-area .icon{
     font-size: 100px;
 }
@@ -47,10 +55,14 @@ body{
     margin-bottom: 6px;
 }
 .img-area p{
-    color: #999;
+    color: #555555;
+    margin: 0 20px ;
 }
 .img-area span{
     font-weight: 600px;
+}
+.img-area i{
+    font-size: 100px;
 }
 .img-area img{
     position: absolute;
@@ -62,30 +74,43 @@ body{
     object-position: center;
     z-index: 100;
 }
-.img-area::before{
-    content: attr(data-img);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .5);
-    color: #fff;
-    font-weight: 500;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    opacity: 0;
-    transition: all .3s ease;
-    z-index: 200;
-}
 .select-image{
+font-weight: 600;
+color: #312dff;
+cursor: pointer;
+}
+.name-container {
+    display: flex;
+    justify-content: space-between;
+}
+.info{
+    width: 49%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.378);
+    border-radius: 40px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.378);
+    font-weight: 550;
+    padding: 0 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    margin: 10px 0;
+    display: flex;
+}
+.info::placeholder{
+    color: rgba(0, 0, 0, 0.378) ;
+    font-weight: 550;
+}
+.subir{
     display: block;
     width: 100%;
     padding: 16px 0;
-    border-radius: 15px;
+    border-radius: 50px;
     background: var(--blue);
     color: #fff;
     font-weight: 500;
@@ -94,6 +119,4 @@ body{
     cursor: pointer;
     transition: all .3s ease;
 }
-.select-image:hover{
 
-}
