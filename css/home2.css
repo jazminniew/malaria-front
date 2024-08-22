@@ -23,6 +23,8 @@
 
     --fondo-flecha: #000;
     --flecha: #fff;
+
+    --fondo-botones-sidebar: #f3f3f3;
     
 }
 .dark-mode{
@@ -61,11 +63,11 @@ body{
     width: 100%;
     background-color: var(--background-color);
 }
-/*Flecha*/
+/*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
-    top: 7%; /* Centra verticalmente */
-    right: -10px; /* Ajustar según tu necesidad */
+    top: 7%; 
+    right: -10px;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -80,48 +82,25 @@ body{
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-.barra-lateral .mini-barra-lateral .bx-chevron-left {
-    left: 10px; /* Ajusta según tu diseño */
-    transform: translateY(-50%) rotate(180deg); /* Rotar cuando está minimizado */
-}
-/*Menu*/
-.menu{
-    background-color: var(--color-boton);
-    color: var(--color-boton-texto);
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-    right: 15px;
-    top: 15px;
-    z-index: 1;
-}
-/*Barra lateral*/
+/*------------Barra lateral----------------*/
 .barra-lateral{
     width: 250px;
     height: 100%;
     background: #f3f3f3;
-    position: fixed; /* Fijado en la pantalla */
-    left: 0; /* Asegura que esté alineado a la izquierda */
-    top: 0; /* Asegura que esté alineado en la parte superior */
+    position: fixed; 
+    left: 0; 
+    top: 0; 
     padding: 20px 15px;
-    z-index: 50; /* Asegura que esté por encima de otros elementos */
+    z-index: 50; 
     transition: width 0.5s ease, background-color 0.3s ease, left 0.5s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
 }
-
 .mini-barra-lateral{
     width: 80px;
 }
-
 .barra-lateral .nombre-pagina span{
     font-size: 25px;
     margin-left: 5px;
@@ -131,7 +110,6 @@ body{
 .barra-lateral .nombre-pagina span.oculto{
     opacity: 0;
 }
-
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{
     width: 100%;
@@ -149,7 +127,6 @@ body{
     margin: 5px;
     font-size: 25px;
 }
-
 .barra-lateral span{
     width: 100px;
     white-space: nowrap;
@@ -164,8 +141,7 @@ body{
     opacity: 0;
     width: 0;
 }
-
-/*Boton*/
+/*-----------------------Boton------------------*/
 .barra-lateral .boton{
     width: 100%;
     height: 50px;
@@ -179,18 +155,14 @@ body{
     color: var(--color-boton-texto);
     margin: 20px 0;
 }
-
 .barra-lateral .boton ion-icon{
     min-width: 50px;
     font-size: 25px;
 }
-
-/*Menu Naveacion*/
 .barra-lateral .navegacion {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-
 }
 .barra-lateral .navegacion::-webkit-scrollbar{
     width: 5px;
@@ -209,7 +181,7 @@ body{
     align-items: center;
     text-decoration: none;
     border-radius: 10px;
-    background: #f3f3f3;
+    background: var(--fondo-botones-sidebar);
     color: var(--color-texto-menu);
     margin-top: 5px;
 }
@@ -220,9 +192,7 @@ body{
 .barra-lateral .navegacion ion-icon{
     min-width: 50px;
     font-size: 20px;
-
 }
-
 /*Linea*/
 .barra-lateral .linea{
     width: 100%;
@@ -230,7 +200,6 @@ body{
     margin-top: 110px;
     background-color: var(--color-linea);
 }
-
 /*Modo oscuro*/
 .barra-lateral .modo-oscuro{
     width: 100%;
@@ -259,7 +228,7 @@ body{
 body.barra-lateral .modo-oscuro ion-icon.sunny-outline {
     opacity: 1;
 }
-/*Switch*/
+/*-----------------------Switch-------------------------*/
 .barra-lateral .modo-oscuro .switch{
     display: flex;
     align-items: center;
@@ -268,7 +237,6 @@ body.barra-lateral .modo-oscuro ion-icon.sunny-outline {
     height: 45px;
     cursor: pointer;
 }
-
 .barra-lateral .modo-oscuro .base{
     position: relative;
     display: flex;
@@ -290,8 +258,7 @@ body.barra-lateral .modo-oscuro ion-icon.sunny-outline {
 .barra-lateral .modo-oscuro .circulo.prendido{
 left: 15px;
 }
-
-/*Usuario*/
+/*---------------------------Usuario-------------------------*/
 .barra-lateral .usuario{
     width: 100%;
     display: flex;
@@ -328,7 +295,6 @@ left: 15px;
 }
 /*Main*/
 main{
-    margin-left: 250px;
     padding: 20px;
     transition: margin-left 0.5s ease;
 }
@@ -365,33 +331,27 @@ main.min-main{
         margin-left: 0;
     }
 }
-
-/* Oculta ambos íconos por defecto */
 .menu {
     display: none;
 }
-
-/* Muestra los íconos de menú y cerrar solo en pantallas pequeñas */
 @media (max-width: 768px) {
     .menu {
-        display: flex;  /* O cualquier otro estilo que desees para mostrar los íconos */
+        display: flex; 
         justify-content: center;
         align-items: center;
     }
-
     .barra-lateral.active ~ .menu ion-icon[name="menu-outline"] {
-        display: none; /* Oculta el ícono de menú cuando la barra lateral está activa */
+        display: none; 
     }
-
     .barra-lateral.active ~ .menu ion-icon[name="close-outline"] {
-        display: block; /* Muestra el ícono de cerrar cuando la barra lateral está activa */
+        display: block; 
     }
 }
+/*--------------------------Filtros-------------------------*/ 
 .wrapper{
     width: 60%;
     margin: 0 6em ;
 }
-/* Añadir margen izquierdo a los botones de filtro */
 #buttons {
     align-items: center;
     color: #1f1f1f;
@@ -400,78 +360,84 @@ main.min-main{
     font-size: 14px;
     line-height: 20px;
 }
-
-#search-container input{
-    background-color: #e9eefc;
-    color: #e3e3e3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    border-radius: 12px;
-    width: 50em;
-    border: 1px #fff;
-    height: 40px;
-    display: flex;
-    font-size: 13px;
-    line-height: 27px;
-    justify-content: flex-start; 
-    margin: 0.1em 0 1em 0;
-}
-
-/* Opcionalmente, puedes agregar más estilos si es necesario */
-input[type="search"] { /* Ajusta el ancho según sea necesario */
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#placeholder {
-    margin: 0px;
-}
-.button-value{
-    background-color: #fff;
-    border-color: #a0a0a0;
-    border-radius: 8px;
-    border-style: solid;
-    border-width: 1px;
-    color: #444746;
-    display: flex;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 16px;
-    margin: 4px 4px 4px 4px;
-    padding: 8px;
-    cursor: pointer;
-}
-
-.active{
-    background-color: #6759ff;
-    color: #fff;
-}
-#products{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap:1.5em;
-    padding: 2em 0;
-    margin-left: 30px;
-}
-.card{
-    background-color: #fff;
-    max-width: 18em;
-    margin-top: 1em;
-    padding: 1em;
-    border-radius: 5px;
-    box-shadow: 1em 2em 2.5em rgba(1,2,68,0.08);
-}
-.image-container{
-    text-align: center;
-}
-img{
-    max-width: 100%;
-    object-fit: contain;
-    height: 15;
-}
 .container{
     padding-top: 1em;
     color: #110f29;
+}
+/*--------------------------Search-------------------------*/ 
+.form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+}
+.form {
+    --timing: 0.3s;
+    --width-of-input: 40em;
+    --height-of-input: 40px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #2f2ee9;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: var(--input-bg,#fff);
+}
+.input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+}
+.form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+}
+.form:focus-within {
+    border-radius: var(--after-border-radius);
+}
+input:focus {
+    outline: none;
+}
+.form:focus-within:before {
+    transform: scale(1);
+}
+.reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+}
+input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+.form svg {
+    width: 17px;
+    margin-top: 3px;
+}
+input[type="search"] { 
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 .hide{
     display: none;
@@ -500,22 +466,9 @@ img{
     position: relative;
     z-index: 10;
 }
-
-.search-container, #buttons {
-    position: relative;
-    z-index: 2;
-}
-
-.barra-lateral.open {
-    transform: translateX(0); /* show sidebar */
-}
-
-.barra-lateral.closed {
-    transform: translateX(-250px); /* hide sidebar */
-}
-
+/*-----------------------Elementos----------------------*/
 .FONDOPACIENTES{
-    width: 66em;
+    width: 55em;
     height: 27em;
     background: #f3f3f3;
     backdrop-filter: blur(10px);
@@ -534,8 +487,6 @@ img{
     overflow: hidden;
     margin: 0 0px 0px 50px;
 }
-
-
 .file-header {
     display: flex;
     justify-content:center;
@@ -543,21 +494,86 @@ img{
     padding: 10px 10px 0 10px;
     background-color: #dddddd;
 }
-
 .file-name {
     color: #5d5d5d;
     font-size: 14px;
     font-weight: 600;
 }
-
 .file-preview {
     padding: 10px;
 }
-
 .file-preview img {
     width: 90%;
     border-radius: 5px;
     margin: 0 10px;
     border-radius: 10px;
+}
+/*Filtros*/
+.tabs {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+    padding: 4px;
+    border-radius: 99px;
+}
+
+  .tabs * {
+    z-index: 2;
+}
+
+.container input[type="radio"] {
+    display: none;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 110px;
+    font-size: .8rem;
+    color: black;
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+}
+
+
+.container input[type="radio"]:checked + label {
+    color: #185ee0;
+}
+
+.container input[type="radio"]:checked + label > .notification {
+    background-color: #185ee0;
+    color: #fff;
+}
+
+.container input[id="radio-1"]:checked ~ .glider {
+    transform: translateX(0);
+}
+.container input[id="radio-2"]:checked ~ .glider {
+    transform: translateX(115%);
+}
+.container input[id="radio-3"]:checked ~ .glider {
+    transform: translateX(230%);
+}
+.glider {
+    position: absolute;
+    display: flex;
+    height: 30px;
+    width: 100px;
+    background-color: #e6eef9;
+    z-index: 1;
+    border-radius: 99px;
+    transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+
+    .tabs {
+transform: scale(0.6);
+    }
 }
 
