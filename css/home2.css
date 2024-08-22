@@ -5,7 +5,7 @@
     --color-texto:rgb(0,0,0);
     --color-texto-menu:rgb(134,136,144);
 
-    --color-menu-hover:rgb(238,238,238);
+    --color-menu-hover:rgb(236, 236, 236);
     --color-menu-hover-texto:rgb (0,0,0);
 
     --color-boton: rgb(0,0,0);
@@ -40,6 +40,7 @@
     --input-bg: #fff;
 
     --lupa: #646487;
+    --element-back-color:#d6d6d6;
     
 }
 .dark-mode{
@@ -48,7 +49,7 @@
     --color-texto:rgb(255,255,255);
     --color-texto-menu:rgb(110,110,107);
 
-    --color-menu-hover:rgb(20, 20, 20);
+    --color-menu-hover:rgb(8, 8, 8);
     --color-menu-hover-texto:rgb(238,238,238);
 
     --color-boton: rgb(255,255,255);
@@ -81,6 +82,9 @@
     --input-bg: #151515;
 
     --lupa-texto: #a5a5a5;
+
+    --fondo-botones-sidebar: #0f0f0f;
+    --element-back-color:#242824;
 }
 *{
     margin: 0;
@@ -117,7 +121,6 @@ body{
     width: 250px;
     height: 100%;
     background: var(--color-barra-lateral);
-    position: fixed; 
     left: 0; 
     top: 0; 
     padding: 20px 15px;
@@ -126,10 +129,18 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
+    position: absolute;
 }
 .mini-barra-lateral{
     width: 80px;
+}
+.mini-barra-lateral ~ .wrapper {
+    width: calc(100% - 80px);
+    margin-left: 78px;
+}
+
+.mini-barra-lateral .bx-chevron-left {
+    transform: translateY(-50%) rotate(180deg);
 }
 .barra-lateral .nombre-pagina span{
     font-size: 25px;
@@ -138,7 +149,10 @@ body{
     transition: opacity 0.5s ease;
 }
 .barra-lateral .nombre-pagina span.oculto{
-    display: none;
+        opacity: 0;
+        display: none;
+        transition: var(--tran-04);
+    
 }
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{
@@ -151,7 +165,7 @@ body{
 }
 .barra-lateral .nombre-pagina ion-icon{
     min-width: 50px;
-    font-size: 40px;
+    font-size: 30px;
 }
 .barra-lateral .nombre-pagina span{
     margin: 5px;
@@ -171,6 +185,50 @@ body{
     opacity: 0;
     width: 0;
 }
+
+/*-----Componente malarIA-------------*/ 
+
+/* From Uiverse.io by devkatyall */ 
+.shine {
+    font-size: 2em;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.3);
+    background: #222 -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(#222),
+        to(#222),
+        color-stop(0.5, #fff)
+      ) 0 0 no-repeat;
+    background-image: -webkit-linear-gradient(
+      -40deg,
+      transparent 0%,
+      transparent 40%,
+      #fff 50%,
+      transparent 60%,
+      transparent 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-background-size: 50px;
+    -webkit-animation: zezzz;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+  }
+  @-webkit-keyframes zezzz {
+    0%,
+    10% {
+      background-position: -200px;
+    }
+    20% {
+      background-position: top left;
+    }
+    100% {
+      background-position: 200px;
+    }
+  }
+  
+
 /*-----------------------Boton------------------*/
 .barra-lateral .boton{
     width: 100%;
@@ -382,11 +440,9 @@ main.min-main{
     width: 60%;
     margin: 0 6em ;
     transition: var(--tran-05);
-    }
-    
-    .barra-lateral.close ~ #searchbar {
-        width: calc(100% - 78px);
-        margin-left: 8px;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: var(--tran-05);
     }
 #buttons {
     align-items: center;
@@ -508,62 +564,116 @@ input[type="search"] {
     margin: 10px 96px;
     display: flex;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: var(--tran-05);
+}
+.barra-lateral ~ .wrapper {
+    margin-left: 250px; 
+}
+.mini-barra-lateral ~ .wrapper {
+    margin-left: 80px; 
 }
 /*-----------------------Elementos----------------------*/
-.file-container {
-    width: 200px;
-    height: 200px;
-    background-color: var(--back-elements-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 0 0 0 15px;
-}
-.border{
-    border: 2px dashed var(--nuevo);
-    border-radius: 10px;
-    padding: 40px;
-    width: 150px;
-    margin: 0 15px;
-    background-color: var(--back-color-nuevo); 
-}
-.nuevo{
-    color: var(--nuevo);
-    font-size: 30px;
-    margin: 0 15px;
-}
-.file-header {
+
+
+
+/* From Uiverse.io by Cobp */ 
+.card {
+    position: relative;
     display: flex;
-    justify-content:center;
-    align-items: center;
-    padding: 10px 10px 0 10px;
+    flex-direction: column;
+    background-color: var(--element-back-color);/*#242824*/
+    padding: 10px 10px 20px 10px;
+    border-radius: 6px;
+    gap: 0.5rem;
+    height: max-content;
+    margin-left: 15px;
 }
-.file-name {
-    color: var(--file-name);
-    font-size: 14px;
-    font-weight: 600;
+.card_form {
+    position: relative;
+    width: 9em;
+    height: 9em;
+    border-radius: 4px;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b-RpIyt_XBFGJPPmxf-7SG2UFgQSiXXnFQ&s");
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
 }
-.file-name-nuevo {
-    color: var(--color-subir-imagen);
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 15px;
-    padding: none;
-}
-
-.file-preview {
-    padding: 10px;
-}
-
-.link-seleccionar {
+.card_form span {
+    font-size: 1.5em;
+    position: absolute;
+    inset: 0;
+    padding: 5px 10px;
+    color: #fff;
+    background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+    );
     opacity: 0;
-}
-/*Imagen del container*/
-.file-preview img {
-    width: 90%;
-    border-radius: 5px;
-    margin: 0 10px;
+    transition: all 0.2s ease-in-out;
+  }
+  .card:hover .card_form span,
+  .card:hover .card_data span {
+    opacity: 1;
+  }
+  .card_data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card_data span {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    background-color: #9147ff;
+    padding: 10px;
     border-radius: 10px;
+    width: 13.5em;
+    margin:  4px;
+  }
+
+  .text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+  }
+  .text_m {
+    font-size: 0.9em;
+  }
+  .text_s {
+    color: #9147ff;
+    font-size: 0.7em;
+  }
+  .cube {
+    width: max-content;
+    height: 10px;
+    transition: all 0.2s;
+    transform-style: preserve-3d;
+  }
+  .card:hover .cube {
+    transform: rotateX(90deg);
+  }
+  .side {
+    width: max-content;
+    height: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.top {
+    transform: rotateX(-90deg) translate3d(0, 0, 0em);
+ }
+ .front {
+    transform: translate3d(0, 0, 1em);
 }
 /*-----------------------------Fondo de filtros------------------------*/
 .tabs {
@@ -619,3 +729,4 @@ input[type="search"] {
 transform: scale(0.6);
     }
 }
+
