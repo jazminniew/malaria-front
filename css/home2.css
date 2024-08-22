@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 :root{
-    --color-barra-lateral: rgb(255,255,255);
+    --color-barra-lateral: #f3f3f3;
 
     --color-texto:rgb(0,0,0);
     --color-texto-menu:rgb(134,136,144);
@@ -33,13 +33,17 @@
     --color-subir-imagen:#000;
     --file-name: #5d5d5d;
     --nuevo: #000;
-    --back-color-nuevo:#b5b5b5;
+    --back-color-nuevo:#ececec;
     --back-elements-color:#dddddd;
     --fondo-elementos:#f3f3f3;
+
+    --input-bg: #fff;
+
+    --lupa: #646487;
     
 }
 .dark-mode{
-    --color-barra-lateral: rgb(34, 34, 34);
+    --color-barra-lateral: rgb(16, 16, 16);
 
     --color-texto:rgb(255,255,255);
     --color-texto-menu:rgb(110,110,107);
@@ -70,9 +74,13 @@
     --color-subir-imagen:#fff;
     --file-name: #a8a8a8;
     --nuevo: #ffffff;
-    --back-color-nuevo:#cdcdcd;
+    --back-color-nuevo:#686868;
     --back-elements-color:#404040;
     --fondo-elementos:#1d1d1d;
+
+    --input-bg: #151515;
+
+    --lupa-texto: #a5a5a5;
 }
 *{
     margin: 0;
@@ -108,7 +116,7 @@ body{
 .barra-lateral{
     width: 250px;
     height: 100%;
-    background: #f3f3f3;
+    background: var(--color-barra-lateral);
     position: fixed; 
     left: 0; 
     top: 0; 
@@ -382,7 +390,6 @@ main.min-main{
     }
 #buttons {
     align-items: center;
-    color: #1f1f1f;
     display: flex;
     flex-basis: 100%;
     font-size: 14px;
@@ -390,20 +397,18 @@ main.min-main{
 }
 .container{
     padding-top: 1em;
-    color: #110f29;
 }
 /*--------------------------Search-------------------------*/ 
 .form button {
     border: none;
     background: none;
-    color: #8b8ba7;
+    color: var(--lupa-texto);
 }
 .form {
     --timing: 0.3s;
     --width-of-input: 40em;
     --height-of-input: 40px;
     --border-height: 2px;
-    --input-bg: #fff;
     --border-color: #2f2ee9;
     --border-radius: 30px;
     --after-border-radius: 1px;
@@ -415,7 +420,7 @@ main.min-main{
     padding-inline: 0.8em;
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
-    background: var(--input-bg,#fff);
+    background: var(--input-bg);
 }
 .input {
     font-size: 0.9rem;
@@ -465,7 +470,7 @@ input:not(:placeholder-shown) ~ .reset {
 input[type="search"] { 
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid;
 }
 .hide{
     display: none;
@@ -502,6 +507,7 @@ input[type="search"] {
     padding: 40px 0px;
     margin: 10px 96px;
     display: flex;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
 }
 /*-----------------------Elementos----------------------*/
 .file-container {
@@ -564,7 +570,6 @@ input[type="search"] {
     display: flex;
     position: relative;
     background-color: var(--fondo-filtros);
-    box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
     padding: 4px;
     border-radius: 99px;
 }
