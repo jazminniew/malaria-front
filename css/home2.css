@@ -134,25 +134,13 @@ body{
 .mini-barra-lateral{
     width: 80px;
 }
-.mini-barra-lateral ~ .wrapper {
-    width: calc(100% - 80px);
-    margin-left: 78px;
-}
-
 .mini-barra-lateral .bx-chevron-left {
     transform: translateY(-50%) rotate(180deg);
-}
-.barra-lateral .nombre-pagina span{
-    font-size: 25px;
-    margin-left: 5px;
-    opacity: 1;
-    transition: opacity 0.5s ease;
 }
 .barra-lateral .nombre-pagina span.oculto{
         opacity: 0;
         display: none;
         transition: var(--tran-04);
-    
 }
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{
@@ -163,6 +151,7 @@ body{
     display: flex;
     align-items: center;
 }
+/*Icono*/
 .barra-lateral .nombre-pagina ion-icon{
     min-width: 50px;
     font-size: 30px;
@@ -171,6 +160,7 @@ body{
     margin: 5px;
     font-size: 25px;
 }
+/*Texto botones barra lateral*/
 .barra-lateral span{
     width: 100px;
     white-space: nowrap;
@@ -185,11 +175,8 @@ body{
     opacity: 0;
     width: 0;
 }
-
-/*-----Componente malarIA-------------*/ 
-
-/* From Uiverse.io by devkatyall */ 
-.shine {
+/*-----Componente malarIA nombre pagina-------------*/ 
+.Malaria{
     font-size: 2em;
     font-weight: 900;
     color: rgba(255, 255, 255, 0.3);
@@ -200,35 +187,33 @@ body{
         from(#222),
         to(#222),
         color-stop(0.5, #fff)
-      ) 0 0 no-repeat;
+    ) 0 0 no-repeat;
     background-image: -webkit-linear-gradient(
-      -40deg,
-      transparent 0%,
-      transparent 40%,
-      #fff 50%,
-      transparent 60%,
-      transparent 100%
+    -40deg,
+    transparent 0%,
+    transparent 40%,
+    #fff 50%,
+    transparent 60%,
+    transparent 100%
     );
     -webkit-background-clip: text;
     -webkit-background-size: 50px;
     -webkit-animation: zezzz;
     -webkit-animation-duration: 5s;
     -webkit-animation-iteration-count: infinite;
-  }
-  @-webkit-keyframes zezzz {
+}
+@-webkit-keyframes zezzz {
     0%,
     10% {
-      background-position: -200px;
+    background-position: -200px;
     }
     20% {
-      background-position: top left;
+    background-position: top left;
     }
     100% {
-      background-position: 200px;
+    background-position: 200px;
     }
-  }
-  
-
+}
 /*-----------------------Boton------------------*/
 .barra-lateral .boton{
     width: 100%;
@@ -242,6 +227,7 @@ body{
     background-color: var(--color-boton);
     color: var(--color-boton-texto);
     margin: 20px 0;
+    cursor: pointer;
 }
 .barra-lateral .boton ion-icon{
     min-width: 50px;
@@ -381,7 +367,7 @@ left: 15px;
     background-color: var(--color-menu-hover);
     color: var(--color-menu-hover-texto);
 }
-/*Main*/
+/*-------------------------------------------Main------------------------------------*/
 main{
     padding: 20px;
     transition: margin-left 0.5s ease;
@@ -465,7 +451,7 @@ main.min-main{
     --width-of-input: 40em;
     --height-of-input: 40px;
     --border-height: 2px;
-    --border-color: #2f2ee9;
+    --border-color: #9147ff;
     --border-radius: 30px;
     --after-border-radius: 1px;
     position: relative;
@@ -575,10 +561,6 @@ input[type="search"] {
     margin-left: 80px; 
 }
 /*-----------------------Elementos----------------------*/
-
-
-
-/* From Uiverse.io by Cobp */ 
 .card {
     position: relative;
     display: flex;
@@ -612,17 +594,17 @@ input[type="search"] {
     );
     opacity: 0;
     transition: all 0.2s ease-in-out;
-  }
-  .card:hover .card_form span,
-  .card:hover .card_data span {
+}
+.card:hover .card_form span,
+.card:hover .card_data span {
     opacity: 1;
-  }
-  .card_data {
+}
+.card_data {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  .card_data span {
+}
+.card_data span {
     color: white;
     display: flex;
     align-items: center;
@@ -635,31 +617,31 @@ input[type="search"] {
     border-radius: 10px;
     width: 13.5em;
     margin:  4px;
-  }
+}
 
-  .text {
+.text {
     display: flex;
     justify-content: center;
     flex-direction: column;
     color: white;
-  }
-  .text_m {
+}
+.text_m {
     font-size: 0.9em;
-  }
-  .text_s {
+}
+.text_s {
     color: #9147ff;
     font-size: 0.7em;
-  }
-  .cube {
+}
+.cube {
     width: max-content;
     height: 10px;
     transition: all 0.2s;
     transform-style: preserve-3d;
-  }
-  .card:hover .cube {
+}
+.card:hover .cube {
     transform: rotateX(90deg);
-  }
-  .side {
+}
+.side {
     width: max-content;
     height: 1.1em;
     display: flex;
@@ -671,8 +653,8 @@ input[type="search"] {
 }
 .top {
     transform: rotateX(-90deg) translate3d(0, 0, 0em);
- }
- .front {
+}
+.front {
     transform: translate3d(0, 0, 1em);
 }
 /*-----------------------------Fondo de filtros------------------------*/
@@ -729,4 +711,3 @@ input[type="search"] {
 transform: scale(0.6);
     }
 }
-

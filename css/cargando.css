@@ -11,6 +11,30 @@ body{
     align-items: center;
     justify-content: center;
 }
+/* From Uiverse.io by escannord */ 
+.loader {
+    transform: rotateX(70deg);
+  }
+  
+  .loader .element {
+    display: block;
+    border-left: 5px solid rgb(120, 47, 255);
+    border-right: 5px solid rgb(120, 47, 255);
+    border-top: dotted 2px rgb(92, 5, 114);
+    width: 10rem;
+    height: 1rem;
+    margin-top: 0.5rem;
+    perspective: 1000px;
+    animation: rotate 5s infinite linear;
+    animation-delay: calc(var(--i) * 0.2s);
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
 .skill{
     width: 160px;
     height: 160px;

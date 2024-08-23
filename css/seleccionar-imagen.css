@@ -6,17 +6,16 @@
 }
 :root{
     --blue: #262626;
-    --light-blue:ֳ;
-    --dark-blue: #000;
+    --dark-blue: #ffffff;
     --grey: #f2f2f2;
-    --light-blue: #B6DBF6;
+    --light-blue: #0079cf;
 }
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("https://img.freepik.com/fotos-premium/diseno-fondo-abstracto-color-indigo-ligero-japones_851755-370339.jpg?w=740");
+    background: url("https://img.freepik.com/free-vector/realistic-3d-folds-background_23-2149146622.jpg?t=st=1724451355~exp=1724454955~hmac=ce7964bd38c837046392a3509101a5eb7f58ca81bbe0f14906620e80d7b27eab&w=1060");
     background-size: cover;
     background-position: center;
 }
@@ -26,7 +25,7 @@ body{
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
-    color: #000;
+    color: rgba(255, 255, 255, 0.791);
     border-radius: 12px;
     padding: 50px 40px 30px;
     margin: 50px 0 50px 0;
@@ -35,7 +34,7 @@ body{
     position: relative;
     width: 100%;
     height: 240px;
-    border: 2px dashed rgba(0, 0, 0, 0.378);
+    border: 2px dashed rgba(255, 255, 255, 0.378);
     margin-bottom: 30px;
     border-radius: 15px;
     overflow: hidden;
@@ -55,7 +54,7 @@ body{
     margin-bottom: 6px;
 }
 .img-area p{
-    color: #555555;
+    color: #a4a4a4;
     margin: 0 20px ;
 }
 .img-area span{
@@ -76,7 +75,7 @@ body{
 }
 .select-image{
 font-weight: 600;
-color: #312dff;
+color: #ffffff;
 cursor: pointer;
 }
 .name-container {
@@ -89,10 +88,10 @@ cursor: pointer;
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(0, 0, 0, 0.378);
+    border: 2px solid rgba(255, 255, 255, 0.378);
     border-radius: 40px;
     font-size: 15px;
-    color: rgba(0, 0, 0, 0.378);
+    color: rgba(255, 255, 255, 0.378);
     font-weight: 550;
     padding: 0 20px;
     appearance: none;
@@ -103,7 +102,7 @@ cursor: pointer;
     display: flex;
 }
 .info::placeholder{
-    color: rgba(0, 0, 0, 0.378) ;
+    color: rgba(255, 255, 255, 0.378) ;
     font-weight: 550;
 }
 .subir{
@@ -111,9 +110,9 @@ cursor: pointer;
     width: 100%;
     padding: 16px 0;
     border-radius: 50px;
-    background: var(--blue);
-    color: #fff;
-    font-weight: 500;
+    background: #eeeeee;
+    color: var(--blue);
+    font-weight: 700;
     font-size: 16px;
     border: none;
     cursor: pointer;
