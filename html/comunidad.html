@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/mis-pacientes.css">
+    <link rel="stylesheet" href="/css/comunidad.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIa</title>
@@ -79,102 +79,56 @@
         </div>
         </div>
     </div>
-    <main>     
-<!---------------------Searchbar----------------------------->
-        <div class="wrapper">
-<form class="form">
-    <button>
-        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
-            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-    </button>
-    <input class="input" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
-    <button class="reset" type="reset">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-</form>
-<!---------------------Filtros----------------------------->
-            <div class="container" id="buttons">
-                <div class="tabs">
-                    <input type="radio" id="radio-1" name="tabs" checked="">
-                    <label class="tab" for="radio-1">Todos</label>
-                    <input type="radio" id="radio-2" name="tabs">
-                    <label id="tiene"class="tab" for="radio-2">Infectado</label>
-                    <input type="radio" id="radio-3" name="tabs">
-                    <label class="tab" for="radio-3">No Infectado</label>
-                    <span class="glider"></span>
-                </div>
-            </div>
+    <main>
+        <!------------------------COMUNIDAD------------------------->
 
-        </div>
-        <div class="FONDOPACIENTES"> 
-<!---------------------Carta1----------------------------->
-<div class="card">
-<div class="card_data">
-    <div style="display: flex" class="data">
-    <div class="text">
-        <div class="cube text_s">
-        <label class="side front">Jazmin Niewiadomski</label>
-        </div>
-    </div>
-    </div>
-</div>
-</div>
-<!---------------------Carta2----------------------------->
-<div class="card">
-    <div class="card_data">
-        <div style="display: flex" class="data">
-        <div class="text">
-            <div class="cube text_s">
-            <label class="side front">Laila Dejtiar</label>
+        <div class="feed">
+            <div class="feed-header">
+                <h2>Comunidad</h2>
             </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <!---------------------Carta3----------------------------->
-<div class="card">
-    <div class="card_data">
-        <div style="display: flex" class="data">
-        <div class="text">
-            <div class="cube text_s">
-            <label class="side front">Oliver Safdieh</label>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <!---------------------Carta4----------------------------->
-    <div class="card">
-        <div class="card_data">
-            <div style="display: flex" class="data">
-            <div class="text">
-                <div class="cube text_s">
-                <label class="side front">Sophie Sued</label>
+        <!------------------------CAJA DEL TWEET------------------------->
+        <div class="tweetbox">
+            <form>
+                <div class="tweetbox-input">
+                    <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="User Image">
+                    <input type="text" placeholder="Que esta pasando?">
                 </div>
-            </div>
-            </div>
+                <button class="tweetbox-tweetButton">Enviar</button>
+            </form>
         </div>
         </div>
-      <!---------------------Carta4----------------------------->
-      <div class="card">
-        <div class="card_data">
-            <div style="display: flex" class="data">
-            <div class="text">
-                <div class="cube text_s">
-                <label class="side front">Benjamin Kapustiansky</label>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-        
 
-<!-------------------------------------------------->
-</div> 
-    </main>
+        <!-- POST-->
+        <div class="post">
+            <div class="post-avatar">
+                <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="imagen usuario">
+            </div>
+        <div class="post-body">
+            <div class="post-header">
+                <div class="post-headerText">
+                    <h3>Laila Dejtiar
+                        <span class="post-headerSpecial">
+                            <span class="material-icons post-badge">
+                                verified
+                            </span>
+                            @ALGOOO
+                        </span>
+                    </h3>
+                </div>
+                <div class="post-headerDescription">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <img src="https://8e93beb6.rocketcdn.me/storage/2022/08/medicina-interna.jpg" alt="">
+            <div class="post-footer">
+                <span class="material-icons">repeat</span>
+                <span class="material-icons">favorite border</span>
+                <span class="material-icons">publish</span>
+            </div>
+        </div>
+        </div>
+
+    </main>   
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/js/home2.js"></script>    

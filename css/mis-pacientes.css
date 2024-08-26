@@ -546,7 +546,7 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
-    width: 55em;
+    width: 59.5em;
     height: 25em;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
@@ -557,6 +557,7 @@ input[type="search"] {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     margin-left: 250px;
     transition: var(--tran-05);
+    
 }
 .barra-lateral ~ .wrapper {
     margin-left: 250px; 
