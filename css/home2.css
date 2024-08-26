@@ -129,7 +129,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
 }
 .mini-barra-lateral{
     width: 80px;
@@ -155,6 +155,8 @@ body{
 .barra-lateral .nombre-pagina ion-icon{
     min-width: 50px;
     font-size: 30px;
+    display: flex;
+    align-items: center;
 }
 .barra-lateral .nombre-pagina span{
     margin: 5px;
@@ -169,6 +171,7 @@ body{
     text-align: left;
     opacity: 1;
     transition: opacity 0.5s ease, width 0.5s ease;
+    display: flex;
     
 }
 .barra-lateral span.oculto{
