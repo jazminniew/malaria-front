@@ -545,7 +545,7 @@ input[type="search"] {
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
     width: 55em;
-    height: 27em;
+    height: 25em;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -646,16 +646,17 @@ input[type="search"] {
 }
 .side {
     width: max-content;
-    height: 1.1em;
+    height: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
     letter-spacing: 0.5px;
     font-weight: bold;
     margin-top: 5px;
+    
 }
 .top {
-    transform: rotateX(-90deg) translate3d(0, 0, 0em);
+    transform: rotateX(-90deg) translate3d(0, 0, 0em);  
 }
 .front {
     transform: translate3d(0, 0, 1em);
