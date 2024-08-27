@@ -132,9 +132,9 @@ function postMessage() {
             </div>
             <p class="post-text">${message}</p>
             <div class="post-footer">
-                <button class="icon-button like-button" onclick="likePost(this)">❤️ <span class="like-count">0</span></button>
-                <button class="icon-button comment-button" onclick="toggleCommentForm(this)">💬</button>
-                <button class="icon-button contact-button" onclick="contactPost(this)">📩</button>
+                <button class="icon-button like-button" onclick="likePost(this)"><i class='bx bx-heart'></i> <span class="like-count">0</span></button>
+                <button class="icon-button comment-button" onclick="toggleCommentForm(this)"><i class='bx bxs-comment-detail'></i></button>
+                <button class="icon-button contact-button" onclick="contactPost(this)"><i class='bx bxs-contact'></i></button>
             </div>
             <div class="comments"></div>
         `;

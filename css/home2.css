@@ -224,7 +224,7 @@ body{
 /*-----------------------Boton------------------*/
 .barra-lateral .boton{
     width: 100%;
-    height: 4px;
+    height: 50px;
     display:flex;
     align-items: center;
     padding: 10px;
