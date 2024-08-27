@@ -533,7 +533,7 @@ input[type="search"] {
         object-fit: contain;
         height: 10em;
     }
-    .card{
+    .card-element{
         max-width: 10em;
         margin-top: 1em;
     }
@@ -568,7 +568,7 @@ input[type="search"] {
     margin-left: 80px; 
 }
 /*-----------------------Elementos----------------------*/
-.card {
+.card-element {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -602,8 +602,8 @@ input[type="search"] {
     opacity: 0;
     transition: all 0.2s ease-in-out;
 }
-.card:hover .card_form span,
-.card:hover .card_data span {
+.card-element:hover .card_form span,
+.card-element:hover .card_data span {
     opacity: 1;
 }
 .card_data {
@@ -645,7 +645,7 @@ input[type="search"] {
     transition: all 0.2s;
     transform-style: preserve-3d;
 }
-.card:hover .cube {
+.card-element:hover .cube {
     transform: rotateX(90deg);
 }
 .side {
@@ -722,7 +722,7 @@ transform: scale(0.6);
 
 /*CERRAR SESION*/
 /*CUANDO PONGO ESTO SE BORRA LO DE ATRAS, PORQUE?*/
-.card {
+.card{
     width: 300px;
     height: fit-content;
     position: fixed;
