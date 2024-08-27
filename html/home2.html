@@ -8,7 +8,7 @@
     <title>MalarIa</title>
 </head>
 <body>
-    <div class="menu">
+    <div class="menu">  
         <ion-icon name="menu-outline"></ion-icon>
         <ion-icon name="close-outline"></ion-icon>
     </div>
@@ -19,7 +19,7 @@
                 <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
                 <span class="Malaria">MalarIA</span>
             </div>
-            <button class="boton" onclick="location.href='seleccionar-imagen.html'">
+            <button class="boton" id="buttonNuevo">
                 <ion-icon name="add-outline"></ion-icon>
                 <span>Nuevo</span>
             </button>
@@ -40,13 +40,13 @@
                         </a>
                     </li>
                     <li>
-                        <a  href="#">
+                        <a  href="comunidad.html">
                             <ion-icon name="people-outline"></ion-icon>
                             <span>Comunidad</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="Cerrar-sesion">
+                        <a href="#" id="logout-btn" class="Cerrar-sesion">
                             <ion-icon name="log-out-outline"></ion-icon>
                             <span>Cerrar Sesion</span>
                         </a>
@@ -73,12 +73,31 @@
             <div class="info-usuario">
                 <div class="nombre-email">
                     <span class="nombre">Jazmin</span>
+                    <span class="email">jazminniew@gmail.com</span>
                 </div>
             </div>
         </div>
         </div>
     </div>
-    <main>     
+    <main> 
+<!---------------------Cerrar sesion----------------------------->  
+<div class="card" id="logout-card">
+    <!--<div class="card-content">
+        <p class="card-heading">Cerrar Sesión</p>
+        <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
+    </div>--> 
+    <div class="card-button-wrapper">
+        <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+        <button class="card-button primary" id="exit-btn">Salir</button>
+    </div>
+</div>
+<!---------------------Nuevo---------------------------->  
+<div class="card-nuevo" id="botonesnuevosCard"> 
+    <div class="card-button-wrapper-nuevo">
+        <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Subir Imagen</button>
+        <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+    </div>
+</div>
 <!---------------------Searchbar----------------------------->
         <div class="wrapper">
 <form class="form">
@@ -106,8 +125,8 @@
                     <span class="glider"></span>
                 </div>
             </div>
-
         </div>
+    <!---------------------NAVBAR----------------------------------------------------------------->
         <div class="FONDOPACIENTES"> 
 <!---------------------Carta1----------------------------->
 <div class="card">
@@ -173,22 +192,6 @@
             </div>
         </div>
         </div>
-        <!---------------------Carta5----------------------------->
-        <div class="card">
-            <div class="card_form">
-                <span>Infectado</span>
-            </div>
-            <div class="card_data">
-                <div style="display: flex" class="data">
-                <div class="text">
-                    <div class="cube text_s">
-                    <label class="side front">Benjamin Kapustiansky</label>
-                    <span class="side top"title="Acceder a la lista (Temas)">Acceder</span>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
         
         
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/mis-pacientes.css">
+    <link rel="stylesheet" href="/css/home2.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIa</title>
@@ -19,7 +19,7 @@
                 <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
                 <span class="Malaria">MalarIA</span>
             </div>
-            <button class="boton" onclick="location.href='seleccionar-imagen.html'">
+            <button class="boton" id="buttonNuevo">
                 <ion-icon name="add-outline"></ion-icon>
                 <span>Nuevo</span>
             </button>
@@ -34,19 +34,19 @@
                         </a>
                     </li>
                     <li>
-                        <a id="inbox" href="#">
+                        <a id="inbox" href="mis-pacientes.html">
                             <ion-icon name="person-outline"></ion-icon>
                             <span>Mis pacientes</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="#">
+                        <a  href="comunidad.html">
                             <ion-icon name="people-outline"></ion-icon>
                             <span>Comunidad</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="Cerrar-sesion">
+                        <a href="#" id="logout-btn" class="Cerrar-sesion">
                             <ion-icon name="log-out-outline"></ion-icon>
                             <span>Cerrar Sesion</span>
                         </a>
@@ -79,7 +79,25 @@
         </div>
         </div>
     </div>
-    <main>     
+    <main> 
+<!---------------------Cerrar sesion----------------------------->  
+<div class="card" id="logout-card">
+    <!--<div class="card-content">
+        <p class="card-heading">Cerrar Sesión</p>
+        <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
+    </div>--> 
+    <div class="card-button-wrapper">
+        <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+        <button class="card-button primary" id="exit-btn">Salir</button>
+    </div>
+</div>
+<!---------------------Nuevo---------------------------->  
+<div class="card-nuevo" id="botonesnuevosCard"> 
+    <div class="card-button-wrapper-nuevo">
+        <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Subir Imagen</button>
+        <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+    </div>
+</div>
 <!---------------------Searchbar----------------------------->
         <div class="wrapper">
 <form class="form">
@@ -109,6 +127,7 @@
             </div>
 
         </div>
+    <!---------------------NAVBAR----------------------------------------------------------------->
         <div class="FONDOPACIENTES"> 
 <!---------------------Carta1----------------------------->
 <div class="card">

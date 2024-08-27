@@ -8,7 +8,7 @@
     <title>MalarIa</title>
 </head>
 <body>
-    <div class="menu">
+    <div class="menu">  
         <ion-icon name="menu-outline"></ion-icon>
         <ion-icon name="close-outline"></ion-icon>
     </div>
@@ -19,7 +19,7 @@
                 <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
                 <span class="Malaria">MalarIA</span>
             </div>
-            <button class="boton" onclick="location.href='seleccionar-imagen.html'">
+            <button class="boton" id="buttonNuevo">
                 <ion-icon name="add-outline"></ion-icon>
                 <span>Nuevo</span>
             </button>
@@ -28,25 +28,25 @@
             <nav class="navegacion">
                 <ul>
                     <li>
-                        <a href="home2.html">
+                        <a  href="home2.html">
                             <ion-icon name="analytics-outline"></ion-icon>
                             <span>Analisis de IA</span>
                         </a>
                     </li>
                     <li>
-                        <a id="inbox" href="#">
+                        <a  href="mis-pacientes.html">
                             <ion-icon name="person-outline"></ion-icon>
                             <span>Mis pacientes</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="#">
+                        <a  id="inbox" href="comunidad.html">
                             <ion-icon name="people-outline"></ion-icon>
                             <span>Comunidad</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="Cerrar-sesion">
+                        <a href="#" id="logout-btn" class="Cerrar-sesion">
                             <ion-icon name="log-out-outline"></ion-icon>
                             <span>Cerrar Sesion</span>
                         </a>
@@ -79,56 +79,77 @@
         </div>
         </div>
     </div>
-    <main>
-        <!------------------------COMUNIDAD------------------------->
+    <main> 
+<!---------------------Cerrar sesion----------------------------->  
+<div class="card" id="logout-card">
+    <!--<div class="card-content">
+        <p class="card-heading">Cerrar Sesión</p>
+        <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
+    </div>--> 
+    <div class="card-button-wrapper">
+        <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+        <button class="card-button primary" id="exit-btn">Salir</button>
+    </div>
+</div>
+<!---------------------Nuevo---------------------------->  
+<div class="card-nuevo" id="botonesnuevosCard"> 
+    <div class="card-button-wrapper-nuevo">
+        <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Subir Imagen</button>
+        <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+    </div>
+</div>
+        <div class="wrapper">
 
-        <div class="feed">
-            <div class="feed-header">
-                <h2>Comunidad</h2>
-            </div>
-        <!------------------------CAJA DEL TWEET------------------------->
-        <div class="tweetbox">
-            <form>
-                <div class="tweetbox-input">
-                    <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="User Image">
-                    <input type="text" placeholder="Que esta pasando?">
-                </div>
-                <button class="tweetbox-tweetButton">Enviar</button>
-            </form>
-        </div>
-        </div>
-
-        <!-- POST-->
-        <div class="post">
-            <div class="post-avatar">
-                <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="imagen usuario">
-            </div>
-        <div class="post-body">
-            <div class="post-header">
-                <div class="post-headerText">
-                    <h3>Laila Dejtiar
-                        <span class="post-headerSpecial">
-                            <span class="material-icons post-badge">
-                                verified
-                            </span>
-                            @ALGOOO
-                        </span>
-                    </h3>
-                </div>
-                <div class="post-headerDescription">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-            <img src="https://8e93beb6.rocketcdn.me/storage/2022/08/medicina-interna.jpg" alt="">
-            <div class="post-footer">
-                <span class="material-icons">repeat</span>
-                <span class="material-icons">favorite border</span>
-                <span class="material-icons">publish</span>
-            </div>
-        </div>
+    <!---------------------NAVBAR----------------------------------------------------------------->
+    <div class="container">
+        <header>
+            <h3>Comunidad</h3>
+        </header>
+        
+        <!-- Formulario para publicar mensajes -->
+        <div class="post-form">
+            <textarea id="message" placeholder="Escribe una noticia..." rows="4"></textarea>
+            <button onclick="postMessage()">Enviar</button>
         </div>
 
-    </main>   
+        <!-- Sección para mostrar mensajes -->
+        <div class="posts">
+            <div class="post-column">
+                <!-- Mensajes ficticios de ejemplo -->
+                <div class="post">
+                    <div class="post-header">
+                        <span class="username">Usuario1</span>
+                    </div>
+                    <p class="post-text">Este es un mensaje ficticio. ¡Aquí va una noticia!</p>
+                    <div class="post-footer">
+                        <button class="icon-button like-button" onclick="likePost(this)">❤️ <span class="like-count">0</span></button>
+                        <button class="icon-button comment-button" onclick="toggleCommentForm(this)">💬</button>
+                        <button class="icon-button contact-button" onclick="contactPost(this)">📩</button>
+                    </div>
+                    <div class="comments"></div>
+                </div>
+                <!-- Más mensajes ficticios aquí -->
+            </div>
+            <div class="post-column">
+                <!-- Más mensajes ficticios aquí -->
+            </div>
+        </div>
+        
+        <!-- Modal para enviar mensaje de contacto -->
+        <div id="contact-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeContactModal()">&times;</span>
+                <h2>Enviar Solicitud de Contacto</h2>
+                <textarea id="contact-message" placeholder="Escribe tu mensaje..." rows="4"></textarea>
+                <input type="text" id="contact-name" placeholder="Tu nombre" />
+                <input type="text" id="contact-info" placeholder="Tu email o celular" />
+                <button onclick="sendContactRequest()">Enviar Solicitud</button>
+            </div>
+        </div>
+    </div>
+<!-------------------------------------------------->
+</div> 
+    </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/js/home2.js"></script>    
