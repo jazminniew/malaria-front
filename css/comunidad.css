@@ -50,6 +50,7 @@
     --color-caja-texto: #f9f9f9;
     --color-texto: #fff;
     --contacto-texto: #000;
+    --texto-post: #1d1d1d;
     
 }
 .dark-mode{
@@ -102,6 +103,7 @@
     --color-caja-texto: #222222;
     --color-texto: #000;
     --contacto-texto: #fff;
+    --texto-post: #d0d0d0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 :root{
@@ -818,6 +820,9 @@ color: var(--color-texto);
 
 .post-form {
 margin-bottom: 20px;
+}
+.post-text{
+    color: var(--texto-post);
 }
 
 textarea {
