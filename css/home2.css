@@ -1,93 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 :root{
     --color-barra-lateral: #f3f3f3;
-
     --color-texto:rgb(0,0,0);
     --color-texto-menu:rgb(134,136,144);
-
     --color-menu-hover:rgb(236, 236, 236);
     --color-menu-hover-texto:rgb (0,0,0);
-
     --color-boton: rgb(0,0,0);
     --color-boton-texto:rgb(255,255,255);
-
     --color-linea:rgb(213, 213, 213);
-
     --color-switch-base:rgb(201,202,206);
     --color-switch-circulo:rgb(241,241,241);
-
     --color-scroll:rgb(192,192,192);
     --color-scroll-hover:rgb(134,134,134);
-
     --background-color:#d9d9d9;
-
     --fondo-flecha: #000;
     --flecha: #fff;
-
     --fondo-botones-sidebar: #f3f3f3;
-
     --fondo-filtro-boton: #e6eef9;
     --color-texto-filtros: #000;
     --fondo-filtros: #fff;
-
     --color-subir-imagen:#000;
     --file-name: #5d5d5d;
     --nuevo: #000;
     --back-color-nuevo:#ececec;
     --back-elements-color:#dddddd;
     --fondo-elementos:#f3f3f3;
-
     --input-bg: #fff;
-
     --lupa: #646487;
     --element-back-color:#d6d6d6;
-
     --carta-cerrar-back: rgb(255, 255, 255);
-    
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
-
     --color-texto:rgb(255,255,255);
     --color-texto-menu:rgb(110,110,107);
-
     --color-menu-hover:rgb(8, 8, 8);
     --color-menu-hover-texto:rgb(238,238,238);
-
     --color-boton: rgb(255,255,255);
     --color-boton-texto:rgb(0,0,0);
-
     --color-linea:rgb(90,90,90);
-
     --color-switch-base:rgb(39,205,64);
     --color-switch-circulo:rgb(255,255,255);
-
     --color-scroll:rgb(68,79,74);
     --color-scroll-hover:rgb(85,85,85);
-
     --background-color:rgb(37, 37, 37);
-
     --fondo-flecha: #fff;
     --flecha: #000;
-
     --fondo-filtro-boton: #2f2f2f;
     --color-texto-filtros: #fff;
     --fondo-filtros: #151515;
-
     --color-subir-imagen:#fff;
     --file-name: #a8a8a8;
     --nuevo: #ffffff;
     --back-color-nuevo:#686868;
     --back-elements-color:#404040;
     --fondo-elementos:#1d1d1d;
-
     --input-bg: #151515;
-
     --lupa-texto: #a5a5a5;
-
     --fondo-botones-sidebar: #0f0f0f;
     --element-back-color:#242824;
-
     --carta-cerrar-back: rgb(21, 21, 21);
 }
 *{
@@ -176,7 +147,6 @@ body{
     opacity: 1;
     transition: opacity 0.5s ease, width 0.5s ease;
     display: flex;
-    
 }
 .barra-lateral span.oculto{
     opacity: 0;
@@ -378,9 +348,11 @@ right: 15px;
 main{
     padding: 20px;
     transition: margin-left 0.5s ease;
+    margin-left: 250px;
 }
 main.min-main{
     margin-left: 80px;
+    transition: margin-left 0.3s;
 }
 /*Responsive*/
 @media (max-height:660px){
@@ -428,7 +400,7 @@ main.min-main{
         display: block; 
     }
 }
-/*--------------------------Filtros-------------------------*/ 
+/*--------------------------Filtros y searchbar-------------------------*/ 
 .wrapper{
     width: 60%;
     margin: 0 6em ;
@@ -437,6 +409,12 @@ main.min-main{
     margin-left: 250px;
     transition: var(--tran-05);
     }
+/*--------NO SE CIERRA----------*/
+    .mini-barra-lateral.barra-lateral-closed ~ .wrapper {
+        width: calc(100% - 100px);
+        margin-left: 100px;
+    }
+
 #buttons {
     align-items: center;
     display: flex;
@@ -561,12 +539,11 @@ input[type="search"] {
     margin-left: 250px;
     transition: var(--tran-05);
 }
-.barra-lateral ~ .wrapper {
-    margin-left: 250px; 
-}
-.mini-barra-lateral ~ .wrapper {
-    margin-left: 80px; 
-}
+.FONDOPACIENTES.barra-lateral-closed ~ .wrapper{
+    /*--------NO SE CIERRA----------*/
+        width: calc(100% - 100px);
+        margin-left: 100px;
+    }
 /*-----------------------Elementos----------------------*/
 .card-element {
     position: relative;

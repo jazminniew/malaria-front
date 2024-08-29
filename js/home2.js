@@ -20,17 +20,17 @@ const botonesNuevosCard = document.getElementById('botonesnuevosCard');
 const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
-//Nuevo
+// Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
-    botonesNuevosCard.classList.add('show'); // Añade la clase para mostrar la carta con transición
+    botonesNuevosCard.classList.add('show');
 });
 
 pacienteBtn.addEventListener('click', function() {
-    window.location.href = 'paciente-nuevo.html'; // Redirige a otra página
+    window.location.href = 'paciente-nuevo.html';
 });
 
 imagenBtn.addEventListener('click', function() {
-    window.location.href = 'seleccionar-imagen.html'; // Redirige a otra página
+    window.location.href = 'seleccionar-imagen.html';
 });
 
 document.addEventListener('click', function(event) {
@@ -39,18 +39,17 @@ document.addEventListener('click', function(event) {
     }
 });
 
-
-//CERRAR SESION
+// Cerrar sesión
 logoutBtn.addEventListener('click', function() {
-    logoutCard.classList.add('show'); // Añade la clase para mostrar la carta con transición
+    logoutCard.classList.add('show');
 });
 
 cancelBtn.addEventListener('click', function() {
-    logoutCard.classList.remove('show'); // Remueve la clase para ocultar la carta con transición
+    logoutCard.classList.remove('show');
 });
 
 exitBtn.addEventListener('click', function() {
-    window.location.href = 'index.html'; // Redirige a otra página
+    window.location.href = 'index.html';
 });
 
 document.addEventListener('click', function(event) {
@@ -59,16 +58,14 @@ document.addEventListener('click', function(event) {
     }
 });
 
-
-
-
-/*--------------------Responsive design---------------------*/ 
+/* Responsive design */
 menu.addEventListener("click", () => {
-    menu.addEventListener("click", () => {
-        barraLateral.classList.toggle("max-barra-lateral");
-        document.querySelector("#search-container").classList.toggle("barra-lateral-open");
-        document.querySelector("#search-container").classList.toggle("barra-lateral-closed");
-    });
+    barraLateral.classList.toggle("max-barra-lateral");
+    document.querySelector("#search-container").classList.toggle("barra-lateral-open");
+    document.querySelector("#search-container").classList.toggle("barra-lateral-closed");
+    
+    main.classList.toggle('min-main'); // Actualiza el main para ajustar el ancho
+    
     if (barraLateral.classList.contains("max-barra-lateral")) {
         menu.children[0].style.display = "none";
         menu.children[1].style.display = "block";
@@ -76,6 +73,7 @@ menu.addEventListener("click", () => {
         menu.children[0].style.display = "block";
         menu.children[1].style.display = "none";
     }
+
     if (window.innerWidth <= 320) {
         barraLateral.classList.add("mini-barra-lateral");
         main.classList.add("min-main");
@@ -85,32 +83,36 @@ menu.addEventListener("click", () => {
     }
 });
 
-/*-------------------------Modo oscuro y Modo claro------------------------*/ 
+/* Modo oscuro y modo claro */
 palanca.addEventListener("click", () => {
     let body = document.body;
     body.classList.toggle("dark-mode");
     circulo.classList.toggle("prendido");
 });
 
+// Manejo de la barra lateral
 cloud.addEventListener("click", () => {
-    // Alterna las clases del sidebar
     barraLateral.classList.toggle("mini-barra-lateral");
     main.classList.toggle("min-main");
 
+    spans.forEach((span) => {
+        span.classList.toggle("oculto");
+    });
 
-//Ocultar el "malarIA"
-spans.forEach((span) => {
-    span.classList.toggle("oculto");
-});
-
-// Alterna la rotación de la flecha
-cloud.classList.toggle("rotated");
+    cloud.classList.toggle("rotated");
 });
 
 searchInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         alert("Buscando: " + searchInput.value);
     }
+});
+/*--------NO SE CIERRA----------*/
+sidebarToggle.addEventListener('click', () => {
+    barraLateral.classList.toggle('barra-lateral-closed');
+});
+sidebarToggle.addEventListener('click', () => {
+    barraLateral.classList.toggle('barra-lateral-closed');
 });
 
 //--------------------------------------------comunidad
