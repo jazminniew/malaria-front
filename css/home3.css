@@ -79,7 +79,7 @@ body{
 .barra-lateral .bx-chevron-left {
     position: absolute;
     top: 8%; 
-    left: 31%;
+    left: 22%;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -198,13 +198,13 @@ body{
     height: 50px;
     display:flex;
     align-items: center;
-    padding: 10px;
+    padding: 0px;
     justify-content: center;
     border: none;
     border-radius: 10px;
     background-color: var(--color-boton);
     color: var(--color-boton-texto);
-    margin: 20px 0;
+    margin: 4px 0;
     cursor: pointer;
 }
 .barra-lateral .boton ion-icon{
@@ -478,7 +478,7 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
-    width: 100%;
+    width: 45rem;
     height: 80%;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
@@ -491,21 +491,157 @@ input[type="search"] {
     justify-content: center;
 }
 /*-----------------------Elementos----------------------*/
-.card-element {
+.card {
     display: flex;
     flex-direction: column;
-    background-color: var(--element-back-color);/*#242824*/
-    padding: 10px 10px 20px 10px;
+    background-color: #242824;
+    padding: 10px;
     border-radius: 6px;
-    height: 10em;
-    width: 8.5em;
-    justify-content: space-between;
+    gap: 0.5rem;
+    height: max-content;
+}
+.cartas-separadas{
+margin: 3.5px;
+align-items: center;
 }
 .card_form {
-    width: 7em;
-    height: 9em;
+    width: 8em;
+    height: 8em;
     border-radius: 4px;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b-RpIyt_XBFGJPPmxf-7SG2UFgQSiXXnFQ&s");
+    background-color: #9147ff;
     transition: 0.2s ease-in-out;
     overflow: hidden;
+
+}
+.card_form span {
+    font-size: 1.5em;
+    inset: 0;
+    padding: 2px 2px;
+    color: #fff;
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+  }
+  .card:hover .card_form span,
+  .card:hover .card_data span {
+    opacity: 1;
+  }
+  .card_data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card_data span {
+    color: #9147ff;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .card_data span:hover {
+    text-decoration: underline;
+  }
+  .text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+  }
+  .text_m {
+    font-size: 0.9em;
+  }
+  .text_s {
+    color: #9147ff;
+    font-size: 0.6em;
+  }
+  .cube {
+    width: max-content;
+    height: 10px;
+    transition: all 0.2s;
+    transform-style: preserve-3d;
+  }
+  .card:hover .cube {
+    transform: rotateX(90deg);
+  }
+  .side {
+    width: max-content;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+  }
+  .top {
+    transform: rotateX(-90deg) translate3d(0, 0, 0em);
+    background:#000;
+    padding:8px;
+    border-radius:10px;
+    width:90%;
+  }
+  .front {
+    transform: translate3d(0, 0, 1em);
+  }
+  
+/*-----------------------------Fondo de filtros------------------------*/
+.tabs {
+    display: flex;
+    background-color: var(--fondo-filtros);
+    padding: 4px;
+    border-radius: 99px;
+}
+  .tabs * {
+    z-index: 2;
+}
+
+/*Boton del filtro*/
+.container input[type="radio"] {
+    display: none;
+}
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 110px;
+    font-size: .8rem;
+    color: var(--color-texto-filtros);
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+}
+/*Movimiento del boton del filtro*/
+.container input[id="radio-1"]:checked ~ .glider {
+    transform: translateX(0);
+}
+.container input[id="radio-2"]:checked ~ .glider {
+    transform: translateX(115%);
+}
+.container input[id="radio-3"]:checked ~ .glider {
+    transform: translateX(230%);
+}
+/*Fondo del boton del filtro*/
+.glider {
+    position: absolute;
+    display: flex;
+    height: 30px;
+    width: 100px;
+    background-color: var(--fondo-filtro-boton);
+    z-index: 1;
+    border-radius: 99px;
+    transition: 0.25s ease-out;
+}
+@media (max-width: 700px) {
+    .tabs {
+transform: scale(0.6);
+    }
 }
