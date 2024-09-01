@@ -28,7 +28,7 @@
             <nav class="navegacion">
                 <ul>
                     <li>
-                        <a  href="home2.html">
+                        <a  href="home3.html">
                             <ion-icon name="analytics-outline"></ion-icon>
                             <span>Analisis de IA</span>
                         </a>
@@ -78,28 +78,7 @@
             </div>
         </div>
         </div>
-    </div>
-    <main> 
-<!---------------------Cerrar sesion----------------------------->  
-<div class="card" id="logout-card">
-    <!--<div class="card-content">
-        <p class="card-heading">Cerrar Sesión</p>
-        <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
-    </div>--> 
-    <div class="card-button-wrapper">
-        <button class="card-button secondary" id="cancel-btn">Cancelar</button>
-        <button class="card-button primary" id="exit-btn">Salir</button>
-    </div>
-</div>
-<!---------------------Nuevo---------------------------->  
-<div class="card-nuevo" id="botonesnuevosCard"> 
-    <div class="card-button-wrapper-nuevo">
-        <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Subir Imagen</button>
-        <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
-    </div>
-</div>
-        <div class="wrapper">
-
+    </div>  
     <!---------------------NAVBAR----------------------------------------------------------------->
     <div class="container">
         <header>
@@ -107,11 +86,11 @@
         </header>
         
         <!-- Formulario para publicar mensajes -->
-        <div class="post-form">
-            <textarea id="message" placeholder="Escribe una noticia..." rows="4"></textarea>
-            <button onclick="postMessage()">Enviar</button>
+        <div class="post-box">
+            <textarea id="message" placeholder="Ingrese su mensaje" maxlength="240"></textarea>
+            <button id="send-post" onclick="postMessage()">➡️</button>
         </div>
-
+        <div class="FONDOPACIENTES">
         <!-- Sección para mostrar mensajes -->
         <div class="posts">
             <div class="post-column">
@@ -135,21 +114,19 @@
             </div>
         </div>
         
-        <!-- Modal para enviar mensaje de contacto -->
-        <div id="contact-modal" class="modal">
+        <div id="message-modal" class="modal">
             <div class="modal-content">
-                <span class="close-button" onclick="closeContactModal()">&times;</span>
-                <h2>Enviar Solicitud de Contacto</h2>
-                <textarea id="contact-message" placeholder="Escribe tu mensaje..." rows="4"></textarea>
-                <input type="text" id="contact-name" placeholder="Tu nombre" />
-                <input type="text" id="contact-info" placeholder="Tu email o celular" />
-                <button onclick="sendContactRequest()">Enviar Solicitud</button>
+                <span class="close">&times;</span>
+                <h2>Enviar mensaje privado</h2>
+                <form id="private-message-form">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" placeholder="Escribe tu mensaje..."></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
         </div>
-    </div>
 <!-------------------------------------------------->
 </div> 
-    </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/js/home2.js"></script>    

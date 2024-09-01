@@ -499,7 +499,7 @@ input[type="search"] {
     box-sizing: border-box;
     overflow-x: hidden;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap; /*COMO SOLUCIONO PARA QUE MIS PACIENTES NO SE EXPANDA?*/
     justify-content: center;
 }
 .FONDOPACIENTES::-webkit-scrollbar {

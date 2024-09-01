@@ -83,13 +83,6 @@ function addPatient() {
 // Aplica el filtro inicial
 applyFilter();
 
-
-
-
-
-
-
-
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
     botonesNuevosCard.classList.add('show');
@@ -184,27 +177,6 @@ sidebarToggle.addEventListener('click', () => {
 sidebarToggle.addEventListener('click', () => {
     barraLateral.classList.toggle('barra-lateral-closed');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //--------------------------------------------COMUNIDAD
 let currentPostElement = null;
