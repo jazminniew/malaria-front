@@ -20,6 +20,8 @@ const botonesNuevosCard = document.getElementById('botonesnuevosCard');
 const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
+//filtros
+
 // Selecciona los botones de filtro
 const filterButtons = document.querySelectorAll('input[name="filter"]');
 const elementsContainer = document.getElementById('elements-container');
@@ -67,7 +69,7 @@ function addPatient() {
     statusButtons.forEach(button => {
         button.addEventListener('click', function() {
             const status = this.getAttribute('data-status');
-            newElement.classList.remove('unclassified', 'infected', 'not-infected');
+            newElement.classList.remove('unclassified', 'infectado', 'no-infectado');
             newElement.classList.add(status);
             newElement.querySelector('span').textContent = `Paciente ${patientCount} - ${status === 'infected' ? 'Infectado' : 'No infectado'}`;
             applyFilter(); // Aplica el filtro después de cambiar el estado
@@ -76,10 +78,17 @@ function addPatient() {
 }
 
 // Añadir evento al botón de crear paciente
-document.getElementById('add-patient').addEventListener('click', addPatient);
+//document.getElementById('add-patient').addEventListener('click', addPatient);
 
 // Aplica el filtro inicial
 applyFilter();
+
+
+
+
+
+
+
 
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
