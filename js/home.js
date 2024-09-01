@@ -1,105 +1,60 @@
-const body = document.querySelector("body"),
-    sidebar = body.querySelector(".sidebar"),
-    toggle = body.querySelector(".toggle"),
-    searchBtn = body.querySelector(".search-box"),
-    modeSwitch = body.querySelector(".toggle-switch"),
-    modeText = body.querySelector(".mode-text");
+// Selecciona los botones de filtro
+const filterButtons = document.querySelectorAll('input[name="filter"]');
+const elementsContainer = document.getElementById('elements-container');
+let patientCount = 5; // Comienza en 5 porque ya hay 5 pacientes predefinidos
 
-toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-});
-
-modeSwitch.addEventListener("click", () => {
-    body.classList.toggle("dark");
-});
-
-// Filtros
-let products = {
-    data: [
-        {
-            patientName: "Marcelo",
-            category: "Mas recientes",
-            image: "https://www.tuterapia.com.ar/uploads/blog/imagen/6caractersticasdeunapersonasoberbia-20231018180924.jpg",
-        },
-        {
-            patientName: "Karina",
-            category: "Mas antiguos",
-            image: "https://www.tuterapia.com.ar/uploads/blog/imagen/6caractersticasdeunapersonasoberbia-20231018180924.jpg",
-        },
-        {
-            patientName: "Marta",
-            category: "Tienen malaria",
-            image: "https://www.tuterapia.com.ar/uploads/blog/imagen/6caractersticasdeunapersonasoberbia-20231018180924.jpg",
-        },
-        {
-            patientName: "Roberto",
-            category: "No tienen malaria",
-            image: "https://www.tuterapia.com.ar/uploads/blog/imagen/6caractersticasdeunapersonasoberbia-20231018180924.jpg",
-        },
-    ],
-};
-
-for (let i of products.data) {
-    // Crear paciente
-    let patient = document.createElement("div");
-    // Categoria del paciente
-    patient.classList.add("card", i.category);
-    // Imagen div
-    let imgContainer = document.createElement("div");
-    imgContainer.classList.add("image-container");
-    // img tag
-    let image = document.createElement("img");
-    image.setAttribute("src", i.image);
-    imgContainer.appendChild(image);
-    // Añadir imgContainer al paciente
-    patient.appendChild(imgContainer);
-    // Añadir paciente al contenedor de productos
-    document.getElementById("products").appendChild(patient);
-    let container = document.createElement("div");
-    container.classList.add("container");
-    // Nombre del paciente
-    let name = document.createElement("h5");
-    name.classList.add("product-name");
-    name.innerText = i.patientName.toUpperCase();
-    container.appendChild(name);
-    patient.appendChild(container);
-}
-
-// Filtro de categorías
-function filterProduct(value) {
-    let buttons = document.querySelectorAll(".button-value");
-    buttons.forEach((button) => {
-        if (value.toUpperCase() === button.innerText.toUpperCase()) {
-            button.classList.add("active");
+// Función para aplicar el filtro a todos los elementos
+function applyFilter() {
+    const filterValue = document.querySelector('input[name="filter"]:checked').value;
+    
+    const elements = elementsContainer.querySelectorAll('.element');
+    elements.forEach(element => {
+        if (filterValue === 'all') {
+            element.style.display = 'flex';
+        } else if (filterValue === 'infected' && element.classList.contains('infected')) {
+            element.style.display = 'flex';
+        } else if (filterValue === 'not-infected' && element.classList.contains('not-infected')) {
+            element.style.display = 'flex';
         } else {
-            button.classList.remove("active");
-        }
-    });
-
-    let elements = document.querySelectorAll(".card");
-    elements.forEach((element) => {
-        if (value === "Todos") {
-            element.classList.remove("hide");
-        } else {
-            if (element.classList.contains(value)) {
-                element.classList.remove("hide");
-            } else {
-                element.classList.add("hide");
-            }
+            element.style.display = 'none';
         }
     });
 }
 
-window.onload = () => {
-    filterProduct("Todos");
-};
-
-const searchInput = document.querySelector("#placeholder");
-
-searchInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        // Aquí puedes colocar la lógica de búsqueda
-        alert("Buscando: " + searchInput.value);
-        // Por ejemplo, podrías llamar a una función para filtrar los productos o hacer una búsqueda en el servidor
-    }
+// Añadir eventos a los botones de filtro
+filterButtons.forEach(button => {
+    button.addEventListener('change', applyFilter);
 });
+
+// Función para agregar un nuevo paciente sin clasificar
+function addPatient() {
+    patientCount++;
+    const newElement = document.createElement('div');
+    newElement.classList.add('element', 'unclassified');
+    newElement.innerHTML = `
+        <span>Paciente ${patientCount} - Sin clasificar</span>
+        <div>
+            <button class="status-btn" data-status="infected">Infectado</button>
+            <button class="status-btn" data-status="not-infected">No infectado</button>
+        </div>
+    `;
+    elementsContainer.appendChild(newElement);
+
+    // Añadir eventos a los botones de estado
+    const statusButtons = newElement.querySelectorAll('.status-btn');
+    statusButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const status = this.getAttribute('data-status');
+            newElement.classList.remove('unclassified', 'infectado', 'no-infectado');
+            newElement.classList.add(status);
+            newElement.querySelector('span').textContent = `Paciente ${patientCount} - ${status === 'infected' ? 'Infectado' : 'No infectado'}`;
+            applyFilter(); // Aplica el filtro después de cambiar el estado
+        });
+    });
+}
+
+// Añadir evento al botón de crear paciente
+document.getElementById('add-patient').addEventListener('click', addPatient);
+
+// Aplica el filtro inicial
+applyFilter();

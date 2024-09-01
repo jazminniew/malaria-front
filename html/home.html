@@ -1,88 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MalarIA</title>
-    <link rel="stylesheet" href="/css/home.css">
+    <title>Filtro Dinámico de Pacientes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="mobile-solid-24.png" alt="Logo">
-                </span>
-                <div class="text header-text">
-                    <span class="name">Manuel Cohen</span>
-                </div>
-            </div>
-            <i class='bx bx-chevron-left toggle'></i>
-        <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                    <a href="crear-paciente.html">
-                        <i class='bx bx-plus icon' ></i>
-                        <span class="text nav-text">Nuevo</span>
-                    </a>
-                </li>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="mis-pacientes.html">
-                            <i class='bx bxs-user icon'></i>
-                            <span class="text nav-text">Mis pacientes</span>
-                        </a>                        
-                    </li>
-                    <li class="nav-link">
-                        <a href="pacientes-actuales.html">
-                            <i class='bx bx-male-female icon'></i>
-                            <span class="text nav-text">Pacientes actuales</span>
-                        </a>                        
-                    </li>
-                    <li class="nav-link">
-                        <a href="comunidad.html">
-                            <i class='bx bxs-home icon'></i>
-                            <span class="text nav-text">Comunidad</span>
-                        </a>                        
-                    </li>
-                </ul>
-            </div>
-            <div class="bottom-content">
-                <li class="">
-                    <a href="cerraste-sesion.html">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Cerrar Sesion</span>
-                    </a>                        
-                </li>
-                <li class="mode">
-                    <div class="moon-sun">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Modo Oscuro</span>
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </div>
-        </div>           
-    </nav>
-</header>
-<script src="/js/home.js"></script>
-<div class="wrapper">
-    <div id="search-container">
-        <input type="search" id="placeholder" placeholder="Busque su paciente aqui">
+    <div class="filters">
+        <label>
+            <input type="radio" name="filter" value="all" checked>
+            Todos
+        </label>
+        <label>
+            <input type="radio" name="filter" value="infected">
+            Infectado
+        </label>
+        <label>
+            <input type="radio" name="filter" value="not-infected">
+            No infectado
+        </label>
     </div>
-    <div id="buttons">
-<button class="button-value">Todos</button>
-<button class="button-value">Mas recientes</button>
-<button class="button-value">Mas antiguos</button>
-<button class="button-value">Tienen malaria</button>
-<button class="button-value">No tienen malaria</button>
+
+    <div class="elements" id="elements-container">
+        <!-- Pacientes predefinidos -->
+        <div class="element infected">
+            <span>Paciente 1 - Infectado</span>
+        </div>
+        <div class="element not-infected">
+            <span>Paciente 2 - No infectado</span>
+        </div>
+        <div class="element infected">
+            <span>Paciente 3 - Infectado</span>
+        </div>
+        <div class="element not-infected">
+            <span>Paciente 4 - No infectado</span>
+        </div>
+        <div class="element not-infected">
+            <span>Paciente 5 - No infectado</span>
+        </div>
     </div>
-    <div id="products"></div>
-    
-</div>
+
+    <button id="add-patient">Crear Paciente</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
