@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad</title>
+    <link rel="stylesheet" href="/css/prueba-comunidad.css">
+</head>
+<body>
+    <div class="community-container">
+        <h1>Comunidad</h1>
+        <div class="post-box">
+            <textarea id="new-post" placeholder="Ingrese su mensaje..." maxlength="240"></textarea>
+            <button id="send-post">➡️</button>
+        </div>
+        <div class="posts" id="posts-container">
+            <!-- Aquí se insertarán dinámicamente los posts -->
+        </div>
+    </div>
+
+    <!-- Modal de mensaje privado -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enviar mensaje privado</h2>
+            <form id="private-message-form">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" placeholder="Escribe tu mensaje..."></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/prueba-comunidad.js"></script>
+</body>
+</html>

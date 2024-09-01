@@ -81,25 +81,13 @@ document.getElementById('add-patient').addEventListener('click', addPatient);
 // Aplica el filtro inicial
 applyFilter();
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
     botonesNuevosCard.classList.add('show');
 });
 
 pacienteBtn.addEventListener('click', function() {
-    window.location.href = 'paciente-nuevo.html';
+    window.location.href = 'crear-paciente.html';
 });
 
 imagenBtn.addEventListener('click', function() {
