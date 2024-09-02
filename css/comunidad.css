@@ -84,8 +84,8 @@ body{
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
-    top: 7%; 
-    left:21%;
+    top: 40px; 
+    left: 235px;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;

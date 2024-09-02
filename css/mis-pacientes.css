@@ -83,8 +83,8 @@ body{
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
-    top: 7%; 
-    left:21%;
+    top: 40px; 
+    left: 235px;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -489,7 +489,7 @@ input[type="search"] {
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
     width: 810px;
-    height: 430px;
+    height: 460px;
     background: var(--fondo-elementos);
     border-radius: 12px;
     padding: 10px 0px;
@@ -500,7 +500,9 @@ input[type="search"] {
     overflow-x: hidden;
     display: flex;
     flex-wrap:wrap; /*COMO SOLUCIONO PARA QUE MIS PACIENTES NO SE EXPANDA?*/
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: flex-start;
+
 }
 .FONDOPACIENTES::-webkit-scrollbar {
     width: 8px; 
@@ -533,7 +535,8 @@ input[type="search"] {
 .cartas-separadas{
 margin: 3.5px;
 align-items: center;
-height: 20%;
+height: 12%;
+margin-left: 10px;
 }
 
 .card_form span {

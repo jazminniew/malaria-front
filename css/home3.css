@@ -83,8 +83,8 @@ body{
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
-    top: 7%; 
-    left:21%;
+    top: 40px; 
+    left: 235px;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -488,6 +488,11 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap; /*NO ANDAA*/
+    flex-direction: row;
+    align-items: normal;
     width: 810px;
     height: 430px;
     background: var(--fondo-elementos);
@@ -500,8 +505,6 @@ input[type="search"] {
     box-sizing: border-box;
     overflow-x: hidden;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 .FONDOPACIENTES.expanded{
     width: 1010px;
