@@ -4,11 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIA</title>
-    <link rel="stylesheet" href="crear-paciente.css">
+    <link rel="stylesheet" href="/css/crear-cuenta.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <button id="add-patient">Crear Paciente</button>
-    <a href="/html/home3.html">Back</a>
-    <script src="/js/home2.js"></script>   
+    <div class="wrapper">
+        <form>
+            <h1>Crear paciente</h1>
+            <!--Contenedor para nombre y apellido-->
+            <div class="flex-container">
+                <!--Nombre-->
+                <div class="input-box half-width">
+                    <input type="text" placeholder="Nombre" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <!--Apellido-->
+                <div class="input-box half-width">
+                    <input type="text" placeholder="Apellido" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+            </div>
+            <!--Fecha de Nacimiento-->
+            <div class="input-box">
+                <input type="text" placeholder="Fecha de Nacimiento" required onfocus="(this.type='date')" onblur="(this.type='text')">
+                <i class='bx bxs-calendar'></i>
+            </div>
+            <!--Contenedor para país y ocupación-->
+            <div class="flex-container">
+                <!--País-->
+                <div class="input-box half-width">
+                    <select name="pais" required>
+                        <option value="" disabled selected>País</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                    </select>
+                    <i class='bx bx-world'></i>
+                </div>
+                <!--Ocupación-->
+                <div class="input-box half-width">
+                    <select name="ocupacion" required>
+                        <option value="" disabled selected>Ocupación</option>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Trabajador">Trabajador</option>
+                    </select>
+                    <i class='bx bxs-briefcase'></i>
+                </div>
+            </div>
+            <!--Email-->
+            <div class="input-box">
+                <input type="email" placeholder="Email" required>
+                <i class='bx bxl-gmail'></i>
+            </div>
+            <!--Contraseña-->
+            <div class="input-box">
+                <input type="password" placeholder="Contraseña" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+             <!--Foto de perfil MEJORARRRR-->
+             <div class="input-box">
+                <input type="file"accept="image/'" required>
+                <i class='bx bxs-image'></i>
+            </div>
+            <!--Botón-->
+            <button type="submit" class="btn" onclick="location.href='home3.html'">Continuar</button>
+
+        </form>
+    </div>
 </body>
 </html>

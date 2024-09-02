@@ -125,9 +125,9 @@ body{
     transition: transform 0.5s ease;
 }
 .barra-lateral .nombre-pagina span.oculto{
-        opacity: 0;
-        display: none;
-        transition:  transform 0.5s ease;
+    opacity: 0;
+    display: none;
+    transition:  transform 0.5s ease;
 }
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{

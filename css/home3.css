@@ -503,6 +503,9 @@ input[type="search"] {
     flex-wrap: wrap;
     justify-content: center;
 }
+.FONDOPACIENTES.expanded{
+    width: 1010px;
+}
 .FONDOPACIENTES::-webkit-scrollbar {
     width: 8px; 
 }
@@ -546,9 +549,9 @@ height: 41%;
 }
 .card_form span {
     font-size: 1.5em;
-    width: 110%;
+    width: 150%;
     inset: 0;
-    padding: 5px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
+    padding: 0px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
     color: #fff;
     background-image: linear-gradient(
     to top,
