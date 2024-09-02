@@ -27,10 +27,11 @@
     --fondo-elementos:#f3f3f3;
     --input-bg: #fff;
     --lupa: #646487;
-    --element-back-color:#d6d6d6;
+    --element-back-color:#a5a5a5;
     --carta-cerrar-back: rgb(255, 255, 255);
     --color-boton-acceder: #9147ff;
     --fondo-scrollbar: #f1f1f1;
+    --element-back-color-hover:#b3b3b3;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -61,6 +62,7 @@
     --lupa-texto: #a5a5a5;
     --fondo-botones-sidebar: #0f0f0f;
     --element-back-color:#242824;
+    --element-back-color-hover:#2c2e2c;
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
@@ -532,6 +534,9 @@ input[type="search"] {
     cursor: pointer;
     width: 250px;
 }
+.card:hover{
+    background: var(--element-back-color-hover);
+}
 .cartas-separadas{
 margin: 3.5px;
 align-items: center;
@@ -581,7 +586,7 @@ margin-left: 10px;
   }
 
   .card:hover .cube {
-    color: #000;
+    color: #fff;
   }
   .side {
     width: 125px;
