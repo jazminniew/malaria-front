@@ -699,35 +699,40 @@ transform: scale(0.6);
 }
 
 /*CERRAR SESION*/
-.card_cerrar{
+.card_cerrar {
     width: 300px;
     height: fit-content;
-    position: fixed;
-    transform: translate(-50%, -50%) scale(0.8); 
+    position: fixed; /* Fijo en lugar de absoluto */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
     padding: 20px;
     background: var(--carta-cerrar-back);
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); /* Sombras más notorias para dar profundidad */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Transición más larga y fluida */
-    opacity: 0; /* Oculta la carta visualmente */
-}
-.card_cerrar.show {
-    display: flex; 
-    opacity: 1; 
-    transform: translate(-120%, 230%) scale(1); 
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    opacity: 0;
     z-index: 10000;
-    visibility: visible; 
-    position: fixed;
+    visibility: hidden;
+}
+
+.card_cerrar.show {
+    opacity: 1; 
+    visibility: visible;
+    transform: translate(-150%, -60%) scale(1); 
+    z-index: 10000000;
     position: absolute;
 }
-.mini-barra-lateral .card_cerrar{ /*FIJARSE PORQUE LA CARTA NO SE MUEVE CUANDO CIERRO*/
-    transform: translateX(1000%)  translateY(-50%);
+
+.mini-barra-lateral .card_cerrar {
+    transform: translateX(100%) translateY(-50%); /* Ajuste aquí */
     transition: transform 0.5s ease;
     position: fixed;
 }
+
 .card-content {
     text-align: center;
     width: 100%;

@@ -34,6 +34,7 @@
     --element-back-color-hover:#dddcdc;
     --color-texto-elementoss: #7c3ed6;
     --color-texto-elementoss-hover: #9249ff;
+    --fondo-user-hover: #bebebe;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -70,6 +71,7 @@
     --fondo-scrollbar: #141414;
     --color-texto-elementoss: #f2f2f2;
     --color-texto-elementoss-hover: #fff;
+    --fondo-user-hover: #262626;
 }
 *{
     margin: 0;
@@ -266,7 +268,7 @@ body{
     width: 100%;
     height: 1px;
     background-color: var(--color-linea);
-    margin-top: 140px;  /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
+    margin-top: 130px;  /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
 }
 /*Modo oscuro*/
 .barra-lateral .modo-oscuro{
@@ -822,4 +824,13 @@ transform: scale(0.6);
 }
 .card-button-nuevo.secondary:hover {
     background-color: #313538da;
+}
+/*BUTTON USUARIO*/
+.button-usuario{
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+}
+.button-usuario:hover{
+    background-color: var(--fondo-user-hover);
 }

@@ -82,10 +82,6 @@ function addPatient() {
     });
 }
 
-// Añadir evento al botón de crear paciente
-//document.getElementById('add-patient').addEventListener('click', addPatient);
-
-// Aplica el filtro inicial
 applyFilter();
 
 // Manejo del botón "Nuevo"
@@ -125,6 +121,7 @@ document.addEventListener('click', function(event) {
         logoutCard.classList.remove('show');
     }
 });
+
 
 /* Responsive design */
 menu.addEventListener("click", () => {

@@ -31,6 +31,7 @@
     --carta-cerrar-back: rgb(255, 255, 255);
     --color-boton-acceder: #9147ff;
     --fondo-scrollbar: #f1f1f1;
+    --fondo-user-hover: #bebebe;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -64,6 +65,8 @@
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
+    --fondo-user-hover: #262626;
+    
 }
 *{
     margin: 0;
@@ -261,7 +264,7 @@ body{
     width: 100%;
     height: 1px;
     background-color: var(--color-linea);
-    margin-top: 140px;  /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
+    margin-top: 130px;  /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
 }
 /*Modo oscuro*/
 .barra-lateral .modo-oscuro{
@@ -729,4 +732,13 @@ border: none;
 font-size: 20px;
 cursor: pointer;
 color: var(--iconos);
+}
+/*BUTTON USUARIO*/
+.button-usuario{
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+}
+.button-usuario:hover{
+    background-color: var(--fondo-user-hover);
 }
