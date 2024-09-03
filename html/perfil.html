@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Médico</title>
+    <link rel="stylesheet" href="/css/perfil.css">
+</head>
+<body>
+    <div class="profile-container">
+        <header class="header">
+            <img src="profile-photo.jpg" alt="Foto del Médico" class="profile-photo">
+            <div class="profile-info">
+                <h1>Dr. Juan Pérez</h1>
+                <p>Edad: 45 años</p>
+                <p>País: Argentina</p>
+                <p>Ocupación: Cardiólogo</p>
+                <p>Años de Experiencia: 20</p>
+                <p>Títulos: Médico Cirujano, Especialista en Cardiología</p>
+            </div>
+        </header>
+        <section class="contact-section">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="messages">
+                <!-- Mensajes se mostrarán aquí -->
+            </div>
+        </section>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
