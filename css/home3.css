@@ -5,7 +5,7 @@
     --color-texto-menu:rgb(134,136,144);
     --color-menu-hover:rgb(236, 236, 236);
     --color-menu-hover-texto:rgb (0,0,0);
-    --color-boton: rgb(0,0,0);
+    --color-boton: #7c3ed6;
     --color-boton-texto:rgb(255,255,255);
     --color-linea:rgb(213, 213, 213);
     --color-switch-base:rgb(201,202,206);
@@ -13,7 +13,7 @@
     --color-scroll:rgb(192,192,192);
     --color-scroll-hover:rgb(134,134,134);
     --background-color:#d9d9d9;
-    --fondo-flecha: #000;
+    --fondo-flecha: #7c3ed6;
     --flecha: #fff;
     --fondo-botones-sidebar: #f3f3f3;
     --fondo-filtro-boton: #e6eef9;
@@ -23,7 +23,7 @@
     --file-name: #5d5d5d;
     --nuevo: #000;
     --back-color-nuevo:#ececec;
-    --back-elements-color:#dddddd;
+    --back-elements-color:#a1a1a1;
     --fondo-elementos:#f3f3f3;
     --input-bg: #fff;
     --lupa: #646487;
@@ -31,6 +31,7 @@
     --carta-cerrar-back: rgb(255, 255, 255);
     --color-boton-acceder: #9147ff;
     --fondo-scrollbar: #f1f1f1;
+    --color-texto-elementos:#7c3ed6;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -38,7 +39,7 @@
     --color-texto-menu:rgb(110,110,107);
     --color-menu-hover:rgb(8, 8, 8);
     --color-menu-hover-texto:rgb(238,238,238);
-    --color-boton: rgb(255,255,255);
+    --color-boton: #7c3ed6;
     --color-boton-texto:rgb(0,0,0);
     --color-linea:rgb(90,90,90);
     --color-switch-base:rgb(39,205,64);
@@ -46,7 +47,7 @@
     --color-scroll:rgb(68,79,74);
     --color-scroll-hover:rgb(85,85,85);
     --background-color:rgb(37, 37, 37);
-    --fondo-flecha: #fff;
+    --fondo-flecha: #7c3ed6;
     --flecha: #000;
     --fondo-filtro-boton: #2f2f2f;
     --color-texto-filtros: #fff;
@@ -64,6 +65,7 @@
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
+    --color-texto-elementos:#fff;
 }
 *{
     margin: 0;
@@ -490,16 +492,17 @@ input[type="search"] {
 .FONDOPACIENTES{
     justify-content: flex-start;
     align-content: flex-start;
-    flex-wrap: wrap; /*NO ANDAA*/
+    flex-wrap: wrap; 
     flex-direction: row;
     align-items: normal;
-    width: 810px;
+    width: 800px;
     height: 430px;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
     border-radius: 12px;
-    padding: 10px 0px;
-    margin: 10px 0px;
+    padding: 10px 10px;
+    gap: 5px;
+    margin: 15px 0px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     overflow-y: auto;
     box-sizing: border-box;
@@ -537,7 +540,6 @@ input[type="search"] {
     height: max-content;
 }
 .cartas-separadas{
-margin: 3.5px;
 align-items: center;
 height: 41%;
 }
@@ -596,7 +598,7 @@ height: 41%;
     font-size: 0.9em;
   }
   .text_s {
-    color: #ffffff;
+    color: var(--color-texto-elementos);
     font-size: 0.6em;
   }
   .cube {
@@ -626,9 +628,11 @@ height: 41%;
     padding:8px;
     border-radius:10px;
     width:90%;
+    color: #fff;
   }
   .front {
     transform: translate3d(0, 0, 1em);
+    
   }
   
 /*-----------------------------Fondo de filtros------------------------*/
@@ -722,7 +726,6 @@ transform: scale(0.6);
     height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 5px;
 }
 .card-heading {
     font-size: 20px;

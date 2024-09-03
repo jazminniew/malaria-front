@@ -5,7 +5,7 @@
     --color-texto-menu:rgb(134,136,144);
     --color-menu-hover:rgb(236, 236, 236);
     --color-menu-hover-texto:rgb (0,0,0);
-    --color-boton: rgb(0,0,0);
+    --color-boton: #7c3ed6;
     --color-boton-texto:rgb(255,255,255);
     --color-linea:rgb(213, 213, 213);
     --color-switch-base:rgb(201,202,206);
@@ -13,7 +13,7 @@
     --color-scroll:rgb(192,192,192);
     --color-scroll-hover:rgb(134,134,134);
     --background-color:#d9d9d9;
-    --fondo-flecha: #000;
+    --fondo-flecha: #7c3ed6;
     --flecha: #fff;
     --fondo-botones-sidebar: #f3f3f3;
     --fondo-filtro-boton: #e6eef9;
@@ -27,11 +27,13 @@
     --fondo-elementos:#f3f3f3;
     --input-bg: #fff;
     --lupa: #646487;
-    --element-back-color:#a5a5a5;
+    --element-back-color:#d6d6d6;
     --carta-cerrar-back: rgb(255, 255, 255);
     --color-boton-acceder: #9147ff;
     --fondo-scrollbar: #f1f1f1;
-    --element-back-color-hover:#b3b3b3;
+    --element-back-color-hover:#dddcdc;
+    --color-texto-elementoss: #7c3ed6;
+    --color-texto-elementoss-hover: #9249ff;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -66,6 +68,8 @@
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
+    --color-texto-elementoss: #f2f2f2;
+    --color-texto-elementoss-hover: #fff;
 }
 *{
     margin: 0;
@@ -412,6 +416,7 @@ main.min-main{
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
     background: var(--input-bg);
+
 }
 
 .input {
@@ -490,7 +495,7 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
-    width: 810px;
+    width: 800px;
     height: 460px;
     background: var(--fondo-elementos);
     border-radius: 12px;
@@ -581,12 +586,12 @@ margin-left: 10px;
     font-size: 0.9em;
   }
   .text_s {
-    color: #ffffff;
+    color:var(--color-texto-elementoss);
     font-size: 0.6em;
   }
 
   .card:hover .cube {
-    color: #fff;
+    color:var(--color-texto-elementoss-hover);
   }
   .side {
     width: 125px;
