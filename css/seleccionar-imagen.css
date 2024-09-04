@@ -18,6 +18,7 @@ body{
     background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg");
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 .container{
     max-width: 500px;
