@@ -1,131 +1,185 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const postsContainer = document.getElementById('posts-container');
-    const sendPostButton = document.getElementById('send-post');
-    const newPostTextarea = document.getElementById('new-post');
 
-    const messageModal = document.getElementById('message-modal');
-    const closeModalButtons = document.querySelectorAll('.close');
 
-    // Controlar los "likes" por usuario
-    const likedPosts = new Set();
+//VER ESTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
-    // Manejar el envío de un nuevo post
-    sendPostButton.addEventListener('click', () => {
-        const content = newPostTextarea.value.trim();
-        if (content !== '') {
-            const postElement = createPostElement('Usuario', content);
-            postsContainer.appendChild(postElement);
-            newPostTextarea.value = ''; // Limpiar el textarea
+const cloud = document.querySelector(".bx-chevron-left"); 
+const barraLateral = document.querySelector(".barra-lateral");
+const spans = document.querySelectorAll("span");
+const palanca = document.querySelector(".switch");
+const circulo = document.querySelector(".circulo");
+const menu = document.querySelector(".menu");
+const main = document.querySelector("main");
 
-            // Reorganizar los posts en dos columnas
-            reorganizePosts();
-        }
-    });
+const sidebarToggle = document.getElementById('sidebarToggle');
+const content = document.getElementById('content');
+const searchBar = document.querySelector('.search-bar');
 
-    // Función para crear un post
-    function createPostElement(username, content) {
-        const postElement = document.createElement('div');
-        postElement.classList.add('post');
-        postElement.innerHTML = `
-            <p><strong>${username}</strong>: ${content}</p>
-            <div class="actions">
-                <span class="like-btn">❤️ 0</span>
-                <span class="comment-btn">💬</span>
-                <span class="message-btn">📧</span>
-            </div>
-            <div class="comments-section"></div>
-        `;
+const logoutBtn = document.getElementById('logout-btn');
+const logoutCard = document.getElementById('logout-card');
+const cancelBtn = document.getElementById('cancel-btn');
+const exitBtn = document.getElementById('exit-btn');
 
-        // Manejar los eventos de los botones
-        postElement.querySelector('.like-btn').addEventListener('click', (event) => likePost(event, postElement));
-        postElement.querySelector('.comment-btn').addEventListener('click', () => toggleCommentInput(postElement));
-        postElement.querySelector('.message-btn').addEventListener('click', openMessageModal);
+const btnNuevo = document.getElementById('buttonNuevo');
+const botonesNuevosCard = document.getElementById('botonesnuevosCard');
+const pacienteBtn = document.getElementById('paciente-btn');
+const imagenBtn = document.getElementById('imagen-btn');
 
-        return postElement;
-    }
+const mainContent = document.getElementById('FONDOPACIENTES');
 
-    // Función para manejar los "likes"
-    function likePost(event, postElement) {
-        if (likedPosts.has(postElement)) return;  // Evitar más de un like
 
-        let likeCount = parseInt(event.target.textContent.split(' ')[1]);
-        event.target.textContent = `❤️ ${++likeCount}`;
-        likedPosts.add(postElement);  // Marcar como liked
-    }
 
-    // Función para mostrar/ocultar el input de comentarios
-    function toggleCommentInput(postElement) {
-        let commentInput = postElement.querySelector('.comment-input');
-        if (!commentInput) {
-            commentInput = document.createElement('textarea');
-            commentInput.classList.add('comment-input');
-            commentInput.placeholder = "Escribe un comentario...";
-            postElement.appendChild(commentInput);
+//modo obscuro quede seleccionado
 
-            const sendCommentButton = document.createElement('button');
-            sendCommentButton.classList.add('send-comment');
-            sendCommentButton.textContent = 'Comentar';
-            sendCommentButton.addEventListener('click', () => addComment(postElement, 'Usuario', commentInput));
-            postElement.appendChild(sendCommentButton);
+
+// Selecciona los botones de filtro
+const filterButtons = document.querySelectorAll('input[name="filter"]');
+const elementsContainer = document.getElementById('elements-container');
+let patientCount = 5; // Comienza en 5 porque ya hay 5 pacientes predefinidos
+
+// Función para aplicar el filtro a todos los elementos
+function applyFilter() {
+    const filterValue = document.querySelector('input[name="filter"]:checked').value;
+    
+    const elements = elementsContainer.querySelectorAll('.card');
+    elements.forEach(element => {
+        if (filterValue === 'all') {
+            element.style.display = 'flex';
+        } else if (filterValue === 'infectado' && element.classList.contains('infectado')) {
+            element.style.display = 'flex';
+        } else if (filterValue === 'no-infectado' && element.classList.contains('no-infectado')) {
+            element.style.display = 'flex';
         } else {
-            commentInput.remove();
-            postElement.querySelector('.send-comment').remove();
-        }
-    }
-
-    // Función para agregar un comentario
-    function addComment(postElement, username, commentInput) {
-        const commentText = commentInput.value.trim();
-        if (commentText !== '') {
-            const commentElement = document.createElement('p');
-            commentElement.innerHTML = `<strong>${username}</strong>: ${commentText}`;
-            commentElement.classList.add('comment');
-            postElement.querySelector('.comments-section').appendChild(commentElement);
-            commentInput.value = ''; // Limpiar el textarea de comentario
-        }
-    }
-
-    // Función para reorganizar los posts en dos columnas
-    function reorganizePosts() {
-        const posts = Array.from(postsContainer.querySelectorAll('.post'));
-        postsContainer.innerHTML = ''; // Limpiar el contenedor
-
-        // Crear dos columnas
-        const column1 = document.createElement('div');
-        const column2 = document.createElement('div');
-        column1.classList.add('post-column');
-        column2.classList.add('post-column');
-
-        // Dividir los posts entre las dos columnas
-        posts.forEach((post, index) => {
-            if (index % 2 === 0) {
-                column1.appendChild(post);
-            } else {
-                column2.appendChild(post);
-            }
-        });
-
-        // Añadir las columnas al contenedor
-        postsContainer.appendChild(column1);
-        postsContainer.appendChild(column2);
-    }
-
-    // Función para abrir el modal de mensaje privado
-    function openMessageModal() {
-        messageModal.style.display = 'block';
-    }
-
-    // Cerrar el modal
-    closeModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            messageModal.style.display = 'none';
-        });
-    });
-
-    // Cerrar el modal al hacer clic fuera de la ventana modal
-    window.addEventListener('click', (event) => {
-        if (event.target === messageModal) {
-            messageModal.style.display = 'none';
+            element.style.display = 'none';
         }
     });
+}
+
+// Añadir eventos a los botones de filtro
+filterButtons.forEach(button => {
+    button.addEventListener('change', applyFilter);
+});
+
+// Función para agregar un nuevo paciente sin clasificar
+function addPatient() {
+    patientCount++;
+    const newElement = document.createElement('div');
+    newElement.classList.add('element', 'unclassified');
+    newElement.innerHTML = `
+        <span>Paciente ${patientCount} - Sin clasificar</span>
+        <div>
+            <button class="status-btn" data-status="infected">Infectado</button>
+            <button class="status-btn" data-status="not-infected">No infectado</button>
+        </div>
+    `;
+    elementsContainer.appendChild(newElement);
+
+    // Añadir eventos a los botones de estado
+    const statusButtons = newElement.querySelectorAll('.status-btn');
+    statusButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const status = this.getAttribute('data-status');
+            newElement.classList.remove('unclassified', 'infectado', 'no-infectado');
+            newElement.classList.add(status);
+            newElement.querySelector('span').textContent = `Paciente ${patientCount} - ${status === 'infected' ? 'Infectado' : 'No infectado'}`;
+            applyFilter(); // Aplica el filtro después de cambiar el estado
+        });
+    });
+}
+
+// Añadir evento al botón de crear paciente
+//document.getElementById('add-patient').addEventListener('click', addPatient);
+
+// Aplica el filtro inicial
+applyFilter();
+
+// Manejo del botón "Nuevo"
+btnNuevo.addEventListener('click', function() {
+    botonesNuevosCard.classList.add('show');
+});
+
+pacienteBtn.addEventListener('click', function() {
+    window.location.href = 'crear-paciente.html';
+});
+
+imagenBtn.addEventListener('click', function() {
+    window.location.href = 'seleccionar-imagen.html';
+});
+
+document.addEventListener('click', function(event) {
+    if (!botonesNuevosCard.contains(event.target) && !btnNuevo.contains(event.target)) {
+        botonesNuevosCard.classList.remove('show');
+    }
+});
+
+// Cerrar sesión
+logoutBtn.addEventListener('click', function() {
+    logoutCard.classList.add('show');
+});
+
+cancelBtn.addEventListener('click', function() {
+    logoutCard.classList.remove('show');
+});
+
+exitBtn.addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
+
+document.addEventListener('click', function(event) {
+    if (!logoutCard.contains(event.target) && !logoutBtn.contains(event.target)) {
+        logoutCard.classList.remove('show');
+    }
+});
+
+/* Responsive design */
+menu.addEventListener("click", () => {
+    barraLateral.classList.toggle("max-barra-lateral");
+    document.querySelector("#search-container").classList.toggle("barra-lateral-open");
+    document.querySelector("#search-container").classList.toggle("barra-lateral-closed");
+    
+    main.classList.toggle('min-main'); // Actualiza el main para ajustar el ancho
+    
+    if (barraLateral.classList.contains("max-barra-lateral")) {
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
+    } else {
+        menu.children[0].style.display = "block";
+        menu.children[1].style.display = "none";
+    }
+
+    if (window.innerWidth <= 320) {
+        barraLateral.classList.add("mini-barra-lateral");
+        main.classList.add("min-main");
+        spans.forEach((span) => {
+            span.classList.add("oculto");
+        });
+    }
+});
+
+/* Modo oscuro y modo claro */
+palanca.addEventListener("click", () => {
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+    circulo.classList.toggle("prendido");
+});
+
+// Manejo de la barra lateral
+cloud.addEventListener("click", () => {
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+
+    spans.forEach((span) => {
+        span.classList.toggle("oculto");
+    });
+
+    cloud.classList.toggle("rotated");
+});
+
+/*--------NO SE CIERRA----------*/
+sidebarToggle.addEventListener('click', () => {
+    barraLateral.classList.toggle('barra-lateral-closed');
+});
+sidebarToggle.addEventListener('click', () => {
+    var mainContent = document.getElementById('FONDOPACIENTES');
+    barraLateral.classList.toggle('barra-lateral-closed');
+    mainContent.classList.toggle('expanded');
 });

@@ -22,11 +22,7 @@ const imagenBtn = document.getElementById('imagen-btn');
 
 const mainContent = document.getElementById('FONDOPACIENTES');
 
-
-
 //modo obscuro quede seleccionado
-
-
 // Selecciona los botones de filtro
 const filterButtons = document.querySelectorAll('input[name="filter"]');
 const elementsContainer = document.getElementById('elements-container');
