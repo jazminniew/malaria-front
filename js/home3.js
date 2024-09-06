@@ -118,57 +118,41 @@ document.addEventListener('click', function(event) {
     }
 });
 
-
-/* Responsive design */
-menu.addEventListener("click", () => {
-    barraLateral.classList.toggle("max-barra-lateral");
-    document.querySelector("#search-container").classList.toggle("barra-lateral-open");
-    document.querySelector("#search-container").classList.toggle("barra-lateral-closed");
-    
-    main.classList.toggle('min-main'); // Actualiza el main para ajustar el ancho
-    
-    if (barraLateral.classList.contains("max-barra-lateral")) {
-        menu.children[0].style.display = "none";
-        menu.children[1].style.display = "block";
-    } else {
-        menu.children[0].style.display = "block";
-        menu.children[1].style.display = "none";
+// Cargar estado del modo oscuro desde localStorage
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        circulo.classList.add('prendido');
     }
 
-    if (window.innerWidth <= 320) {
-        barraLateral.classList.add("mini-barra-lateral");
-        main.classList.add("min-main");
-        spans.forEach((span) => {
-            span.classList.add("oculto");
-        });
+    // Cargar estado del sidebar desde localStorage
+    if (localStorage.getItem('sidebar-open') === 'true') {
+        barraLateral.classList.add('max-barra-lateral');
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
     }
 });
 
-/* Modo oscuro y modo claro */
-palanca.addEventListener("click", () => {
+// Manejo del botón de modo oscuro
+palanca.addEventListener('click', () => {
     let body = document.body;
-    body.classList.toggle("dark-mode");
-    circulo.classList.toggle("prendido");
+    body.classList.toggle('dark-mode');
+    circulo.classList.toggle('prendido');
+    localStorage.setItem('dark-mode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
 });
 
 // Manejo de la barra lateral
-cloud.addEventListener("click", () => {
-    barraLateral.classList.toggle("mini-barra-lateral");
-    main.classList.toggle("min-main");
-
+cloud.addEventListener('click', () => {
+    barraLateral.classList.toggle('mini-barra-lateral');
+    main.classList.toggle('min-main');
     spans.forEach((span) => {
-        span.classList.toggle("oculto");
+        span.classList.toggle('oculto');
     });
-
-    cloud.classList.toggle("rotated");
+    cloud.classList.toggle('rotated');
 });
 
-/*--------NO SE CIERRA----------*/
+// Guardar estado del sidebar en localStorage
 sidebarToggle.addEventListener('click', () => {
     barraLateral.classList.toggle('barra-lateral-closed');
-});
-sidebarToggle.addEventListener('click', () => {
-    var mainContent = document.getElementById('FONDOPACIENTES');
-    barraLateral.classList.toggle('barra-lateral-closed');
-    mainContent.classList.toggle('expanded');
+    localStorage.setItem('sidebar-open', !barraLateral.classList.contains('barra-lateral-closed'));
 });

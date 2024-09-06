@@ -20,8 +20,6 @@ const botonesNuevosCard = document.getElementById('botonesnuevosCard');
 const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
-const mainContent = document.getElementById('FONDOPACIENTES');
-
 let currentPostElement = null;
 
 function postMessage() {

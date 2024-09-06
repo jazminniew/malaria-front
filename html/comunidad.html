@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/comunidad.css">
+    <link rel="stylesheet" href="/css/home3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIa</title>
@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li>
-                        <a  id="inbox" href="comunidad.html">
+                        <a id="inbox" href="comunidad.html">
                             <ion-icon name="people-outline"></ion-icon>
                             <span>Comunidad</span>
                         </a>
@@ -84,60 +84,64 @@
         </div>
     </div>
   </div>
-   
+    <main> 
+      
+<!---------------------Searchbar----------------------------->
+        <div class="wrapper">
+<form class="form">
+    <button>
+        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
+    <input class="input" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
+    <button class="reset" type="reset">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+</form>
 
-<main> 
-    <!---------------------NAVBAR----------------------------------------------------------------->
-    <div class="container">
-        <header>
-            <h3>Comunidad</h3>
-        </header>
-        
-        <!-- Formulario para publicar mensajes -->
-        <div class="post-box">
-            <textarea id="message" placeholder="Ingrese su mensaje" maxlength="240"></textarea>
-            <button id="send-post" onclick="postMessage()">➡️</button>
+<!---------------------Filtros----------------------------->
+<div class="container" id="buttons">
+  <div class="tabs">
+    <input type="radio" id="radio-1" name="filter" value="all" checked>
+  </div>
+</div>
+</div>
+<!---------------------NAVBAR----------------------------------------------------------------->
+<div class="FONDOPACIENTES" id="elements-container"> 
+
+
+
+
+    <!---------------------Cerrar sesion----------------------------->  
+    <div class="card_cerrar" id="logout-card">
+        <!--<div class="card-content">
+            <p class="card-heading">Cerrar Sesión</p>
+            <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
+        </div>--> 
+        <div class="card-button-wrapper">
+            <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+            <button class="card-button primary" id="exit-btn">Salir</button>
         </div>
-        <div class="FONDOPACIENTES">
-        <!-- Sección para mostrar mensajes -->
-        <div class="posts">
-            <div class="post-column">
-                <!-- Mensajes ficticios de ejemplo -->
-                <div class="post">
-                    <div class="post-header">
-                        <span class="username">Usuario1</span>
-                    </div>
-                    <p class="post-text">Este es un mensaje ficticio. ¡Aquí va una noticia!</p>
-                    <div class="post-footer">
-                        <button class="icon-button like-button" onclick="likePost(this)"><i class='bx bx-heart'></i><span class="like-count">0</span></button>
-                        <button class="icon-button comment-button" onclick="toggleCommentForm(this)"><i class='bx bxs-comment-detail'></i></button>
-                        <button class="icon-button contact-button" onclick="contactPost(this)"><i class='bx bxs-contact'></i></button>
-                    </div>
-                    <div class="comments"></div>
-                </div>
-                <!-- Más mensajes ficticios aquí -->
-            </div>
-            <div class="post-column">
-                <!-- Más mensajes ficticios aquí -->
-            </div>
+    </div>
+    </div>
+    <!---------------------Nuevo---------------------------->  
+    <div class="card-nuevo" id="botonesnuevosCard"> 
+        <div class="card-button-wrapper-nuevo">
+            <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Subir Imagen</button>
+            <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
         </div>
-        
-        <div id="message-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Enviar mensaje privado</h2>
-                <form id="private-message-form">
-                    <label for="message">Mensaje:</label>
-                    <textarea id="message" placeholder="Escribe tu mensaje..."></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </main> 
+    </div>
+</div> 
+    </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/COMUNIDAD.js"></script>  
+    <script src="/js/home3.js"></script>  
     <script src="/js/sidebar.js"></script>  
+    <script src="common.js"></script>
+
     </div>
 </div>
 </body>
