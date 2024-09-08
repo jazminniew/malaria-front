@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIA</title>
-    <link rel="stylesheet" href="/css/crear-cuenta.css">
+    <link rel="stylesheet" href="/css/crear-paciente.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="wrapper">
         <form>
-            <h1>Crear paciente</h1>
+            <h1>Crear Paciente</h1>
             <!--Contenedor para nombre y apellido-->
             <div class="flex-container">
                 <!--Nombre-->
@@ -31,22 +31,22 @@
             </div>
             <!--Contenedor para país y ocupación-->
             <div class="flex-container">
-                <!--País-->
-                <div class="input-box half-width">
-                    <select name="pais" required>
-                        <option value="" disabled selected>País</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Estados Unidos">Estados Unidos</option>
-                    </select>
-                    <i class='bx bx-world'></i>
-                </div>
-                <!--Ocupación-->
+<!-- País -->
+<div class="input-box">
+    <select id="pais" name="pais" required>
+        <option value="" disabled selected>País</option>
+        <!-- Lista de países generada por JavaScript -->
+    </select>
+    <i class='bx bx-world'></i>
+</div>
+
+                <!--genero-->
                 <div class="input-box half-width">
                     <select name="ocupacion" required>
-                        <option value="" disabled selected>Ocupación</option>
-                        <option value="Estudiante">Estudiante</option>
-                        <option value="Trabajador">Trabajador</option>
+                        <option value="" disabled selected>Genero</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Otro">Otro</option>
                     </select>
                     <i class='bx bxs-briefcase'></i>
                 </div>
@@ -58,18 +58,15 @@
             </div>
             <!--Contraseña-->
             <div class="input-box">
-                <input type="password" placeholder="Contraseña" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-             <!--Foto de perfil MEJORARRRR-->
-             <div class="input-box">
-                <input type="file"accept="image/'" required>
-                <i class='bx bxs-image'></i>
+                <input type="number" placeholder="Telefono" required>
+                <i class='bx bxs-phone'></i>
             </div>
             <!--Botón-->
-            <button type="submit" class="btn" onclick="location.href='home3.html'">Continuar</button>
+            <button type="submit" class="btn" onclick="location.href='mis-pacientes.html'">Continuar</button>
 
         </form>
     </div>
+    <script src="/js/crear-cuenta.js"></script>
+
 </body>
 </html>

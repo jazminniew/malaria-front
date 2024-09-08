@@ -43,6 +43,7 @@ body {
 .input-box input[type="text"],
 .input-box input[type="email"],
 .input-box input[type="password"],
+.input-box input[type="number"],
 .input-box select {
     width: 100%;
     height: 100%;
@@ -54,6 +55,23 @@ body {
     outline: none;
     color: #ffffff; /* Texto en blanco para el input */
 }
+/* Para Webkit (Chrome, Safari) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Para Edge */
+input[type="number"]::-ms-clear {
+    display: none;
+}
+
 
 
 .input-box input::placeholder,
@@ -194,10 +212,6 @@ body {
     gap: 15px;
 }
 
-.half-width {
-    width: 48%;
-}
-
 body::-webkit-scrollbar {
     width: 8px; 
 }
@@ -213,70 +227,4 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color del pulgar al pasar el mouse por encima */
-}
-.file-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    background: #ffffff53;
-    border: 2px solid #dddddda4;
-    border-radius: 40px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 16px;
-    position: relative;
-    padding: 0 20px;
-}
-
-.input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 10px 0;
-}
-
-.file-label {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    background: #ffffff53;
-    border: 2px solid #dddddda4;
-    border-radius: 40px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 16px;
-    padding: 0 20px;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap; /* Asegura que el texto no se envuelva */
-}
-
-.file-label i {
-    font-size: 20px;
-}
-
-.file-label span {
-    flex-grow: 1;
-    text-align: left; /* Alinea el texto a la izquierda */
-}
-
-.profile-pic-name {
-    color: #ffffff;
-    font-size: 16px;
-    background: none;
-    border: none;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
-}
-
-/* Ocultar el input de archivo */
-input[type="file"] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0; /* Oculta el input real */
 }

@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco con menor transparencia */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde con más transparencia */
+    backdrop-filter: blur(12px); /* Efecto de desenfoque */
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin: 50px 0;
+}
+
+.wrapper h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.input-box input[type="email"] {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 0 20px 0 45px; /* Ajusta el padding para dejar espacio para el icono */
+    outline: none;
+    color: #ffffff;
+}
+
+.input-box input::placeholder {
+    color: #ffffff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #6a1b9a;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: #4a0072;
+}
+
+.register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.register-link p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p {
+    color: #dddddd;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco con menor transparencia */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde con más transparencia */
+    backdrop-filter: blur(12px); /* Efecto de desenfoque */
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.confirmation-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation-message i {
+    font-size: 50px;
+    color: #4caf50; /* Verde para el icono de confirmación */
+    margin-bottom: 20px;
+}
+
+.confirmation-message h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.confirmation-message p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #dddddd;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #6a1b9a;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background: #4a0072;
+}
