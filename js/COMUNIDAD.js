@@ -20,6 +20,12 @@ const botonesNuevosCard = document.getElementById('botonesnuevosCard');
 const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
+// Guardar estado del sidebar en localStorage
+sidebarToggle.addEventListener('click', () => {
+    barraLateral.classList.toggle('barra-lateral-closed');
+    localStorage.setItem('sidebar-open', !barraLateral.classList.contains('barra-lateral-closed'));
+});
+
 let currentPostElement = null;
 
 function postMessage() {

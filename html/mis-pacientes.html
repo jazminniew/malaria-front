@@ -9,56 +9,60 @@
 </head>
 <body>
     <div class="contenedor">
+<!----------------Responsive menu--------------------->
     <div class="menu">  
         <ion-icon name="menu-outline"></ion-icon>
         <ion-icon name="close-outline"></ion-icon>
     </div>
-    <!-----------------------Flecha y titulo--------------------------->
+<!----------------Final Responsive menu--------------------->
+<!-----------------------Flecha y titulo--------------------------->
     <div #id="flecha" class="barra-lateral max-barra-lateral">
         <i class='bx bx-chevron-left toggle'></i>
-            <div class="nombre-pagina">
-                <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
-                <span class="Malaria">MalarIA</span>
-            </div>
-            <button class="boton" id="buttonNuevo">
-                <ion-icon name="add-outline"></ion-icon>
-                <span>Nuevo</span>
-            </button>
-        <div>
-        <!---------------------Navegacion----------------------------->
-            <nav class="navegacion">
-                <ul>
-                    <li>
-                        <a  href="home3.html">
-                            <ion-icon name="analytics-outline"></ion-icon>
-                            <span>Analisis de IA</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a id="inbox" href="mis-pacientes.html">
-                            <ion-icon name="person-outline"></ion-icon>
-                            <span>Mis pacientes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a  href="comunidad.html">
-                            <ion-icon name="people-outline"></ion-icon>
-                            <span>Comunidad</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="logout-btn" class="Cerrar-sesion">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                            <span>Cerrar Sesion</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="nombre-pagina">
+            <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
+            <span class="Malaria">MalarIA</span>
         </div>
+        <button class="boton" id="buttonNuevo">
+            <ion-icon name="add-outline"></ion-icon>
+            <span>Nuevo</span>
+        </button>
+    <div>
+<!-----------------------Final Flecha y titulo--------------------------->
+<!--------------------------------Navegacion----------------------------->
+    <nav class="navegacion">
+        <ul>
+            <li>
+                <a  href="home3.html">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                    <span>Analisis de IA</span>
+                </a>
+            </li>
+            <li>
+                <a id="inbox" href="mis-pacientes.html">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <span>Mis pacientes</span>
+                </a>
+            </li>
+            <li>
+                <a  href="comunidad.html">
+                    <ion-icon name="people-outline"></ion-icon>
+                    <span>Comunidad</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="logout-btn" class="Cerrar-sesion">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <span>Cerrar Sesion</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+<!--------------------------------Final Navegacion----------------------------->
+        </div> <!--Cierre contenedor-->
         <div>
 <!---------------------Modo oscuro y perfil----------------------------->
-<div class="FINALCOMPLETO">
-            <div class="linea"></div>
+    <div class="FINALCOMPLETO">
+        <div class="linea"></div>
         <div class="modo-oscuro">
             <div class="info">
                 <ion-icon name="moon-outline"></ion-icon>
@@ -80,29 +84,29 @@
                     </div>
                 </div>
             </div>
-          </div>
-            </div>
         </div>
-      </div>
-        <main> 
-      
-<!---------------------Searchbar----------------------------->
-        <div class="wrapper">
-<form class="form">
-    <button>
-        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
-            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-    </button>
-    <input class="input" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
-    <button class="reset" type="reset">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-</form>
+    </div>
+<!---------------------Final Modo oscuro y perfil----------------------------->
+</div> <!---Final div sin nombre---------->
 </div>
-<!---------------------NAVBAR----------------------------------------------------------------->
+<main> 
+<!---------------------Searchbar----------------------------->
+    <div class="wrapper">
+        <form class="form">
+            <button>
+                <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                    <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </button>
+            <input class="input" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
+            <button class="reset" type="reset">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </form>
+    </div>
+<!---------------------final NAVBAR----------------------------------------------------------------->
 <div class="FONDOPACIENTES"> 
 <!---------------------Carta1----------------------------->
     <div class="cartas-separadas">
@@ -112,66 +116,66 @@
             </div>
         </div>
     </div> 
+<!---------------------Final Carta1----------------------->
 <!---------------------Carta2----------------------------->
-<div class="cartas-separadas">
-    <div class="card" id="cartaa">
-        <div class="cube text_s">
-            <label class="side front">Laila Dejtiar</label>
+    <div class="cartas-separadas">
+        <div class="card" id="cartaa">
+            <div class="cube text_s">
+                <label class="side front">Laila Dejtiar</label>
+            </div>
         </div>
-    </div>
-</div> 
-<!---------------------Carta3----------------------------->
-<div class="cartas-separadas">
-    <div class="card" id="cartaa">
-        <div class="cube text_s">
-            <label class="side front">Benjo Kapu</label>
-        </div>
-    </div>
-</div> 
-<!---------------------Carta4----------------------------->
-<div class="cartas-separadas">
-<div class="card" id="cartaa">
-    <div class="cube text_s">
-        <label class="side front">Sophie Sued</label>
-    </div>
-</div>
-</div> 
-<!---------------------Carta5----------------------------->
-<div class="cartas-separadas">
-    <div class="card" id="cartaa">
-        <div class="cube text_s">
-            <label class="side front">Oliver Safdieh</label>
-        </div>
-    </div>
     </div> 
-
-    <!---------------------Cerrar sesion----------------------------->  
+<!---------------------Final Carta2----------------------->
+<!---------------------Carta3----------------------------->
+    <div class="cartas-separadas">
+        <div class="card" id="cartaa">
+            <div class="cube text_s">
+                <label class="side front">Oliver Safdieh</label>
+            </div>
+        </div>
+    </div> 
+<!---------------------Final Carta3----------------------->
+<!---------------------Carta4----------------------------->
+    <div class="cartas-separadas">
+        <div class="card" id="cartaa">
+            <div class="cube text_s">
+                <label class="side front">Benjo Kapu</label>
+            </div>
+        </div>
+    </div> 
+<!---------------------Final Carta4----------------------->
+<!---------------------Carta5----------------------------->
+    <div class="cartas-separadas">
+        <div class="card" id="cartaa">
+            <div class="cube text_s">
+                <label class="side front">Sophie Sued</label>
+            </div>
+        </div>
+    </div>
+<!---------------------Final Carta5-----------------------> 
+<!---------------------Cerrar sesion----------------------------->  
     <div class="card_cerrar" id="logout-card">
-        <!--<div class="card-content">
-            <p class="card-heading">Cerrar Sesión</p>
-            <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
-        </div>--> 
         <div class="card-button-wrapper">
             <button class="card-button secondary" id="cancel-btn">Cancelar</button>
             <button class="card-button primary" id="exit-btn">Salir</button>
         </div>
     </div>
-    </div>
-    <!---------------------Nuevo---------------------------->  
+<!---------------------Final Cerrar sesion----------------------------->
+<!------------------------------Nuevo---------------------------------->  
     <div class="card-nuevo" id="botonesnuevosCard"> 
         <div class="card-button-wrapper-nuevo">
             <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Subir Imagen</button>
             <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
         </div>
     </div>
+<!------------------------------Final Nuevo---------------------------------->  
 </div> 
-    </main>
-    <script src="common.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/mis-pacientes.js"></script>   
-    <script src="/js/sidebar.js"></script> 
-    </div>
+</main>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="/js/mis-pacientes.js"></script>  
+<script src="/js/sidebar.js"></script>  
+</div>
 </div>
 </body>
 </html>
