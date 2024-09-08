@@ -13,79 +13,95 @@ body {
     background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
     background-size: cover;
     background-position: center;
-    
 }
 
 .wrapper {
     width: 420px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco con alta transparencia */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde con transparencia */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
     color: #fff;
     border-radius: 12px;
-    padding: 50px 40px 30px;
-    margin: 50px 0 50px 0;
-}
-.wrapper::-webkit-scrollbar {
-    width: 8px; 
-}
-
-.wrapper::-webkit-scrollbar-track {
-    background: var(--fondo-scrollbar) #f1f1f1; 
-    border-radius: 10px; 
-}
-
-.FONDOPACIENTES::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px; 
-}
-.FONDOPACIENTES::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color del pulgar al pasar el mouse por encima */
+    padding: 30px 40px;
+    margin: 20px 0;
 }
 
 .wrapper h1 {
-    font-size: 36px;
+    font-size: 28px;
     text-align: center;
     margin-bottom: 20px;
+    color: #ffffff; 
 }
 
-.wrapper .input-box {
+.input-box {
     position: relative;
     width: 100%;
     height: 50px;
-    background: transparent;
     margin: 10px 0;
 }
 
-.input-box input,
+.input-box input[type="text"],
+.input-box input[type="email"],
+.input-box input[type="password"],
 .input-box select {
     width: 100%;
     height: 100%;
     background: transparent;
-    border: none;
-    outline: none;
     border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 40px;
     font-size: 16px;
-    color: #fff;
-    padding: 0 20px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    padding: 0 45px 0 20px; /* Ajusta el padding para dejar espacio para el icono */
+    outline: none;
+    color: #ffffff; /* Texto en blanco para el input */
 }
+
 
 .input-box input::placeholder,
-.input-box select {
-    color: #fff;
+.input-box select::placeholder {
+    color: #ffffff; /* Color del placeholder en blanco */
 }
 
 .input-box select {
-    color: #fff;
+    color: #ffffff; /* Texto en blanco para el select cuando está vacío */
 }
 
+/* Opciones del select en el navegador */
+.input-box select option {
+    background-color: #ffffff; /* Fondo blanco para las opciones */
+    color: #000000; /* Texto negro para las opciones */
+}
+
+/* Placeholder específico para el select */
+.input-box select option:first-of-type {
+    color: #ffffff; /* Color del placeholder en blanco */
+    background-color: #ebebeb;
+}
+
+.input-box select {
+    overflow: auto;
+}
+
+/* Estilo del scrollbar */
+.input-box select::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+.input-box select::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo del track */
+    border-radius: 10px;
+}
+
+.input-box select::-webkit-scrollbar-thumb {
+    background: #888; /* Color de la parte deslizable */
+    border-radius: 10px;
+}
+
+.input-box select::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color al pasar el mouse */
+}
 .input-box i {
     position: absolute;
-    right: 40px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
@@ -95,38 +111,82 @@ body {
     display: none;
 }
 
-.wrapper .btn {
+/* Estilos específicos para el input de archivo */
+.input-box input[type="file"] {
+    width: 100%;
+    height: 50px;
+    background: #ffffff53;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0; /* Ocultar el input real */
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.input-box .file-label {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 100%;
+    background:  transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    z-index: 0;
+    padding: 0 20px;
+}
+
+.input-box .file-label:hover {
+    background:  #ffffff33;
+}
+
+/* Ajustes generales de los botones */
+.btn {
     width: 100%;
     height: 45px;
     background: #fff;
     border-radius: 40px;
     border: 10px;
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1) ;
     cursor: pointer;
     font-size: 16px;
     color: #333;
     font-weight: 600;
-    margin-top: 20px;
 }
 
-.wrapper .register-link {
+.btn:hover {
+    background: #bdbdbd;
+}
+
+.register-link {
     font-size: 14.5px;
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 20px 0;
 }
 
 .register-link p a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
+}
+
+.register-link p {
+    color: #dddddd;
 }
 
 .register-link p a:hover {
     text-decoration: underline;
 }
 
-/* Estilos para organizar elementos en columnas */
 .flex-container {
     display: flex;
     justify-content: space-between;
@@ -135,4 +195,88 @@ body {
 
 .half-width {
     width: 48%;
+}
+
+body::-webkit-scrollbar {
+    width: 8px; 
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--fondo-scrollbar) #f1f1f1; 
+    border-radius: 10px; 
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px; 
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del pulgar al pasar el mouse por encima */
+}
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    background: #ffffff53;
+    border: 2px solid #dddddda4;
+    border-radius: 40px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: #ffffff53;
+    border: 2px solid #dddddda4;
+    border-radius: 40px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap; /* Asegura que el texto no se envuelva */
+}
+
+.file-label i {
+    font-size: 20px;
+    margin-right: 15px; /* Espacio entre el icono y el texto */
+}
+
+.file-label span {
+    flex-grow: 1;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.profile-pic-name {
+    color: #ffffff;
+    font-size: 16px;
+    background: none;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
+}
+
+/* Ocultar el input de archivo */
+input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Oculta el input real */
 }

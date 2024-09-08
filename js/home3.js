@@ -1,28 +1,4 @@
-const cloud = document.querySelector(".bx-chevron-left"); 
-const barraLateral = document.querySelector(".barra-lateral");
-const spans = document.querySelectorAll("span");
-const palanca = document.querySelector(".switch");
-const circulo = document.querySelector(".circulo");
-const menu = document.querySelector(".menu");
-const main = document.querySelector("main");
 
-const sidebarToggle = document.getElementById('sidebarToggle');
-const content = document.getElementById('content');
-const searchBar = document.querySelector('.search-bar');
-
-const logoutBtn = document.getElementById('logout-btn');
-const logoutCard = document.getElementById('logout-card');
-const cancelBtn = document.getElementById('cancel-btn');
-const exitBtn = document.getElementById('exit-btn');
-
-const btnNuevo = document.getElementById('buttonNuevo');
-const botonesNuevosCard = document.getElementById('botonesnuevosCard');
-const pacienteBtn = document.getElementById('paciente-btn');
-const imagenBtn = document.getElementById('imagen-btn');
-
-const mainContent = document.getElementById('FONDOPACIENTES');
-
-//modo obscuro quede seleccionado
 // Selecciona los botones de filtro
 const filterButtons = document.querySelectorAll('input[name="filter"]');
 const elementsContainer = document.getElementById('elements-container');
@@ -79,44 +55,6 @@ function addPatient() {
 }
 
 applyFilter();
-
-// Manejo del botón "Nuevo"
-btnNuevo.addEventListener('click', function() {
-    botonesNuevosCard.classList.add('show');
-});
-
-pacienteBtn.addEventListener('click', function() {
-    window.location.href = 'crear-paciente.html';
-});
-
-imagenBtn.addEventListener('click', function() {
-    window.location.href = 'seleccionar-imagen.html';
-});
-
-document.addEventListener('click', function(event) {
-    if (!botonesNuevosCard.contains(event.target) && !btnNuevo.contains(event.target)) {
-        botonesNuevosCard.classList.remove('show');
-    }
-});
-
-// Cerrar sesión
-logoutBtn.addEventListener('click', function() {
-    logoutCard.classList.add('show');
-});
-
-cancelBtn.addEventListener('click', function() {
-    logoutCard.classList.remove('show');
-});
-
-exitBtn.addEventListener('click', function() {
-    window.location.href = 'index.html';
-});
-
-document.addEventListener('click', function(event) {
-    if (!logoutCard.contains(event.target) && !logoutBtn.contains(event.target)) {
-        logoutCard.classList.remove('show');
-    }
-});
 
 // Cargar estado del modo oscuro desde localStorage
 document.addEventListener('DOMContentLoaded', () => {

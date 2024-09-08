@@ -47,7 +47,7 @@ cancelBtn.addEventListener('click', function() {
 });
 
 exitBtn.addEventListener('click', function() {
-    window.location.href = 'index.html';
+    window.location.href = 'cerraste-sesion.html';
 });
 
 document.addEventListener('click', function(event) {
