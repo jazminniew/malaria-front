@@ -33,6 +33,7 @@
     --fondo-scrollbar: #f1f1f1;
     --color-texto-elementos:#7c3ed6;
     --fondo-user-hover: #bebebe;
+    --color-icono: #545454;
 
 }
 .dark-mode{
@@ -69,6 +70,7 @@
     --fondo-scrollbar: #141414;
     --color-texto-elementos:#fff;
     --fondo-user-hover: #262626;
+    --color-icono: #7c7c7c;
 }
 *{
     margin: 0;
@@ -142,7 +144,7 @@ body{
 .barra-lateral .nombre-pagina{
     width: 100%;
     height: 45px;
-    color: var(--color-texto);
+    color: var(--color-icono);
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -550,6 +552,7 @@ input[type="search"] {
 .cartas-separadas{
 align-items: center;
 height: 41%;
+margin: none;
 }
 .card_form {
     width: 8em;
@@ -564,7 +567,7 @@ height: 41%;
     font-size: 1.5em;
     width: 150%;
     inset: 0;
-    padding: 0px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
+    padding: 10px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
     color: #fff;
     background-image: linear-gradient(
     to top,
@@ -628,7 +631,6 @@ height: 41%;
     letter-spacing: 0.5px;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 5px;
   }
   .top {
     transform: rotateX(-90deg) translate3d(0, 0, 0em);
@@ -865,4 +867,5 @@ transform: scale(0.6);
 .button-usuario:hover{
     background-color: var(--fondo-user-hover);
 }
+
 

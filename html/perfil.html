@@ -1,38 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/perfil.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil del Médico</title>
-    <link rel="stylesheet" href="/css/perfil.css">
+    <title>MalarIa</title>
 </head>
 <body>
-    <div class="profile-container">
-        <header class="header">
-            <img src="profile-photo.jpg" alt="Foto del Médico" class="profile-photo">
-            <div class="profile-info">
-                <h1>Dr. Juan Pérez</h1>
-                <p>Edad: 45 años</p>
-                <p>País: Argentina</p>
-                <p>Ocupación: Cardiólogo</p>
-                <p>Años de Experiencia: 20</p>
-                <p>Títulos: Médico Cirujano, Especialista en Cardiología</p>
-            </div>
-        </header>
-        <section class="contact-section">
-            <h2>Contacto</h2>
-            <form id="contact-form">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-            <div id="messages">
-                <!-- Mensajes se mostrarán aquí -->
-            </div>
-        </section>
+    <div class="contenedor">
+    <div class="menu">  
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
     </div>
-    <script src="scripts.js"></script>
+    <!-----------------------Flecha y titulo--------------------------->
+    <div #id="flecha" class="barra-lateral max-barra-lateral">
+        <i class='bx bx-chevron-left toggle'></i>
+            <div class="nombre-pagina">
+                <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
+                <span class="Malaria">MalarIA</span>
+            </div>
+            <button class="boton" id="buttonNuevo">
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Nuevo</span>
+            </button>
+        <div>
+        <!---------------------Navegacion----------------------------->
+            <nav class="navegacion">
+                <ul>
+                    <li>
+                        <a  href="home3.html">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                            <span>Analisis de IA</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="mis-pacientes.html">
+                            <ion-icon name="person-outline"></ion-icon>
+                            <span>Mis pacientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="comunidad.html">
+                            <ion-icon name="people-outline"></ion-icon>
+                            <span>Comunidad</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout-btn" class="Cerrar-sesion">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                            <span>Cerrar Sesion</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+<!---------------------Modo oscuro y perfil----------------------------->
+<div class="FINALCOMPLETO">
+            <div class="linea"></div>
+        <div class="modo-oscuro">
+            <div class="info">
+                <ion-icon name="moon-outline"></ion-icon>
+                <span>Modo Oscuro</span>
+            </div>
+            <div class="switch">
+                <div class="base">
+                    <div class="circulo prendido"></div>
+                </div>
+            </div>
+        </div>  
+        <div class="button-usuario" onclick="location.href='perfil.html'" id="inbox">
+          <div class="usuario">
+              <img src="/userphoto.avif" alt="imagen" class="usuario-imagen">
+              <div class="info-usuario">
+                  <div class="nombre-email">
+                      <span class="nombre">Jazmin</span>
+                      <span class="email">Profesional</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+        </div>
+    </div>
+  </div>
+    <main> 
+<!---------------------NAVBAR----------------------------------------------------------------->
+<div class="FONDOPACIENTES" id="elements-container"> 
+    <div class="container"></div>
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <!-- Perfil de Usuario -->
+            <div class="profile-card">
+                <div class="profile-pic-container">
+                    <img id="profile-pic" src="userphoto.avif" alt="Foto0" class="profile-pic" onclick="document.getElementById('profile-pic-input').click();">
+                    <input type="file" id="profile-pic-input" accept="image/*" onchange="updateProfilePic(event)" style="display: none;">
+                </div>
+                <div class="profile-info">
+                    <div class="info-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" value="Juan" disabled>
+                    </div>
+                    <div class="info-group">
+                        <label for="surname">Apellido:</label>
+                        <input type="text" id="surname" value="Pérez" disabled>
+                    </div>
+                    <div class="info-group">
+                        <label for="country">País de Residencia:</label>
+                        <select id="country" disabled>
+                            <!-- Opciones de países serán insertadas por JS -->
+                        </select>
+                    </div>
+                    <div class="info-group">
+                        <label for="occupation">Ocupación:</label>
+                        <select id="occupation" disabled>
+                            <option value="medico" selected>Médico</option>
+                            <option value="ingeniero">Ingeniero</option>
+                            <option value="abogado">Abogado</option>
+                            <!-- Más opciones aquí -->
+                        </select>
+                    </div>
+                    <div class="info-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" value="juan.perez@example.com" disabled>
+                    </div>
+                    <div class="info-group">
+                        <label for="description">Descripción:</label>
+                        <textarea id="description" rows="3" placeholder="Descripción breve aquí..." disabled></textarea>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-button" id="edit-button" onclick="toggleEditMode()">Editar</button>
+                    <button class="confirm-button" id="confirm-button" onclick="saveChanges()" style="display: none;">Confirmar</button>
+                </div>
+            </div>
+
+            <!-- Mensajes Privados -->
+            <div class="messages-card">
+                <h2>Mensajes Privados</h2>
+                <div class="message-list" id="message-list">
+                    <!-- Mensajes serán insertados por JS -->
+                    <p id="no-messages" style="display: none;">No has recibido ningún mensaje.</p>
+                </div>
+                <textarea id="reply-text" rows="3" placeholder="Escribe tu respuesta aquí..." style="display: none;"></textarea>
+                <button class="send-button" id="send-button" onclick="sendReply()" style="display: none;">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------Cerrar sesion----------------------------->  
+    <div class="card_cerrar" id="logout-card">
+        <div class="card-button-wrapper">
+            <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+            <button class="card-button primary" id="exit-btn">Salir</button>
+        </div>
+    </div>
+    <!---------------------Nuevo---------------------------->  
+    <div class="card-nuevo" id="botonesnuevosCard"> 
+        <div class="card-button-wrapper-nuevo">
+            <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
+            <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+        </div>
+    </div>
+    <!---------------------Nuevo final---------------------------->  
+</div> 
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/perfil.js"></script>  
+    <script src="/js/sidebar.js"></script>  
+    </div>
+</div>
 </body>
 </html>

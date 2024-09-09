@@ -28,7 +28,7 @@ pacienteBtn.addEventListener('click', function() {
 });
 
 imagenBtn.addEventListener('click', function() {
-    window.location.href = 'seleccionar-imagen.html';
+    window.location.href = 'form-preguntas.html';
 });
 
 document.addEventListener('click', function(event) {

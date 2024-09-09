@@ -43,17 +43,17 @@ body {
 .input-box input[type="email"] {
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 40px;
     font-size: 16px;
-    padding: 0 20px 0 45px; /* Ajusta el padding para dejar espacio para el icono */
+    padding: 0 45px 0 20px; /* Ajusta el padding para dejar espacio para el icono */
     outline: none;
-    color: #ffffff;
+    color: #ffffff; /* Texto en blanco para el input */
 }
 
 .input-box input::placeholder {
-    color: #ffffff;
+    color: #e6e6e6;
 }
 
 .input-box i {
@@ -68,20 +68,20 @@ body {
 .btn {
     width: 100%;
     height: 45px;
-    background: #6a1b9a;
+    background: #ffffff;
     border-radius: 40px;
     border: none;
     outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font-size: 16px;
-    color: #fff;
+    color: #4a0072;
     font-weight: 600;
     margin-top: 20px;
 }
 
 .btn:hover {
-    background: #4a0072;
+    background: #c1c1c1;
 }
 
 .register-link {

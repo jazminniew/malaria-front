@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco con alta transparencia */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde con transparencia */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin: 20px 0;
+}
+
+.wrapper h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; 
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.input-box input[type="text"],
+.input-box input[type="email"],
+.input-box input[type="password"],
+.input-box input[type="number"],
+.input-box input[type="radio-group"],
+.input-box select {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 0 45px 0 20px; /* Ajusta el padding para dejar espacio para el icono */
+    outline: none;
+    color: #ffffff; /* Texto en blanco para el input */
+}
+/* Para Webkit (Chrome, Safari) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Para Edge */
+input[type="number"]::-ms-clear {
+    display: none;
+}
+
+
+
+.input-box input::placeholder,
+.input-box select::placeholder {
+    color: #ffffff; /* Color del placeholder en blanco */
+}
+
+.input-box select {
+    color: #ffffff; /* Texto en blanco para el select cuando está vacío */
+}
+
+/* Opciones del select en el navegador */
+.input-box select option {
+    background-color: #ffffff; /* Fondo blanco para las opciones */
+    color: #000000; /* Texto negro para las opciones */
+}
+
+/* Placeholder específico para el select */
+.input-box select option:first-of-type {
+    color: #ffffff; /* Color del placeholder en blanco */
+    background-color: #ebebeb;
+}
+
+.input-box select {
+    overflow: auto;
+}
+
+/* Estilo del scrollbar */
+.input-box select::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+}
+
+.input-box select::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo del track */
+    border-radius: 10px;
+}
+
+.input-box select::-webkit-scrollbar-thumb {
+    background: #888; /* Color de la parte deslizable */
+    border-radius: 10px;
+}
+
+.input-box select::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color al pasar el mouse */
+}
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.input-box select::-ms-expand {
+    display: none;
+}
+
+/* Estilos específicos para el input de archivo */
+.input-box input[type="file"] {
+    width: 100%;
+    height: 50px;
+    background: #ffffff53;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0; /* Ocultar el input real */
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 45px 0 20px; /* Ajusta el padding para dejar espacio para el icono */
+}
+
+.input-box-circulos {
+    position: relative;
+    width: 100%;
+    height: 100px; /* Aumentar altura del input-box */
+    margin: 10px 0;
+    padding: 10px; /* Padding para el borde del input-box */
+    border: 2px solid rgba(255, 255, 255, 0.195); /* Borde del input-box */
+    border-radius:25px; /* Bordes redondeados */
+    background: transparent; /* Fondo semitransparente */
+    display: flex;
+    flex-direction: column; /* Coloca los elementos verticalmente */
+    align-items: flex-start;
+    gap: 10px; /* Espacio entre el placeholder y los botones */
+}
+
+.input-box .file-label:hover {
+    background:  #ffffff33;
+}
+
+/* Ajustes generales de los botones */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border-radius: 40px;
+    border: 10px;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1) ;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #bdbdbd;
+}
+
+.register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.register-link p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p {
+    color: #dddddd;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+body::-webkit-scrollbar {
+    width: 8px; 
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--fondo-scrollbar) #f1f1f1; 
+    border-radius: 10px; 
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px; 
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del pulgar al pasar el mouse por encima */
+}
+
+/* Estilo del contenedor del grupo de radios */
+.input-box-circulos {
+    position: relative;
+    width: 100%;
+    height: 100px; /* Aumentar altura del input-box */
+    margin: 10px 0;
+    padding: 10px; /* Padding para el borde del input-box */
+    border: 2px solid rgba(255, 255, 255, 0.195); /* Borde del input-box */
+    border-radius: 25px; /* Bordes redondeados */
+    background: transparent; /* Fondo transparente */
+    display: flex;
+    flex-direction: column; /* Coloca el placeholder arriba */
+    align-items: flex-start;
+    gap: 10px; /* Espacio entre el placeholder y los botones */
+}
+
+/* Placeholder para el grupo de radio */
+.input-box-circulos .placeholder {
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+/* Contenedor para los radio buttons */
+.radio-group {
+    display: flex;
+    flex-direction: row; /* Coloca los botones de radio horizontalmente */
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones de radio */
+}
+
+/* Estilo de los labels que actúan como botones */
+.radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+    padding-left: 30px;
+    position: relative;
+    left: 5%;
+    top: 50%;
+}
+
+/* Círculo personalizado */
+.radio-group label::before {
+    content: '';
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* Estilo cuando el radio button está seleccionado */
+.radio-group input[type="radio"]:checked + label::before {
+    background: #3c00aa; /* Color del círculo cuando está seleccionado */
+    border-color: #3c00aa; /* Color del borde cuando está seleccionado */
+}
+
+/* Estilo cuando el radio button está seleccionado */
+.radio-group input[type="radio"]:checked + label {
+    color: #3c00aa; /* Color del texto cuando está seleccionado */
+}
+
+/* Estilo de los labels que actúan como botones cuando se pasa el mouse por encima */
+.radio-group label:hover::before {
+    background: #3c00aa; /* Color del círculo cuando se pasa el mouse por encima */
+    border-color: #3c00aa; /* Color del borde cuando se pasa el mouse por encima */
+}
+/* Ocultar el radio input original */
+.radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0; /* Ocultar el radio input original */
+}

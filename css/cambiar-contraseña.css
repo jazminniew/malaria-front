@@ -53,14 +53,14 @@ body {
 .btn {
     width: 100%;
     height: 45px;
-    background: #6a1b9a;
+    background: #ffffff;
     border-radius: 40px;
     border: none;
     outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font-size: 16px;
-    color: #fff;
+    color: #601b9a;
     font-weight: 600;
     text-decoration: none;
     display: flex;
@@ -69,5 +69,5 @@ body {
 }
 
 .btn:hover {
-    background: #4a0072;
+    background: #bababa;
 }

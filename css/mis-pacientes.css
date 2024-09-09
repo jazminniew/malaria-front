@@ -35,10 +35,12 @@
     --color-texto-elementoss: #7c3ed6;
     --color-texto-elementoss-hover: #9249ff;
     --fondo-user-hover: #bebebe;
+    --color-icono: #545454;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
     --color-texto:rgb(255,255,255);
+    --color-icono: #7c7c7c;
     --color-texto-menu:rgb(110,110,107);
     --color-menu-hover:rgb(8, 8, 8);
     --color-menu-hover-texto:rgb(238,238,238);
@@ -64,8 +66,8 @@
     --input-bg: #151515;
     --lupa-texto: #a5a5a5;
     --fondo-botones-sidebar: #0f0f0f;
-    --element-back-color:#242824;
-    --element-back-color-hover:#2c2e2c;
+    --element-back-color:#272727;
+    --element-back-color-hover:#2e2e2e;
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
@@ -140,7 +142,7 @@ body{
 .barra-lateral .nombre-pagina{
     width: 100%;
     height: 45px;
-    color: var(--color-texto);
+    color: var(--color-icono);
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -498,7 +500,7 @@ input[type="search"] {
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
     width: 800px;
-    height: 460px;
+    height: 490px;
     background: var(--fondo-elementos);
     border-radius: 12px;
     padding: 10px 0px;
@@ -831,3 +833,14 @@ transform: scale(0.6);
 .card-button-nuevo.secondary:hover {
     background-color: #313538da;
 }
+
+/*BUTTON USUARIO*/
+.button-usuario{
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+}
+.button-usuario:hover{
+    background-color: var(--fondo-user-hover);
+}
+
