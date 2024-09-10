@@ -48,14 +48,53 @@ function toggleEditMode() {
     document.getElementById('edit-button').style.display = isEditing ? 'none' : 'block';
     document.getElementById('confirm-button').style.display = isEditing ? 'block' : 'none';
 
+    // Solo permitir cambiar la foto cuando esté en modo de edición
+    document.getElementById('profile-pic').onclick = isEditing ? function() {
+        document.getElementById('profile-pic-input').click();
+    } : null;
+
     profileCard.classList.toggle('edit-mode', !isEditing);
 }
 
+
 function saveChanges() {
-    // Simular guardar cambios
-    alert('Cambios guardados');
-    toggleEditMode();
+    const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
+    const country = document.getElementById('country').value;
+    const occupation = document.getElementById('occupation').value;
+    const email = document.getElementById('email').value;
+    const description = document.getElementById('description').value;
+
+    // Hacer una solicitud fetch para actualizar los datos del usuario
+    fetch('https://malaria-xi.vercel.app/', {
+        method: 'PUT', // Asumiendo que el método para editar es PUT
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            surname: surname,
+            country: country,
+            occupation: occupation,
+            email: email,
+            description: description
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Cambios guardados exitosamente');
+            toggleEditMode(); // Desactivar el modo de edición
+        } else {
+            alert('Error al guardar los cambios');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error al intentar guardar los cambios');
+    });
 }
+
 
 function updateProfilePic(event) {
     const file = event.target.files[0];

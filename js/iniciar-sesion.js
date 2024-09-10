@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     };
 
     // Hacemos la petición a la API de inicio de sesión
-    fetch('https://tu-backend.vercel.app/api/login', {  // Cambia este link por el que te envíe Oliver
+    fetch('https://malaria-xi.vercel.app/user/login', {  // Cambia el link al que te envió Oliver
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form  id="registerForm">
+        <form id="registerForm">
             <h1>Crear cuenta</h1>
             <!--Contenedor para nombre y apellido-->
             <div class="flex-container">
@@ -31,15 +31,14 @@
             </div>
             <!--Contenedor para país y ocupación-->
             <div class="flex-container">
-<!-- País -->
-<div class="input-box half-width">
-    <select id="pais" name="pais" required>
-        <option value="" disabled selected>País</option>
-        <!-- Lista de países generada por JavaScript -->
-    </select>
-    <i class='bx bx-world'></i>
-</div>
-
+                <!-- País -->
+                <div class="input-box half-width">
+                    <select id="pais" name="pais" required>
+                        <option value="" disabled selected>País</option>
+                        <!-- Lista de países generada por JavaScript -->
+                    </select>
+                    <i class='bx bx-world'></i>
+                </div>
                 <!--Ocupación-->
                 <div class="input-box half-width">
                     <select name="ocupacion" required>
@@ -51,28 +50,29 @@
                 </div>
             </div>
             <!--Email-->
-            <div class="input-box" name="email">
-                <input type="email" placeholder="Email" required>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required>
                 <i class='bx bxl-gmail'></i>
             </div>
             <!--Contraseña-->
             <div class="input-box">
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <i class='bx bxs-lock-alt'></i>
+                <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                <i class='bx bxs-lock-alt' id="lockIcon" style="cursor: pointer;"></i>
             </div>
-<!--Foto de perfil-->
-<div class="input-box">
-    <label class="file-label" for="profilePicInput">
-        <i class='bx bxs-image'></i>
-        <span id="filePlaceholder">Foto de perfil</span>
-        <input type="file" accept="image/*" id="profilePicInput" name="profilePic" required>
-        <div id="profilePicName" class="profile-pic-name"></div>
-    </label>
-</div>
-
-        
+            
+            
+            
+            <!--Foto de perfil-->
+            <div class="input-box">
+                <label class="file-label" for="profilePicInput">
+                    <i class='bx bxs-image'></i>
+                    <span id="filePlaceholder">Foto de perfil</span>
+                    <input type="file" accept="image/*" id="profilePicInput" name="profilePic" required>
+                    <div id="profilePicName" class="profile-pic-name"></div>
+                </label>
+            </div>
             <!--Botón-->
-            <button type="submit" class="btn" onclick="location.href='iniciar-sesion.html'">Continuar</button>
+            <button type="submit" class="btn">Continuar</button>
             <!--Link para iniciar sesión-->
             <div class="register-link">
                 <p>¿Ya tienes una cuenta? <a href="iniciar-sesion.html">Iniciar Sesión</a></p>
@@ -80,6 +80,5 @@
         </form>
     </div>
     <script src="/js/crear-cuenta.js"></script>
-
 </body>
 </html>

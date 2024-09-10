@@ -34,6 +34,8 @@ countries.forEach(country => {
     option.textContent = country;
     selectElement.appendChild(option);
 });
+
+// Mostrar el nombre del archivo seleccionado
 document.getElementById('profilePicInput').addEventListener('change', function() {
     const fileInput = this;
     const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file chosen';
@@ -50,26 +52,39 @@ document.getElementById('profilePicInput').addEventListener('change', function()
     }
 });
 
+// Validar el formulario antes de enviarlo
 document.getElementById('registerForm').addEventListener('submit', async function(event) {
     event.preventDefault();  // Evita que el formulario se envíe de forma predeterminada
 
-    // Recopilar los datos del formulario
+    const nombre = document.querySelector('input[name="nombre"]').value;
+    const apellido = document.querySelector('input[name="apellido"]').value;
+    const fechaNacimiento = document.querySelector('input[name="fecha_nacimiento"]').value;
+    const pais = document.querySelector('select[name="pais"]').value;
+    const ocupacion = document.querySelector('select[name="ocupacion"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+    const profilePic = document.getElementById('profilePicInput').files.length > 0;
+
+    // Validación de campos vacíos
+    if (!nombre || !apellido || !fechaNacimiento || !pais || !ocupacion || !email || !password || !profilePic) {
+        alert('Por favor, completa todos los campos.');
+        return;  // No envía el formulario si falta información
+    }
+
     const formData = new FormData(this);
 
     try {
         // Enviar los datos al backend
-        const response = await fetch('URL_DE_TU_BACKEND/crear-cuenta', {
+        const response = await fetch('https://tu-backend-en-vercel.com/api/registro', {
             method: 'POST',
             body: formData
         });
 
         if (response.ok) {
             const data = await response.json();
-            // Redirigir al usuario a la página de inicio de sesión si el registro es exitoso
             alert('Registro exitoso');
             window.location.href = 'iniciar-sesion.html';
         } else {
-            // Si hay un error, mostrar un mensaje
             const errorData = await response.json();
             alert('Error: ' + errorData.message);
         }
@@ -77,37 +92,20 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         alert('Error al conectar con el servidor');
     }
 });
+const lockIcon = document.getElementById("lockIcon");
+const passwordInput = document.getElementById("password");
 
-document.getElementById('registerForm').addEventListener('submit', async function(event) {
-    event.preventDefault();  // Evita que el formulario se envíe de forma predeterminada
+lockIcon.addEventListener("click", function () {
+    // Cambia el tipo de input entre password y text
+    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
 
-    // Recopilar los datos del formulario
-    const formData = new FormData(this);
-
-    try {
-        // Enviar los datos al backend
-        const response = await fetch('URL_DE_TU_BACKEND/crear-cuenta', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            // Redirigir al usuario a la página de inicio de sesión si el registro es exitoso
-            alert('Registro exitoso');
-            window.location.href = 'iniciar-sesion.html';
-        } else {
-            // Si hay un error, mostrar un mensaje
-            const errorData = await response.json();
-            alert('Error: ' + errorData.message);
-        }
-    } catch (error) {
-        alert('Error al conectar con el servidor');
+    // Cambia el icono entre el candado cerrado y el candado abierto
+    if (type === "text") {
+        lockIcon.classList.remove('bxs-lock-alt');
+        lockIcon.classList.add('bxs-lock-open-alt');
+    } else {
+        lockIcon.classList.remove('bxs-lock-open-alt');
+        lockIcon.classList.add('bxs-lock-alt');
     }
 });
-
-const response = await fetch('https://tu-backend-en-vercel.com/api/registro', {
-    method: 'POST',
-    body: formData
-});
-
