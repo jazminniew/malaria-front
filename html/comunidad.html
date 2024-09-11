@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/home3.css">
+    <link rel="stylesheet" href="/css/comunidad.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIa</title>
@@ -70,62 +70,164 @@
                 </div>
             </div>
         </div>  
-      <div class="button-usuario">
-        <div class="usuario">
-            <img src="/userphoto.avif" alt="imagen">
-            <div class="info-usuario">
-                <div class="nombre-email">
-                    <span class="nombre">Jazmin</span>
-                    <span class="email">Profesional</span>
-                </div>
-            </div>
-        </div>
+        <div class="button-usuario" onclick="location.href='perfil.html'">
+          <div class="usuario">
+              <img src="/userphoto.avif" alt="imagen" class="usuario-imagen">
+              <div class="info-usuario">
+                  <div class="nombre-email">
+                      <span class="nombre">Jazmin</span>
+                      <span class="email">Profesional</span>
+                  </div>
+              </div>
+          </div>
       </div>
+      
         </div>
     </div>
   </div>
     <main> 
       
 <!---------------------Searchbar----------------------------->
-        <div class="wrapper">
-<form class="form">
-    <button>
-        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
-            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-    </button>
-    <input class="input" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
-    <button class="reset" type="reset">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-</form>
-
-<!---------------------Filtros----------------------------->
-<div class="container" id="buttons">
-  <div class="tabs">
-    <input type="radio" id="radio-1" name="filter" value="all" checked>
-  </div>
-</div>
-</div>
 <!---------------------NAVBAR----------------------------------------------------------------->
-<div class="FONDOPACIENTES" id="elements-container"> 
+<div>
+    <header>
+        <h1>Hola Manuel</h1>
+        <p>¿Te gustaría compartir algo en la comunidad? 😊</p>
+    </header>
+    <div class="create-post-container">
+        <h2>Crear un post</h2>
+        <div class="post-input-container">
+            <textarea id="postContent" placeholder="Escribe lo que quieras..."></textarea>
+            <button id="sendPostBtn">></button>
+        </div>
+    </div>
+    <div id="posts-container">
+        <div id="message-modal" class="FONDOPOSTS">
+
+            <!---------------------post1---------------------------->
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50" alt="User Image">
+                    <div class="post-user-info">
+                        <strong>Lucia Shafer</strong>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">❤️ 77</button>
+                    <button class="comment-btn">💬</button>
+                    <button class="message-btn">✉️</button>
+                </div>
+            </div>
+            <!--------------------- final post1---------------------------->
 
 
+            <!---------------------post2---------------------------->
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50" alt="User Image">
+                    <div class="post-user-info">
+                        <strong>Lucia Shafer</strong>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">❤️ 77</button>
+                    <button class="comment-btn">💬</button>
+                    <button class="message-btn">✉️</button>
+                </div>
+            </div>
+            <!--------------------- final post2---------------------------->
+
+            <!---------------------post3---------------------------->
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50" alt="User Image">
+                    <div class="post-user-info">
+                        <strong>Lucia Shafer</strong>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">❤️ 77</button>
+                    <button class="comment-btn">💬</button>
+                    <button class="message-btn">✉️</button>
+                </div>
+            </div>
+            <!--------------------- final post3---------------------------->
+
+            <!---------------------post4---------------------------->
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50" alt="User Image">
+                    <div class="post-user-info">
+                        <strong>Lucia Shafer</strong>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">❤️ 77</button>
+                    <button class="comment-btn">💬</button>
+                    <button class="message-btn">✉️</button>
+                </div>
+            </div>
+            <!--------------------- final post4---------------------------->
+
+                            <div class="post">
+                                <div class="post-header">
+                                    <img src="https://via.placeholder.com/50" alt="User Image">
+                                    <div class="post-user-info">
+                                        <strong>Lucia Shafer</strong>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="like-btn">❤️ 77</button>
+                                    <button class="comment-btn">💬</button>
+                                    <button class="message-btn">✉️</button>
+                                </div>  
+                                </div>
+        
+            <!---------------------post5---------------------------->
+            <div class="post">
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/50" alt="User Image">
+                    <div class="post-user-info">
+                        <strong>Lucia Shafer</strong>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn">❤️ 77</button>
+                    <button class="comment-btn">💬</button>
+                    <button class="message-btn">✉️</button>
+                </div>
+            </div>
+            <!--------------------- final post5--------------------------->
+             <!--------------------- JUSTO ACA QUIERO QUE SE CREEN LOS NUEVOS POSTAS CHATGPT AYUDAME SEÑAL!--------------------------->
+            
+    </div>
+</div>
 
 
     <!---------------------Cerrar sesion----------------------------->  
     <div class="card_cerrar" id="logout-card">
-        <!--<div class="card-content">
-            <p class="card-heading">Cerrar Sesión</p>
-            <p class="card-description">¿Estás seguro que deseas cerrar sesión?</p>
-        </div>--> 
         <div class="card-button-wrapper">
             <button class="card-button secondary" id="cancel-btn">Cancelar</button>
             <button class="card-button primary" id="exit-btn">Salir</button>
         </div>
-    </div>
     </div>
     <!---------------------Nuevo---------------------------->  
     <div class="card-nuevo" id="botonesnuevosCard"> 
@@ -134,14 +236,13 @@
             <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
         </div>
     </div>
+    <!---------------------Nuevo final---------------------------->  
 </div> 
     </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/home3.js"></script>  
+    <script src="/js/comunidad.js"></script>  
     <script src="/js/sidebar.js"></script>  
-    <script src="common.js"></script>
-
     </div>
 </div>
 </body>

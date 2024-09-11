@@ -23,7 +23,7 @@
     --file-name: #5d5d5d;
     --nuevo: #000;
     --back-color-nuevo:#ececec;
-    --back-elements-color:#dddddd;
+    --back-elements-color:#a1a1a1;
     --fondo-elementos:#f3f3f3;
     --input-bg: #fff;
     --lupa: #646487;
@@ -31,7 +31,10 @@
     --carta-cerrar-back: rgb(255, 255, 255);
     --color-boton-acceder: #9147ff;
     --fondo-scrollbar: #f1f1f1;
+    --color-texto-elementos:#7c3ed6;
     --fondo-user-hover: #bebebe;
+    --color-icono: #545454;
+
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -39,7 +42,7 @@
     --color-texto-menu:rgb(110,110,107);
     --color-menu-hover:rgb(8, 8, 8);
     --color-menu-hover-texto:rgb(238,238,238);
-    --color-boton: rgb(255,255,255);
+    --color-boton: #7c3ed6;
     --color-boton-texto:rgb(0,0,0);
     --color-linea:rgb(90,90,90);
     --color-switch-base:rgb(39,205,64);
@@ -47,7 +50,7 @@
     --color-scroll:rgb(68,79,74);
     --color-scroll-hover:rgb(85,85,85);
     --background-color:rgb(37, 37, 37);
-    --fondo-flecha: #fff;
+    --fondo-flecha: #7c3ed6;
     --flecha: #000;
     --fondo-filtro-boton: #2f2f2f;
     --color-texto-filtros: #fff;
@@ -61,12 +64,13 @@
     --input-bg: #151515;
     --lupa-texto: #a5a5a5;
     --fondo-botones-sidebar: #0f0f0f;
-    --element-back-color:#242824;
+    --element-back-color:#282b28;
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
+    --color-texto-elementos:#fff;
     --fondo-user-hover: #262626;
-    
+    --color-icono: #7c7c7c;
 }
 *{
     margin: 0;
@@ -78,8 +82,6 @@ body{
     height: 100vh;
     width: 100%;
     background-color: var(--background-color);
-    display: flex;
-    overflow: hidden;
 }
 .contenedor{
     display: flex;
@@ -119,24 +121,30 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 0px 10px 10px 0px;
+    position: sticky;
 }
 .mini-barra-lateral{
     width: 80px;
+    
 }
 .mini-barra-lateral .bx-chevron-left {
     transform: translateX(-690%)  translateY(-50%) rotate(180deg);
     transition: transform 0.5s ease;
 }
+.mini-barra-lateral .button-usuario:hover{ /*NO ME ANDA LA FOTO DE PERIL NO SE LE SALE EL HOVER*/
+    background-color: none;
+}
+
 .barra-lateral .nombre-pagina span.oculto{
-    opacity: 0;
-    display: none;
-    transition:  transform 0.5s ease;
+        opacity: 0;
+        display: none;
+        transition:  transform 0.5s ease;
 }
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{
     width: 100%;
     height: 45px;
-    color: var(--color-texto);
+    color: var(--color-icono);
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -358,66 +366,58 @@ right: 15px;
     color: var(--color-menu-hover-texto);
 }
 /*-------------------------------------------Main------------------------------------*/
-
+main{
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+}
+main.min-main{
+    transition: margin-left 0.5s;
+}   
 .menu {
     display: none;
 }
 
-/*-----------------------Fondo comunidad----------------------*/
-body::-webkit-scrollbar {
-    width: 8px; 
-}
-
-body::-webkit-scrollbar-track {
-    background: var(--fondo-scrollbar) #f1f1f1; 
-    border-radius: 10px; 
-}
-
-body::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px; 
-}
-body::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color del pulgar al pasar el mouse por encima */
-}
-
-
 /*CERRAR SESION*/
-.card_cerrar{
+.card_cerrar {
     width: 300px;
     height: fit-content;
-    position: fixed;
-    transform: translate(-50%, -50%) scale(0.8); 
+    position: fixed; /* Fijo en lugar de absoluto */
+    top: 50%;
+    left: 50%;
+    transform: translate(-190%, -50%) scale(0.8);
     padding: 20px;
     background: var(--carta-cerrar-back);
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); /* Sombras más notorias para dar profundidad */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Transición más larga y fluida */
-    opacity: 0; /* Oculta la carta visualmente */
-}
-.card_cerrar.show {
-    display: flex; 
-    opacity: 1; 
-    transform: translate(-120%, 230%) scale(1); 
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    opacity: 0;
     z-index: 10000;
-    visibility: visible; 
-    position: fixed;
+    visibility: hidden;
 }
-.mini-barra-lateral .card_cerrar{ /*FIJARSE PORQUE LA CARTA NO SE MUEVE CUANDO CIERRO*/
-    transform: translateX(1000%)  translateY(-50%);
+
+.card_cerrar.show {
+    opacity: 1; 
+    visibility: visible;
+    transform: translate(-185%, 0%) scale(1); 
+    z-index: 10000000;
+    position: absolute;
+}
+
+.mini-barra-lateral .card_cerrar {
+    transform: translateX(100%) translateY(-50%); /* Ajuste aquí */
     transition: transform 0.5s ease;
     position: fixed;
 }
+
 .card-content {
     text-align: center;
     width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 5px;
 }
 .card-heading {
     font-size: 20px;
@@ -465,7 +465,7 @@ body::-webkit-scrollbar-thumb:hover {
 .card-nuevo {
     width: 250px;
     height: fit-content;
-    transform: translate(-50%, -50%) scale(0.8); 
+    transform: translate(-110%, -550%) scale(0.8); 
     padding: 20px;
     background: var(--carta-cerrar-back);
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
@@ -483,8 +483,9 @@ body::-webkit-scrollbar-thumb:hover {
 .card-nuevo.show {
     opacity: 1; 
     visibility: visible;
-    transform: translate(-20%, -340%) scale(1); 
+    transform: translate(-105%, -540%) scale(1); 
     z-index: 10000000;
+    position: absolute;
 }
 .card-content-nuevo {
     text-align: center;
@@ -534,205 +535,6 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #313538da;
 }
 
-/*------------------COMUNIDAD-----------------------------------*/
-.container {
-    background: var(--fondo-elementos);
-    border-radius: 14px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0px 0px 30px;
-    height: 555px;
-}
-
-.posts::-webkit-scrollbar {
-    width: 8px; 
-}
-
-.posts::-webkit-scrollbar-track {
-    background: var(--fondo-scrollbar) #f1f1f1; 
-    border-radius: 10px; 
-}
-
-.posts::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px; 
-}
-.posts::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color del pulgar al pasar el mouse por encima */
-}
-
-header {
-margin-bottom: 10px;
-color: var(--color-texto);
-}
-
-.post-form {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.post-text{
-    color: var(--texto-post);
-}
-#send-post{
-    height: 30px;
-}
-
-textarea {
-    width: 90%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    resize: none;
-    font-size: 14px;
-    margin-right: 10px;
-    height: 90px;
-}
-
-button {
-    background-color: #9147ff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0px 10px;
-    cursor: pointer;
-    font-size: 16px;
-    border: none;
-}
-
-button:hover {
-background-color: #7c24ff;
-}
-
-.posts {
-display: flex;
-justify-content: space-between;
-gap: 20px;
-flex-wrap: wrap;
-overflow-y: auto;
-height: 400px;
-background-color: #fafafa;
-padding: 10px;
-border-radius: 10px;
-margin-bottom: 20px;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-width: 780px;
-height: 370px;
-}
-
-.post-column {
-flex: 1;
-min-width: 0;
-}
-.post {
-background: var(--fondo-post);
-border-radius: 14px;
-margin-bottom: 20px;
-padding: 15px;
-}
-.post-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 10px;
-color: var(--color-texto);
-}
-.username {
-font-weight: bold;
-}
-.like-button {
-background: transparent;
-border: none;
-font-size: 20px;
-cursor: pointer;
-color: #999;
-}
-.like-button.liked {
-color: red;
-}
-.comment-button {
-    align-self: flex-end;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.comment-button:hover{
-    background-color: #0056b3;
-}
-h2{
-    color: var(--contacto-texto);
-}
-.contact-button {
-background-color: #f0fff4;
-color: white;
-border: none;
-border-radius: 4px;
-padding: 10px 15px;
-cursor: pointer;
-font-size: 16px;
-margin-left: 10px;
-}
-.contact-button:hover {
-background-color: #e9ffee;
-}
-
-.comments {
-margin-top: 10px;
-border-top: 1px solid #ddd;
-padding-top: 10px;
-}
-
-.comment {
-border-top: 1px solid #ddd;
-padding-top: 5px;
-margin-top: 5px;
-}
-
-.comment-form {
-display: flex;
-gap: 10px;
-margin-top: 10px;
-}
-
-.comment-form textarea {
-    width: 100%; /* Ajustado para el botón de enviar */
-    border-radius: 12px;
-    padding: 10px;
-    box-sizing: border-box;
-    max-height: 50px; /* Altura máxima para el campo de texto de comentario */
-    resize: vertical; /* Permite redimensionar verticalmente */
-    resize: none;
-    background-color: var(--color-caja-texto);
-    border: none;
-}
-
-.comment-form button {
-    background: #9147ff;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 80px; /* Ajustado para que el botón sea más corto */
-}
-.comment-form button:hover {
-background-color: #7518ff;
-}
-
-.icon-button {
-background: transparent;
-border: none;
-font-size: 20px;
-cursor: pointer;
-color: var(--iconos);
-}
 /*BUTTON USUARIO*/
 .button-usuario{
     cursor: pointer;
@@ -741,4 +543,347 @@ color: var(--iconos);
 }
 .button-usuario:hover{
     background-color: var(--fondo-user-hover);
+}
+
+
+/**/
+.FONDOPOSTS {
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    align-items: normal;
+    width: 800px;
+    height: 430px;
+    background: var(--fondo-elementos);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 10px 10px;
+    gap: 20px;
+    margin: 15px 0px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+    overflow-y: auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    display: flex;
+}
+
+header h1 {
+    color: #4a148c;
+    padding: 0px;
+}
+
+header p{
+    padding-bottom: 10px;
+}
+.post {
+    background-color: #fff;
+    padding: 20px;
+    width: 48%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-user-info {
+    font-size: 18px;
+    color: #4a148c;
+}
+
+.post-content {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 30px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #4a148c;
+    margin-left: 2px;
+}
+
+.post-actions .like-btn.liked {
+    color: #e63946;
+}
+
+.create-post-container {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.create-post-container h2 {
+    color: #4a148c;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.post-input-container {
+    display: flex;
+    align-items: center;
+}
+
+#postContent {
+    flex-grow: 1;
+    height: 80px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    margin-right: 10px;
+}
+
+#postContent:focus {
+    outline: none;
+    background-color: #d0d0d0;
+}
+
+#sendPostBtn {
+    background-color: #8e24aa;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sendPostBtn:hover {
+    background-color: #7b1fa2;
+}
+
+#postFeed {
+    width: 100%;
+    max-width: 800px;
+}
+/* Evitar que los usuarios cambien el tamaño de los textarea */
+textarea {
+    resize: none;
+}
+
+/* Ocultar secciones dinámicamente */
+.hidden {
+    display: none;
+}
+
+/* Ajuste para los comentarios y formularios de contacto */
+.comment-section, .contact-form {
+    margin-top: 10px;
+}
+
+.comment-input, .contact-input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Evitar que los usuarios cambien el tamaño de los textarea */
+textarea, input[type="text"] {
+    resize: none;
+    height: 50px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilo para la sección de comentarios */
+.comment-section {
+    margin-top: 10px;
+}
+
+.comment {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para el formulario de contacto */
+.contact-form {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-form .contact-input {
+    margin-bottom: 10px;
+}
+
+.send-message-btn, .submit-comment-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-message-btn:hover, .submit-comment-btn:hover {
+    background-color: #45a049;
+}
+
+/* Clase hidden para ocultar elementos */
+.hidden {
+    display: none;
+}
+
+/* Separación de posts */
+.post {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo individual de cada post */
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-header img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comment-section {
+    margin-top: 15px;
+}
+.hidden {
+    display: none;
+}
+
+
+/* Scrollbar común para todos los navegadores compatibles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track (Fondo de la barra) */
+::-webkit-scrollbar-track {
+    background: var(--fondo-scrollbar) #f1f1f1; 
+    border-radius: 10px; 
+}
+
+/* Thumb (parte deslizante) */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px; 
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cambia el color del thumb al pasar el mouse */
+}
+
+/* Scrollbar para la barra lateral o elementos específicos */
+.barra-lateral::-webkit-scrollbar {
+    width: 6px;
+}
+
+.barra-lateral::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll);
+    border-radius: 4px;
+}
+
+.barra-lateral::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scroll-hover);
+}
+
+.comment-input,
+.contact-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-comment-btn,
+.send-message-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-comment-btn:hover,
+.send-message-btn:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.comment-section, .contact-form {
+    margin-top: 10px;
+}
+/* Estilo para el formulario de contacto */
+.contact-form {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-form .contact-input {
+    margin-bottom: 10px;
 }

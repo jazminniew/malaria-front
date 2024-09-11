@@ -1,149 +1,151 @@
-const cloud = document.querySelector(".bx-chevron-left"); 
-const barraLateral = document.querySelector(".barra-lateral");
-const spans = document.querySelectorAll("span");
-const palanca = document.querySelector(".switch");
-const circulo = document.querySelector(".circulo");
-const menu = document.querySelector(".menu");
-const main = document.querySelector("main");
+document.addEventListener('DOMContentLoaded', () => {
+    const sendPostBtn = document.getElementById('sendPostBtn');
+    const postContent = document.getElementById('postContent');
+    const postsContainer = document.querySelector('.FONDOPOSTS');
+    const currentUserName = "Jazmin";
 
-const sidebarToggle = document.getElementById('sidebarToggle');
-const content = document.getElementById('content');
-const searchBar = document.querySelector('.search-bar');
+    sendPostBtn.addEventListener('click', () => {
+        const content = postContent.value.trim();
+        if (content) {
+            createPost(content);
+            postContent.value = ''; // Limpiar el textarea
+        }
+    });
 
-const logoutBtn = document.getElementById('logout-btn');
-const logoutCard = document.getElementById('logout-card');
-const cancelBtn = document.getElementById('cancel-btn');
-const exitBtn = document.getElementById('exit-btn');
+    postsContainer.addEventListener('click', (event) => {
+        const post = event.target.closest('.post');
+        if (!post) return;
 
-const btnNuevo = document.getElementById('buttonNuevo');
-const botonesNuevosCard = document.getElementById('botonesnuevosCard');
-const pacienteBtn = document.getElementById('paciente-btn');
-const imagenBtn = document.getElementById('imagen-btn');
+        if (event.target.classList.contains('like-btn')) {
+            handleLike(post);
+        } else if (event.target.classList.contains('comment-btn')) {
+            handleComment(post);
+        } else if (event.target.classList.contains('message-btn')) {
+            handleMessage(post);
+        }
+    });
 
-// Guardar estado del sidebar en localStorage
-sidebarToggle.addEventListener('click', () => {
-    barraLateral.classList.toggle('barra-lateral-closed');
-    localStorage.setItem('sidebar-open', !barraLateral.classList.contains('barra-lateral-closed'));
-});
-
-let currentPostElement = null;
-
-function postMessage() {
-    const messageInput = document.getElementById('message');
-    const message = messageInput.value.trim();
-
-    if (message) {
-        const postsContainer = document.querySelector('.posts');
-        
-        // Crear un nuevo elemento para el mensaje
-        const postElement = document.createElement('div');
-        postElement.className = 'post';
-        postElement.innerHTML = `
+    function createPost(content) {
+        const newPost = document.createElement('div');
+        newPost.className = 'post';
+        newPost.innerHTML = `
             <div class="post-header">
-                <span class="username">Nuevo Usuario</span>
+                <img src="https://via.placeholder.com/50" alt="User Image">
+                <div class="post-user-info">
+                    <strong>${currentUserName}</strong>
+                </div>
             </div>
-            <p class="post-text">${message}</p>
-            <div class="post-footer">
-                <button class="icon-button like-button" onclick="likePost(this)"><i class='bx bx-heart'></i> <span class="like-count">0</span></button>
-                <button class="icon-button comment-button" onclick="toggleCommentForm(this)"><i class='bx bxs-comment-detail'></i></button>
-                <button class="icon-button contact-button" onclick="contactPost(this)"><i class='bx bxs-contact'></i></button>
+            <div class="post-content">
+                <p>${content}</p>
             </div>
-            <div class="comments"></div>
+            <div class="post-actions">
+                <button class="like-btn">❤️ 0</button>
+                <button class="comment-btn">💬 Comentar</button>
+                <button class="message-btn">✉️ Mensaje</button>
+            </div>
+            <div class="comment-section hidden"></div>
+            <div class="contact-form hidden"></div>
         `;
+        postsContainer.appendChild(newPost);
+    }
 
-        // Añadir el mensaje a una de las columnas
-        let columns = document.querySelectorAll('.post-column');
-        if (columns.length > 0) {
-            // Añadir el mensaje a la columna con menos mensajes
-            let column = [...columns].sort((a, b) => a.children.length - b.children.length)[0];
-            column.appendChild(postElement);
+    function handleLike(post) {
+        const likeBtn = post.querySelector('.like-btn');
+        if (!post.classList.contains('liked')) {
+            let likeCount = parseInt(likeBtn.textContent.split(' ')[1]);
+            likeCount++;
+            likeBtn.textContent = `❤️ ${likeCount}`;
+            post.classList.add('liked');
+        }
+    }
+
+    function handleComment(post) {
+        // Ocultar el formulario de mensaje privado
+        const contactForm = post.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.classList.add('hidden');
         }
 
-        messageInput.value = ''; // Limpiar el campo de texto
-    } else {
-        alert('Escribe un mensaje antes de publicar.');
+        let commentSection = post.querySelector('.comment-section');
+        if (!commentSection) {
+            commentSection = document.createElement('div');
+            commentSection.className = 'comment-section';
+            post.appendChild(commentSection);
+        }
+
+        let commentInput = commentSection.querySelector('.comment-input');
+        let submitCommentBtn = commentSection.querySelector('.submit-comment-btn');
+
+        if (!commentInput) {
+            const { input, button } = createInputField(
+                'Escribe un comentario...',
+                'Enviar',
+                (commentText) => {
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment';
+                    newComment.innerHTML = `<strong>${currentUserName}:</strong> ${commentText}`;
+                    commentSection.appendChild(newComment);
+                }
+            );
+
+            commentInput = input;
+            submitCommentBtn = button;
+            commentSection.appendChild(commentInput);
+            commentSection.appendChild(submitCommentBtn);
+        }
+
+        commentSection.classList.toggle('hidden');
     }
-}
 
-function likePost(button) {
-    const likeButton = button;
-    const likeCountElement = likeButton.querySelector('.like-count');
-    let likeCount = parseInt(likeCountElement.textContent);
+    function handleMessage(post) {
+        // Ocultar la sección de comentarios
+        const commentSection = post.querySelector('.comment-section');
+        if (commentSection) {
+            commentSection.classList.add('hidden');
+        }
 
-    if (likeButton.classList.contains('liked')) {
-        likeButton.classList.remove('liked');
-        likeCount--;
-    } else {
-        likeButton.classList.add('liked');
-        likeCount++;
+        let contactForm = post.querySelector('.contact-form');
+        if (!contactForm) {
+            contactForm = document.createElement('div');
+            contactForm.className = 'contact-form';
+            contactForm.innerHTML = `
+                <input type="text" class="contact-input" placeholder="Escribe un mensaje privado..." style="height: 50px;">
+                <button class="send-message-btn">Enviar</button>
+            `;
+            post.appendChild(contactForm);
+
+            const sendMessageBtn = contactForm.querySelector('.send-message-btn');
+            sendMessageBtn.addEventListener('click', () => {
+                const messageInput = contactForm.querySelector('.contact-input');
+                const messageText = messageInput.value.trim();
+                if (messageText) {
+                    alert(`Mensaje enviado: ${messageText}`);
+                    messageInput.value = ''; // Limpiar el input de mensaje
+                }
+            });
+        }
+
+        contactForm.classList.toggle('hidden');
     }
 
-    likeCountElement.textContent = likeCount;
-}
+    function createInputField(placeholder, btnText, callback) {
+        const input = document.createElement('textarea');
+        input.className = 'comment-input';
+        input.placeholder = placeholder;
+        input.style.height = '50px';
 
-function toggleCommentForm(button) {
-    const postElement = button.closest('.post');
-    const existingCommentForm = postElement.querySelector('.comment-form');
-    
-    if (existingCommentForm) {
-        existingCommentForm.style.display = existingCommentForm.style.display === 'none' ? 'flex' : 'none';
-    } else {
-        // Crear un nuevo formulario de comentario
-        const commentForm = document.createElement('div');
-        commentForm.className = 'comment-form';
-        commentForm.innerHTML = `
-            <textarea placeholder="Escribe un comentario..." rows="2"></textarea>
-            <button onclick="submitComment(this)">Enviar</button>
-        `;
-        postElement.querySelector('.comments').appendChild(commentForm);
+        const button = document.createElement('button');
+        button.className = 'submit-comment-btn';
+        button.textContent = btnText;
+
+        button.addEventListener('click', () => {
+            const inputText = input.value.trim();
+            if (inputText) {
+                callback(inputText);
+                input.value = ''; // Limpiar el campo
+            }
+        });
+
+        return { input, button };
     }
-}
-
-function submitComment(button) {
-    const commentForm = button.closest('.comment-form');
-    const textarea = commentForm.querySelector('textarea');
-    const comment = textarea.value.trim();
-
-    if (comment) {
-        const commentsContainer = commentForm.parentElement;
-        
-        // Crear un nuevo comentario
-        const commentElement = document.createElement('div');
-        commentElement.className = 'comment';
-        commentElement.innerHTML = `
-            <div class="comment-header">Tú</div>
-            <div>${comment}</div>
-        `;
-
-        // Añadir el comentario
-        commentsContainer.insertBefore(commentElement, commentForm);
-
-        textarea.value = ''; // Limpiar el campo de texto
-        commentForm.style.display = 'none'; // Ocultar el formulario después de enviar
-    } else {
-        alert('Escribe un comentario antes de enviar.');
-    }
-}
-
-function contactPost(button) {
-    currentPostElement = button.closest('.post');
-    document.getElementById('contact-modal').style.display = 'flex';
-}
-
-function closeContactModal() {
-    document.getElementById('contact-modal').style.display = 'none';
-}
-
-function sendContactRequest() {
-    const contactMessage = document.getElementById('contact-message').value.trim();
-    const contactName = document.getElementById('contact-name').value.trim();
-    const contactInfo = document.getElementById('contact-info').value.trim();
-    
-    if (contactMessage && contactName && contactInfo && currentPostElement) {
-        // Aquí puedes manejar el envío de la solicitud de contacto, como mostrar una alerta o enviar el mensaje al servidor
-        alert(`Solicitud enviada a ${currentPostElement.querySelector('.username').textContent}.\n\nMensaje: ${contactMessage}\nNombre: ${contactName}\nContacto: ${contactInfo}`);
-        closeContactModal();
-    } else {
-        alert('Completa todos los campos antes de enviar.');
-    }
-}
+});
