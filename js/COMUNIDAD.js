@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="comment-btn">💬 Comentar</button>
                 <button class="message-btn">✉️ Mensaje</button>
             </div>
-            <div class="comment-section hidden"></div>
+            <div class="comment-section"></div>
             <div class="contact-form hidden"></div>
         `;
         postsContainer.appendChild(newPost);
@@ -94,14 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
             commentSection.appendChild(submitCommentBtn);
         }
 
-        commentSection.classList.toggle('hidden');
+        commentSection.querySelector('.comment-input').classList.toggle('hidden');
+        commentSection.querySelector('.submit-comment-btn').classList.toggle('hidden');
     }
 
     function handleMessage(post) {
         // Ocultar la sección de comentarios
         const commentSection = post.querySelector('.comment-section');
         if (commentSection) {
-            commentSection.classList.add('hidden');
+            commentSection.querySelector('.comment-input')?.classList.add('hidden');
+            commentSection.querySelector('.submit-comment-btn')?.classList.add('hidden');
         }
 
         let contactForm = post.querySelector('.contact-form');

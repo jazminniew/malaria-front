@@ -34,7 +34,12 @@
     --color-texto-elementos:#7c3ed6;
     --fondo-user-hover: #bebebe;
     --color-icono: #545454;
-
+    --color-hola: #4a148c;
+    --fondo-input-comment: #e0e0e0 ;
+    --color-flecha: #fff;
+    --fondo-contact-form: #e7e7e7;
+    --color-numero: #272727;
+    --color-title-name: #4a148c;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -47,7 +52,7 @@
     --color-linea:rgb(90,90,90);
     --color-switch-base:rgb(39,205,64);
     --color-switch-circulo:rgb(255,255,255);
-    --color-scroll:rgb(68,79,74);
+    --color-scroll:rgb(74, 74, 74);
     --color-scroll-hover:rgb(85,85,85);
     --background-color:rgb(37, 37, 37);
     --fondo-flecha: #7c3ed6;
@@ -64,13 +69,19 @@
     --input-bg: #151515;
     --lupa-texto: #a5a5a5;
     --fondo-botones-sidebar: #0f0f0f;
-    --element-back-color:#282b28;
+    --element-back-color:#303030;
     --carta-cerrar-back: rgb(21, 21, 21);
     --color-boton-acceder: #181818;
     --fondo-scrollbar: #141414;
     --color-texto-elementos:#fff;
     --fondo-user-hover: #262626;
     --color-icono: #7c7c7c;
+    --color-hola: #875abf;
+    --fondo-input-comment: #252525 ;
+    --color-flecha: #000;
+    --fondo-contact-form: #323232;
+    --color-numero: #c9c9c9;
+    --color-title-name: #ffffff;
 }
 *{
     margin: 0;
@@ -569,16 +580,17 @@ main.min-main{
 }
 
 header h1 {
-    color: #4a148c;
+    color: var(--color-hola);
     padding: 0px;
 }
 
 header p{
     padding-bottom: 10px;
+    color: var(--color-numero);
 }
 .post {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #d30d0d;
+    padding: 0px;
     width: 48%;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -600,16 +612,19 @@ header p{
 
 .post-user-info {
     font-size: 18px;
-    color: #4a148c;
+    color: var(--color-title-name);
 }
 
 .post-content {
-    background-color: #e0e0e0;
+    background-color: var(--fondo-input-comment);
     padding: 15px;
     border-radius: 10px;
     color: #333;
     font-size: 14px;
     margin-bottom: 20px;
+}
+.post-content p{
+    color: var(--color-numero);
 }
 
 .post-actions {
@@ -622,7 +637,7 @@ header p{
     border: none;
     cursor: pointer;
     font-size: 15px;
-    color: #4a148c;
+    color: var(--color-numero);
     margin-left: 2px;
 }
 
@@ -631,7 +646,7 @@ header p{
 }
 
 .create-post-container {
-    background-color: #fff;
+    background-color: var(--fondo-elementos);
     padding: 20px;
     width: 100%;
     max-width: 800px;
@@ -641,7 +656,7 @@ header p{
 }
 
 .create-post-container h2 {
-    color: #4a148c;
+    color: #7c3ed6;
     margin-bottom: 10px;
     font-size: 14px;
 }
@@ -658,7 +673,7 @@ header p{
     font-size: 16px;
     border: none;
     border-radius: 10px;
-    background-color: #e0e0e0;
+    background-color: var(--fondo-input-comment);
     margin-right: 10px;
 }
 
@@ -668,9 +683,9 @@ header p{
 }
 
 #sendPostBtn {
-    background-color: #8e24aa;
+    background-color: #7c3ed6;
     border: none;
-    color: #fff;
+    color: var(--color-flecha);
     padding: 15px;
     border-radius: 50%;
     cursor: pointer;
@@ -683,7 +698,7 @@ header p{
 }
 
 #sendPostBtn:hover {
-    background-color: #7b1fa2;
+    background-color: #6e2bd1;
 }
 
 #postFeed {
@@ -733,20 +748,9 @@ textarea, input[type="text"] {
     margin-bottom: 5px;
 }
 
-/* Estilo para el formulario de contacto */
-.contact-form {
-    margin-top: 10px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.contact-form .contact-input {
-    margin-bottom: 10px;
-}
 
 .send-message-btn, .submit-comment-btn {
-    background-color: #4CAF50;
+    background-color: #7c3ed6;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -756,7 +760,7 @@ textarea, input[type="text"] {
 }
 
 .send-message-btn:hover, .submit-comment-btn:hover {
-    background-color: #45a049;
+    background-color: #7c3ed6;
 }
 
 /* Clase hidden para ocultar elementos */
@@ -769,7 +773,7 @@ textarea, input[type="text"] {
     margin-bottom: 20px;
     padding: 15px;
     border-radius: 10px;
-    background: white;
+    background: var(--element-back-color);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -859,14 +863,14 @@ textarea, input[type="text"] {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    background-color: #7c3ed6;
+    color: var(--fondo-elementos);
     cursor: pointer;
 }
 
 .submit-comment-btn:hover,
 .send-message-btn:hover {
-    background-color: #0056b3;
+    background-color: #7c3ed6;
 }
 
 .hidden {
@@ -879,7 +883,7 @@ textarea, input[type="text"] {
 /* Estilo para el formulario de contacto */
 .contact-form {
     margin-top: 10px;
-    background-color: #f9f9f9;
+    background-color:var(--fondo-contact-form);
     padding: 10px;
     border-radius: 5px;
 }
