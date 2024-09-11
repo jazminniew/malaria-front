@@ -1,3 +1,4 @@
+
 // Cargar estado del modo oscuro desde localStorage
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('dark-mode') === 'enabled') {
@@ -13,8 +14,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Guardar estado del sidebar en localStorage
-sidebarToggle.addEventListener('click', () => {
-    barraLateral.classList.toggle('barra-lateral-closed');
-    localStorage.setItem('sidebar-open', !barraLateral.classList.contains('barra-lateral-closed'));
-});
+

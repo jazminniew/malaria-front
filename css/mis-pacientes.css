@@ -844,3 +844,12 @@ transform: scale(0.6);
     background-color: var(--fondo-user-hover);
 }
 
+#botonesnuevosCard {
+    display: none; /* Asegúrate de que esté oculto por defecto */
+    /* Otros estilos para el card */
+}
+
+#botonesnuevosCard.show {
+    display: block; /* O cómo quieras que se muestre cuando esté 'show' */
+}
+

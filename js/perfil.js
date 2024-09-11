@@ -191,3 +191,27 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                              </div>`;
 });
+
+
+// Cargar estado del modo oscuro desde localStorage
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        circulo.classList.add('prendido');
+    }
+
+    // Cargar estado del sidebar desde localStorage
+    if (localStorage.getItem('sidebar-open') === 'true') {
+        barraLateral.classList.add('max-barra-lateral');
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
+    }
+});
+
+// Manejo del botón de modo oscuro
+palanca.addEventListener('click', () => {
+    let body = document.body;
+    body.classList.toggle('dark-mode');
+    circulo.classList.toggle('prendido');
+    localStorage.setItem('dark-mode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+});
