@@ -94,3 +94,11 @@ sidebarToggle.addEventListener('click', () => {
     barraLateral.classList.toggle('barra-lateral-closed');
     localStorage.setItem('sidebar-open', !barraLateral.classList.contains('barra-lateral-closed'));
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const accessLabel = document.getElementById('accessLabel');
+    
+    accessLabel.addEventListener('click', () => {
+        window.location.href = 'imagen-accedida-posta.css'; // Cambia esto por la URL a la que deseas redirigir
+    });
+});

@@ -1,0 +1,103 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+
+
+/* Placeholder para la barra lateral (de 250px de ancho) */
+.sidebar-placeholder {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 250px; /* Ajuste para la barra lateral */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px; /* Aumentado para que sea más ancho */
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+}
+
+/* Estilos de la imagen */
+.image-container {
+    max-height: 50%; /* Altura máxima ajustada */
+    width: 100%;
+    max-width: 800px; /* Aumentado para que sea más ancho */
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Información del usuario debajo de la imagen */
+.user-info {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Aumentado el ancho */
+    text-align: left;
+    margin-bottom: 40px; /* Espacio adicional debajo */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre cada dato */
+    border-left: 5px solid #27ae60; /* Borde decorativo */
+}
+
+.user-info h3 {
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo para cada item de la información */
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ecf0f1; /* Línea divisoria */
+    padding-bottom: 10px;
+}
+
+.info-item strong {
+    color: #27ae60;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.info-item span {
+    color: #34495e;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
