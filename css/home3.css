@@ -627,7 +627,6 @@ margin: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: bold;
     cursor: pointer;

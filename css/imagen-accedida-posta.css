@@ -539,166 +539,6 @@ input[type="search"] {
     background: #555; /* Color del pulgar al pasar el mouse por encima */
 }
 
-/*-----------------------Elementos----------------------*/
-.card {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--element-back-color);
-    padding: 10px;
-    border-radius: 6px;
-    gap: 0.5rem;
-    height: max-content;
-}
-.cartas-separadas{
-align-items: center;
-height: 41%;
-margin: none;
-}
-.card_form {
-    width: 8em;
-    height: 8em;
-    border-radius: 4px;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b-RpIyt_XBFGJPPmxf-7SG2UFgQSiXXnFQ&s");
-    transition: 0.2s ease-in-out;
-    overflow: hidden;
-
-}
-.card_form span {
-    font-size: 1.5em;
-    width: 150%;
-    inset: 0;
-    padding: 10px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
-    color: #fff;
-    background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-    );
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-
-  }
-  .card:hover .card_form span,
-  .card:hover .card_data span {
-    opacity: 1;
-  }
-  .card_data {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .card_data span {
-    color: #9147ff;
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-    transition: 0.2s ease-in-out;
-    opacity: 0;
-    cursor: pointer;
-  }
-  .card_data span:hover {
-    text-decoration: underline;
-  }
-  .text {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: white;
-  }
-  .text_m {
-    font-size: 0.9em;
-  }
-  .text_s {
-    color: var(--color-texto-elementos);
-    font-size: 0.6em;
-  }
-  .cube {
-    width: max-content;
-    height: 10px;
-    transition: all 0.2s;
-    transform-style: preserve-3d;
-  }
-  .card:hover .cube {
-    transform: rotateX(90deg);
-  }
-  .side {
-    width: 125px;
-    height: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .top {
-    transform: rotateX(-90deg) translate3d(0, 0, 0em);
-    background: var(--color-boton-acceder);
-    padding:8px;
-    border-radius:10px;
-    width:90%;
-    color: #fff;
-  }
-  .front {
-    transform: translate3d(0, 0, 1em);
-    
-  }
-  
-/*-----------------------------Fondo de filtros------------------------*/
-.tabs {
-    display: flex;
-    background-color: var(--fondo-filtros);
-    padding: 4px;
-    border-radius: 99px;
-}
-  .tabs * {
-    z-index: 2;
-}
-
-/*Boton del filtro*/
-.container input[type="radio"] {
-    display: none;
-}
-.tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    width: 110px;
-    font-size: .8rem;
-    color: var(--color-texto-filtros);
-    font-weight: 500;
-    border-radius: 99px;
-    cursor: pointer;
-    transition: color 0.15s ease-in;
-}
-/*Movimiento del boton del filtro*/
-.container input[id="radio-1"]:checked ~ .glider {
-    transform: translateX(0);
-}
-.container input[id="radio-2"]:checked ~ .glider {
-    transform: translateX(115%);
-}
-.container input[id="radio-3"]:checked ~ .glider {
-    transform: translateX(230%);
-}
-/*Fondo del boton del filtro*/
-.glider {
-    position: absolute;
-    display: flex;
-    height: 30px;
-    width: 100px;
-    background-color: var(--fondo-filtro-boton);
-    z-index: 1;
-    border-radius: 99px;
-    transition: 0.25s ease-out;
-}
-@media (max-width: 700px) {
-    .tabs {
-transform: scale(0.6);
-    }
-}
 
 /*CERRAR SESION*/
 .card_cerrar {
@@ -881,18 +721,19 @@ transform: scale(0.6);
 
 /* Estilos de la imagen */
 .image-container {
-    max-height: 50%; /* Altura máxima ajustada */
-    width: 100%;
-    max-width: 800px; /* Aumentado para que sea más ancho */
+    height: 250px; /* Altura máxima ajustada */
+    width: 250px; /* Aumentado para que sea más ancho */
     margin-bottom: 20px;
+    margin-left: 230px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.253);
+    border-radius: 20px;
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 }
 
 /* Información del usuario debajo de la imagen */
