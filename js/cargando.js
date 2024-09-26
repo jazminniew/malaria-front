@@ -1,24 +1,51 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const numberElement = document.querySelector("#number h1");
-    let progress = 0;
-    const duration = 10000; // Duración total del progreso en milisegundos (5 segundos)
-    const interval = 50; // Intervalo de actualización en milisegundos
+// Simulando el progreso de carga con la animación del porcentaje
+let progress = 0;
+const numberElement = document.getElementById("number").querySelector("h1");
 
-    // Función para actualizar el progreso
-    function updateProgress() {
-        progress += (interval / duration) * 100;
-        if (progress > 100) progress = 100; // Asegurarse de no superar el 100%
-
-        numberElement.textContent = `${Math.round(progress)}%`;
-
-        if (progress < 100) {
-            setTimeout(updateProgress, interval);
-        } else {
-            // Redirigir cuando el progreso llegue al 100%
-            window.location.href = 'index.html'; // Cambia esta URL por la página a la que deseas redirigir
-        }
+function incrementarPorcentaje() {
+    if (progress < 100) {
+        progress++;
+        numberElement.textContent = `${progress}%`;
     }
+}
 
-    // Iniciar la actualización del progreso
-    updateProgress();
-});
+setInterval(incrementarPorcentaje, 50); // Simula el progreso de carga
+
+// Función para realizar la solicitud a la API de Vercel
+function verificarMalaria() {
+    // Aquí el link de tu API en Vercel
+    const apiUrl = 'https://nombre-de-tu-api.vercel.app/endpoint'; // Cambia esto por el URL de tu API
+
+    // Opciones de la solicitud
+    const options = {
+        method: 'POST', // o 'GET', dependiendo de tu API
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer tu-token-si-es-necesario' // Solo si tu API requiere autenticación
+        },
+        body: JSON.stringify({
+            // Los datos del paciente o lo que necesites enviar a la API
+            // Por ejemplo, una imagen o información de análisis
+            sampleData: "data del paciente o análisis"
+        })
+    };
+
+    // Hacemos la solicitud a la API
+    fetch(apiUrl, options)
+        .then(response => response.json()) // Parseamos la respuesta a JSON
+        .then(data => {
+            // Aquí asumimos que 'data.resultado' es lo que la API devuelve (infectado o no)
+            if (data.resultado === 'infectado') {
+                window.location.href = "infectado.html"; // Redirige a la página de infectado
+            } else {
+                window.location.href = "no-infectado.html"; // Redirige a la página de no infectado
+            }
+        })
+        .catch(error => {
+            console.error('Error al conectar con la API:', error);
+            // Aquí puedes manejar el error si es necesario
+        });
+}
+
+// Simulamos el tiempo de espera antes de hacer la llamada a la API
+setTimeout(verificarMalaria, 3000); // Llamamos a la API después de 3 segundos (puedes ajustarlo)

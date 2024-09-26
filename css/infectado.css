@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco con alta transparencia */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde con transparencia */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin: 20px 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    text-align: left;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #c7c7c7;
+}
+
+.chatbot-section {
+    background-color: #d3d3d343;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#chatbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#userInput {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    font-size: 1rem;
+    max-width: 100%;
+}
+
+#continueBtn {
+    padding: 15px 25px;
+    background-color: #ffffff;
+    color: rgb(65, 65, 65);
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#continueBtn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Diseño personalizado del scrollbar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #3498db;
+    border-radius: 10px;
+    border: 3px solid #f5f5f5;
+}
+h2{
+    font-weight: 500    ;
+    font-size: 20px;
+}
