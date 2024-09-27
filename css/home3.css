@@ -379,9 +379,8 @@ main.min-main{
 
 /*--------------------------Filtros y searchbar-------------------------*/ 
 .wrapper{
-    width: 60%;
     transition: transform 0.5s ease;
-    width: calc(100% - 250px);
+    width: 300px;
     }
     #buttons {
         align-items: center;
@@ -422,6 +421,9 @@ main.min-main{
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
     background: var(--input-bg);
+}
+.form.expanded{
+    --width-of-input: 55em;
 }
 
 .input {
@@ -520,7 +522,8 @@ input[type="search"] {
     display: flex;
 }
 .FONDOPACIENTES.expanded{
-    width: 1010px;
+    width: 945px;
+    transition: transform 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
     width: 8px; 

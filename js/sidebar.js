@@ -18,6 +18,9 @@ const botonesNuevosCard = document.getElementById('botonesnuevosCard');
 const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
+const FONDOPACIENTES = document.getElementById('elements-container');
+const searchbar = document.getElementById('wrapper');
+
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
     botonesNuevosCard.classList.add('show');
@@ -92,6 +95,8 @@ palanca.addEventListener("click", () => {
 cloud.addEventListener("click", () => {
     barraLateral.classList.toggle("mini-barra-lateral");
     main.classList.toggle("min-main");
+    FONDOPACIENTES.classList.toggle("expanded"); //anda mal las demas paginas por culpa de esto
+    
 
     spans.forEach((span) => {
         span.classList.toggle("oculto");
