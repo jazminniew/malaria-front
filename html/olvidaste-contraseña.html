@@ -6,20 +6,29 @@
     <title>Olvidaste tu Contraseña</title>
     <link rel="stylesheet" href="/css/olvidaste-contraseña.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
-        <form>
+        <form id="forgotPasswordForm" onsubmit="return validateEmail()">
             <h1>Olvidaste tu Contraseña</h1>
             <div class="input-box">
-                <input type="email" placeholder="Introduce tu email" required>
+                <input type="email" id="email" placeholder="Introduce tu email" required>
                 <i class='bx bxl-gmail'></i>
+                <div id="emailError" class="error">Por favor, introduce un email válido.</div>
             </div>
-            <button type="submit" class="btn" onclick="location.href='cambiar-contraseña.html'">Enviar </button>
+            <button type="submit" class="btn">Enviar</button>
             <div class="register-link">
                 <p>¿Recuperaste tu contraseña? <a href="iniciar-sesion.html">Iniciar Sesión</a></p>
             </div>
         </form>
     </div>
+
+    <script src="/js/olvidaste-contraseña.js"></script>
 </body>
 </html>
