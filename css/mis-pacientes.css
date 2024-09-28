@@ -420,7 +420,11 @@ main.min-main{
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
     background: var(--input-bg);
-
+    transition: height 0.5s ease, width 0.5s ease;
+}
+.form.expandido{
+    width: 55em;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 
 .input {
@@ -513,7 +517,11 @@ input[type="search"] {
     flex-wrap:wrap; /*COMO SOLUCIONO PARA QUE MIS PACIENTES NO SE EXPANDA?*/
     justify-content: flex-start;
     align-content: flex-start;
-
+    transition: height 0.5s ease, width 0.5s ease;
+}
+.FONDOPACIENTES.expanded{
+    width: 945px;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
     width: 8px; 

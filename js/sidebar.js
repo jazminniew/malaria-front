@@ -19,7 +19,7 @@ const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
 const FONDOPACIENTES = document.getElementById('elements-container');
-const searchbar = document.getElementById('wrapper');
+const searchbar = document.getElementById('formulario');
 
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
@@ -92,16 +92,18 @@ palanca.addEventListener("click", () => {
 });
 
 // Manejo de la barra lateral
-cloud.addEventListener("click", () => {
-    barraLateral.classList.toggle("mini-barra-lateral");
-    main.classList.toggle("min-main");
-    FONDOPACIENTES.classList.toggle("expanded"); //anda mal las demas paginas por culpa de esto
-    
 
+cloud.addEventListener("click", () => {
     spans.forEach((span) => {
         span.classList.toggle("oculto");
     });
 
     cloud.classList.toggle("rotated");
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+    FONDOPACIENTES.classList.toggle("expanded"); 
+    searchbar.classList.toggle("expandido"); 
+
+
 });
 
