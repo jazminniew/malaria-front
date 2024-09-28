@@ -14,10 +14,10 @@
         <ion-icon name="close-outline"></ion-icon>
     </div>
     <!-----------------------Flecha y titulo--------------------------->
-    <div #id="flecha" class="barra-lateral max-barra-lateral">
+    <div id="flecha" class="barra-lateral max-barra-lateral">
         <i class='bx bx-chevron-left toggle'></i>
             <div class="nombre-pagina">
-                <ion-icon id="cloud" name="accessibility-outline"></ion-icon>
+                <ion-icon name="bug"></ion-icon>
                 <span class="Malaria">MalarIA</span>
             </div>
             <button class="boton" id="buttonNuevo">
@@ -94,51 +94,33 @@
         <h1>Hola Manuel</h1>
         <p>¿Te gustaría compartir algo en la comunidad? 😊</p>
     </header>
-    <div class="create-post-container">
+<!---------------------Create post container----------------------------->
+    <div id="FONDOPOSTSS" class="create-post-container">
         <h2>Crear un post</h2>
         <div class="post-input-container">
             <textarea id="postContent" placeholder="Escribe lo que quieras..."></textarea>
             <button id="sendPostBtn">></button>
         </div>
     </div>
+
     <div id="posts-container">
-        <div id="message-modal" class="FONDOPOSTS">
-
-            <!---------------------post1---------------------------->
-            <div class="post">
-                <div class="post-header">
-                    <img src="https://via.placeholder.com/50" alt="User Image">
-                    <div class="post-user-info">
-                        <strong>Lucia Shafer</strong>
-                    </div>
-                </div>
-                <div class="post-content">
-                    <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
-                </div>
-                <div class="post-actions">
-                    <button class="like-btn">❤️ 77</button>
-                    <button class="comment-btn">💬</button>
-                    <button class="message-btn">✉️</button>
-                </div>
-            </div>
-            <!--------------------- final post1---------------------------->
-
+        <div id="message-modal" class="FONDOPOSTS">         
 
             <!---------------------post2---------------------------->
             <div class="post">
                 <div class="post-header">
                     <img src="https://via.placeholder.com/50" alt="User Image">
                     <div class="post-user-info">
-                        <strong>Lucia Shafer</strong>
+                        <h5>Jazmin Niew</h5>
                     </div>
                 </div>
                 <div class="post-content">
                     <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
                 </div>
                 <div class="post-actions">
-                    <button class="like-btn">❤️ 77</button>
-                    <button class="comment-btn">💬</button>
-                    <button class="message-btn">✉️</button>
+                    <button class="like-btn"><i class='bx bx-heart'></i> 77</button>
+                    <button class="comment-btn"><i class='bx bxs-chat'></i></button>
+                    <button class="message-btn"><i class='bx bxs-envelope' ></i></button>
                 </div>
             </div>
             <!--------------------- final post2---------------------------->
@@ -148,16 +130,16 @@
                 <div class="post-header">
                     <img src="https://via.placeholder.com/50" alt="User Image">
                     <div class="post-user-info">
-                        <strong>Lucia Shafer</strong>
+                        <h5>Lai Dej</h5>
                     </div>
                 </div>
                 <div class="post-content">
                     <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
                 </div>
                 <div class="post-actions">
-                    <button class="like-btn">❤️ 77</button>
-                    <button class="comment-btn">💬</button>
-                    <button class="message-btn">✉️</button>
+                    <button class="like-btn"><i class='bx bx-heart'></i> 77</button>
+                    <button class="comment-btn"><i class='bx bxs-chat'></i></button>
+                    <button class="message-btn"><i class='bx bxs-envelope' ></i></button>
                 </div>
             </div>
             <!--------------------- final post3---------------------------->
@@ -167,16 +149,16 @@
                 <div class="post-header">
                     <img src="https://via.placeholder.com/50" alt="User Image">
                     <div class="post-user-info">
-                        <strong>Lucia Shafer</strong>
+                        <h5>Soph Sued</h5>
                     </div>
                 </div>
                 <div class="post-content">
                     <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
                 </div>
                 <div class="post-actions">
-                    <button class="like-btn">❤️ 77</button>
-                    <button class="comment-btn">💬</button>
-                    <button class="message-btn">✉️</button>
+                    <button class="like-btn"><i class='bx bx-heart'></i> 77</button>
+                    <button class="comment-btn"><i class='bx bxs-chat'></i></button>
+                    <button class="message-btn"><i class='bx bxs-envelope' ></i></button>
                 </div>
             </div>
             <!--------------------- final post4---------------------------->
@@ -185,16 +167,17 @@
                                 <div class="post-header">
                                     <img src="https://via.placeholder.com/50" alt="User Image">
                                     <div class="post-user-info">
-                                        <strong>Lucia Shafer</strong>
+                                        <h5>Benjo kapu</h5>
                                     </div>
                                 </div>
                                 <div class="post-content">
                                     <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
                                 </div>
                                 <div class="post-actions">
-                                    <button class="like-btn">❤️ 77</button>
-                                    <button class="comment-btn">💬</button>
-                                    <button class="message-btn">✉️</button>
+                                    <button class="like-btn"><i class='bx bx-heart'></i> 77</button>
+
+                                    <button class="comment-btn"><i class='bx bxs-chat'></i></button>
+                                    <button class="message-btn"><i class='bx bxs-envelope' ></i></button>
                                 </div>  
                                 </div>
         
@@ -203,20 +186,19 @@
                 <div class="post-header">
                     <img src="https://via.placeholder.com/50" alt="User Image">
                     <div class="post-user-info">
-                        <strong>Lucia Shafer</strong>
+                        <h5>Oliver Safd</h5>
                     </div>
                 </div>
                 <div class="post-content">
                     <p>Lorem ipsum dolor sit amet consectetur. At posuere eu aenean purus urna id non.😯</p>
                 </div>
                 <div class="post-actions">
-                    <button class="like-btn">❤️ 77</button>
-                    <button class="comment-btn">💬</button>
-                    <button class="message-btn">✉️</button>
+                    <button class="like-btn"><i class='bx bx-heart'></i> 77</button>
+                    <button class="comment-btn"><i class='bx bxs-chat'></i></button>
+                    <button class="message-btn"><i class='bx bxs-envelope' ></i></button>
                 </div>
             </div>
             <!--------------------- final post5--------------------------->
-             <!--------------------- JUSTO ACA QUIERO QUE SE CREEN LOS NUEVOS POSTAS CHATGPT AYUDAME SEÑAL!--------------------------->
             
     </div>
 </div>
@@ -241,6 +223,7 @@
     </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="/js/comunidad.js"></script>  
     <script src="/js/sidebar.js"></script>  
     </div>

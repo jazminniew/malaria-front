@@ -70,35 +70,3 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.children[1].style.display = "block";
     }
 });
-
-// Manejo del botón de modo oscuro
-palanca.addEventListener('click', () => {
-    let body = document.body;
-    body.classList.toggle('dark-mode');
-    circulo.classList.toggle('prendido');
-    localStorage.setItem('dark-mode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
-});
-
-// Manejo de la barra lateral
-cloud.addEventListener('click', () => {
-    barraLateral.classList.toggle('mini-barra-lateral');
-    main.classList.toggle('min-main');
-    spans.forEach((span) => {
-        span.classList.toggle('oculto');
-    });
-    cloud.classList.toggle('rotated');
-});
-
-// Guardar estado del sidebar en localStorage
-sidebarToggle.addEventListener('click', () => {
-    barraLateral.classList.toggle('barra-lateral-closed');
-    localStorage.setItem('sidebar-open', !barraLateral.classList.contains('barra-lateral-closed'));
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const accessLabel = document.getElementById('accessLabel');
-    
-    accessLabel.addEventListener('click', () => {
-        window.location.href = 'imagen-accedida-posta.css'; // Cambia esto por la URL a la que deseas redirigir
-    });
-});

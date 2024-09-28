@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>${content}</p>
             </div>
             <div class="post-actions">
-                <button class="like-btn">❤️ 0</button>
+                <button class="like-btn"><i class='bx bx-heart'></i> 0</button>
                 <button class="comment-btn">💬 Comentar</button>
                 <button class="message-btn">✉️ Mensaje</button>
             </div>
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!post.classList.contains('liked')) {
             let likeCount = parseInt(likeBtn.textContent.split(' ')[1]);
             likeCount++;
-            likeBtn.textContent = `❤️ ${likeCount}`;
+            likeBtn.innerHTML = `<i class='bx bxs-heart'></i> ${likeCount}`;
             post.classList.add('liked');
         }
     }
@@ -152,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 // Cargar estado del modo oscuro desde localStorage
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('dark-mode') === 'enabled') {
@@ -166,12 +165,4 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.children[0].style.display = "none";
         menu.children[1].style.display = "block";
     }
-});
-
-// Manejo del botón de modo oscuro
-palanca.addEventListener('click', () => {
-    let body = document.body;
-    body.classList.toggle('dark-mode');
-    circulo.classList.toggle('prendido');
-    localStorage.setItem('dark-mode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
 });

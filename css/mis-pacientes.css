@@ -503,7 +503,7 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
-    width: 800px;
+    width: 755px;
     height: 490px;
     background: var(--fondo-elementos);
     border-radius: 12px;
@@ -520,7 +520,7 @@ input[type="search"] {
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES.expanded{
-    width: 945px;
+    width: 1000px;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
@@ -549,7 +549,7 @@ input[type="search"] {
     border-radius: 6px;
     height: max-content;
     cursor: pointer;
-    width: 250px;
+    width: 235px;
 }
 .card:hover{
     background: var(--element-back-color-hover);

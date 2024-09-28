@@ -75,7 +75,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     try {
         // Enviar los datos al backend
-        const response = await fetch('https://tu-backend-en-vercel.com/api/registro', {
+        const response = await fetch('https://malaria-xi.vercel.app/user/login', {
             method: 'POST',
             body: formData
         });
