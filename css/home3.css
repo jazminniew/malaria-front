@@ -435,6 +435,7 @@ main.min-main{
     padding-inline: 0.5em;
     padding-block: 0.7em;
     border: none;
+    color: white;
 }
 .form:before {
     content: "";
