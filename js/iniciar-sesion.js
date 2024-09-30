@@ -18,7 +18,16 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         },
         body: JSON.stringify(userData)
     })
-    .then(response => response.json())
+    .then(response => {
+        // Verifica si la respuesta es exitosa
+        if (!response.ok) {
+            return response.json().then(data => {
+                // Manejar error en base al mensaje del backend
+                throw new Error(data.message || 'Error en la solicitud');
+            });
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.token) {
             // Guardamos el token en localStorage
@@ -26,13 +35,17 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             alert('Inicio de sesión exitoso');
             // Redireccionamos a la página principal o dashboard
             window.location.href = 'home3.html';
-        } else {
-            // Si hay un error, lo mostramos
+        } else if (data.message) {
+            // Si el backend devolvió un mensaje de error, lo mostramos
             alert('Error en el inicio de sesión: ' + data.message);
         }
     })
     .catch(error => {
-        console.error('Error:', error);
-        alert('Hubo un problema con el inicio de sesión');
+        if (error.message === 'Usuario ya existe') {
+            alert('Este usuario ya está registrado.');
+        } else {
+            console.error('Error:', error);
+            alert('Hubo un problema con el inicio de sesión: ' + error.message);
+        }
     });
 });
