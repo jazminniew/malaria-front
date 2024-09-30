@@ -379,9 +379,8 @@ main.min-main{
 
 /*--------------------------Filtros y searchbar-------------------------*/ 
 .wrapper{
-    width: 60%;
     transition: transform 0.5s ease;
-    width: calc(100% - 250px);
+    width: 300px;
     }
     #buttons {
         align-items: center;
@@ -407,14 +406,13 @@ main.min-main{
 }
 .form {
     --timing: 0.5s;
-    --width-of-input: 40em;
     --height-of-input: 40px;
     --border-height: 2px;
     --border-color: #9147ff;
     --border-radius: 30px;
     --after-border-radius: 1px;
     position: relative;
-    width: var(--width-of-input);
+    width: 40em;
     height: var(--height-of-input);
     display: flex;
     align-items: center;
@@ -422,6 +420,11 @@ main.min-main{
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
     background: var(--input-bg);
+    transition: height 0.5s ease, width 0.5s ease;
+}
+.form.expandido{
+    width: 55em;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 
 .input {
@@ -518,9 +521,11 @@ input[type="search"] {
     box-sizing: border-box;
     overflow-x: hidden;
     display: flex;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES.expanded{
-    width: 1010px;
+    width: 945px;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
     width: 8px; 
@@ -866,4 +871,3 @@ transform: scale(0.6);
 .button-usuario:hover{
     background-color: var(--fondo-user-hover);
 }
-

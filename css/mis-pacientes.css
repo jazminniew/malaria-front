@@ -420,7 +420,11 @@ main.min-main{
     border-radius: var(--border-radius);
     transition: border-radius 0.5s ease;
     background: var(--input-bg);
-
+    transition: height 0.5s ease, width 0.5s ease;
+}
+.form.expandido{
+    width: 55em;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 
 .input {
@@ -499,7 +503,7 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
-    width: 800px;
+    width: 755px;
     height: 490px;
     background: var(--fondo-elementos);
     border-radius: 12px;
@@ -513,7 +517,11 @@ input[type="search"] {
     flex-wrap:wrap; /*COMO SOLUCIONO PARA QUE MIS PACIENTES NO SE EXPANDA?*/
     justify-content: flex-start;
     align-content: flex-start;
-
+    transition: height 0.5s ease, width 0.5s ease;
+}
+.FONDOPACIENTES.expanded{
+    width: 1000px;
+    transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
     width: 8px; 
@@ -541,7 +549,7 @@ input[type="search"] {
     border-radius: 6px;
     height: max-content;
     cursor: pointer;
-    width: 250px;
+    width: 235px;
 }
 .card:hover{
     background: var(--element-back-color-hover);

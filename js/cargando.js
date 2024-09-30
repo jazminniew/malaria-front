@@ -13,8 +13,7 @@ setInterval(incrementarPorcentaje, 50); // Simula el progreso de carga
 
 // Función para realizar la solicitud a la API de Vercel
 function verificarMalaria() {
-    // Aquí el link de tu API en Vercel
-    const apiUrl = 'https://nombre-de-tu-api.vercel.app/endpoint'; // Cambia esto por el URL de tu API
+    const apiUrl = 'https://malaria-xi.vercel.app/user/login'; 
 
     // Opciones de la solicitud
     const options = {

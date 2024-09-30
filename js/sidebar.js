@@ -18,6 +18,11 @@ const botonesNuevosCard = document.getElementById('botonesnuevosCard');
 const pacienteBtn = document.getElementById('paciente-btn');
 const imagenBtn = document.getElementById('imagen-btn');
 
+const FONDOPACIENTES = document.getElementById('elements-container');
+const searchbar = document.getElementById('formulario');
+const CREATEPOSTS = document.getElementById('FONDOPOSTS');
+const mensajesPrivados = document.getElementById('privados');
+
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function() {
     botonesNuevosCard.classList.add('show');
@@ -86,17 +91,34 @@ palanca.addEventListener("click", () => {
     let body = document.body;
     body.classList.toggle("dark-mode");
     circulo.classList.toggle("prendido");
+
+    // Guardar en localStorage
+    if (body.classList.contains("dark-mode")) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
 });
+
+// Comprobar el estado del modo oscuro al cargar la página
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    circulo.classList.add('prendido');
+}
+
 
 // Manejo de la barra lateral
 cloud.addEventListener("click", () => {
-    barraLateral.classList.toggle("mini-barra-lateral");
-    main.classList.toggle("min-main");
-
     spans.forEach((span) => {
         span.classList.toggle("oculto");
     });
 
     cloud.classList.toggle("rotated");
-});
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+    FONDOPACIENTES.classList.toggle("expanded");
+    CREATEPOSTS.classList.toggle("expandido1");
+    searchbar.classList.toggle("expandido");
+    mensajesPrivados.classList.toggle("expandido2");
 
+});

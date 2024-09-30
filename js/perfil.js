@@ -207,11 +207,3 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.children[1].style.display = "block";
     }
 });
-
-// Manejo del botón de modo oscuro
-palanca.addEventListener('click', () => {
-    let body = document.body;
-    body.classList.toggle('dark-mode');
-    circulo.classList.toggle('prendido');
-    localStorage.setItem('dark-mode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
-});
