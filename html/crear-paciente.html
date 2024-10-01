@@ -9,24 +9,24 @@
 </head>
 <body>
     <div class="wrapper">
-        <form>
+        <form id="crearPacienteForm">
             <h1>Crear Paciente</h1>
             <!--Contenedor para nombre y apellido-->
             <div class="flex-container">
                 <!--Nombre-->
                 <div class="input-box half-width">
-                    <input type="text" placeholder="Nombre" required>
+                    <input type="text" placeholder="Nombre" id="nombre" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <!--Apellido-->
                 <div class="input-box half-width">
-                    <input type="text" placeholder="Apellido" required>
+                    <input type="text" placeholder="Apellido" id="apellido" required>
                     <i class='bx bxs-user'></i>
                 </div>
             </div>
             <!--Fecha de Nacimiento-->
             <div class="input-box">
-                <input type="text" placeholder="Fecha de Nacimiento" required onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input type="text" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required onfocus="(this.type='date')" onblur="(this.type='text')">
                 <i class='bx bxs-calendar'></i>
             </div>
             <!--Contenedor para país y ocupación-->
@@ -42,7 +42,7 @@
 
                 <!--genero-->
                 <div class="input-box half-width">
-                    <select name="ocupacion" required>
+                    <select id="genero" name="ocupacion" required>
                         <option value="" disabled selected>Genero</option>
                         <option value="Mujer">Mujer</option>
                         <option value="Hombre">Hombre</option>
@@ -53,20 +53,20 @@
             </div>
             <!--Email-->
             <div class="input-box">
-                <input type="email" placeholder="Email" required>
+                <input type="email" placeholder="Email" id="email" required>
                 <i class='bx bxl-gmail'></i>
             </div>
-            <!--Contraseña-->
+            <!--telefono-->
             <div class="input-box">
-                <input type="number" placeholder="Telefono" required>
+                <input type="number" placeholder="Telefono"  id="telefono" required>
                 <i class='bx bxs-phone'></i>
             </div>
             <!--Botón-->
-            <button type="submit" class="btn" onclick="location.href='mis-pacientes.html'">Continuar</button>
+            <button type="submit" class="btn" id="continuarBtn"">Continuar</button>
 
         </form>
     </div>
-    <script src="/js/crear-cuenta.js"></script>
+    <script src="/js/crear-paciente.js"></script>
 
 </body>
 </html>
