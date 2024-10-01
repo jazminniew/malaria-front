@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const imgArea = document.querySelector('.img-area');
     const selectImage = document.querySelector('.select-image');
     const submitButton = document.querySelector('.subir');
+    const nombreInput = document.getElementById('nombre');
+    const apellidoInput = document.getElementById('apellido');
 
     // Permitir que el usuario haga clic en "buscala" para abrir el input de archivos
     selectImage.addEventListener('click', () => {
@@ -43,10 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             reader.readAsDataURL(file); // Leer la imagen como una URL de datos
 
-            // Enviar la imagen al backend
+            // Enviar la imagen, nombre y apellido al backend
             try {
                 const formData = new FormData();
                 formData.append('image', file);
+                formData.append('nombre', nombreInput.value); // Agregar nombre
+                formData.append('apellido', apellidoInput.value); // Agregar apellido
 
                 const response = await fetch('https://malaria-xi.vercel.app/user/login', {
                     method: 'POST',
@@ -58,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 const result = await response.json();
-                console.log('Imagen subida correctamente:', result);
+                console.log('Datos subidos correctamente:', result);
 
                 // Redirigir a la página de carga
                 submitButton.addEventListener('click', function () {

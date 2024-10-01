@@ -34,6 +34,7 @@
     --color-texto-elementos:#7c3ed6;
     --fondo-user-hover: #bebebe;
     --color-icono: #545454;
+    --texto-elemento: #363636;
 
 }
 .dark-mode{
@@ -71,6 +72,7 @@
     --color-texto-elementos:#fff;
     --fondo-user-hover: #262626;
     --color-icono: #7c7c7c;
+    --texto-elemento: #d2d2d2;
 }
 *{
     margin: 0;
@@ -871,4 +873,12 @@ transform: scale(0.6);
 }
 .button-usuario:hover{
     background-color: var(--fondo-user-hover);
+}
+
+
+#noResults{
+    display:none;
+    color: var(--texto-elemento);
+    margin-left: 15em;
+    margin-top: 12em;
 }
