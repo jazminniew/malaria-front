@@ -429,9 +429,6 @@ main.min-main{
     transition: height 0.5s ease, width 0.5s ease;
 }
 
-.noResults.expandido3{
-    margin-left: 1000px;
-}
 
 .input {
     font-size: 0.9rem;
@@ -879,10 +876,13 @@ transform: scale(0.6);
     background-color: var(--fondo-user-hover);
 }
 
-
-#noResults{
-    display:none;
+#noResults {
+    display: none; /* Cambiar esto según sea necesario */
     color: var(--texto-elemento);
-    margin-left: 15em;
+    margin-left: 15em; /* Este margen se aplica solo cuando noResults está visible */
     margin-top: 12em;
+}
+
+#noResults.expandido3 {
+    margin-left: 50px; /* Cambia a un valor más pequeño */
 }

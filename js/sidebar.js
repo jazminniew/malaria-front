@@ -137,58 +137,6 @@ palanca.addEventListener("click", () => {
     }
 });
 
-
-
-/* Comprobar el estado de la barra lateral al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-    console.log('Estado guardado de la barra lateral:', localStorage.getItem('sidebarState'));
-
-    if (localStorage.getItem('sidebarState') === 'mini') {
-        spans.forEach((span) => span.classList.add("oculto"));
-        barraLateral.classList.add("mini-barra-lateral");
-        main.classList.add("min-main");
-        FONDOPACIENTES.classList.add("expanded");
-        noResultsMessage.classList.add("expandido3");
-        CREATEPOSTS.classList.add("expandido1");
-        searchbar.classList.add("expandido");
-        mensajesPrivados.classList.add("expandido2");
-        console.log('La barra lateral está en estado mini al cargar.');
-    } else {
-        spans.forEach((span) => span.classList.remove("oculto"));
-        console.log('La barra lateral está en estado máximo al cargar.');
-    }
-});*/
-
-// Comprobar el estado de la barra lateral al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-    let sidebarState = localStorage.getItem('sidebarState');
-    console.log('Estado guardado de la barra lateral:', sidebarState);
-
-    if (sidebarState === 'mini') {
-        spans.forEach((span) => span.classList.add("oculto"));
-        barraLateral.classList.add("mini-barra-lateral");
-        main.classList.add("min-main");
-        if (FONDOPACIENTES)
-            FONDOPACIENTES.classList.add("expanded");
-        noResultsMessage.classList.add("expandido3");
-        if (CREATEPOSTS)
-            CREATEPOSTS.classList.add("expandido1");
-        if(searchbar)
-        searchbar.classList.add("expandido");
-        if(mensajesPrivados)
-        mensajesPrivados.classList.add("expandido2");
-        console.log('La barra lateral está en estado mini al cargar.');
-    } else if (sidebarState === 'max') {
-        spans.forEach((span) => span.classList.remove("oculto"));
-        barraLateral.classList.remove("mini-barra-lateral");
-        main.classList.remove("min-main");
-        console.log('La barra lateral está en estado máximo al cargar.');
-    } else {
-        console.log('No hay estado guardado, cargando como estado máximo.');
-    }
-});
-
-// Manejo de la barra lateral al hacer clic en el ícono
 cloud.addEventListener("click", () => {
     spans.forEach((span) => {
         span.classList.toggle("oculto");
@@ -198,22 +146,24 @@ cloud.addEventListener("click", () => {
     barraLateral.classList.toggle("mini-barra-lateral");
     main.classList.toggle("min-main");
 
-if (FONDOPACIENTES)
-            FONDOPACIENTES.classList.add("expanded");
-        noResultsMessage.classList.add("expandido3");
-        if (CREATEPOSTS)
-            CREATEPOSTS.classList.add("expandido1");
-        if(searchbar)
-        searchbar.classList.add("expandido");
-        if(mensajesPrivados)
-        mensajesPrivados.classList.add("expandido2");
-
-    // Guardar el estado de la barra lateral en localStorage
+    // Verificar si la barra lateral está en su estado mini o max y aplicar cambios a los componentes
     if (barraLateral.classList.contains("mini-barra-lateral")) {
+        // Si está en estado mini, expande los elementos
+        if (FONDOPACIENTES) FONDOPACIENTES.classList.add("expanded");
+        if (noResultsMessage) noResultsMessage.classList.add("expandido3");
+        if (CREATEPOSTS) CREATEPOSTS.classList.add("expandido1");
+        if (searchbar) searchbar.classList.add("expandido");
+        if (mensajesPrivados) mensajesPrivados.classList.add("expandido2");
+
         localStorage.setItem('sidebarState', 'mini');
-        console.log('Estado de la barra lateral guardado como: mini');
     } else {
+        // Si está en estado max, remueve las clases de expansión
+        if (FONDOPACIENTES) FONDOPACIENTES.classList.remove("expanded");
+        if (noResultsMessage) noResultsMessage.classList.remove("expandido3");
+        if (CREATEPOSTS) CREATEPOSTS.classList.remove("expandido1");
+        if (searchbar) searchbar.classList.remove("expandido");
+        if (mensajesPrivados) mensajesPrivados.classList.remove("expandido2");
+
         localStorage.setItem('sidebarState', 'max');
-        console.log('Estado de la barra lateral guardado como: max');
     }
 });
