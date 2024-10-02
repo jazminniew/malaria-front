@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
+
     const noResultsMessage = document.createElement('div');
     noResultsMessage.textContent = "No hay ningún análisis realizado";
     noResultsMessage.style.display = 'none';
@@ -12,14 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para obtener todos los pacientes desde la base de datos
     async function getPatients() {
         try {
-            const response = await fetch('https://malaria-xi.vercel.app/api/get-pacientes'); // Cambia por tu endpoint real
+            const response = await fetch('https://malaria-xi.vercel.app/user/allUsers');
+            if (!response.ok) {
+                throw new Error('Error al obtener los pacientes: ' + response.status);
+            }
             const patients = await response.json();
-            return patients; // Devolver la lista de pacientes
+            return Array.isArray(patients) ? patients : []; // Asegurarse de que sea un array
         } catch (error) {
-            console.error('Error al obtener los pacientes:', error);
+            console.error(error);
             return [];
         }
     }
+    
   
     // Función para mostrar los resultados de la búsqueda
     function displayPatients(patients) {

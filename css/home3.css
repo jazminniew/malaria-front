@@ -429,6 +429,10 @@ main.min-main{
     transition: height 0.5s ease, width 0.5s ease;
 }
 
+.noResults.expandido3{
+    margin-left: 1000px;
+}
+
 .input {
     font-size: 0.9rem;
     background-color: transparent;
