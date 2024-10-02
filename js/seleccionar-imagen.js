@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('file');
     const imgArea = document.querySelector('.img-area');
     const selectImage = document.querySelector('.select-image');
-    const submitButton = document.querySelector('.subir');
+    const submitButton = document.querySelector('.sp');
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
 

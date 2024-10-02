@@ -510,7 +510,7 @@ input[type="search"] {
     background: var(--fondo-elementos);
     border-radius: 12px;
     padding: 10px 0px;
-    margin: 10px 0px;
+    margin: 20px 0px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     overflow-y: auto;
     box-sizing: border-box;
@@ -866,7 +866,7 @@ transform: scale(0.6);
 #noResults {
     display: none; /* Cambiar esto según sea necesario */
     color: var(--texto-elemento);
-    margin-left: 15em; /* Este margen se aplica solo cuando noResults está visible */
+    margin-left: 16em; /* Este margen se aplica solo cuando noResults está visible */
     margin-top: 12em;
 }
 

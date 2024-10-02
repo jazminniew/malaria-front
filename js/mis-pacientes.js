@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Crear y configurar el mensaje "No hay ningún análisis realizado"
     const noResultsMessage = document.createElement('div');
-    noResultsMessage.textContent = "No hay ningún análisis realizado";
+    noResultsMessage.textContent = "No hay ningún paciente";
     noResultsMessage.style.display = 'none'; // Ocultar inicialmente
     noResultsMessage.id = 'noResults';
     container.appendChild(noResultsMessage);  // Añadir el mensaje al contenedor

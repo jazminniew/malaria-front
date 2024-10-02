@@ -37,7 +37,8 @@ if (localStorage.getItem('sidebarState') === 'mini') {
     main.classList.add("min-main");
     if (FONDOPACIENTES)
         FONDOPACIENTES.classList.add("expanded");
-    noResultsMessage.classList.add("expandido3");
+    if(noResultsMessage)
+        noResultsMessage.classList.add("expandido3");
     if (CREATEPOSTS)
         CREATEPOSTS.classList.add("expandido1");
     if(searchbar)
