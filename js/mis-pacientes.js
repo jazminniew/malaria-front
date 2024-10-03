@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para obtener todos los pacientes desde la base de datos
     async function getPatients() {
         try {
-            const response = await fetch('https://malaria-xi.vercel.app/user/allUsers');
+            const response = await fetch('https://malaria-xi.vercel.app/patients/allPacients');
             if (!response.ok) {
                 throw new Error('Error al obtener los pacientes: ' + response.status);
             }
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return [];
         }
     }
+    
 
     // Función para mostrar los resultados de la búsqueda
     function displayPatients(patients) {

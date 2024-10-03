@@ -14,7 +14,7 @@ document.getElementById('crearPacienteForm').addEventListener('submit', async fu
   
     try {
       // Enviar los datos al backend
-      const response = await fetch('https://malaria-xi.vercel.app/user/login', {
+      const response = await fetch('https://malaria-xi.vercel.app/patients/registerPatient', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

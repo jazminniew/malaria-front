@@ -13,17 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para obtener todos los pacientes desde la base de datos
     async function getPatients() {
         try {
-            const response = await fetch('https://malaria-xi.vercel.app/user/allUsers');
+            // Obtén el token del localStorage
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
+            }
+    
+            // Realiza la petición con el token
+            const response = await fetch('https://malaria-xi.vercel.app/analyze/todosAnalisis', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Aquí se añade el token al header
+                }
+            });
+    
             if (!response.ok) {
                 throw new Error('Error al obtener los pacientes: ' + response.status);
             }
+    
             const patients = await response.json();
-            return Array.isArray(patients) ? patients : []; // Asegurarse de que sea un array
+            return Array.isArray(patients) ? patients : [];
         } catch (error) {
             console.error(error);
             return [];
         }
     }
+    
     
   
     // Función para mostrar los resultados de la búsqueda
