@@ -34,6 +34,12 @@
     --color-texto-elementos:#7c3ed6;
     --fondo-user-hover: #bebebe;
     --color-icono: #545454;
+    --fondo-mensajes-privados: #fff;
+    --texto: #000;
+    --background-colorr:#f9f9f9;
+    --fondo-input:#f9f9f9;
+    --color-borde-input: #ddd;
+    --back-edit-input:#fff;
 
 }
 .dark-mode{
@@ -71,6 +77,12 @@
     --color-texto-elementos:#fff;
     --fondo-user-hover: #262626;
     --color-icono: #7c7c7c;
+    --fondo-mensajes-privados: #202020;
+    --texto: #fff;
+    --background-colorr:rgb(37, 37, 37);
+    --fondo-input:#303030;
+    --color-borde-input: #484848;
+    --back-edit-input:#000;
 }
 *{
     margin: 0;
@@ -387,169 +399,6 @@ main.min-main{
 .menu {
     display: none;
 }
-/*-----------------------Fondo elementos----------------------*/
-
-/*-----------------------Elementos----------------------*/
-.card {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--element-back-color);
-    padding: 10px;
-    border-radius: 6px;
-    gap: 0.5rem;
-    height: max-content;
-}
-.cartas-separadas{
-align-items: center;
-height: 41%;
-margin: none;
-}
-.card_form {
-    width: 8em;
-    height: 8em;
-    border-radius: 4px;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b-RpIyt_XBFGJPPmxf-7SG2UFgQSiXXnFQ&s");
-    transition: 0.2s ease-in-out;
-    overflow: hidden;
-
-}
-.card_form span {
-    font-size: 1.5em;
-    width: 150%;
-    inset: 0;
-    padding: 10px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
-    color: #fff;
-    background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-    );
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-
-  }
-  .card:hover .card_form span,
-  .card:hover .card_data span {
-    opacity: 1;
-  }
-  .card_data {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .card_data span {
-    color: #9147ff;
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-    transition: 0.2s ease-in-out;
-    opacity: 0;
-    cursor: pointer;
-  }
-  .card_data span:hover {
-    text-decoration: underline;
-  }
-  .text {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: white;
-  }
-  .text_m {
-    font-size: 0.9em;
-  }
-  .text_s {
-    color: var(--color-texto-elementos);
-    font-size: 0.6em;
-  }
-  .cube {
-    width: max-content;
-    height: 10px;
-    transition: all 0.2s;
-    transform-style: preserve-3d;
-  }
-  .card:hover .cube {
-    transform: rotateX(90deg);
-  }
-  .side {
-    width: 125px;
-    height: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .top {
-    transform: rotateX(-90deg) translate3d(0, 0, 0em);
-    background: var(--color-boton-acceder);
-    padding:8px;
-    border-radius:10px;
-    width:90%;
-    color: #fff;
-  }
-  .front {
-    transform: translate3d(0, 0, 1em);
-    
-  }
-  
-/*-----------------------------Fondo de filtros------------------------*/
-.tabs {
-    display: flex;
-    background-color: var(--fondo-filtros);
-    padding: 4px;
-    border-radius: 99px;
-}
-  .tabs * {
-    z-index: 2;
-}
-
-/*Boton del filtro*/
-.container input[type="radio"] {
-    display: none;
-}
-.tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    width: 110px;
-    font-size: .8rem;
-    color: var(--color-texto-filtros);
-    font-weight: 500;
-    border-radius: 99px;
-    cursor: pointer;
-    transition: color 0.15s ease-in;
-}
-/*Movimiento del boton del filtro*/
-.container input[id="radio-1"]:checked ~ .glider {
-    transform: translateX(0);
-}
-.container input[id="radio-2"]:checked ~ .glider {
-    transform: translateX(115%);
-}
-.container input[id="radio-3"]:checked ~ .glider {
-    transform: translateX(230%);
-}
-/*Fondo del boton del filtro*/
-.glider {
-    position: absolute;
-    display: flex;
-    height: 30px;
-    width: 100px;
-    background-color: var(--fondo-filtro-boton);
-    z-index: 1;
-    border-radius: 99px;
-    transition: 0.25s ease-out;
-}
-@media (max-width: 700px) {
-    .tabs {
-transform: scale(0.6);
-    }
-}
-
 /*CERRAR SESION*/
 .card_cerrar {
     width: 300px;
@@ -736,7 +585,7 @@ transform: scale(0.6);
 
 .profile-card {
     flex: 3; /* Mayor ancho para la información del perfil */
-    background-color: #fff;
+    background-color: var(--fondo-mensajes-privados);
     border-radius: 10px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     padding: 20px;
@@ -768,7 +617,7 @@ transform: scale(0.6);
 
 .edit-button, .confirm-button {
     background-color: #7c3ed6;
-    color: white;
+    color: var(--input-bg);
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -796,25 +645,26 @@ transform: scale(0.6);
     width: 100%;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde-input);
 }
 
 .info-group input:disabled, .info-group select:disabled, .info-group textarea:disabled {
-    background-color: #f9f9f9;
+    background-color: var(--fondo-input);
 }
 
 .info-group input.edit-mode, .info-group select.edit-mode, .info-group textarea.edit-mode {
     border: 1px solid #7c3ed6;
-    background-color: white;
+    background-color: var(--back-edit-input);
 }
 
 .messages-card {
     flex: 2; /* Menor ancho para los mensajes privados */
-    background-color: #fff;
+    background-color: var(--fondo-mensajes-privados);
     border-radius: 10px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     padding: 20px;
     transition: height 0.5s ease, width 0.5s ease;
+    color: var(--texto);
 }
 .messages.expandido2{
     width: 945px;
@@ -838,81 +688,10 @@ transform: scale(0.6);
     background: #555; /* Color al pasar el mouse */
 }
 
-.message-list {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-}
-
-.message {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.message:last-child {
-    border-bottom: none;
-}
-
-.message-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.message-content {
-    margin: 5px 0;
-}
-
-.message-actions {
-    display: flex;
-    gap: 10px;
-}
-
-.delete-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.trash-icon {
-    width: 20px;
-    height: 20px;
-}
-
 textarea {
     resize: none;
 }
-/* Añadir esto a tu CSS */
-.message {
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
 
-.message-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.message-content {
-    margin-top: 5px;
-}
-
-#reply-text {
-    width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: none; /* Se mostrará cuando el usuario presione "Responder" */
-}
 
 /* Estilo del scrollbar */
 body::-webkit-scrollbar {
@@ -931,4 +710,53 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color al pasar el mouse */
+}
+
+.chat-list {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: var(--background-colorr);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--element-back-color);
+    border-radius: 10px; /* Bordes redondeados para un look moderno */
+    border: 1px solid var(--border-color); /* Línea de separación */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-item:hover {
+    background-color: var(--color-menu-hover);
+    transform: scale(1.02); /* Efecto de aumento al pasar el mouse */
+}
+
+.chat-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-item .chat-name {
+    font-size: 1.1em;
+    color: var(--color-texto);
+    flex-grow: 1;
+}
+
+.chat-item .chat-time {
+    font-size: 0.9em;
+    color: var(--color-texto-menu);
+}
+
+label{
+    color: var(--texto);
 }
