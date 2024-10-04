@@ -159,41 +159,60 @@ cursor: pointer;
 
 /* From Uiverse.io by JkHuger */ 
 .sparkle-button {
-    --active: 0;
-    --bg: radial-gradient(
-              40% 50% at center 100%,
-              hsl(270 calc(var(--active) * 97%) 72% / var(--active)),
-              transparent
-          ),
-          radial-gradient(
-              80% 100% at center 120%,
-              hsl(260 calc(var(--active) * 97%) 70% / var(--active)),
-              transparent
-          ),
-          hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
-    background: var(--bg);
-    font-size: 1.2rem;
-    font-weight: 500;
-    border: 0;
-    cursor: pointer;
-    padding: 1em 1em;
-    display: flex; /* Mantén el display como flex */
-    align-items: center; /* Alinea verticalmente el contenido */
-    justify-content: center; /* Centra horizontalmente el contenido */
-    gap: 0.5em; /* Espacio entre el texto y el icono */
-    white-space: nowrap;
-    border-radius: 100px;
-    position: relative;
-    box-shadow: 0 0 calc(var(--active) * 3em) calc(var(--active) * 1em) hsl(260 97% 61% / 0.75),
-          0 0em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset,
-          0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
-    transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
-    scale: calc(1 + (var(--active) * 0.1));
-    transition: .3s;
-    width: 100%; /* Asegúrate de que el botón ocupe todo el ancho */
+  --active: 0;
+  --bg: white; /* Fondo inicial blanco */
+  background: var(--bg);
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 0;
+  cursor: pointer;
+  padding: 1em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  white-space: nowrap;
+  border-radius: 100px;
+  position: relative;
+  box-shadow: 0 0 calc(var(--active) * 3em) calc(var(--active) * 1em) hsl(260 97% 61% / 0.75),
+        0 0em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset,
+        0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
+  transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
+  scale: calc(1 + (var(--active) * 0.1));
+  transition: .3s;
+  width: 100%;
+  color: black; /* Texto negro inicialmente */
 }
 
-  
+/* Cambia el fondo y el color del texto cuando se haga hover o focus */
+.sparkle-button:is(:hover, :focus-visible) {
+  --bg: radial-gradient(
+            40% 50% at center 100%,
+            hsl(270 calc(var(--active) * 97%) 72% / var(--active)),
+            transparent
+        ),
+        radial-gradient(
+            80% 100% at center 120%,
+            hsl(260 calc(var(--active) * 97%) 70% / var(--active)),
+            transparent
+        ),
+        hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%)); /* Fondo violeta */
+  background: var(--bg); /* Aplica el degradado violeta en hover */
+  color: white; /* Texto blanco cuando el botón está activo */
+}
+
+.text {
+  translate: 2% -6%;
+  letter-spacing: 0.01ch;
+  background: none; /* Sin gradiente inicial en el texto */
+  color: black; /* Color del texto negro inicialmente */
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Cambia el color del texto a blanco en hover */
+.sparkle-button:is(:hover, :focus-visible) .text {
+  color: white;
+}
   .sparkle-button:active {
     scale: 1;
     transition: .3s;
@@ -344,6 +363,9 @@ cursor: pointer;
     z-index: -1;
     opacity: var(--active, 0);
     transition: opacity var(--transition);
+  }
+  span.text{
+    color:#6f6f6f;
   }
   
   .particle {

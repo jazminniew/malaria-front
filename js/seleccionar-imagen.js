@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('file');
     const imgArea = document.querySelector('.img-area');
     const selectImage = document.querySelector('.select-image');
-    const submitButton = document.querySelector('.sp');
+    const analyzeButton = document.querySelector('.sparkle-button'); // Botón de "Analizar imagen"
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
 
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const result = await response.json();
                 console.log('Datos subidos correctamente:', result);
 
-                // Redirigir a la página de carga
-                submitButton.addEventListener('click', function () {
-                    window.location.href = 'cargando.html';
+                // Redirigir a la página de carga al hacer clic en el botón
+                analyzeButton.addEventListener('click', function () {
+                    window.location.href = 'cargando.html'; // Redirige cuando se presiona el botón "Analizar imagen"
                 });
 
             } catch (error) {

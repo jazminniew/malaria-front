@@ -37,6 +37,7 @@
     --fondo-user-hover: #bebebe;
     --color-icono: #545454;
     --texto-elemento: #363636;
+    --texto-input:#000;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -76,6 +77,7 @@
     --color-texto-elementoss-hover: #fff;
     --fondo-user-hover: #262626;
     --texto-elemento: #d2d2d2;
+    --texto-input:#fff;
 }
 *{
     margin: 0;
@@ -437,6 +439,7 @@ main.min-main{
     padding-inline: 0.5em;
     padding-block: 0.7em;
     border: none;
+    color: var(--texto-input);
 }
 .form:before {
     content: "";
