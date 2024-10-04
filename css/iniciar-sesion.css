@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
+    background: url(../videolaila.mp4) no-repeat ;
     background-size: cover;
     background-position: center;
 }
@@ -101,4 +101,13 @@ body{
 }
 .register-link p a:hover{
     text-decoration: underline;
+}
+#bg-video {
+    position: absolute; /* Permite que el video esté detrás de otros elementos */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    object-fit: cover; /* Asegura que el video cubra toda el área */
+    z-index: -1; /* Coloca el video detrás del contenido */
 }

@@ -88,34 +88,36 @@
     <main> 
 <!---------------------NAVBAR----------------------------------------------------------------->
 <div class="FONDOPACIENTES" id="elements-container"> 
-    <div class="container"></div>
         <!-- Contenido Principal -->
         <div class="main-content">
             <!-- Perfil de Usuario -->
             <div class="profile-card">
                 <div class="profile-pic-container">
-                    <img id="profile-pic" src="userphoto.avif" alt="Foto0" class="profile-pic" onclick="document.getElementById('profile-pic-input').click();">
+                    <img id="profile-pic" src="userphoto.avif" alt="Foto0" class="profile-pic" onclick="enableProfilePicUpload();">
                     <input type="file" id="profile-pic-input" accept="image/*" onchange="updateProfilePic(event)" style="display: none;">
                 </div>
+                
                 <div class="profile-info">
                     <div class="info-group">
                         <label for="name">Nombre:</label>
-                        <input type="text" id="name" value="Juan" disabled>
+                        <input type="text" id="name" value="" disabled>
                     </div>
                     <div class="info-group">
                         <label for="surname">Apellido:</label>
-                        <input type="text" id="surname" value="Pérez" disabled>
+                        <input type="text" id="surname" value="" disabled>
                     </div>
                     <div class="info-group">
                         <label for="country">País de Residencia:</label>
                         <select id="country" disabled>
+                            <option value="">Selecciona tu país</option>
                             <!-- Opciones de países serán insertadas por JS -->
                         </select>
                     </div>
                     <div class="info-group">
                         <label for="occupation">Ocupación:</label>
                         <select id="occupation" disabled>
-                            <option value="medico" selected>Médico</option>
+                            <option value="">Selecciona tu ocupación</option>
+                            <option value="medico">Médico</option>
                             <option value="ingeniero">Ingeniero</option>
                             <option value="abogado">Abogado</option>
                             <!-- Más opciones aquí -->
@@ -123,7 +125,7 @@
                     </div>
                     <div class="info-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" value="juan.perez@example.com" disabled>
+                        <input type="email" id="email" value="" disabled>
                     </div>
                     <div class="info-group">
                         <label for="description">Descripción:</label>
@@ -132,9 +134,9 @@
                 </div>
                 <div class="profile-actions">
                     <button class="edit-button" id="edit-button" onclick="toggleEditMode()">Editar</button>
-                    <button class="confirm-button" id="confirm-button" onclick="saveChanges()" style="display: none;">Confirmar</button>
                 </div>
             </div>
+        </div>
 
             <!-- Mensajes Privados -->
             <div class="messages-card" id="privados">

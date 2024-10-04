@@ -392,6 +392,7 @@ main{
     padding: 20px;
     transition: margin-left 0.5s ease;
     height: 730px;
+    width: 850px;
 }
 main.min-main{
     transition: margin-left 0.5s;
@@ -658,7 +659,7 @@ main.min-main{
 }
 
 .messages-card {
-    flex: 2; /* Menor ancho para los mensajes privados */
+    flex: 0.7; /* Menor ancho para los mensajes privados */
     background-color: var(--fondo-mensajes-privados);
     border-radius: 10px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
@@ -666,10 +667,7 @@ main.min-main{
     transition: height 0.5s ease, width 0.5s ease;
     color: var(--texto);
 }
-.messages.expandido2{
-    width: 945px;
-    transition: height 0.5s ease, width 0.5s ease;
-}
+
 .messages-list::-webkit-scrollbar {
     width: 12px; /* Ancho del scrollbar */
 }
@@ -677,6 +675,12 @@ main.min-main{
 .messages-list::-webkit-scrollbar-track {
     background: #f1f1f1; /* Color de fondo del track */
     border-radius: 10px;
+}
+.FONDOPACIENTES{
+    display: flex;
+    gap: 30px;
+    margin-left: 10px;
+    flex: 1; /* Hacer que el contenedor de mensajes ocupe todo el espacio disponible */
 }
 
 .messages-list::-webkit-scrollbar-thumb {
@@ -759,4 +763,19 @@ body::-webkit-scrollbar-thumb:hover {
 
 label{
     color: var(--texto);
+}
+
+/* Estilo para el borde violeta cuando se habilita la edición */
+.info-group input:enabled,
+.info-group select:enabled,
+.info-group textarea:enabled {
+    border: 1px solid #7c3ed6;  /* Camb ia el borde a violeta */
+    outline: none; /* Opcional: elimina el borde por defecto del foco */
+}
+
+/* Si quieres que el borde vuelva a su color original cuando no está en edición */
+.info-group input:disabled,
+.info-group select:disabled,
+.info-group textarea:disabled {
+    border: 1px solid var(--color-borde-input); /* Color original del borde */
 }

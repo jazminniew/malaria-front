@@ -34,78 +34,128 @@ function populateCountries() {
     });
 }
 
-function toggleEditMode() {
-    const profileCard = document.querySelector('.profile-card');
-    const fields = document.querySelectorAll('.profile-info input, .profile-info select, .profile-info textarea');
-    const isEditing = !fields[0].disabled;
+//------------------------final paises----------------------------------------
+const profilePicInput = document.getElementById('profile-pic-input');
+const profilePic = document.getElementById('profile-pic');
+const nameInput = document.getElementById('name');
+const surnameInput = document.getElementById('surname');
+const countryInput = document.getElementById('country');
+const occupationInput = document.getElementById('occupation');
+const emailInput = document.getElementById('email');
+const descriptionInput = document.getElementById('description');
+const editButton = document.getElementById('edit-button');
 
-    fields.forEach(field => {
-        field.disabled = isEditing;
-        field.style.backgroundColor = isEditing ? '#f9f9f9' : 'white';
-        field.style.border = isEditing ? '1px solid #ddd' : '1px solid #7c3ed6';
-    });
+let editMode = false;
 
-    document.getElementById('edit-button').style.display = isEditing ? 'none' : 'block';
-    document.getElementById('confirm-button').style.display = isEditing ? 'block' : 'none';
+// Obtener datos del perfil desde Vercel
+async function fetchProfileData() {
+    try {
+        const response = await fetch('https://tu-enlace-vercel.com/api/perfil'); // Cambia por tu enlace real
+        const data = await response.json();
+        
+        // Rellenar los campos con los datos obtenidos
+        nameInput.value = data.name || '';
+        surnameInput.value = data.surname || '';
+        emailInput.value = data.email || '';
+        descriptionInput.value = data.description || '';
+        
+        // Rellenar select con datos de país y ocupación
+        const countries = ['Argentina', 'Chile', 'Colombia', 'México']; // Cambia por los países reales
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            if (country === data.country) option.selected = true; // Seleccionar el país actual
+            countryInput.appendChild(option);
+        });
 
-    // Solo permitir cambiar la foto cuando esté en modo de edición
-    document.getElementById('profile-pic').onclick = isEditing ? function() {
-        document.getElementById('profile-pic-input').click();
-    } : null;
-
-    profileCard.classList.toggle('edit-mode', !isEditing);
-}
-
-
-function saveChanges() {
-    const name = document.getElementById('name').value;
-    const surname = document.getElementById('surname').value;
-    const country = document.getElementById('country').value;
-    const occupation = document.getElementById('occupation').value;
-    const email = document.getElementById('email').value;
-    const description = document.getElementById('description').value;
-
-    // Hacer una solicitud fetch para actualizar los datos del usuario
-    fetch('https://malaria-xi.vercel.app/', {
-        method: 'PUT', // Asumiendo que el método para editar es PUT
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: name,
-            surname: surname,
-            country: country,
-            occupation: occupation,
-            email: email,
-            description: description
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Cambios guardados exitosamente');
-            toggleEditMode(); // Desactivar el modo de edición
-        } else {
-            alert('Error al guardar los cambios');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Ocurrió un error al intentar guardar los cambios');
-    });
-}
-
-
-function updateProfilePic(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-        document.getElementById('profile-pic').src = e.target.result;
+        const occupations = ['Médico', 'Ingeniero', 'Abogado']; // Cambia por ocupaciones reales
+        occupations.forEach(occupation => {
+            const option = document.createElement('option');
+            option.value = occupation;
+            option.textContent = occupation;
+            if (occupation === data.occupation) option.selected = true; // Seleccionar ocupación actual
+            occupationInput.appendChild(option);
+        });
+        
+        // Cargar la foto de perfil
+        profilePic.src = data.profilePicUrl || 'userphoto.avif'; // Asumiendo que el objeto `data` tiene un campo profilePicUrl
+    } catch (error) {
+        console.error('Error fetching profile data:', error);
     }
-
-    reader.readAsDataURL(file);
 }
+
+// Función para alternar el modo de edición
+function toggleEditMode() {
+    const nameInput = document.getElementById('name');
+    const surnameInput = document.getElementById('surname');
+    const countrySelect = document.getElementById('country');
+    const occupationSelect = document.getElementById('occupation');
+    const emailInput = document.getElementById('email');
+    const descriptionTextarea = document.getElementById('description');
+    const editButton = document.getElementById('edit-button');
+
+    const isEditing = nameInput.disabled;
+
+    // Habilitar o deshabilitar campos
+    nameInput.disabled = !isEditing;
+    surnameInput.disabled = !isEditing;
+    countrySelect.disabled = !isEditing;
+    occupationSelect.disabled = !isEditing;
+    emailInput.disabled = !isEditing;
+    descriptionTextarea.disabled = !isEditing;
+
+    // Cambiar el texto del botón
+    editButton.textContent = isEditing ? 'Confirmar' : 'Editar';
+
+    // Cambiar el borde a violeta si está habilitado
+    if (isEditing) {
+        nameInput.classList.add('editable');
+        surnameInput.classList.add('editable');
+        countrySelect.classList.add('editable');
+        occupationSelect.classList.add('editable');
+        emailInput.classList.add('editable');
+        descriptionTextarea.classList.add('editable');
+    } else {
+        nameInput.classList.remove('editable');
+        surnameInput.classList.remove('editable');
+        countrySelect.classList.remove('editable');
+        occupationSelect.classList.remove('editable');
+        emailInput.classList.remove('editable');
+        descriptionTextarea.classList.remove('editable');
+    }
+}
+
+
+// Función para guardar los datos del perfil
+async function saveProfileData() {
+    const profileData = {
+        name: nameInput.value,
+        surname: surnameInput.value,
+        country: countryInput.value,
+        occupation: occupationInput.value,
+        email: emailInput.value,
+        description: descriptionInput.value,
+    };
+
+    try {
+        await fetch('https://tu-enlace-vercel.com/api/perfil', { // Cambia por tu enlace real
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(profileData),
+        });
+        alert('Perfil actualizado exitosamente');
+    } catch (error) {
+        console.error('Error updating profile data:', error);
+    }
+}
+
+// Cargar los datos del perfil al cargar la página
+fetchProfileData();
+
+//---------------------------final info usuario----------------------------
 
 function deleteConversation(button) {
     const message = button.closest('.message');
@@ -191,5 +241,25 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                              </div>`;
 });
+function enableProfilePicUpload() {
+    const profilePicInput = document.getElementById('profile-pic-input');
+    const nameInput = document.getElementById('name');
+    
+    // Solo habilita la carga si está en modo de edición
+    if (!nameInput.disabled) {
+        profilePicInput.click();
+    }
+}
+function updateProfilePic(event) {
+    const profilePic = document.getElementById('profile-pic');
+    const file = event.target.files[0];
 
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            profilePic.src = e.target.result; // Cambia la fuente de la imagen
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
