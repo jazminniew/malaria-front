@@ -171,17 +171,20 @@ body{
     display: flex;
     align-items: center;
 }
-/*Icono*/
-.barra-lateral .nombre-pagina ion-icon{
-    min-width: 50px;
-    font-size: 30px;
+.barra-lateral .nombre-pagina img{
+    width: 20px;
+    height: 200px;
+    object-fit: contain; /* Esto asegura que la imagen se escale dentro del área sin recortarse */
     display: flex;
     align-items: center;
+    margin-left: 15px;
 }
 .barra-lateral .nombre-pagina span{
     margin: 5px;
     font-size: 25px;
-}
+    margin-left: 20px;
+    margin-top: 15px;
+} 
 /*Texto botones barra lateral*/
 .barra-lateral span{
     width: 100px;

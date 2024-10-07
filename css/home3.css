@@ -154,15 +154,19 @@ body{
     align-items: center;
 }
 /*Icono*/
-.barra-lateral .nombre-pagina ion-icon{
-    min-width: 50px;
-    font-size: 30px;
+.barra-lateral .nombre-pagina img{
+    width: 20px;
+    height: 200px;
+    object-fit: contain; /* Esto asegura que la imagen se escale dentro del área sin recortarse */
     display: flex;
     align-items: center;
+    margin-left: 15px;
 }
 .barra-lateral .nombre-pagina span{
     margin: 5px;
     font-size: 25px;
+    margin-left: 20px;
+    margin-top: 15px;
 }
 /*Texto botones barra lateral*/
 .barra-lateral span{
@@ -181,6 +185,7 @@ body{
 }
 /*-----Componente malarIA nombre pagina-------------*/ 
 .Malaria{
+    text-align: center;
     font-size: 2em;
     font-weight: 900;
     color: rgba(255, 255, 255, 0.3);
@@ -888,3 +893,5 @@ transform: scale(0.6);
 #noResults.expandido3 {
     margin-left: 50px; /* Cambia a un valor más pequeño */
 }
+
+
