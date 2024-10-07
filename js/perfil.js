@@ -45,6 +45,7 @@ const emailInput = document.getElementById('email');
 const descriptionInput = document.getElementById('description');
 const editButton = document.getElementById('edit-button');
 
+
 let editMode = false;
 
 // Obtener datos del perfil desde Vercel
@@ -59,17 +60,13 @@ async function fetchProfileData() {
         emailInput.value = data.email || '';
         descriptionInput.value = data.description || '';
         
-        // Rellenar select con datos de país y ocupación
-        const countries = ['Argentina', 'Chile', 'Colombia', 'México']; // Cambia por los países reales
-        countries.forEach(country => {
-            const option = document.createElement('option');
-            option.value = country;
-            option.textContent = country;
-            if (country === data.country) option.selected = true; // Seleccionar el país actual
-            countryInput.appendChild(option);
-        });
-
-        const occupations = ['Médico', 'Ingeniero', 'Abogado']; // Cambia por ocupaciones reales
+        // Rellenar select de país con el array global 'countries'
+        populateCountries();  // Usa la función global para países
+        if (data.country) {
+            countryInput.value = data.country.toLowerCase().replace(/\s+/g, '-');
+        }
+        
+        const occupations = ['Médico', 'Ingeniero', 'Abogado']; // Ocupaciones reales
         occupations.forEach(occupation => {
             const option = document.createElement('option');
             option.value = occupation;
@@ -79,11 +76,12 @@ async function fetchProfileData() {
         });
         
         // Cargar la foto de perfil
-        profilePic.src = data.profilePicUrl || 'userphoto.avif'; // Asumiendo que el objeto `data` tiene un campo profilePicUrl
+        profilePic.src = data.profilePicUrl || 'userphoto.avif'; 
     } catch (error) {
         console.error('Error fetching profile data:', error);
     }
 }
+
 
 // Función para alternar el modo de edición
 function toggleEditMode() {
@@ -126,9 +124,33 @@ function toggleEditMode() {
     }
 }
 
+function validateProfileData() {
+    const emailInput = document.getElementById('email');
+    const nameInput = document.getElementById('name');
+    const surnameInput = document.getElementById('surname');
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validación de formato de email
+
+    // Verificar que los campos obligatorios no estén vacíos
+    if (!nameInput.value.trim() || !surnameInput.value.trim()) {
+        alert('Por favor, completa los campos obligatorios: Nombre y Apellido.');
+        return false;
+    }
+
+    // Verificar formato de email
+    if (!emailRegex.test(emailInput.value)) {
+        alert('Por favor, ingresa un email válido.');
+        return false;
+    }
+
+    return true;
+}
 
 // Función para guardar los datos del perfil
 async function saveProfileData() {
+    if (!validateProfileData()) {
+        return; // Si la validación falla, no continuar
+    }
     const profileData = {
         name: nameInput.value,
         surname: surnameInput.value,
@@ -150,6 +172,8 @@ async function saveProfileData() {
     } catch (error) {
         console.error('Error updating profile data:', error);
     }
+
+    
 }
 
 // Cargar los datos del perfil al cargar la página
@@ -210,37 +234,7 @@ function startReply() {
     }
 }
 
-// Inicializar el select de países al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    populateCountries();
 
-    // Mensajes de muestra
-    const messageList = document.getElementById('message-list');
-    messageList.innerHTML = `<div class="message">
-                                <div class="message-header">
-                                    <strong>Juan:</strong>
-                                    <button class="delete-button" onclick="deleteConversation(this)">
-                                        <img src="trash-icon.png" alt="Eliminar" class="trash-icon">
-                                    </button>
-                                </div>
-                                <div class="message-content">
-                                    <p>Hola, ¿cómo estás?</p>
-                                    <button class="reply-button" onclick="startReply()">Responder</button>
-                                </div>
-                             </div>
-                             <div class="message">
-                                <div class="message-header">
-                                    <strong>Pedro:</strong>
-                                    <button class="delete-button" onclick="deleteConversation(this)">
-                                        <img src="trash-icon.png" alt="Eliminar" class="trash-icon">
-                                    </button>
-                                </div>
-                                <div class="message-content">
-                                    <p>Hola Juan, estoy bien. ¿Y tú?</p>
-                                    <button class="reply-button" onclick="startReply()">Responder</button>
-                                </div>
-                             </div>`;
-});
 function enableProfilePicUpload() {
     const profilePicInput = document.getElementById('profile-pic-input');
     const nameInput = document.getElementById('name');
@@ -263,3 +257,68 @@ function updateProfilePic(event) {
     }
 }
 
+
+//-----------------------------------mensajes privados--------------------------------
+// Función para obtener los chats de la base de datos desde Vercel
+async function fetchChats() {
+    try {
+        const response = await fetch('https://tu-enlace-vercel.com/api/chats'); // Cambia por tu enlace real de la base de datos en Vercel
+        const chats = await response.json();
+
+        // Si la lista de chats está vacía, muestra un mensaje indicando que no hay mensajes
+        if (chats.length === 0) {
+            displayNoChatsMessage();
+            console.log(displayNoChatsMessage);
+        } else {
+            displayChats(chats);
+        }
+    } catch (error) {
+        console.error('Error fetching chats:', error);
+    }
+}
+
+// Función para mostrar un mensaje cuando no hay chats
+function displayNoChatsMessage() {
+    const messageList = document.getElementById('message-list');
+    messageList.innerHTML = '';  // Limpiar contenido previo
+
+    const noChatsMessage = document.createElement('p');
+    noChatsMessage.className = 'no-chats-message';
+    noChatsMessage.textContent = 'No hay ningún mensaje';
+    
+    messageList.appendChild(noChatsMessage);
+    
+}
+
+// Función para mostrar los chats en la interfaz
+function displayChats(chats) {
+    const messageList = document.getElementById('message-list');
+    messageList.innerHTML = '';  // Limpiar el contenido anterior
+
+    chats.forEach(chat => {
+        const chatElement = document.createElement('div');
+        chatElement.className = 'chat-item';  // Mantener la misma clase del HTML
+        chatElement.innerHTML = `
+            <img src="${chat.profilePic}" alt="Foto de perfil" class="chat-pic">
+            <div class="chat-name">${chat.username}</div>
+            <div class="chat-time">${formatTime(chat.timestamp)}</div>
+        `;
+        chatElement.addEventListener('click', () => openChat(chat.chatId));  // Redirigir a la página de chat
+        messageList.appendChild(chatElement);
+    });
+}
+
+// Función para formatear la hora del mensaje
+function formatTime(timestamp) {
+    const date = new Date(timestamp);
+    return `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
+}
+
+// Función para redirigir a la página del chat cuando se haga clic en un mensaje
+function openChat(chatId) {
+    localStorage.setItem('currentChatId', chatId);
+    window.location.href = 'chat.html';
+}
+
+// Llamar a fetchChats cuando cargue la página
+document.addEventListener('DOMContentLoaded', fetchChats);

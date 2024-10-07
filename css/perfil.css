@@ -779,3 +779,10 @@ label{
 .info-group textarea:disabled {
     border: 1px solid var(--color-borde-input); /* Color original del borde */
 }
+
+.no-chats-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #888;
+    margin-top: 20px;
+}
