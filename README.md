@@ -25,5 +25,5 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 
 Si tienes preguntas o sugerencias, no dudes en contactarme a través de:
 
-- Correo electrónico: malarIA22.com
+- Correo electrónico: malarIA22@gmail.com
 - GitHub: [jazminniew](https://github.com/jazminniew)
