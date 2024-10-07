@@ -26,10 +26,4 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE)
 Si tienes preguntas o sugerencias, no dudes en contactarme a través de:
 
 - Correo electrónico: malarIA22.com
-- GitHub: [tu_usuario](https://github.com/jazminniew)
-```
-
-### Notas:
-- Asegúrate de completar la sección de **Inteligencia Artificial** con la librería o modelo específico que estás utilizando.
-- Ajusta el enlace de GitHub y el correo electrónico según sea necesario. 
-- Si hay otros detalles que quieras añadir, como instrucciones sobre la estructura de carpetas o detalles sobre cómo subir imágenes, no dudes en hacerlo.
+- GitHub: [jazminniew](https://github.com/jazminniew)
