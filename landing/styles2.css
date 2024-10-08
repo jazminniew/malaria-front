@@ -10,16 +10,19 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
+    padding: 20px 0px;
     align-items: center;
-    position: relative; /* Mantenerlo relativo para que se sitúe dentro de su flujo normal */
-    z-index: 10; /* Asegura que el header esté por encima del fondo */
-    margin-top: -220px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
 }
 
 .logo {
