@@ -75,25 +75,29 @@ h1 {
     margin-left: 0; /* Alinea el <h1> completamente a la izquierda */
 }
 
-.highlight {
-    display: inline-block;
-    width: 5px;
-    height: 100%;
-    background-color: #a34ff1;
-    margin-right: 10px;
-}
+
 
 .start-btn {
     background-color: #6246ea;
-    color: white;
+    color: rgb(3, 3, 3);
     padding: 15px 30px;
     border-radius: 10px;
     font-size: 18px;
     border: none;
     cursor: pointer;
     letter-spacing: 3px;
+    font-weight: 50;
 }
 
 .start-btn:hover {
     background-color: #5033d5;
+}
+
+img{
+    width: 20px;
+    margin-right: 10px;
+}
+
+section{
+    background: url('') no-repeat center center fixed;
 }

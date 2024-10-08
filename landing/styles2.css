@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    align-items: center;
+    position: relative; /* Mantenerlo relativo para que se sitúe dentro de su flujo normal */
+    z-index: 10; /* Asegura que el header esté por encima del fondo */
+    margin-top: -220px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    padding: 0.5rem 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white; /* Cambia el color a blanco */
+}
+
+section {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#seccion1 {
+    background: url(../images/fondoseccion1.png) no-repeat center center/cover;
+    color: white;
+    text-align: left;
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+}
+
+
+.content {
+    max-width: 600px;
+    text-align: left;
+    margin-left: 0; /* Asegura que esté alineado al borde izquierdo */
+    padding-left: 0; /* Asegura que no haya espacio adicional */
+}
+h1 {
+    font-size: 60px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-left: 0; /* Alinea el <h1> completamente a la izquierda */
+    
+}
+.start-btn {
+    background-color: #6246ea;
+    color: rgb(39, 39, 39);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background-color: #5033d5;
+}
+
+#seccion2 {
+    background: url(../images/fondoseccion2.png) no-repeat center center/cover;
+}
+
+#seccion3 {
+    background: url('path/to/fondo3.jpg') no-repeat center center/cover;
+}
+
+#seccion4 {
+    background: url('path/to/fondo4.jpg') no-repeat center center/cover;
+}
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.social-media a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.iniciar-sesion{
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+.crear-cuenta{
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
