@@ -1,112 +1,132 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  overflow-y: hidden;
 }
-body{
-    height: 100vh;
-    width: 100%;
-    background-color: var(--background-color);
-    overflow: hidden;
+body {
+  display: flex;
+  background: rgb(255, 255, 255);
+  background-size: cover;
+  width: 100%;
 }
-.contenedor{
-    display: flex;
-}
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #ffffff;
-    padding: 30px 50px;
-    width: 100%;
-    border-radius: 20px;
-    margin-top: 100px;
-  }
-  
-  .form button {
-    align-self: flex-end;
-  }
-  
-  .flex-column > label {
-    color: #151717;
-    font-weight: 600;
-  }
-  
-  .inputForm {
-    border: 1.5px solid #ecedec;
-    border-radius: 10px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    transition: 0.2s ease-in-out;
-  }
-  
-  .input {
-    margin-left: 10px;
-    border-radius: 10px;
-    border: none;
-    width: 85%;
-    height: 100%;
-  }
-  
-  .input:focus {
-    outline: none;
-  }
-  
-  .inputForm:focus-within {
-    border: 1.5px solid #9147ff;
-  }
-  
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    justify-content: space-between;
-  }
-  
-  .flex-row > div > label {
-    font-size: 14px;
-    color: black;
-    font-weight: 400;
-  }
-  
-  .span {
-    font-size: 14px;
-    margin-left: 5px;
-    color: #9147ff;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  .button-submit {
-    margin: 20px 0 10px 0;
-    background-color: #9147ff;
-    border: none;
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 10px;
-    height: 50px;
-    width: 100%;
-    cursor: pointer;
-  }
-  
-  .button-submit:hover {
-    background-color: #252727;
-  }
-  
-  .p {
-    text-align: center;
-    color: black;
-    font-size: 14px;
-    margin: 5px 0;
-  }
 
 .fondoDegrade{
-    width: 55%;
-    height: 100%;
-  }
-  
+  width: 50%;
+}
+
+.contenedorForm{
+  width: 50%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px ;
+}
+
+.wrapper h1 {
+  font-size: 30px;
+  text-align:left;
+  margin-bottom: 20px;
+  color: #441465;
+  font-weight: lighter;
+}
+
+.wrapper .input-box {
+  position: relative;
+  width: 100%;
+  background: #ffffff00;
+  margin: 10px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(41, 41, 41, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #000000;
+  padding: 15px 45px 15px 20px;
+}
+
+.input-box input::placeholder {
+  color: #000000;
+}
+
+#registerForm{
+  width: 70%;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  transform: translate(-50%);
+  font-size: 20px;
+}
+
+.wrapper .register-link {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.register-link label input {
+  accent-color: #9147ff;
+  margin-right: 3px;
+}
+.register-link a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .btn {
+  width: 100%;
+  height: 45px;
+  background: #7C3ED6;
+  border-radius: 40px;
+  border: 10px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #d1d1d1;
+  font-weight: 600;
+}
+
+.wrapper .register-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link p a {
+  color: #441465;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
