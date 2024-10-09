@@ -9,16 +9,18 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
-    
+    overflow-x: hidden;    
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0px;
     align-items: center;
+    position: relative; /* Asegura que el header esté en su lugar, no fijo */
+    top: 0; /* Alinea al tope */
+    z-index: 10; /* Para que quede sobre otros elementos */
 }
+
 
 nav {
     display: flex;
@@ -53,7 +55,6 @@ section {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     min-height: 100vh;
 }
 
@@ -70,18 +71,19 @@ section {
     text-align: left;
     margin-left: 0; /* Asegura que esté alineado al borde izquierdo */
     padding-left: 0; /* Asegura que no haya espacio adicional */
+    margin-top: 100px;
 }
 h1 {
     font-size: 60px;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-left: 0; /* Alinea el <h1> completamente a la izquierda */
     
 }
 .start-btn {
-    background-color: #6246ea;
+    background-color: #836aff;
     color: rgb(39, 39, 39);
-    padding: 15px 30px;
+    padding: 15px 20px;
     border-radius: 10px;
     font-size: 18px;
     border: none;
@@ -99,11 +101,11 @@ h1 {
 }
 
 #seccion3 {
-    background: url('path/to/fondo3.jpg') no-repeat center center/cover;
+    background: url('../images/fondoseccion2.png') no-repeat center center/cover;
 }
 
 #seccion4 {
-    background: url('path/to/fondo4.jpg') no-repeat center center/cover;
+    background: url('../images/fondoseccion2.png') no-repeat center center/cover;
 }
 
 .estadisticas {
@@ -166,7 +168,9 @@ footer nav a {
     cursor: pointer;
     border: none;
     font-weight: bold;
+    font-size: 14px
 }
+
 
 .crear-cuenta{
     border: 2px solid white;
@@ -174,7 +178,7 @@ footer nav a {
     color: white;
     padding: 10px 20px;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     font-weight: bold;
 }
