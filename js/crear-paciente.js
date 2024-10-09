@@ -18,6 +18,7 @@ document.getElementById('crearPacienteForm').addEventListener('submit', async fu
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer tu-token-aqui',  // Reemplaza 'tu-token-aqui' con el token correcto.
         },
         body: JSON.stringify(paciente)
       });

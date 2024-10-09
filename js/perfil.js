@@ -51,7 +51,7 @@ let editMode = false;
 // Obtener datos del perfil desde Vercel
 async function fetchProfileData() {
     try {
-        const response = await fetch('https://tu-enlace-vercel.com/api/perfil'); // Cambia por tu enlace real
+        const response = await fetch('https://malaria-xi.vercel.app/user/user'); // Cambia por tu enlace real
         const data = await response.json();
         
         // Rellenar los campos con los datos obtenidos
@@ -76,7 +76,7 @@ async function fetchProfileData() {
         });
         
         // Cargar la foto de perfil
-        profilePic.src = data.profilePicUrl || 'userphoto.avif'; 
+        profilePic.src = data.profilePicUrl || '../images/userphoto.avif'; 
     } catch (error) {
         console.error('Error fetching profile data:', error);
     }
@@ -161,7 +161,7 @@ async function saveProfileData() {
     };
 
     try {
-        await fetch('https://tu-enlace-vercel.com/api/perfil', { // Cambia por tu enlace real
+        await fetch('https://malaria-xi.vercel.app/user/editUser', { // Cambia por tu enlace real
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -262,7 +262,7 @@ function updateProfilePic(event) {
 // Función para obtener los chats de la base de datos desde Vercel
 async function fetchChats() {
     try {
-        const response = await fetch('https://tu-enlace-vercel.com/api/chats'); // Cambia por tu enlace real de la base de datos en Vercel
+        const response = await fetch('https://malaria-xi.vercel.app/api/chats'); // Cambia por tu enlace real de la base de datos en Vercel
         const chats = await response.json();
 
         // Si la lista de chats está vacía, muestra un mensaje indicando que no hay mensajes

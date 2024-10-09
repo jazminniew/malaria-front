@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/Captura de pantalla 2024-10-07 134927.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-filled {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 50px;
+    height: 100%;
+}
+
+.content {
+    max-width: 600px;
+    text-align: left;
+    margin-left: 0; /* Asegura que esté alineado al borde izquierdo */
+    padding-left: 0; /* Asegura que no haya espacio adicional */
+}
+h1 {
+    font-size: 60px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-left: 0; /* Alinea el <h1> completamente a la izquierda */
+}
+
+
+
+.start-btn {
+    background-color: #6246ea;
+    color: rgb(3, 3, 3);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-weight: 50;
+}
+
+.start-btn:hover {
+    background-color: #5033d5;
+}
+
+img{
+    width: 20px;
+    margin-right: 10px;
+}
+
+section{
+    background: url('') no-repeat center center fixed;
+}
