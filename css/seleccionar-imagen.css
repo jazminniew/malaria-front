@@ -28,7 +28,7 @@ body{
     backdrop-filter: blur(10px);
     color: rgba(255, 255, 255, 0.791);
     border-radius: 12px;
-    padding: 50px 40px 30px;
+    padding: 40px 40px 30px;
     margin: 50px 0 50px 0;
 }
 .img-area{

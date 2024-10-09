@@ -27,7 +27,7 @@ body {
   background: transparent;
   display: flex;
   justify-content: center;
-  align-items: center;
+margin-top: 35px;
   padding: 50px ;
 }
 
@@ -56,11 +56,11 @@ body {
   border-radius: 40px;
   font-size: 16px;
   color: #000000;
-  padding: 15px 45px 15px 20px;
+  padding: 12px 45px 12px 20px;
 }
 
 .input-box input::placeholder {
-  color: #000000;
+  color: #00000096;
 }
 
 #registerForm{
@@ -79,7 +79,6 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 14.5px;
-  margin: -15px 0 15px;
 }
 
 .register-link label input {
@@ -107,8 +106,12 @@ body {
   font-size: 16px;
   color: #d1d1d1;
   font-weight: 600;
+  margin-top: 15px;
 }
+.wrapper .btn:hover {
 
+  background-color:#6b36bb ;
+}
 .wrapper .register-link {
   font-size: 14.5px;
   text-align: center;
@@ -125,8 +128,10 @@ body {
   text-decoration: underline;
 }
 
-.flex-container{
+div.flex-container{
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  margin: 0;
+  padding: 0;
 }

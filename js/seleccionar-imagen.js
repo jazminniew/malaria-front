@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const imgArea = document.querySelector('.img-area');
     const selectImage = document.querySelector('.select-image');
     const analyzeButton = document.querySelector('.sparkle-button'); // Botón de "Analizar imagen"
-    const nombreInput = document.getElementById('nombre');
-    const apellidoInput = document.getElementById('apellido');
 
     // Permitir que el usuario haga clic en "buscala" para abrir el input de archivos
     selectImage.addEventListener('click', () => {
@@ -49,10 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
             try {
                 const formData = new FormData();
                 formData.append('image', file);
-                formData.append('nombre', nombreInput.value); // Agregar nombre
-                formData.append('apellido', apellidoInput.value); // Agregar apellido
 
-                const response = await fetch('https://malaria-xi.vercel.app/user/login', {
+                const response = await fetch('https://malaria-xi.vercel.app/analyze/uploadAnalyze', {
                     method: 'POST',
                     body: formData
                 });
