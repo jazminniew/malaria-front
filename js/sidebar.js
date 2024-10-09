@@ -29,7 +29,10 @@ if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
     circulo.classList.add('prendido');
 }
-
+// Manejo del botón "Nuevo"
+btnNuevo.addEventListener('click', function () {
+    botonesNuevosCard.classList.add('show');
+});
 // Comprobar el estado de la barra lateral al cargar la página
 if (localStorage.getItem('sidebarState') === 'mini') {
     spans.forEach((span) => span.classList.add("oculto"));
@@ -48,11 +51,6 @@ if (localStorage.getItem('sidebarState') === 'mini') {
 } else {
     spans.forEach((span) => span.classList.remove("oculto"));
 }
-
-// Manejo del botón "Nuevo"
-btnNuevo.addEventListener('click', function () {
-    botonesNuevosCard.classList.add('show');
-});
 
 pacienteBtn.addEventListener('click', function () {
     window.location.href = 'crear-paciente.html';

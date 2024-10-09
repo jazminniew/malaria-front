@@ -427,7 +427,7 @@ main.min-main{
 .card_cerrar.show {
     opacity: 1; 
     visibility: visible;
-    transform: translate(-185%, 0%) scale(1); 
+    transform: translate(-200%, 30%) scale(1); 
     z-index: 10000000;
     position: absolute;
 }
