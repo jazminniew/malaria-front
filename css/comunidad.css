@@ -250,7 +250,7 @@ body{
 }
 .barra-lateral .navegacion {
     height: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 .barra-lateral .navegacion::-webkit-scrollbar{

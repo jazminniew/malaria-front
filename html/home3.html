@@ -5,167 +5,166 @@
     <link rel="stylesheet" href="/css/home3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="descarga.png" type="image/png">
-    <title>MalarIa</title>
+    <link rel="icon" href="../images/logoMalarIA.png" type="image/png">
+    <title>MalarIA</title>
 </head>
 <body>
     <div class="contenedor">
-    <div class="menu">  
-        <ion-icon name="menu-outline"></ion-icon>
-        <ion-icon name="close-outline"></ion-icon>
-    </div>
-    <!-----------------------Flecha y titulo--------------------------->
-    <div #id="flecha" class="barra-lateral max-barra-lateral">
-        <i class='bx bx-chevron-left toggle'></i>
+        <div class="menu">
+            <ion-icon name="menu-outline"></ion-icon>
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+
+        <!----------------------- Flecha y titulo --------------------------->
+        <div #id="flecha" class="barra-lateral max-barra-lateral">
+            <i class='bx bx-chevron-left toggle'></i>
             <div class="nombre-pagina">
-             <img src="../images/descarga.png" alt="logo" class="img"> 
+                <img src="../images/logoMalarIA.png" alt="logo" class="img">
                 <span class="Malaria">MalarIA</span>
             </div>
             <button class="boton" id="buttonNuevo">
                 <ion-icon name="add-outline"></ion-icon>
                 <span>Nuevo</span>
             </button>
-        <div>
-        <!---------------------Navegacion----------------------------->
-            <nav class="navegacion">
-                <ul>
-                    <li>
-                        <a id="inbox" href="home3.html">
-                            <ion-icon name="analytics-outline"></ion-icon>
-                            <span>Analisis de IA</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a  href="mis-pacientes.html">
-                            <ion-icon name="person-outline"></ion-icon>
-                            <span>Mis pacientes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a  href="comunidad.html">
-                            <ion-icon name="people-outline"></ion-icon>
-                            <span>Comunidad</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="logout-btn" class="Cerrar-sesion">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                            <span>Cerrar Sesion</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div>
-<!---------------------Modo oscuro y perfil----------------------------->
-<div class="FINALCOMPLETO">
-            <div class="linea"></div>
-        <div class="modo-oscuro">
-            <div class="info">
-                <ion-icon name="moon-outline"></ion-icon>
-                <span>Modo Oscuro</span>
+
+            <!--------------------- Navegacion ----------------------------->
+            <div>
+                <nav class="navegacion">
+                    <ul>
+                        <li>
+                            <a id="inbox" href="home3.html">
+                                <ion-icon name="analytics-outline"></ion-icon>
+                                <span>Analisis de IA</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mis-pacientes.html">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <span>Mis pacientes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="comunidad.html">
+                                <ion-icon name="people-outline"></ion-icon>
+                                <span>Comunidad</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="logout-btn" class="Cerrar-sesion">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                                <span>Cerrar Sesion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class="switch">
-                <div class="base">
-                    <div class="circulo prendido"></div>
+
+            <!--------------------- Modo oscuro y perfil ---------------------------->
+            <div class="FINALCOMPLETO">
+                <div class="linea"></div>
+                <div class="modo-oscuro">
+                    <div class="info">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <span>Modo Oscuro</span>
+                    </div>
+                    <div class="switch">
+                        <div class="base">
+                            <div class="circulo prendido"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-usuario" onclick="location.href='perfil.html'">
+                    <div class="usuario">
+                        <img src="../images/userphoto.avif" alt="imagen" class="usuario-imagen">
+                        <div class="info-usuario">
+                            <div class="nombre-email">
+                                <span class="nombre">Jazmin</span>
+                                <span class="email">Profesional</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>  
-        <div class="button-usuario" onclick="location.href='perfil.html'">
-          <div class="usuario">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_xsIKcc1nN35tt2x2SHvDuIYK6uR5_jNx404pnIGbV1-x9A2LFR_5wp5Hb5nQuVERBU&usqp=CAU" alt="imagen" class="usuario-imagen">
-              <div class="info-usuario">
-                  <div class="nombre-email">
-                      <span class="nombre">Jazmin</span>
-                      <span class="email">Profesional</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-      
         </div>
-    </div>
-  </div>
-    <main> 
-      
-<!---------------------Searchbar----------------------------->
-        <div class="wrapper">
-  <form class="form" id="formulario"> 
-    <button>
-        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
-            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-    </button>
-    <input class="input" id="searchBar" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
-    <button class="reset" type="reset">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-</form>
 
-<!---------------------Filtros----------------------------->
-<div class="container" id="buttons">
-  <div class="tabs">
-                    <input type="radio" id="radio-1" name="filter" value="all" checked>
-                    <label class="tab" for="radio-1">Todos</label>
-                    <input type="radio" id="radio-2" name="filter" value="infectado">
-                    <label id="tiene"class="tab" for="radio-2">Infectado</label>
-                    <input type="radio" id="radio-3" name="filter" value="no-infectado">
-                    <label class="tab" for="radio-3">No Infectado</label>
-                    <span class="glider"></span>
-  </div>
-</div>
-</div>
+        <main>
+            <!--------------------- Searchbar ----------------------------->
+            <div class="wrapper">
+                <form class="form" id="formulario">
+                    <button>
+                        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+                            <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <input class="input" id="searchBar" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
+                    <button class="reset" type="reset">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </form>
 
-<!---------------------NAVBAR----------------------------------------------------------------->
-<div class="FONDOPACIENTES" id="elements-container"> 
- <!-- <button id="add-patient">Crear Paciente</button>------->
-<!---------------------Carta1-------------------
-<div class="cartas-separadas">
-  <div class="card infectado" id="cartaa">
-      <div class="card_form">
-        <span>Infectado</span>
-      </div>
-        <div class="card_data">
-          <div style="display: flex" class="data">
-            <div class="text">
-              <div class="cube text_s">
-                <label class="side front">Jazmin Niewiadomski</label>
-                <label onclick="location.href='imagen-accedida-posta.html'"  class="side top">Acceder</label>
-              </div>
+                <!--------------------- Filtros ----------------------------->
+                <div class="container" id="buttons">
+                    <div class="tabs">
+                        <input type="radio" id="radio-1" name="filter" value="all" checked>
+                        <label class="tab" for="radio-1">Todos</label>
+                        <input type="radio" id="radio-2" name="filter" value="infectado">
+                        <label id="tiene" class="tab" for="radio-2">Infectado</label>
+                        <input type="radio" id="radio-3" name="filter" value="no-infectado">
+                        <label class="tab" for="radio-3">No Infectado</label>
+                        <span class="glider"></span>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-  </div>
-</div>
----------->
-<!---------------------Carta2-----------------------------> 
-</div>  <!----fin de fondopacientes------->
-</div>
-    <!---------------------Nuevo---------------------------->  
-    <div class="card-nuevo" id="botonesnuevosCard"> 
-        <div class="card-button-wrapper-nuevo">
-            <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
-            <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
-        </div>
-    </div>
-    <!---------------------Nuevo final---------------------------->  
-    <!---------------------Cerrar sesion----------------------------->  
-    <div class="card_cerrar" id="logout-card">
-        <div class="card-button-wrapper">
-            <button class="card-button secondary" id="cancel-btn">Cancelar</button>
-            <button class="card-button primary" id="exit-btn">Salir</button>
-        </div>
+
+            <!--------------------- NAVBAR ---------------------------------------->
+            <div class="FONDOPACIENTES" id="elements-container">
+                <!-- <button id="add-patient">Crear Paciente</button> -->
+
+                <!--------------------- Carta1 ------------------->
+                <!-- <div class="cartas-separadas">
+                    <div class="card infectado" id="cartaa">
+                        <div class="card_form">
+                            <span>Infectado</span>
+                        </div>
+                        <div class="card_data">
+                            <div style="display: flex" class="data">
+                                <div class="text">
+                                    <div class="cube text_s">
+                                        <label class="side front">Jazmin Niewiadomski</label>
+                                        <label onclick="location.href='imagen-accedida-posta.html'" class="side top">Acceder</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div> <!-- fin de fondopacientes -->
+
+            <!--------------------- Nuevo ---------------------------->
+            <div class="card-nuevo" id="botonesnuevosCard">
+                <div class="card-button-wrapper-nuevo">
+                    <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
+                    <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+                </div>
+            </div>
+
+            <!--------------------- Cerrar sesion ----------------------------->
+            <div class="card_cerrar" id="logout-card">
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+                    <button class="card-button primary" id="exit-btn">Salir</button>
+                </div>
+            </div>
+
+        </main>
     </div>
 
-</div> 
-    </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/sidebar.js"></script> 
-    <script src="/js/home3.js"></script>   
-    </div>
-</div>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/home3.js"></script>
 </body>
 </html>
