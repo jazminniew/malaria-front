@@ -135,3 +135,19 @@ div.flex-container{
   margin: 0;
   padding: 0;
 }
+
+#response {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #d9534f; /* Color rojo suave para errores */
+  text-align: center;
+  background-color: #f8d7da; /* Fondo claro para error */
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #f5c6cb; /* Borde más oscuro para el error */
+  display: none; /* Para ocultarlo inicialmente */
+}
+
+#response.show {
+  display: block;
+}

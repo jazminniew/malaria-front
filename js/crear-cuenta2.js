@@ -22,6 +22,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
 
         if (response.ok) {
             document.getElementById('response').innerText = 'Usuario registrado correctamente';
+            window.location.href = 'iniciar-sesion4.html';  // Redirigir a iniciar-sesion4.html
         } else {
             document.getElementById('response').innerText = `Error: ${result.message}`;
         }
@@ -41,7 +42,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
     };
 
     try {
-        const response = await fetch('malaria-xi.vercel.app/user/register', {
+        const response = await fetch('https://malaria-xi.vercel.app/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -58,5 +59,6 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
         }
     } catch (error) {
         document.getElementById('response').innerText = `Error al registrar usuario: ${error.message}`;
+        response.classList.add('show'); // Mostrar el mensaje de error
     }
 });
