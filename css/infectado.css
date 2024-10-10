@@ -10,16 +10,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("https://4kwallpapers.com/images/wallpapers/3d-background-purple-background-abstract-background-windows-2560x1080-8292.jpg") no-repeat;
+    background: url(../images/fondoGeneral.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .container {
     width: 420px;
-    background: rgba(255, 255, 255, 0.1); /* Fondo blanco con alta transparencia */
     border: 2px solid rgba(255, 255, 255, 0.2); /* Borde con transparencia */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    backdrop-filter: blur(30px); /* Efecto de desenfoque */
     color: #fff;
     border-radius: 12px;
     padding: 30px 40px;

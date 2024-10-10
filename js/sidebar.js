@@ -57,7 +57,7 @@ pacienteBtn.addEventListener('click', function () {
 });
 
 imagenBtn.addEventListener('click', function () {
-    window.location.href = 'seleccionar-imagen.html';
+    window.location.href = 'info-imagen.html';
 });
 
 document.addEventListener('click', function (event) {
@@ -76,20 +76,24 @@ cancelBtn.addEventListener('click', function () {
 });
 
 exitBtn.addEventListener('click', function () {
+    // Log para verificar que se ha hecho clic en el botón de salida
+    console.log('Se presionó el botón de salir.');
 
     function logout() {
         // Eliminar cualquier dato que almacenes en localStorage o sessionStorage
         localStorage.removeItem('authToken'); // Ejemplo de eliminar token de autenticación
-        sessionStorage.removeItem('userSession'); // Si usas sessionStorage
 
         // Si usas cookies, también debes eliminarlas (si son manejadas en el frontend)
         document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
         // Redirigir al usuario a la página de inicio de sesión
-        window.location.href = 'iniciar-sesion.html';
+        window.location.href = 'iniciar-sesion4.html';
     }
 
+    // Llama a la función logout aquí si es necesario
+    logout(); // Si deseas ejecutar el logout al presionar el botón
 });
+
 
 document.addEventListener('click', function (event) {
     if (!logoutCard.contains(event.target) && !logoutBtn.contains(event.target)) {
