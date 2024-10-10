@@ -66,8 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
             } catch (error) {
-                console.error('Error:', error);
-                alert('Hubo un problema al subir la imagen.');
+                
+                const responseDiv = document.getElementById('response');
+                responseDiv.innerText = `Error : ${error.message}`;
+                responseDiv.classList.add('show'); // Mostrar el mensaje de error
             }
         }
     };
