@@ -213,7 +213,7 @@ footer nav a {
     font-size: 32px;
     font-weight: 700;
     opacity: 1;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    background: linear-gradient(-45deg, #caa6ff 0%, #7C3ED6 100% );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -232,7 +232,7 @@ footer nav a {
     justify-content: center;
     text-align: center;
     gap: 10px;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    background: linear-gradient(-45deg, #251242 0%, #9954ff 100% );
     color: #e8e8e8;
     padding: 20px;
     line-height: 1.5;
@@ -240,11 +240,13 @@ footer nav a {
     pointer-events: none;
     transform: translateY(96%);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    font-size: 12px;
 }
 
 .cardContent .backContent .heading {
-    font-size: 32px;
+    font-size: 16px;
     font-weight: 700;
+    margin-top: 30px;
 }
 
 .cardContent:hover .backContent {
@@ -253,6 +255,7 @@ footer nav a {
 
 .cardContent:hover .front-content {
     transform: translateY(-30%);
+    font-size: 5px;
 }
 
 .cardContent:hover .front-content p {
@@ -368,7 +371,7 @@ footer nav a {
   width: 200px;
   height: 264px;
   border-radius: 15px;
-  background: linear-gradient(-45deg, #1cc2ff 0%, #ff261b 100%);
+  background: linear-gradient(-45deg, #7C3ED6 0%, #b17dff 100%);
   z-index: -10;
   pointer-events: none;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -379,7 +382,7 @@ footer nav a {
   z-index: -1;
   position: absolute;
   inset: 0;
-  background: linear-gradient(-45deg, #1cffa4 0%, #ff01aee6 100%);
+  background: linear-gradient(-45deg, #7C3ED6 0%, #b17dff 100%);
   transform: translate3d(0, 0, 0) scale(0.95);
   filter: blur(40px);
 }
@@ -423,7 +426,7 @@ color:black;
 font-size:16px;
 }
 .name{
-color:pink;
+color:#d3b5ff;
 font-size:16px;
 
 }
@@ -497,4 +500,35 @@ font-size:16px;
     font-size: 1rem;
     color: #b3b3b3;
     text-align: center;
+}
+
+
+.videoDemo{
+    width: 100%;
+    height: 100%;
+    padding:  70px ;
+    opacity: 0.7;
+}
+.videodemocontainer{
+    width: 100%;
+    height: 50px;
+    padding: 0 70px ;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.containerDeCartas{
+    display: flex; /* Hacer del contenedor un flexbox */
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no hay espacio */
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+.cardNosotros{
+    background-color: #1f1f1f;
+    width: 230px;
+    height: 230px;
 }
