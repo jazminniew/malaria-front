@@ -1,0 +1,92 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Para evitar el desplazamiento de la página */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('tu-imagen-de-fondo.jpg'); /* Reemplaza con tu URL de imagen */
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1; /* Para enviar el fondo detrás del chat */
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+    margin: auto; /* Centra horizontalmente */
+    margin-top: 10vh; /* Margen superior para centrar verticalmente */
+    overflow: hidden; /* Para no mostrar barras de desplazamiento */
+}
+
+.header {
+    background-color: #075e54;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between; /* Alinea el botón a la derecha */
+    align-items: center; /* Centra verticalmente */
+}
+
+.messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.message {
+    margin: 5px 0;
+}
+
+.message.sent {
+    text-align: right;
+}
+
+.message.received {
+    text-align: left;
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-btn {
+    background-color: #075e54;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#back-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}

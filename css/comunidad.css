@@ -904,3 +904,13 @@ textarea, input[type="text"] {
 .bx{
     font-size: 20px;
 }
+#contenedor-posts p {
+    color: #666; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    text-align: center; /* Alinear el texto al centro */
+    margin-top: 20px; /* Espaciado superior */
+    padding: 10px; /* Relleno alrededor del texto */
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde suave */
+}

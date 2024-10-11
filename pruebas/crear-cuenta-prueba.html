@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MalarIA</title>
+    <link rel="stylesheet" href="/pruebas/crear-cuenta-prueba.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="registerForm">
+            <h1>Crear cuenta</h1>
+            <!--Contenedor para nombre y apellido-->
+            <div class="flex-container">
+                <!--Nombre-->
+                <div class="input-box half-width">
+                    <input type="text"  name="nombre" placeholder="Nombre" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <!--Apellido-->
+                <div class="input-box half-width">
+                    <input type="text"  name="apellido" placeholder="Apellido" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+            </div>
+            <!--Fecha de Nacimiento-->
+            <div class="input-box">
+                <input type="text" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" required onfocus="(this.type='date')" onblur="(this.type='text')">
+                <i class='bx bxs-calendar'></i>
+            </div>
+            <!--Contenedor para país y ocupación-->
+            <div class="flex-container">
+                <!-- País -->
+                <div class="input-box half-width">
+                    <select id="pais" name="pais" required>
+                        <option value="" disabled selected>País</option>
+                        <!-- Lista de países generada por JavaScript -->
+                    </select>
+                    <i class='bx bx-world'></i>
+                </div>
+                <!--Ocupación-->
+                <div class="input-box half-width">
+                    <select name="ocupacion" required>
+                        <option value="" disabled selected>Ocupación</option>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Trabajador">Trabajador</option>
+                    </select>
+                    <i class='bx bxs-briefcase'></i>
+                </div>
+            </div>
+            <!--Email-->
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required>
+                <i class='bx bxl-gmail'></i>
+            </div>
+            <!--Contraseña-->
+            <div class="input-box">
+                <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                <i class='bx bxs-lock-alt' id="lockIcon" style="cursor: pointer;"></i>
+            </div>
+            
+            
+            
+            <!--Foto de perfil-->
+            <div class="input-box">
+                <label class="file-label" for="profilePicInput">
+                    <i class='bx bxs-image'></i>
+                    <span id="filePlaceholder">Foto de perfil</span>
+                    <input type="file" accept="image/*" id="profilePicInput" name="profilePic" required>
+                    <div id="profilePicName" class="profile-pic-name"></div>
+                </label>
+            </div>
+            <!--Botón-->
+            <button type="submit" class="btn">Continuar</button>
+            <!--Link para iniciar sesión-->
+            <div class="register-link">
+                <p>¿Ya tienes una cuenta? <a href="iniciar-sesion.html">Iniciar Sesión</a></p>
+            </div>
+        </form>
+    </div>
+    <script src="/js/crear-cuenta.js"></script>
+</body>
+</html>

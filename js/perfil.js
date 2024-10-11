@@ -1,5 +1,4 @@
 // script.js
-
 // Lista de países en formato HTML
 const countries = [
     "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina",
@@ -299,7 +298,6 @@ function displayChats(chats) {
         const chatElement = document.createElement('div');
         chatElement.className = 'chat-item';  // Mantener la misma clase del HTML
         chatElement.innerHTML = `
-            <img src="${chat.profilePic}" alt="Foto de perfil" class="chat-pic">
             <div class="chat-name">${chat.username}</div>
             <div class="chat-time">${formatTime(chat.timestamp)}</div>
         `;
@@ -315,10 +313,18 @@ function formatTime(timestamp) {
 }
 
 // Función para redirigir a la página del chat cuando se haga clic en un mensaje
-function openChat(chatId) {
-    localStorage.setItem('currentChatId', chatId);
-    window.location.href = 'chat.html';
+function openChat(chatId, userName) {
+    localStorage.setItem('currentChatId', chatId); // Guardar el ID del chat
+    localStorage.setItem('chatUserName', userName); // Guardar el nombre del usuario
+    window.location.href = 'chat.html'; // Redirigir a la página de chat
 }
 
 // Llamar a fetchChats cuando cargue la página
 document.addEventListener('DOMContentLoaded', fetchChats);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const userName = localStorage.getItem('chatUserName'); // Obtener el nombre del usuario
+    document.getElementById('chat-header').innerText = `Chateando con: ${userName}`; // Mostrar el nombre en el encabezado
+
+    fetchChatMessages();
+});

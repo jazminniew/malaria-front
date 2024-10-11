@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     const sendPostBtn = document.getElementById('sendPostBtn');
     const postContent = document.getElementById('postContent');
     const postsContainer = document.querySelector('.FONDOPOSTS');
@@ -151,4 +151,145 @@ document.addEventListener('DOMContentLoaded', () => {
         return { input, button };
     }
 });
-
+    */
+document.addEventListener('DOMContentLoaded', () => {
+    const postsContainer = document.getElementById('message-modal');
+    const token = localStorage.getItem('token'); // Token guardado en localStorage
+    
+    // Función para obtener los posts de la base de datos
+    async function fetchPosts() {
+      try {
+        const response = await fetch('https://malaria-xi.vercel.app/analyze/todosAnalisis', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+  
+        // Verificar si la respuesta no es 200 OK
+        if (!response.ok) {
+          if (response.status === 401) {
+            console.error('No autorizado. Verifica el token.');
+          } else {
+            console.error(`Error: ${response.status} ${response.statusText}`);
+          }
+          return;
+        }
+  
+        const data = await response.json();
+        mostrarPosts(data.posts); // Verifica y renderiza los posts
+  
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    }
+  
+    // Función para renderizar y mostrar los posts
+    function mostrarPosts(posts) {
+      // Limpiar el contenido del contenedor antes de añadir los posts
+      postsContainer.innerHTML = '';
+  
+      if (!posts || posts.length === 0) {
+        // Mostrar el mensaje si no hay posts
+        postsContainer.innerHTML = '<p>No hay posts disponibles.</p>';
+      } else {
+        // Renderizar los posts
+        posts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+  
+          postElement.innerHTML = `
+            <p><strong>${post.usuario}</strong></p>
+            <p>${post.mensaje}</p>
+            <div class="icons">
+              <span class="like-icon" data-id="${post.id}">❤️ ${post.likes}</span>
+              <span class="comment-icon" data-id="${post.id}">💬 Comentar</span>
+              <span class="message-icon" data-id="${post.id}">✉️ Enviar mensaje</span>
+            </div>
+            <div class="comment-section" id="comments-${post.id}" style="display: none;">
+              <input type="text" class="comment-input" placeholder="Escribe un comentario">
+              <button class="send-comment" data-id="${post.id}">Enviar</button>
+            </div>
+          `;
+  
+          postsContainer.appendChild(postElement);
+        });
+      }
+    }
+  
+    // Evento para agregar un nuevo post (crea nuevo post)
+    document.getElementById('sendPostBtn').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const newPost = document.getElementById('new-post').value;
+  
+      try {
+        const response = await fetch('https://malaria-xi.vercel.app/analyze/todosAnalisis', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ mensaje: newPost })
+        });
+  
+        const result = await response.json();
+        console.log('Post creado:', result);
+        fetchPosts(); // Actualiza los posts después de crear uno nuevo
+      } catch (error) {
+        console.error('Error creando el post:', error);
+      }
+    });
+  
+    // Funcionalidad de likes
+    postsContainer.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('like-icon')) {
+        const postId = e.target.getAttribute('data-id');
+        try {
+          await fetch(`https://tu-vercel-backend.vercel.app/api/posts/${postId}/like`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          fetchPosts(); // Actualiza los posts después de dar like
+        } catch (error) {
+          console.error('Error dando like:', error);
+        }
+      }
+    });
+  
+    // Funcionalidad de comentarios
+    postsContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('comment-icon')) {
+        const postId = e.target.getAttribute('data-id');
+        const commentSection = document.getElementById(`comments-${postId}`);
+        commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+  
+    // Evento para enviar un comentario
+    postsContainer.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('send-comment')) {
+        const postId = e.target.getAttribute('data-id');
+        const commentInput = document.querySelector(`#comments-${postId} .comment-input`).value;
+  
+        try {
+          await fetch(`https://tu-vercel-backend.vercel.app/api/posts/${postId}/comment`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ comentario: commentInput })
+          });
+          fetchPosts(); // Actualiza los posts después de comentar
+        } catch (error) {
+          console.error('Error comentando:', error);
+        }
+      }
+    });
+  
+    // Llama a la función para obtener posts al cargar la página
+    fetchPosts();
+  });
+  

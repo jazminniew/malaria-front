@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(../images/DEGRADE.png) no-repeat ;
+    background: url(../images/fondoGeneral.png) no-repeat ;
     background-size: cover;
     background-position: center; 
 }
@@ -18,7 +18,7 @@ body{
     width: 420px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2) ;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
     color: #fff;
     border-radius: 12px;
     padding: 30px 40px;
