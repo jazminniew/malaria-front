@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const updateCount = (counter) => {
         const target = +counter.getAttribute('data-target');
-        const speed = 200; // Velocidad de la animación
+        const speed = 10000; // Velocidad de la animación
         const increment = target / speed;
 
         const incrementCounter = () => {
