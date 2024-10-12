@@ -11,7 +11,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;  
     background-color: #000000;
-   /* background:  url(../images/landingPageFondo.jpg) no-repeat center center/cover;*/
+    /*background:  url(../images/landingPageFondo.jpg) no-repeat center center/cover;*/
 }
 header {
     display: flex;
@@ -114,7 +114,7 @@ header nav ul li a {
 }
 
 .numero{
-    color: #000000;
+    color: #130D17;
     font-size: 60px;
     font-weight: bold;
 }
@@ -128,23 +128,23 @@ header nav ul li a {
 
 footer {
     background-color: #7C3ED6;
-    color: #000;
+    color: #130D17;
     text-align: center;
 }
 
 footer nav a {
-    color: #000;
+    color: #130D17;
     margin: 0 1rem;
     text-decoration: none;
 }
 .derechos{
-    color: #000;
+    color: #130D17;
 }
 
 .social-media a {
     margin: 0 10px;
     text-decoration: none;
-    color: #000;
+    color: #130D17;
 }
 
 .social-media a:hover {
@@ -354,7 +354,7 @@ div.contenedorRoles {
     align-items: center;
     width: 150px;
     height: 150px;
-    background-color: rgb(0, 0, 0);
+    background-color: #130D17;
     border-radius: 50%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
@@ -568,7 +568,7 @@ font-size:16px;
 
 
 .curved-section {
-    background-color: #000000; /* Color morado como en la imagen */
+    background-color: #130D17; /* Color morado como en la imagen */
     height: 200px; /* Ajustar según necesites */
     clip-path: ellipse(75% 100% at 50% 0); /* Crear la curva */
     margin-bottom: 60px;
