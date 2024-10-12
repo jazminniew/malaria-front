@@ -626,6 +626,6 @@ font-size:16px;
 .curved-section {
     background-color: #130D17; /* Color morado como en la imagen */
     height: 200px; /* Ajustar según necesites */
-    clip-path: ellipse(75% 100% at 50% 0); /* Crear la curva */
+    clip-path: ellipse(65% 100% at 50% 0); /* Crear la curva */
     margin-bottom: 60px;
 }
