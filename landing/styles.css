@@ -10,9 +10,34 @@
 body {
     line-height: 1.6;
     overflow-x: hidden;  
-    background-color: #000000;
-    /*background:  url(../images/landingPageFondo.jpg) no-repeat center center/cover;*/ 
+    background-color: #120D16;
+        /*background-image: url(../images/prueba.jpg);
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        */
+    
 }
+
+.imagen-recortada {
+    width: 100%; /* ancho deseado */
+    height: 1000px; /* alto deseado */
+    overflow: hidden;
+    position: absolute;
+    background-size: cover; /* Esto asegura que la imagen cubra toda el área */
+    background-position: center; /* Esto centra la imagen */
+    background-repeat: no-repeat; /* Esto evita que la imagen se repita */
+    z-index: 0;
+}
+
+.imagen-recortada img {
+    position: absolute;
+    left: 0;
+    width: 100%; /* Cambiar a 100% si quieres que se ajuste al contenedor */
+    height: 100%; /* Cambiar a 100% si quieres que se ajuste al contenedor */
+    z-index: 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -53,6 +78,7 @@ header nav ul li a {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    z-index: 10; 
 }
 
 .contenidoHome {
@@ -61,6 +87,7 @@ header nav ul li a {
     margin-left: 0; /* Asegura que esté alineado al borde izquierdo */
     padding-left: 0; /* Asegura que no haya espacio adicional */
     margin-top: 100px;
+    z-index: 10; 
     /*display: inline-block;*/
 }
 .titleContenidoHome{
@@ -245,6 +272,7 @@ footer nav a:hover {
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    z-index: 10; 
   }
   
   .cardContent {
@@ -527,7 +555,8 @@ font-size:16px;
     display: flex;
     justify-content: space-around;
     padding: 2rem 0;
-    margin: 050px;
+    margin: 50px;
+    z-index: 10; 
 }
 
 .cardInfo {
@@ -538,6 +567,7 @@ font-size:16px;
     width: 30%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
+    z-index: 10; 
 }
 
 .cardInfo:hover {
