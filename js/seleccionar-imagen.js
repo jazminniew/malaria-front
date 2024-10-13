@@ -4,10 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectImage = document.querySelector('.select-image');
     const analyzeButton = document.querySelector('.sparkle-button'); // Botón de "Analizar imagen"
 
+    console.log('fileInput:', fileInput);
+    console.log('imgArea:', imgArea);
+    console.log('selectImage:', selectImage);
+    console.log('analyzeButton:', analyzeButton);
+
     // Permitir que el usuario haga clic en "buscala" para abrir el input de archivos
-    selectImage.addEventListener('click', () => {
-        fileInput.click();
-    });
+    if (selectImage) {
+        selectImage.addEventListener('click', () => {
+            fileInput.click();
+        });
+    }
 
     // Función para procesar la imagen seleccionada o arrastrada
     const processImage = async (file) => {
@@ -48,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const formData = new FormData();
                 formData.append('image', file);
 
-                const response = await fetch('https://malaria-xi.vercel.app/analyze/uploadAnalyze', {
+                const response = await fetch('http://locahost:8000/analyze/uploadAnalyzePost', {
                     method: 'POST',
                     body: formData
                 });
@@ -61,9 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Datos subidos correctamente:', result);
 
                 // Redirigir a la página de carga al hacer clic en el botón
-                analyzeButton.addEventListener('click', function () {
-                    window.location.href = 'cargando.html'; // Redirige cuando se presiona el botón "Analizar imagen"
-                });
+                if (analyzeButton) {
+                    analyzeButton.addEventListener('click', function () {
+                        window.location.href = 'cargando.html'; // Redirige cuando se presiona el botón "Analizar imagen"
+                    });
+                }
 
             } catch (error) {
                 
@@ -75,26 +84,30 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Cuando se selecciona una imagen usando el input
-    fileInput.addEventListener('change', function () {
-        const file = fileInput.files[0];
-        processImage(file);
-    });
+    if (fileInput) {
+        fileInput.addEventListener('change', function () {
+            const file = fileInput.files[0];
+            processImage(file);
+        });
+    }
 
     // Agregar funcionalidad de arrastrar y soltar
-    imgArea.addEventListener('dragover', (event) => {
-        event.preventDefault();
-        imgArea.classList.add('dragging');
-    });
+    if (imgArea) {
+        imgArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            imgArea.classList.add('dragging');
+        });
 
-    imgArea.addEventListener('dragleave', () => {
-        imgArea.classList.remove('dragging');
-    });
+        imgArea.addEventListener('dragleave', () => {
+            imgArea.classList.remove('dragging');
+        });
 
-    imgArea.addEventListener('drop', (event) => {
-        event.preventDefault();
-        imgArea.classList.remove('dragging');
+        imgArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            imgArea.classList.remove('dragging');
 
-        const file = event.dataTransfer.files[0];
-        processImage(file);
-    });
+            const file = event.dataTransfer.files[0];
+            processImage(file);
+        });
+    }
 });

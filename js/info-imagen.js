@@ -6,18 +6,19 @@ continuarBtn.addEventListener('click', async () => {
     // Obtén los valores de los campos de entrada
     const nombre = document.getElementById('nombre').value.trim();
     const apellido = document.getElementById('apellido').value.trim();
+    const file = document.getElementById('file').files[0];
 
     // Verifica si ambos campos están completos
-    if (nombre && apellido) {
-        const formData = { nombre, apellido };
+    if (nombre && apellido && file) {
+        const formData = new FormData();
+        formData.append('nombre', nombre);
+        formData.append('apellido', apellido);
+        formData.append('file', file);
 
         try {
-            const response = await fetch('https://malaria-xi.vercel.app/user/guardar-datos', {
+            const response = await fetch('http://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+                body: formData,
             });
 
             const result = await response.json();
