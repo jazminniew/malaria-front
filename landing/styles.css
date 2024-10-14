@@ -129,8 +129,7 @@ header nav ul li a {
 .stat {
     text-align: center;
 }
-
-.cajaNumero{
+.cajaNumero {
     background-color: #7C3ED6;
     width: 220px;
     height: 180px;
@@ -140,11 +139,25 @@ header nav ul li a {
     padding-top: 50px;
 }
 
-.numero{
+.numero {
     color: #130D17;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
+    display: inline-flex; /* Cambiado a inline-flex para que no ocupe toda la línea */
+    align-items: center;
+    justify-content: center;
 }
+
+.porcentaje {
+    color: #130D17;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 5px; /* Espacio entre el número y el porcentaje */
+}
+
+
+
+
 .textoEstadisticas{
     color: #7C3ED6;
     font-weight: 600;
