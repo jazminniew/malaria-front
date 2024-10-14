@@ -81,21 +81,24 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    
 }
 body{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: var(--background-color);
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
+
 .contenedor{
     display: flex;
+    height: 100vh; /* Asegúrate de que el contenedor ocupe el 100% de la altura de la ventana */
 }
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
     top: 40px; 
-    left: 235px;
+    left: 15.5%;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -115,8 +118,8 @@ body{
 }
 /*------------Barra lateral----------------*/
 .barra-lateral{
-    width: 250px;
-    height: 580px;
+    width: 16%;
+    height: 100%;
     background: var(--color-barra-lateral);
     left: 0; 
     top: 0; 
@@ -126,10 +129,19 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 0px 10px 10px 0px;
+    /*justify-content: space-between;*/
+    display: flex;                   
+    flex-direction: column;            
+    gap: 10px;   
+    
 }
 .mini-barra-lateral{
-    width: 80px;
+    width: 5%;
     
+}
+
+div.barra-lateral.max-barra-lateral{
+    height: 100%;
 }
 .mini-barra-lateral .bx-chevron-left {
     transform: translateX(-690%)  translateY(-50%) rotate(180deg);
@@ -147,7 +159,7 @@ body{
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{
     width: 100%;
-    height: 45px;
+    height: 7%; /* Cambia la altura fija */
     color: var(--color-icono);
     margin-bottom: 10px;
     display: flex;
@@ -156,7 +168,7 @@ body{
 /*Icono*/
 .barra-lateral .nombre-pagina img{
     width: 20px;
-    height: 200px;
+    height: 100%;
     object-fit: contain; /* Esto asegura que la imagen se escale dentro del área sin recortarse */
     display: flex;
     align-items: center;
@@ -281,7 +293,6 @@ body{
     width: 100%;
     height: 1px;
     background-color: var(--color-linea);
-    margin-top: 130px;  /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
 }
 /*Modo oscuro*/
 .barra-lateral .modo-oscuro{
@@ -378,6 +389,7 @@ right: 15px;
 main{
     padding: 20px;
     transition: margin-left 0.5s ease;
+    height: 100%;
 }
 main.min-main{
     transition: margin-left 0.5s;
@@ -519,8 +531,8 @@ input[type="search"] {
     flex-wrap: wrap; 
     flex-direction: row;
     align-items: normal;
-    width: 800px;
-    height: 430px;
+    width: 350%;
+    height: 80%;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -531,11 +543,10 @@ input[type="search"] {
     overflow-y: auto;
     box-sizing: border-box;
     overflow-x: hidden;
-    display: flex;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES.expanded{
-    width: 945px;
+    width: 420%;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
@@ -739,7 +750,7 @@ transform: scale(0.6);
 .card_cerrar.show {
     opacity: 1; 
     visibility: visible;
-    transform: translate(-205%, 30%) scale(1); 
+    transform: translate(-250%, -50%) scale(1); 
     z-index: 10000000;
     position: absolute;
 }
@@ -803,7 +814,7 @@ transform: scale(0.6);
 .card-nuevo {
     width: 250px;
     height: fit-content;
-    transform: translate(-110%, -500%) scale(0.8); 
+    transform: translate(-90%, 490%) scale(0.8); 
     padding: 20px;
     background: var(--carta-cerrar-back);
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
@@ -821,7 +832,7 @@ transform: scale(0.6);
 .card-nuevo.show {
     opacity: 1; 
     visibility: visible;
-    transform: translate(5%, -430%) scale(1); 
+    transform: translate(-101%, -500%) scale(1); 
     z-index: 10000000;
     position: absolute;
 }
@@ -886,12 +897,19 @@ transform: scale(0.6);
 #noResults {
     display: none; /* Cambiar esto según sea necesario */
     color: var(--texto-elemento);
-    margin-left: 15em; /* Este margen se aplica solo cuando noResults está visible */
     margin-top: 12em;
+    justify-content: center;
+    text-align: center;
 }
 
 #noResults.expandido3 {
     margin-left: 50px; /* Cambia a un valor más pequeño */
+}
+
+.separar {
+    display: flex;                       /* Activa el modelo flexbox */
+    flex-direction: column;              /* Coloca los elementos en columna */
+    gap: 80%;                           /* Espacio de 50px entre los elementos */
 }
 
 
