@@ -87,7 +87,7 @@ body{
     height: 100%;
     width: 100%;
     background-color: var(--background-color);
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 .contenedor{
@@ -118,7 +118,7 @@ body{
 }
 /*------------Barra lateral----------------*/
 .barra-lateral{
-    width: 16%;
+    width: 250px;
     height: 100%;
     background: var(--color-barra-lateral);
     left: 0; 
@@ -907,9 +907,9 @@ transform: scale(0.6);
 }
 
 .separar {
-    display: flex;                       /* Activa el modelo flexbox */
-    flex-direction: column;              /* Coloca los elementos en columna */
-    gap: 80%;                           /* Espacio de 50px entre los elementos */
+    display: flex;               
+    flex-direction: column; 
+    gap: 45%;                           /* 80% en la pantalla grandeeee!!! */
 }
 
 
