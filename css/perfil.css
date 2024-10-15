@@ -91,28 +91,22 @@
     font-family: "Poppins", sans-serif;
 }
 body{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: var(--background-color);
     overflow: hidden;
-    justify-content: flex-start;
-    align-content: flex-start;
-    flex-wrap: wrap; 
-    flex-direction: row;
-    align-items: normal;
-    overflow-y: auto;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    display: flex;
 }
+
 .contenedor{
     display: flex;
+    height: 100vh; /* Asegúrate de que el contenedor ocupe el 100% de la altura de la ventana */
 }
+
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
     top: 40px; 
-    left: 235px;
+    left: 15.5%;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -133,7 +127,7 @@ body{
 /*------------Barra lateral----------------*/
 .barra-lateral{
     width: 250px;
-    height: 580px;
+    height: 100%;
     background: var(--color-barra-lateral);
     left: 0; 
     top: 0; 
@@ -143,11 +137,19 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 0px 10px 10px 0px;
-    position: sticky;
+    /*justify-content: space-between;*/
+    display: flex;                   
+    flex-direction: column;            
+    gap: 10px;   
+    
 }
 .mini-barra-lateral{
-    width: 80px;
+    width: 5%;
     
+}
+
+div.barra-lateral.max-barra-lateral{
+    height: 100%;
 }
 .mini-barra-lateral .bx-chevron-left {
     transform: translateX(-690%)  translateY(-50%) rotate(180deg);
@@ -165,15 +167,16 @@ body{
 /*Nombre de la pagina*/
 .barra-lateral .nombre-pagina{
     width: 100%;
-    height: 45px;
+    height: 7%; /* Cambia la altura fija */
     color: var(--color-icono);
     margin-bottom: 10px;
     display: flex;
     align-items: center;
 }
+/*Icono*/
 .barra-lateral .nombre-pagina img{
     width: 20px;
-    height: 200px;
+    height: 100%;
     object-fit: contain; /* Esto asegura que la imagen se escale dentro del área sin recortarse */
     display: flex;
     align-items: center;
@@ -184,7 +187,7 @@ body{
     font-size: 25px;
     margin-left: 20px;
     margin-top: 15px;
-} 
+}
 /*Texto botones barra lateral*/
 .barra-lateral span{
     width: 100px;
@@ -202,6 +205,7 @@ body{
 }
 /*-----Componente malarIA nombre pagina-------------*/ 
 .Malaria{
+    text-align: center;
     font-size: 2em;
     font-weight: 900;
     color: rgba(255, 255, 255, 0.3);
@@ -297,7 +301,6 @@ body{
     width: 100%;
     height: 1px;
     background-color: var(--color-linea);
-    margin-top: 130px;  /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
 }
 /*Modo oscuro*/
 .barra-lateral .modo-oscuro{
@@ -394,8 +397,7 @@ right: 15px;
 main{
     padding: 20px;
     transition: margin-left 0.5s ease;
-    height: 730px;
-    width: 850px;
+    height: 100%;
 }
 main.min-main{
     transition: margin-left 0.5s;
@@ -403,6 +405,7 @@ main.min-main{
 .menu {
     display: none;
 }
+
 /*CERRAR SESION*/
 .card_cerrar {
     width: 300px;

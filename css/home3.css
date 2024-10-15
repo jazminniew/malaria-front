@@ -93,7 +93,24 @@ body{
 .contenedor{
     display: flex;
     height: 100vh; /* Asegúrate de que el contenedor ocupe el 100% de la altura de la ventana */
+}*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
+body{
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+.contenedor{
+    display: flex;
+    height: 100vh; /* Asegúrate de que el contenedor ocupe el 100% de la altura de la ventana */
+}
+
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
     position: absolute;
@@ -906,10 +923,5 @@ transform: scale(0.6);
     margin-left: 50px; /* Cambia a un valor más pequeño */
 }
 
-.separar {
-    display: flex;               
-    flex-direction: column; 
-    gap: 45%;                           /* 80% en la pantalla grandeeee!!! */
-}
 
 

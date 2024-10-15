@@ -93,6 +93,7 @@ body{
 }
 .contenedor{
     display: flex;
+    height: 100vh;
 }
 /*-----------------Flecha-----------------------*/
 .barra-lateral .bx-chevron-left {
@@ -136,6 +137,9 @@ body{
 }
 .mini-barra-lateral{
     width: 5%;
+}
+div.barra-lateral.max-barra-lateral{
+    height: 100%;
 }
 .mini-barra-lateral .bx-chevron-left {
     transform: translateX(-690%)  translateY(-50%) rotate(180deg);
@@ -388,9 +392,8 @@ main.min-main{
 
 /*--------------------------Filtros y searchbar-------------------------*/ 
 .wrapper{
-    width: 60%;
     transition: transform 0.5s ease;
-    width: calc(100% - 250px);
+    width: 300px;
     }
     #buttons {
         align-items: center;
@@ -515,24 +518,27 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
-    width: 755px;
-    height: 490px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    align-items: normal;
+    width: 350%;
+    height: 90%;
     background: var(--fondo-elementos);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
-    padding: 10px 0px;
-    margin: 20px 0px;
+    padding: 10px 10px;
+    gap: 5px;
+    margin: 15px 0px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     overflow-y: auto;
     box-sizing: border-box;
     overflow-x: hidden;
-    display: flex;
-    flex-wrap:wrap; /*COMO SOLUCIONO PARA QUE MIS PACIENTES NO SE EXPANDA?*/
-    justify-content: flex-start;
-    align-content: flex-start;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES.expanded{
-    width: 1000px;
+    width: 420%;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
@@ -640,60 +646,6 @@ margin-left: 10px;
     cursor: pointer;
   }
   
-/*-----------------------------Fondo de filtros------------------------*/
-.tabs {
-    display: flex;
-    background-color: var(--fondo-filtros);
-    padding: 4px;
-    border-radius: 99px;
-}
-  .tabs * {
-    z-index: 2;
-}
-
-/*Boton del filtro*/
-.container input[type="radio"] {
-    display: none;
-}
-.tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    width: 110px;
-    font-size: .8rem;
-    color: var(--color-texto-filtros);
-    font-weight: 500;
-    border-radius: 99px;
-    cursor: pointer;
-    transition: color 0.15s ease-in;
-}
-/*Movimiento del boton del filtro*/
-.container input[id="radio-1"]:checked ~ .glider {
-    transform: translateX(0);
-}
-.container input[id="radio-2"]:checked ~ .glider {
-    transform: translateX(115%);
-}
-.container input[id="radio-3"]:checked ~ .glider {
-    transform: translateX(230%);
-}
-/*Fondo del boton del filtro*/
-.glider {
-    position: absolute;
-    display: flex;
-    height: 30px;
-    width: 100px;
-    background-color: var(--fondo-filtro-boton);
-    z-index: 1;
-    border-radius: 99px;
-    transition: 0.25s ease-out;
-}
-@media (max-width: 700px) {
-    .tabs {
-transform: scale(0.6);
-    }
-}
 
 /*CERRAR SESION*/
 .card_cerrar {
@@ -872,18 +824,23 @@ transform: scale(0.6);
     display: block; /* O cómo quieras que se muestre cuando esté 'show' */
 }
 
-#noResults {
-    display: none; /* Cambiar esto según sea necesario */
-    color: var(--texto-elemento);
-    margin-left: 16em; /* Este margen se aplica solo cuando noResults está visible */
-    margin-top: 12em;
-}
 
-#noResults.expandido3 {
-    margin-left: 50px; /* Cambia a un valor más pequeño */
-}
 .separar {
     display: flex;               
     flex-direction: column; 
     gap: 45%;                           /* 80% en la pantalla grandeeee!!! */
 }
+
+#noResults {
+    display: none; /* Cambiar esto según sea necesario */
+    color: var(--texto-elemento);
+    margin-top: 12em;
+    justify-content: center;
+    text-align: center;
+}
+
+#noResults.expandido3 {
+    margin-left: 50px; /* Cambia a un valor más pequeño */
+}
+
+

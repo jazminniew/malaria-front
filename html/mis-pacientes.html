@@ -10,92 +10,63 @@
 </head>
 <body>
     <div class="contenedor">
-<!----------------Responsive menu--------------------->
-    <div class="menu">  
-        <ion-icon name="menu-outline"></ion-icon>
-        <ion-icon name="close-outline"></ion-icon>
-    </div>
-<!----------------Final Responsive menu--------------------->
-<!-----------------------Flecha y titulo--------------------------->
-<div #id="flecha" class="barra-lateral max-barra-lateral">
-    <i class='bx bx-chevron-left toggle'></i>
-        <div class="nombre-pagina">
-         <img src="../images/logoMalarIA.png" alt="logo" class="img"> 
-            <span class="Malaria">MalarIA</span>
+        <div class="menu">
+            <ion-icon name="menu-outline"></ion-icon>
+            <ion-icon name="close-outline"></ion-icon>
         </div>
-        <button class="boton" id="buttonNuevo">
-            <ion-icon name="add-outline"></ion-icon>
-            <span>Nuevo</span>
-        </button>
-    <div>
-<!-----------------------Final Flecha y titulo--------------------------->
-<!--------------------------------Navegacion----------------------------->
-<div class="separar">
-<div class="separador1">    
-<nav class="navegacion">
-        <ul>
-            <li>
-                <a  href="home3.html">
-                    <ion-icon name="analytics-outline"></ion-icon>
-                    <span>Analisis de IA</span>
-                </a>
-            </li>
-            <li>
-                <a id="inbox" href="mis-pacientes.html">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <span>Mis pacientes</span>
-                </a>
-            </li>
-            <li>
-                <a  href="comunidad.html">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Comunidad</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" id="logout-btn" class="Cerrar-sesion">
-                    <ion-icon name="log-out-outline"></ion-icon>
-                    <span>Cerrar Sesion</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
-<!--------------------------------Final Navegacion----------------------------->
-        </div> <!--Cierre contenedor-->
-        <div>
-<!---------------------Modo oscuro y perfil----------------------------->
-    <div class="FINALCOMPLETO">
-        <div class="linea"></div>
-        <div class="modo-oscuro">
-            <div class="info">
-                <ion-icon name="moon-outline"></ion-icon>
-                <span>Modo Oscuro</span>
+
+        <!-----------------------Flecha y titulo--------------------------->
+        <div id="flecha" class="barra-lateral max-barra-lateral">
+            <i class='bx bx-chevron-left toggle'></i>
+            <div class="nombre-pagina">
+                <img src="../images/logoMalarIA.png" alt="logo" class="img">
+                <span class="Malaria">MalarIA</span>
             </div>
-            <div class="switch">
-                <div class="base">
-                    <div class="circulo prendido"></div>
+            <button class="boton" id="buttonNuevo">
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Nuevo</span>
+            </button>
+
+            <!---------------------Navegacion----------------------------->
+            <nav class="navegacion">
+                <ul>
+                    <li><a href="home3.html"><ion-icon name="analytics-outline"></ion-icon><span>Analisis de IA</span></a></li>
+                    <li><a id="inbox" href="mis-pacientes.html"><ion-icon name="person-outline"></ion-icon><span>Mis pacientes</span></a></li>
+                    <li><a  href="comunidad.html"><ion-icon name="people-outline"></ion-icon><span>Comunidad</span></a></li>
+                    <li><a href="#" id="logout-btn" class="Cerrar-sesion"><ion-icon name="log-out-outline"></ion-icon><span>Cerrar Sesion</span></a></li>
+                </ul>
+            </nav>
+
+            <!---------------------Modo oscuro y perfil----------------------------->
+            <div class="FINALCOMPLETO">
+                <div class="linea"></div>
+                <div class="modo-oscuro">
+                    <div class="info">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <span>Modo Oscuro</span>
+                    </div>
+                    <div class="switch">
+                        <div class="base">
+                            <div class="circulo prendido"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>  
-        <div class="button-usuario" onclick="location.href='perfil.html'">
-            <div class="usuario">
-                <img src="../images/userPrevisualizacion.jpeg" alt="imagen" class="usuario-imagen">
-                <div class="info-usuario">
-                    <div class="nombre-email">
-                        <span class="nombre">Jazmin</span>
-                        <span class="email">Profesional</span>
+                <div class="button-usuario" onclick="location.href='perfil.html'">
+                    <div class="usuario">
+                        <img src="../images/userPrevisualizacion.jpeg" alt="imagen" class="usuario-imagen">
+                        <div class="info-usuario">
+                            <div class="nombre-email">
+                                <span class="nombre">Jazmin</span>
+                                <span class="email">Profesional</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>        
-    </div>
-</div>
-<!---------------------Final Modo oscuro y perfil----------------------------->
-</div> <!---Final div sin nombre---------->
-</div>
-<main> 
-<!---------------------Searchbar----------------------------->
+        </div>
+
+        <main>
+            <!---------------------Searchbar----------------------------->
     <div class="wrapper">
         <form class="form" id="formulario"> 
             <button>
