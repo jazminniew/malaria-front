@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
 
@@ -114,4 +114,80 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);
   });
-  
+
+  */
+  document.addEventListener("DOMContentLoaded", () => {
+    // Contenedor de los pacientes
+    const container = document.getElementById('elements-container');
+
+    // Crear y configurar el mensaje "No hay ningún análisis realizado"
+    const noResultsMessage = document.createElement('div');
+    noResultsMessage.textContent = "No hay ningún analisis";
+    noResultsMessage.style.display = 'none'; // Ocultar inicialmente
+    noResultsMessage.id = 'noResults';
+    container.appendChild(noResultsMessage); // Añadir el mensaje al contenedor
+
+    // Recuperar los datos del localStorage
+    const nombre = localStorage.getItem("nombrePaciente");
+    const apellido = localStorage.getItem("apellidoPaciente");
+
+    console.log("Nombre:", nombre); // Verifica si es null o tiene valor
+    console.log("Apellido:", apellido); // Verifica si es null o tiene valor
+
+    // Verificar si los datos existen
+    if (nombre && apellido) {
+        // Crear un objeto paciente simulando que siempre es infectado
+        const patient = {
+            nombre: nombre,
+            apellido: apellido,
+            status: 'infectado',
+            id: 1 // Puedes cambiarlo por un valor dinámico si lo necesitas
+        };
+
+        // Llamar a la función para crear la tarjeta del paciente
+        const nuevaTarjeta = createPatientCard(patient);
+        container.appendChild(nuevaTarjeta);
+
+        // Limpiar el localStorage después de haber usado los datos
+        localStorage.removeItem("nombrePaciente");
+        localStorage.removeItem("apellidoPaciente");
+
+        // Para verificar que los datos se han eliminado
+        console.log(localStorage.getItem("nombrePaciente")); // Esto debería mostrar 'null'
+        console.log(localStorage.getItem("apellidoPaciente")); // Esto debería mostrar 'null'
+
+        // Ocultar el mensaje de "noResults" si está visible
+        noResultsMessage.style.display = 'none'; // Ocultar el mensaje
+    } else {
+        // Mostrar el mensaje si no hay datos en localStorage
+        console.log("No se encontraron datos de paciente en el localStorage.");
+        
+        noResultsMessage.style.display = 'block'; // Mostrar el mensaje
+    }
+
+    // Función para crear la tarjeta del paciente
+    function createPatientCard(patient) {
+        const card = document.createElement('div');
+        card.classList.add('cartas-separadas');
+
+        const cardContent = `
+            <div class="card ${patient.status}" id="cartaa">
+                <div class="card_form">
+                    <span>${patient.status === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
+                </div>
+                <div class="card_data">
+                    <div style="display: flex" class="data">
+                        <div class="text">
+                            <div class="cube text_s">
+                                <label class="side front">${patient.nombre} ${patient.apellido}</label>
+                                <label onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'" class="side top">Acceder</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        card.innerHTML = cardContent;
+        return card;
+    }
+});

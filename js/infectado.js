@@ -1,1 +1,5 @@
-// Aquí puedes agregar la funcionalidad del chatbot o cualquier otro código JavaScript
+
+//FAKE PARA TIC EXPERIENCE
+function redirigirHome() {
+    window.location.href = "home3.html";
+}

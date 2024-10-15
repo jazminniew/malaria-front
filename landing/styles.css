@@ -125,7 +125,7 @@ header nav ul li a {
     gap: 40px;
     justify-content: center;
     padding-top: 70px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 .stat {
     text-align: center;
@@ -157,15 +157,22 @@ header nav ul li a {
 }
 
 h2.titulo-prevent{
-    justify-content: center;
-    align-items: center;
     font-size: 40px;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+h2.titulo-prevent2{
+    font-size: 40px;
+    margin-top: 100px;
+    margin-bottom: 20px;
 }
 
 #prevencionMalaria {
     padding: 60px; 
-    text-align: center;
-    justify-content: center;
+    margin-left: 100px;
 }
 
 .titulo-prevent {
@@ -180,9 +187,6 @@ div.prevencion {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    padding: 0 20px;
-    justify-content: center;
-    text-align: center;
     width: 100;
     
 }
@@ -462,8 +466,8 @@ div.contenedorRoles {
     gap: 50px;
     align-items: center;
     justify-content: center;
-    padding-top: 200px;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    margin-bottom: 300px;
 }
 
 .center-logo {
@@ -657,10 +661,16 @@ font-size:16px;
 
 
 .videoDemo{
-    width: 100%;
+    width: 90%;
     height: 100%;
     padding:  70px ;
     opacity: 0.7;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
 }
 .videodemocontainer{
     width: 100%;
@@ -684,6 +694,7 @@ font-size:16px;
     background-color: #1f1f1f;
     width: 230px;
     height: 230px;
+    margin-bottom: 200px;
 }
 
 
@@ -697,12 +708,56 @@ font-size:16px;
 .parrafoObjetivo{
     color: #aeaeae;
     font-size: 22px;
-    max-width: 800px;
+    max-width: 550px;
 }
 
 .estrellas2{
     width: 120px;
-    margin-left: 140px;
-    top: 155%;
+    margin-left: 30px;
+    top: 150%;
     position: absolute;
+}
+
+.brillitos3{
+    position: absolute;
+    height: 300px;
+    left: 87%;
+    top: 177%;
+    z-index: 3;
+}
+
+#youtube-video {
+    position: relative;
+    display: block;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.rompecabezas{
+    width: 250px;
+    position: absolute;
+    left: 70%;
+    top: 175%;
+    z-index: 2;
+}
+
+
+.gradient1{
+    position: absolute;
+    width: 600px;
+    left: 60%;
+    top: 150%;
+    z-index: 1;
+}
+
+.gradient2{
+
+    position: absolute;
+    width: 600px;
+    top: 190%;
+    z-index: 0;
 }

@@ -1,4 +1,4 @@
-// Simulando el progreso de carga con la animación del porcentaje
+/* Simulando el progreso de carga con la animación del porcentaje
 let progress = 0;
 const numberElement = document.getElementById("number").querySelector("h1");
 
@@ -48,3 +48,21 @@ function verificarMalaria() {
 
 // Simulamos el tiempo de espera antes de hacer la llamada a la API
 setTimeout(verificarMalaria, 3000); // Llamamos a la API después de 3 segundos (puedes ajustarlo)
+
+*/
+// Simulando el progreso de carga con la animación del porcentaje
+let progress = 0;
+const numberElement = document.getElementById("number").querySelector("h1");
+
+function incrementarPorcentaje() {
+    if (progress < 100) {
+        progress++;
+        numberElement.textContent = `${progress}%`;
+    } else {
+        clearInterval(progressInterval); // Detener el intervalo al llegar al 100%
+        // Aquí se redirige a la página de infectado después de llegar al 100%
+        window.location.href = "infectado.html"; 
+    }
+}
+
+const progressInterval = setInterval(incrementarPorcentaje, 50); // Simula el progreso de carga

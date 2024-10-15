@@ -1,3 +1,7 @@
+/* LO SACAMOS PARA TIC EXPERIENCEEEE-------------------------------
+
+
+
 // Selecciona el botón de continuar
 const continuarBtn = document.querySelector('.sparkle-button');
 
@@ -39,9 +43,11 @@ continuarBtn.addEventListener('click', async () => {
     }
 });
 
+*/
 
 
-/--------------------*agrega jaz esto -----------------------------------------------------------*/
+
+//--------------------*agrega jaz esto -----------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('file');
     const imgArea = document.querySelector('.img-area');
@@ -118,4 +124,19 @@ document.addEventListener('DOMContentLoaded', function () {
             processImage(file);
         });
     }
+});
+
+
+
+//hago que el boton me redirija a la pagina de cargando guardando nombre y apellido
+document.querySelector(".sparkle-button").addEventListener("click", function() {
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+
+    // Guardar en localStorage
+    localStorage.setItem("nombrePaciente", nombre);
+    localStorage.setItem("apellidoPaciente", apellido);
+
+    // Redirigir a home3.html
+    window.location.href = "cargando.html";
 });

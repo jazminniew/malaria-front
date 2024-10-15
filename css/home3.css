@@ -115,7 +115,7 @@ body{
 .barra-lateral .bx-chevron-left {
     position: absolute;
     top: 40px; 
-    left: 15.5%;
+    left: 17.5%;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -135,7 +135,7 @@ body{
 }
 /*------------Barra lateral----------------*/
 .barra-lateral{
-    width: 250px;
+    width: 260px;
     height: 100%;
     background: var(--color-barra-lateral);
     left: 0; 
@@ -153,7 +153,7 @@ body{
     
 }
 .mini-barra-lateral{
-    width: 5%;
+    width: 6%;
     
 }
 
@@ -592,6 +592,7 @@ input[type="search"] {
     border-radius: 6px;
     gap: 0.5rem;
     height: max-content;
+    width: fit-content;
 }
 .cartas-separadas{
 align-items: center;
@@ -666,7 +667,7 @@ margin: none;
     transform: rotateX(90deg);
   }
   .side {
-    width: 125px;
+    width: 120px;
     height: 1em;
     display: flex;
     justify-content: center;
@@ -674,6 +675,7 @@ margin: none;
     letter-spacing: 0.5px;
     font-weight: bold;
     cursor: pointer;
+    margin: 4px;
   }
   .top {
     transform: rotateX(-90deg) translate3d(0, 0, 0em);

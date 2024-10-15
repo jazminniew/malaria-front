@@ -119,7 +119,7 @@ body{
 }
 /*------------Barra lateral----------------*/
 .barra-lateral{
-    width: 250px;
+    width: 260px;
     height: 100%;
     background: var(--color-barra-lateral);
     left: 0; 
@@ -136,7 +136,7 @@ body{
     gap: 10px; 
 }
 .mini-barra-lateral{
-    width: 5%;
+    width: 6%;
 }
 div.barra-lateral.max-barra-lateral{
     height: 100%;
