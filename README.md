@@ -17,13 +17,10 @@
 - **Base de Datos**: Vercel
 - **Inteligencia Artificial**: TensorFlow.js
 
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ## Contacto
 
 Si tienes preguntas o sugerencias, no dudes en contactarme a través de:
 
-- Correo electrónico: malarIA22@gmail.com
+- Correo electrónico: Malaria2244@gmail.com
 - GitHub: [jazminniew](https://github.com/jazminniew)
