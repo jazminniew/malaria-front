@@ -13,8 +13,8 @@
 ## Tecnologías Utilizadas
 
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js, Express.js
-- **Base de Datos**: Vercel
+- **Backend**: Node.js, Express.js, Vercel
+- **UX/UI**: Figma
 - **Inteligencia Artificial**: TensorFlow.js
 
 
