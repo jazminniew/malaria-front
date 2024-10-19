@@ -1,4 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
 
@@ -115,7 +115,9 @@
     getPatients().then(displayPatients);
   });
 
-  */
+
+
+  /*fake para tic experience
   document.addEventListener("DOMContentLoaded", () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
@@ -191,3 +193,4 @@
         return card;
     }
 });
+*/

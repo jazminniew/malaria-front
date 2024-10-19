@@ -1,7 +1,3 @@
-/* LO SACAMOS PARA TIC EXPERIENCEEEE-------------------------------
-
-
-
 // Selecciona el botón de continuar
 const continuarBtn = document.querySelector('.sparkle-button');
 
@@ -43,11 +39,11 @@ continuarBtn.addEventListener('click', async () => {
     }
 });
 
-*/
 
 
 
-//--------------------*agrega jaz esto -----------------------------------------------------------
+
+/*FAKE PARA TIC EXPERIENCEEEE-------------------------------
 document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('file');
     const imgArea = document.querySelector('.img-area');
@@ -139,4 +135,5 @@ document.querySelector(".sparkle-button").addEventListener("click", function() {
 
     // Redirigir a home3.html
     window.location.href = "cargando.html";
-});
+}); 
+*/

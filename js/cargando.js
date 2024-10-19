@@ -1,4 +1,4 @@
-/* Simulando el progreso de carga con la animación del porcentaje
+/* Simulando el progreso de carga con la animación del porcentaje*/
 let progress = 0;
 const numberElement = document.getElementById("number").querySelector("h1");
 
@@ -49,8 +49,9 @@ function verificarMalaria() {
 // Simulamos el tiempo de espera antes de hacer la llamada a la API
 setTimeout(verificarMalaria, 3000); // Llamamos a la API después de 3 segundos (puedes ajustarlo)
 
-*/
-// Simulando el progreso de carga con la animación del porcentaje
+
+
+/* Simulacion para tic experience)
 let progress = 0;
 const numberElement = document.getElementById("number").querySelector("h1");
 
@@ -66,3 +67,4 @@ function incrementarPorcentaje() {
 }
 
 const progressInterval = setInterval(incrementarPorcentaje, 50); // Simula el progreso de carga
+*/
