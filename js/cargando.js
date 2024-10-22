@@ -1,30 +1,41 @@
-/* Simulando el progreso de carga con la animación del porcentaje*/
 let progress = 0;
 const numberElement = document.getElementById("number").querySelector("h1");
+let progressInterval;
 
+// Función para incrementar el porcentaje de carga
 function incrementarPorcentaje() {
-    if (progress < 100) {
+    if (progress < 95) { // Limitar el progreso máximo a 95% mientras esperamos la respuesta
         progress++;
         numberElement.textContent = `${progress}%`;
     }
 }
 
-setInterval(incrementarPorcentaje, 50); // Simula el progreso de carga
+// Iniciar la barra de progreso al hacer la solicitud
+function iniciarProgreso() {
+    progressInterval = setInterval(incrementarPorcentaje, 100); // Incrementa cada 100ms
+}
+
+// Detener el progreso al recibir la respuesta
+function detenerProgreso() {
+    clearInterval(progressInterval); // Detener el incremento de porcentaje
+    progress = 100;
+    numberElement.textContent = `${progress}%`;
+}
 
 // Función para realizar la solicitud a la API de Vercel
 function verificarMalaria() {
+    iniciarProgreso(); // Iniciar el progreso al hacer la solicitud
+
     const apiUrl = 'https://malaria-xi.vercel.app/user/login'; 
 
-    // Opciones de la solicitud
     const options = {
-        method: 'POST', // o 'GET', dependiendo de tu API
+        method: 'POST', // Cambia según la API
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer tu-token-si-es-necesario' // Solo si tu API requiere autenticación
         },
         body: JSON.stringify({
-            // Los datos del paciente o lo que necesites enviar a la API
-            // Por ejemplo, una imagen o información de análisis
+            // Los datos del paciente o análisis
             sampleData: "data del paciente o análisis"
         })
     };
@@ -33,38 +44,25 @@ function verificarMalaria() {
     fetch(apiUrl, options)
         .then(response => response.json()) // Parseamos la respuesta a JSON
         .then(data => {
+            detenerProgreso(); // Detener el progreso al recibir la respuesta
+
             // Aquí asumimos que 'data.resultado' es lo que la API devuelve (infectado o no)
             if (data.resultado === 'infectado') {
-                window.location.href = "infectado.html"; // Redirige a la página de infectado
+                setTimeout(() => {
+                    window.location.href = "infectado.html"; // Redirige a la página de infectado
+                }, 500); // Pausa breve para asegurar que el progreso alcance el 100%
             } else {
-                window.location.href = "no-infectado.html"; // Redirige a la página de no infectado
+                setTimeout(() => {
+                    window.location.href = "no-infectado.html"; // Redirige a la página de no infectado
+                }, 500);
             }
         })
         .catch(error => {
             console.error('Error al conectar con la API:', error);
-            // Aquí puedes manejar el error si es necesario
+            detenerProgreso(); // Detener el progreso incluso si hay error
+            // Puedes mostrar un mensaje de error aquí si es necesario
         });
 }
 
-// Simulamos el tiempo de espera antes de hacer la llamada a la API
-setTimeout(verificarMalaria, 3000); // Llamamos a la API después de 3 segundos (puedes ajustarlo)
-
-
-
-/* Simulacion para tic experience)
-let progress = 0;
-const numberElement = document.getElementById("number").querySelector("h1");
-
-function incrementarPorcentaje() {
-    if (progress < 100) {
-        progress++;
-        numberElement.textContent = `${progress}%`;
-    } else {
-        clearInterval(progressInterval); // Detener el intervalo al llegar al 100%
-        // Aquí se redirige a la página de infectado después de llegar al 100%
-        window.location.href = "infectado.html"; 
-    }
-}
-
-const progressInterval = setInterval(incrementarPorcentaje, 50); // Simula el progreso de carga
-*/
+// Llamar a la función para verificar malaria
+verificarMalaria();

@@ -1,3 +1,5 @@
+const continuarBtn = document.querySelector('.sparkle-button');
+
 document.getElementById('crearPacienteForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evitar que se envíe el formulario por defecto
   

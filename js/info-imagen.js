@@ -40,10 +40,6 @@ continuarBtn.addEventListener('click', async () => {
 });
 
 
-
-
-
-/*FAKE PARA TIC EXPERIENCEEEE-------------------------------
 document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('file');
     const imgArea = document.querySelector('.img-area');
@@ -123,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+/*FAKE PARA TIC EXPERIENCEEEE-------------------------------
 //hago que el boton me redirija a la pagina de cargando guardando nombre y apellido
 document.querySelector(".sparkle-button").addEventListener("click", function() {
     const nombre = document.getElementById("nombre").value;
