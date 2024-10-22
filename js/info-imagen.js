@@ -1,5 +1,5 @@
 // Selecciona el botón de continuar
-const continuarBtn = document.querySelector('.sparkle-button');
+const continuarBtn = document.querySelector('continuarBtn');
 
 // Agrega un evento de clic al botón
 continuarBtn.addEventListener('click', async () => {
@@ -16,7 +16,7 @@ continuarBtn.addEventListener('click', async () => {
         formData.append('file', file);
 
         try {
-            const response = await fetch('http://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL
+            const response = await fetch('https://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL
                 method: 'POST',
                 body: formData,
             });
