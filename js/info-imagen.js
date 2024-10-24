@@ -118,6 +118,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.getElementById('back-button').addEventListener('click', function() {
+    window.history.back();
+});
+
+
 
 /*FAKE PARA TIC EXPERIENCEEEE-------------------------------
 //hago que el boton me redirija a la pagina de cargando guardando nombre y apellido

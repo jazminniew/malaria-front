@@ -525,3 +525,12 @@ button.sparkle-button{
         color: rgba(255, 255, 255, 0.378) ;
         font-weight: 550;
     }   
+
+    .bx-chevron-left {
+      color: #fff;
+      position: absolute;
+      font-size: 70px;
+      left: 2%;
+      top: 2%;
+      cursor: pointer;
+    }

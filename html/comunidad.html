@@ -15,7 +15,6 @@
             <ion-icon name="close-outline"></ion-icon>
         </div>
 
-        <!-----------------------Flecha y titulo--------------------------->
         <div id="flecha" class="barra-lateral max-barra-lateral">
             <i class='bx bx-chevron-left toggle'></i>
             <div class="nombre-pagina">
@@ -27,7 +26,6 @@
                 <span>Nuevo</span>
             </button>
 
-            <!---------------------Navegacion----------------------------->
             <nav class="navegacion">
                 <ul>
                     <li><a href="home3.html"><ion-icon name="analytics-outline"></ion-icon><span>Analisis de IA</span></a></li>
@@ -37,7 +35,6 @@
                 </ul>
             </nav>
 
-            <!---------------------Modo oscuro y perfil----------------------------->
             <div class="FINALCOMPLETO">
                 <div class="linea"></div>
                 <div class="modo-oscuro">
@@ -66,74 +63,36 @@
         </div>
 
         <main>
-            <!---------------------Searchbar----------------------------->
+            <header>
+                <h1 id="saludo-usuario">Hola Nombre</h1>
+                <p>¿Te gustaría compartir algo en la comunidad? 😊</p>
+            </header>
 
-            <!---------------------NAVBAR------------------------------->
-            <div>
-                <header>
-                    <h1 id="saludo-usuario">Hola Manuel</h1>
-                    <p>¿Te gustaría compartir algo en la comunidad? 😊</p>
-                </header>
-
-                <!---------------------Create post container----------------------------->
-                <div id="FONDOPOSTSS" class="create-post-container">
-                    <h2>Crear un post</h2>
-                    <div class="post-input-container">
-                        <textarea id="postContent" placeholder="Escribe lo que quieras..."></textarea>
-                        <button id="sendPostBtn">></button>
-                    </div>
+            <div id="FONDOPOSTSS" class="create-post-container">
+                <h2>Crear un post</h2>
+                <div class="post-input-container">
+                    <textarea id="postContent" placeholder="Escribe lo que quieras..."></textarea>
+                    <button id="sendPostBtn">></button>
                 </div>
+            </div>
 
-                <div id="posts-container">
-                    <div id="message-modal" class="FONDOPOSTS">
+            <div id="posts-container">
+                <div id="message-modal" class="FONDOPOSTS"></div>
+                <p id="no-posts" style="display: none;">No hay posts</p>
+            </div>
 
-                        <!---------------------post2--------------------
-                        <div class="post">
-                            <div class="post-header">
-                                <div class="post-user-info">
-                                    <h5>Jazmin Niew</h5>
-                                </div>
-                            </div>
-                            <div class="post-content">
-                                <p>El otro dia se creo un nuevo medicamento buenisimo para la malaria.😯</p>
-                            </div>
-                            <div class="post-actions">
-                                <button class="like-btn"><i class='bx bx-heart'></i> 77</button>
-                                <button class="comment-btn"><i class='bx bxs-chat'></i></button>
-                                <button class="message-btn"><i class='bx bxs-envelope'></i></button>
-                            </div>
-                        </div>--------->
-                        <!--------------------- final post2----------------------------->
-
-                        <!---------------------post3----------------------------->
-                        <!--------------------- final post3----------------------------->
-
-                        <!---------------------post4----------------------------->
-                        <!--------------------- final post4----------------------------->
-
-                        <!---------------------post5----------------------------->
-                        <!--------------------- final post5----------------------------->
-                        <p id="no-posts" style="display: none;">No hay posts</p>
-                    </div>
+            <div class="card_cerrar" id="logout-card">
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+                    <button class="card-button primary" id="exit-btn">Salir</button>
                 </div>
-               
+            </div>
 
-                <!---------------------Cerrar sesion----------------------------->
-                <div class="card_cerrar" id="logout-card">
-                    <div class="card-button-wrapper">
-                        <button class="card-button secondary" id="cancel-btn">Cancelar</button>
-                        <button class="card-button primary" id="exit-btn">Salir</button>
-                    </div>
+            <div class="card-nuevo" id="botonesnuevosCard">
+                <div class="card-button-wrapper-nuevo">
+                    <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
+                    <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
                 </div>
-
-                <!---------------------Nuevo----------------------------->
-                <div class="card-nuevo" id="botonesnuevosCard">
-                    <div class="card-button-wrapper-nuevo">
-                        <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
-                        <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
-                    </div>
-                </div>
-                <!---------------------Nuevo final----------------------------->
             </div>
         </main>
 
