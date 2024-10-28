@@ -1,6 +1,9 @@
 // Selecciona el botón de continuar
 const continuarBtn = document.querySelector('continuarBtn');
 
+document.getElementById('back-button').addEventListener('click', function() {
+    window.history.back();
+});
 // Agrega un evento de clic al botón
 continuarBtn.addEventListener('click', async () => {
     // Obtén los valores de los campos de entrada
@@ -118,9 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.getElementById('back-button').addEventListener('click', function() {
-    window.history.back();
-});
+
 
 
 

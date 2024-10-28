@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const postsContainer = document.querySelector('.FONDOPOSTS');
     const currentUserName = "Jazmin";
 
+    // Crear un mensaje para mostrar cuando no hay posts
+    const noPostsMessage = document.createElement('div');
+    noPostsMessage.className = 'no-posts-message';
+    noPostsMessage.textContent = 'No hay posts.';
+    noPostsMessage.style.display = 'none'; // Inicialmente ocultar
+    postsContainer.appendChild(noPostsMessage);
+
     sendPostBtn.addEventListener('click', () => {
         const content = postContent.value.trim();
         if (content) {
@@ -39,16 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="post-actions">
                 <button class="like-btn"><i class='bx bx-heart'></i> 0</button>
-                <button class="comment-btn"><i class='bx bx-comment' ></i></button>
+                <button class="comment-btn"><i class='bx bx-comment'></i></button>
                 <button class="message-btn"><i class='bx bx-chat'></i></button>
             </div>
             <div class="comment-section"></div>
             <div class="contact-form hidden"></div>
         `;
         postsContainer.appendChild(newPost);
+        
+        // Ocultar el mensaje "no hay posts" si se ha creado un post
+        noPostsMessage.style.display = 'none';
     }
 
-    
+    function updateNoPostsMessage() {
+        if (postsContainer.children.length === 0) {
+            noPostsMessage.style.display = 'block'; // Mostrar mensaje
+        } else {
+            noPostsMessage.style.display = 'none'; // Ocultar mensaje
+        }
+    }
+
     function handleLike(post) {
         const likeBtn = post.querySelector('.like-btn');
         let likeCount = parseInt(likeBtn.textContent.split(' ')[1]);
@@ -65,8 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
             post.classList.add('liked');
         }
     }
-    
-
 
     function handleComment(post) {
         // Ocultar el formulario de mensaje privado
@@ -159,4 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return { input, button };
     }
+
+    // Inicializar la verificación del mensaje de posts
+    updateNoPostsMessage();
 });

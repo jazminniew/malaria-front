@@ -88,6 +88,9 @@ countries.forEach(country => {
   selectElement.appendChild(option);
 });
 
+document.getElementById('back-button').addEventListener('click', function() {
+  window.history.back();
+});
 
 /*
 
