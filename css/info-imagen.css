@@ -534,3 +534,8 @@ button.sparkle-button{
       top: 2%;
       cursor: pointer;
     }
+
+    .bx-chevron-left:hover{
+      color: #dadada;
+      transition: 0.5s;
+    }

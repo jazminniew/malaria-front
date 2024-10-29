@@ -79,66 +79,33 @@
                 
                 <div class="profile-info">
                     <div class="info-group">
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" value="" disabled>
+                        <input type="text" id="name" value="" disabled placeholder="Nombre">
                     </div>
                     <div class="info-group">
-                        <label for="surname">Apellido:</label>
-                        <input type="text" id="surname" value="" disabled>
+                        <input type="text" id="surname" value="" disabled placeholder="Apellido">
                     </div>
-                   
+    
                     <div class="info-group">
-                       
-                        <label for="country">País de Residencia:</label>
-                        <select id="country" disabled>
-                            <option value="">Selecciona tu país</option>
-                          
-                        </select>
-                    </div>
-                    <div class="info-group">
-                        <label for="occupation">Ocupación:</label>
-                        <select id="occupation" disabled>
-                            <option value="">Selecciona tu ocupación</option>
-                            <option value="medico">Médico</option>
-                            <option value="ingeniero">Ingeniero</option>
-                            <option value="abogado">Abogado</option>
-
-                        </select>
-                    </div>
-                    <div class="info-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" value="" disabled>
-                    </div>
-                    <div class="info-group">
-                        <label for="description">Descripción:</label>
-                        <textarea id="description" rows="3" placeholder="Descripción breve aquí..." disabled></textarea>
+                        <input type="email" id="email" value="" disabled placeholder="Email">
                     </div>
                 </div>
+                
+                <div class="info-group">
+                    <select id="country" disabled>
+                        <option value="">Selecciona tu país</option>
+                      
+                    </select>
+                </div>
+
                 <div class="profile-actions">
                     <button class="edit-button" id="edit-button" onclick="toggleEditMode()">Editar</button>
                 </div>
             </div>
         </div>
-
-            <!-- Mensajes Privados -->
-<div class="messages-card" id="privados">
-                <h2>Mensajes Privados</h2>
-<div class="chats">
-
-
-    <div class="chat-list" id="message-list">
-        <!-- Aquí se mostrará el mensaje "No hay ningún mensaje" si no hay chats -->
-    </div>
-    <p id="no-messages" style="display:none;">No hay mensajes</p>  <!-- Si estás usando esto, ajusta la lógica -->
-    
-
-
-
-
-                  </div>
-                      
+            
         </div>
     </div>
+    
 
     <!---------------------Cerrar sesion----------------------------->  
     <div class="card_cerrar" id="logout-card">

@@ -10,7 +10,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
     };
 
     try {
-        const response = await fetch('http://localhost:8000/user/register', {
+        const response = await fetch('http://malaria-xi.vercel.app/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

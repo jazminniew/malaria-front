@@ -39,6 +39,8 @@ continuarBtn.addEventListener('click', async () => {
     } else {
         // Si falta algún campo, muestra un mensaje de error
         alert('Por favor, completa todos los campos.');
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Por favor, completa todos los campos e incluye una imagen para subir.";
     }
 });
 
@@ -120,8 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
-
 
 
 

@@ -33,7 +33,7 @@
     --fondo-scrollbar: #f1f1f1;
     --color-texto-elementos:#7c3ed6;
     --fondo-user-hover: #bebebe;
-    --color-icono: #545454;
+    --color-icono: #bb2424;
     --fondo-mensajes-privados: #fff;
     --texto: #000;
     --background-colorr:#f9f9f9;
@@ -398,6 +398,9 @@ main{
     padding: 20px;
     transition: margin-left 0.5s ease;
     height: 100%;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
 }
 main.min-main{
     transition: margin-left 0.5s;
@@ -587,7 +590,7 @@ main.min-main{
     display: flex;
     flex-direction: row;
     gap: 20px;
-    width: 820px;
+    width: 100%;
 }
 
 .profile-card {
@@ -640,7 +643,7 @@ main.min-main{
 }
 
 .info-group {
-    margin-bottom: 20px; /* Aumenta el espaciado */
+    margin-bottom: 35px; /* Aumenta el espaciado */
 }
 
 .info-group label {
@@ -650,8 +653,8 @@ main.min-main{
 
 .info-group input, .info-group select, .info-group textarea {
     width: 100%;
-    padding: 8px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
     border: 1px solid var(--color-borde-input);
 }
 
@@ -664,29 +667,10 @@ main.min-main{
     background-color: var(--back-edit-input);
 }
 
-.messages-card {
-    flex: 0.7; /* Menor ancho para los mensajes privados */
-    background-color: var(--fondo-mensajes-privados);
-    border-radius: 10px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
-    padding: 20px;
-    transition: height 0.5s ease, width 0.5s ease;
-    color: var(--texto);
-}
-
-.messages-list::-webkit-scrollbar {
-    width: 12px; /* Ancho del scrollbar */
-}
-
-.messages-list::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color de fondo del track */
-    border-radius: 10px;
-}
 .FONDOPACIENTES{
     display: flex;
     gap: 30px;
     margin-left: 10px;
-    flex: 1; /* Hacer que el contenedor de mensajes ocupe todo el espacio disponible */
 }
 
 .messages-list::-webkit-scrollbar-thumb {
@@ -703,74 +687,6 @@ textarea {
 }
 
 
-/* Estilo del scrollbar */
-body::-webkit-scrollbar {
-    width: 12px; /* Ancho del scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color de fondo del track */
-    border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: #888; /* Color de la parte deslizable */
-    border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color al pasar el mouse */
-}
-
-.chat-list {
-    width: 100%;
-    max-height: 400px;
-    overflow-y: auto;
-    background-color: var(--background-colorr);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.chat-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--element-back-color);
-    border-radius: 10px; /* Bordes redondeados para un look moderno */
-    border: 1px solid var(--border-color); /* Línea de separación */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.chat-item:hover {
-    background-color: var(--color-menu-hover);
-    transform: scale(1.02); /* Efecto de aumento al pasar el mouse */
-}
-
-.chat-item img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.chat-item .chat-name {
-    font-size: 1.1em;
-    color: var(--color-texto);
-    flex-grow: 1;
-}
-
-.chat-item .chat-time {
-    font-size: 0.9em;
-    color: var(--color-texto-menu);
-}
-
-label{
-    color: var(--texto);
-}
-
 /* Estilo para el borde violeta cuando se habilita la edición */
 .info-group input:enabled,
 .info-group select:enabled,
@@ -784,11 +700,4 @@ label{
 .info-group select:disabled,
 .info-group textarea:disabled {
     border: 1px solid var(--color-borde-input); /* Color original del borde */
-}
-
-.no-chats-message {
-    text-align: center;
-    font-size: 1.2em;
-    color: #888;
-    margin-top: 20px;
 }

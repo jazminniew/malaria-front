@@ -27,9 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             handleLike(post);
         } else if (event.target.classList.contains('comment-btn')) {
             handleComment(post);
-        } else if (event.target.classList.contains('message-btn')) {
-            handleMessage(post);
-        }
+        } 
     });
 
     function createPost(content) {
@@ -47,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="post-actions">
                 <button class="like-btn"><i class='bx bx-heart'></i> 0</button>
                 <button class="comment-btn"><i class='bx bx-comment'></i></button>
-                <button class="message-btn"><i class='bx bx-chat'></i></button>
             </div>
             <div class="comment-section"></div>
             <div class="contact-form hidden"></div>
@@ -84,11 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleComment(post) {
-        // Ocultar el formulario de mensaje privado
-        const contactForm = post.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.classList.add('hidden');
-        }
 
         let commentSection = post.querySelector('.comment-section');
         if (!commentSection) {
@@ -129,29 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
             commentSection.querySelector('.comment-input')?.classList.add('hidden');
             commentSection.querySelector('.submit-comment-btn')?.classList.add('hidden');
         }
-
-        let contactForm = post.querySelector('.contact-form');
-        if (!contactForm) {
-            contactForm = document.createElement('div');
-            contactForm.className = 'contact-form';
-            contactForm.innerHTML = `
-                <input type="text" class="contact-input" placeholder="Escribe un mensaje privado..." style="height: 50px;">
-                <button class="send-message-btn">Enviar</button>
-            `;
-            post.appendChild(contactForm);
-
-            const sendMessageBtn = contactForm.querySelector('.send-message-btn');
-            sendMessageBtn.addEventListener('click', () => {
-                const messageInput = contactForm.querySelector('.contact-input');
-                const messageText = messageInput.value.trim();
-                if (messageText) {
-                    alert(`Mensaje enviado: ${messageText}`);
-                    messageInput.value = ''; // Limpiar el input de mensaje
-                }
-            });
-        }
-
-        contactForm.classList.toggle('hidden');
     }
 
     function createInputField(placeholder, btnText, callback) {
