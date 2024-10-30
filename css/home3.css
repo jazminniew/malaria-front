@@ -925,5 +925,26 @@ transform: scale(0.6);
     margin-left: 50px; /* Cambia a un valor más pequeño */
 }
 
+.IMAGENANALISIS{
+    width: 8em;
+    height: 8em;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+}
 
+.IMAGENANALISIS span {
+    font-size: 1.5em;
+    width: 150%;
+    inset: 0;
+    padding: 10px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
+    color: #fff;
+    background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
 
+  }

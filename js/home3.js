@@ -2,11 +2,89 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
 
-    const noResultsMessage = document.createElement('div');
+    /*const noResultsMessage = document.createElement('div');
     noResultsMessage.textContent = "No hay ningún análisis realizado";
     noResultsMessage.style.display = 'none';
     noResultsMessage.id = 'noResults';
     container.appendChild(noResultsMessage);  // Añadir el mensaje al contenedor
+
+
+VOLVER A PONER ESTOO
+*/
+
+
+
+
+//BORRRAR DESDE ACA
+
+
+  // Función para crear un análisis ficticio
+  function createFakePost() {
+    const fakeAnalysis = {
+        nombre: 'Jazmin',
+        apellido: 'Niew',
+        status: 'infectado',
+        id: 999,  // ID ficticio
+        imagen: 'https://img.freepik.com/fotos-premium/fondo-purpura-fondo-blanco-que-dice-esquina-inferior-derecha_1131454-42.jpg?semt=ais_hybrid',  // URL de imagen ficticia
+        resultados: 'infectado'
+    };
+
+    // Crear y agregar la tarjeta del análisis ficticio
+    const fakeCard = createPatientCard(fakeAnalysis);
+    container.appendChild(fakeCard);
+    noResultsMessage.style.display = 'none'; // Ocultar mensaje de no resultados si el análisis ficticio está presente
+}
+
+// Llama a la función para crear el análisis ficticio
+createFakePost();
+
+function createPatientCard(analis) {
+    const card = document.createElement('div');
+    card.classList.add('cartas-separadas');
+
+    const cardContent = `
+        <div class="card ${analis.status}" id="cartaa">
+            <div class="IMAGENANALISIS" style="background-image: url('${analis.imagen}');">
+                <span>${analis.resultados === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
+            </div>
+            <div class="card_data">
+                <div style="display: flex" class="data">
+                    <div class="text">
+                        <div class="cube text_s">
+                            <label class="side front">${analis.nombre} ${analis.apellido}</label>
+                            <label onclick="location.href='imagen-accedida-posta.html?id=${analis.id}'" class="side top">Acceder</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    card.innerHTML = cardContent;
+
+    return card;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   
     const searchBar = document.getElementById('searchBar');
   
@@ -20,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
     
             // Realiza la petición con el token
-            const response = await fetch('https://malaria-xi.vercel.app/analyze/todosAnalisis', {
+            const response = await fetch('http://localhost:8000/analyze/todosAnalisis', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Aquí se añade el token al header
+                    /* 'Authorization': `Bearer ${token}` // Aquí se añade el token al header */
                 }
             });
     
@@ -32,8 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Error al obtener los pacientes: ' + response.status);
             }
     
-            const patients = await response.json();
-            return Array.isArray(patients) ? patients : [];
+            const analisisTodo = await response.json();
+            const analisis = analisisTodo.rows;
+            return Array.isArray(analisis) ? analisis : [];
         } catch (error) {
             console.error(error);
             return [];
@@ -43,12 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
   
     // Función para mostrar los resultados de la búsqueda
-    function displayPatients(patients) {
+    function displayPatients(analisis) {
         // Limpiar el contenedor de pacientes
         container.innerHTML = '';
         container.appendChild(noResultsMessage); // Asegurarse de que el mensaje siempre esté presente
   
-        if (patients.length === 0) {
+        if (analisis.length === 0) {
             // Mostrar mensaje si no hay resultados
             noResultsMessage.style.display = 'block';
         } else {
@@ -56,29 +135,30 @@ document.addEventListener('DOMContentLoaded', () => {
             noResultsMessage.style.display = 'none';
   
             // Crear cartas para cada paciente
-            patients.forEach(patient => {
-                const patientCard = createPatientCard(patient);
-                container.appendChild(patientCard);
+            analisis.forEach(analis => {
+                const analisCard = createPatientCard(analis);
+                container.appendChild(analisCard);
             });
         }
     }
   
     // Función para crear una carta de paciente
-    function createPatientCard(patient) {
+    function createPatientCard(analis) {
         const card = document.createElement('div');
         card.classList.add('cartas-separadas');
   
         const cardContent = `
-            <div class="card ${patient.status}" id="cartaa">
+            <div class="card ${analis.status}" id="cartaa">
+                <img class="IMAGENANALISIS" src="${analis.imagen}">
                 <div class="card_form">
-                    <span>${patient.status === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
+                    <span>${analis.resultados === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
                 </div>
                 <div class="card_data">
                     <div style="display: flex" class="data">
                         <div class="text">
                             <div class="cube text_s">
-                                <label class="side front">${patient.nombre} ${patient.apellido}</label>
-                                <label onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'" class="side top">Acceder</label>
+                                <label class="side front">${analis.nombre} ${analis.apellido}</label>
+                                <label onclick="location.href='imagen-accedida-posta.html?id=${analis.id}'" class="side top">Acceder</label>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 // Selecciona el botón de continuar
-const continuarBtn = document.querySelector('continuarBtn');
+const continuarBtn = document.querySelector('.sp');
 
-document.getElementById('back-button').addEventListener('click', function() {
+document.getElementById('back-button').addEventListener('click', function () {
     window.history.back();
 });
 // Agrega un evento de clic al botón
@@ -19,14 +19,14 @@ continuarBtn.addEventListener('click', async () => {
         formData.append('file', file);
 
         try {
-            const response = await fetch('https://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL
+            const response = await fetch('http://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL
                 method: 'POST',
-                body: formData,
+                body: formData
             });
 
             const result = await response.json();
 
-        /*    if (response.ok) {
+            if (response.ok) {
                 // Redirige a la página de seleccionar-imagen.html
                 window.location.href = 'home3.html';
             } else {
@@ -42,28 +42,6 @@ continuarBtn.addEventListener('click', async () => {
         errorMessage.style.display = "block";
         errorMessage.textContent = "Por favor, completa todos los campos e incluye una imagen para subir.";
     }
-        */
-
-    if (response.ok) {
-        const result = await response.json();
-
-        // Guardar el resultado provisional en localStorage
-        localStorage.setItem('nombrePaciente', nombre);
-        localStorage.setItem('apellidoPaciente', apellido);
-        localStorage.setItem('analyzeID', result.analyzeID); // si tienes un ID único para el análisis
-
-        // Redirigir a "cargando.html" mientras esperamos la respuesta final de la IA
-        window.location.href = 'cargando.html';
-    } else {
-        const result = await response.json();
-        alert(`Error: ${result.message}`);
-    }
-} catch (error) {
-    alert(`Error al guardar los datos: ${error.message}`);
-}
-} else {
-alert('Por favor, completa todos los campos.');
-}
 });
 
 
@@ -108,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const img = document.createElement('img');
                 img.src = imgUrl;
                 imgArea.appendChild(img);
-                imgArea.classList.add('active');  
+                imgArea.classList.add('active');
                 imgArea.dataset.img = file.name;
             };
             reader.readAsDataURL(file); // Leer la imagen como una URL de datos
@@ -144,20 +122,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
-
-
-/*FAKE PARA TIC EXPERIENCEEEE-------------------------------
-//hago que el boton me redirija a la pagina de cargando guardando nombre y apellido
-document.querySelector(".sparkle-button").addEventListener("click", function() {
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-
-    // Guardar en localStorage
-    localStorage.setItem("nombrePaciente", nombre);
-    localStorage.setItem("apellidoPaciente", apellido);
-
-    // Redirigir a home3.html
-    window.location.href = "cargando.html";
-}); 
-*/
