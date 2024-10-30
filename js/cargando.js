@@ -107,4 +107,3 @@ function verificarMalaria() {
 
 // Llamar a la función para verificar malaria
 verificarMalaria();
-*/
