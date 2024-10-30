@@ -26,7 +26,7 @@ continuarBtn.addEventListener('click', async () => {
 
             const result = await response.json();
 
-            if (response.ok) {
+        /*    if (response.ok) {
                 // Redirige a la página de seleccionar-imagen.html
                 window.location.href = 'home3.html';
             } else {
@@ -42,6 +42,28 @@ continuarBtn.addEventListener('click', async () => {
         errorMessage.style.display = "block";
         errorMessage.textContent = "Por favor, completa todos los campos e incluye una imagen para subir.";
     }
+        */
+
+    if (response.ok) {
+        const result = await response.json();
+
+        // Guardar el resultado provisional en localStorage
+        localStorage.setItem('nombrePaciente', nombre);
+        localStorage.setItem('apellidoPaciente', apellido);
+        localStorage.setItem('analyzeID', result.analyzeID); // si tienes un ID único para el análisis
+
+        // Redirigir a "cargando.html" mientras esperamos la respuesta final de la IA
+        window.location.href = 'cargando.html';
+    } else {
+        const result = await response.json();
+        alert(`Error: ${result.message}`);
+    }
+} catch (error) {
+    alert(`Error al guardar los datos: ${error.message}`);
+}
+} else {
+alert('Por favor, completa todos los campos.');
+}
 });
 
 

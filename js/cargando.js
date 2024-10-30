@@ -4,7 +4,7 @@ let progressInterval;
 
 // Función para incrementar el porcentaje de carga
 function incrementarPorcentaje() {
-    if (progress < 95) { // Limitar el progreso máximo a 95% mientras esperamos la respuesta
+    if (progress < 95) {
         progress++;
         numberElement.textContent = `${progress}%`;
     }
@@ -17,16 +17,57 @@ function iniciarProgreso() {
 
 // Detener el progreso al recibir la respuesta
 function detenerProgreso() {
-    clearInterval(progressInterval); // Detener el incremento de porcentaje
+    clearInterval(progressInterval);
     progress = 100;
     numberElement.textContent = `${progress}%`;
 }
+
+
+
+
+
+
+// Verificar el resultado de la IA periódicamente
+function verificarResultado() {
+    const analyzeID = localStorage.getItem('analyzeID');
+    const apiUrl = `https://localhost:8000/analyze/checkResult/${analyzeID}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.resultado) { // Asumiendo que la API devuelve un campo 'resultado' con el análisis
+                detenerProgreso();
+                setTimeout(() => {
+                    // Redirigir según el resultado
+                    if (data.resultado === 'infectado') {
+                        window.location.href = "infectado.html";
+                    } else {
+                        window.location.href = "no-infectado.html";
+                    }
+                }, 500);
+            }
+        })
+        .catch(error => {
+            console.error('Error al verificar el análisis:', error);
+            detenerProgreso();
+        });
+}
+
+// Iniciar el progreso y la verificación periódica al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    iniciarProgreso();
+    // Verificar cada 3 segundos si el resultado ya está disponible
+    setInterval(verificarResultado, 3000);
+});
+
+
+
 
 // Función para realizar la solicitud a la API de Vercel
 function verificarMalaria() {
     iniciarProgreso(); // Iniciar el progreso al hacer la solicitud
 
-    const apiUrl = 'https://malaria-xi.vercel.app/user/login'; 
+    const apiUrl = 'https://malaria-xi.vercel.app/user/login'; /*ACAAAAA */
 
     const options = {
         method: 'POST', // Cambia según la API
@@ -66,3 +107,4 @@ function verificarMalaria() {
 
 // Llamar a la función para verificar malaria
 verificarMalaria();
+*/
