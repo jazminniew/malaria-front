@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
 
-    // Crear y configurar el mensaje "No hay ningún análisis realizado"
+    //Crear y configurar el mensaje "No hay ningún análisis realizado"
     const noResultsMessage = document.createElement('div');
     noResultsMessage.textContent = "No hay ningún paciente";
     noResultsMessage.style.display = 'none'; // Ocultar inicialmente
@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
     
             // Realiza la petición con el token
-            const response = await fetch('https://malaria-xi.vercel.app/patients/allPacients', {
+            const response = await fetch('http://localhost:8000/patients/allPacients', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Aquí se añade el token al header
+                    /*'Authorization': `Bearer ${token}` */
                 }
             });
     
@@ -114,3 +114,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);
 });
+
+//------------------------------------------------------------------------
