@@ -30,31 +30,48 @@ if (localStorage.getItem('darkMode') === 'enabled') {
     circulo.classList.add('prendido');
 }
 
+const cerrarSesion = document.getElementById("logout");
+cerrarSesion.addEventListener("click", cerrarSesionFunction);
+
+function cerrarSesionFunction() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+
+    window.location.href = "iniciar-sesion4.html"
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     const id = localStorage.getItem("id");
     const token = localStorage.getItem("token");
 
-    try {
-        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
-
-        if (!response.ok) {
-            throw new Error('Error al obtener los datos del usuario');
-        }
-
-        const data = await response.json();
-
-        document.getElementById("nombre-sidebar").textContent = data.nombre;
-        document.getElementById("mail-sidebar").textContent = data.email;
-    } catch (err) {
-        alert('Error al obtener los datos del usuario');
-        console.error('Error al obtener los datos del usuario:', err);
+    if (token === "") {
+        windows.location.href = "iniciar-sesion4.html"
     }
+
+    else {
+        try {
+            const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            })
+    
+            if (!response.ok) {
+                throw new Error('Error al obtener los datos del usuario');
+            }
+    
+            const data = await response.json();
+    
+            document.getElementById("nombre-sidebar").textContent = data.nombre;
+            document.getElementById("mail-sidebar").textContent = data.email;
+        } catch (err) {
+            alert('Error al obtener los datos del usuario');
+            console.error('Error al obtener los datos del usuario:', err);
+        }
+    }
+
 })
 
 // Manejo del botón "Nuevo"
