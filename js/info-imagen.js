@@ -23,7 +23,6 @@ continuarBtn.addEventListener('click', async () => {
                 method: 'POST',
                 body: formData
             });
-
             const result = await response.json();
 
             if (response.ok) {

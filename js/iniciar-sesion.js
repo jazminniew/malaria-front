@@ -28,6 +28,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
         if (response.ok) {
             // Guardar el token en el localStorage
             localStorage.setItem('token', result.token); // Asumiendo que el token se recibe en result.token
+            localStorage.setItem('id', result.id);
 
             // Log para verificar que el token se ha guardado correctamente
             console.log('Token guardado en localStorage:', result.token);

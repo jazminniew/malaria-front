@@ -46,32 +46,33 @@ const editButton = document.getElementById('edit-button');
 let editMode = false;
 
 // Obtener datos del perfil desde Vercel
-async function fetchProfileData() {
+document.addEventListener('DOMContentLoaded', async () => {
+    const id = localStorage.getItem('id');
+
     try {
-        const response = await fetch('https://malaria-xi.vercel.app/user/user'); // Cambia por tu enlace real
-        const data = await response.json();
+        const response = await fetch(`http://localhost:8000/user/user/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
         
-        // Rellenar los campos con los datos obtenidos
-        nameInput.value = data.name || '';
-        surnameInput.value = data.surname || '';
-        emailInput.value = data.email || '';
-        
-        // Rellenar select de país con el array global 'countries'
-        populateCountries();  // Usa la función global para países
-        if (data.country) {
-            countryInput.value = data.country.toLowerCase().replace(/\s+/g, '-');
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos del usuario');
         }
-        
-        
-        // Cargar la foto de perfil
-        profilePic.src = data.profilePicUrl || '../images/userphoto.avif'; 
-    } catch (error) {
-        console.error('Error fetching profile data:', error);
+
+        const data = await response.json();
+
+        document.getElementById('user-apellido').textContent = data.apellido;
+        document.getElementById('user-name').textContent = data.nombre;
+        document.getElementById('user-email').textContent = data.email;
+        document.getElementById('user-username').textContent = data.email;
+    } catch (err) {
+        alert('Error al obtener los datos del usuario');
+        console.error('Error al obtener los datos del usuario:', err);
     }
-}
+}, false);
 
-
-// Función para alternar el modo de edición
 function toggleEditMode() {
     const nameInput = document.getElementById('name');
     const surnameInput = document.getElementById('surname');
@@ -155,7 +156,6 @@ async function saveProfileData() {
 }
 
 // Cargar los datos del perfil al cargar la página
-fetchProfileData();
 
 //---------------------------final info usuario----------------------------
 
