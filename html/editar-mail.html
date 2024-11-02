@@ -68,51 +68,8 @@
         <main>
 <!---------------------NAVBAR----------------------------------------------------------------->
 <div class="FONDOPACIENTES" id="elements-container"> 
-        <!-- Contenido Principal -->
-        <div class="main-content">
-            <!-- Perfil de Usuario -->
-            <div class="profile-card">
-                <!-- <div class="profile-pic-container">
-                    <img id="profile-pic" src="../images/ userphoto.avif" alt="Foto" class="profile-pic" onclick="enableProfilePicUpload();">
-                    <input type="file" id="profile-pic-input" accept="image/*" onchange="updateProfilePic(event)" style="display: none;">
-                </div> -->
-                
-                <!-- <div class="profile-info">
-                    <div class="info-group">
-                        <input type="text" id="name" value="" disabled placeholder="Nombre">
-                    </div>
-                    <div class="info-group">
-                        <input type="text" id="surname" value="" disabled placeholder="Apellido">
-                    </div>
-                    <div class="info-group">
-                        <input type="email" id="email" value="" disabled placeholder="Username">
-                    </div>
-                    <div class="info-group">
-                        <input type="email" id="email" value="" disabled placeholder="Email">
-                    </div>
-                </div> -->
-                <div id="user-info">
-                    <p>Nombre: <span id="user-name"></span></p>
-                    <p>Apellido: <span id="user-apellido"></span></p>
-                    <p>Nombre de Usuario: <span id="user-username"></span></p>
-                    <p>Email: <span id="user-email"></span></p>
-                  </div>
-                
-                <!-- <div class="info-group">
-                    <select id="country" disabled>
-                        <option value="">Selecciona tu país</option>
-                      
-                    </select>
-                </div> -->
-
-                <a href="editar-nombre.html">Editar Nombre</a>
-                <a href="editar-apellido.html">Editar Apellido</a>
-                <a href="editar-mail.html">Editar Mail</a>
-                <a href="editar-username.html">Editar Username</a>
-            </div>
-        </div>
-            
-        </div>
+        <input type="email" id="email" placeholder="Nuevo Email">
+        <button id="editarMail">Editar Email</button>
     </div>
     
 
@@ -135,7 +92,7 @@
     </main>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/perfil.js"></script>  
+    <script src="/js/editar-email.js"></script>  
     <script src="/js/sidebar.js"></script>  
     </div>
 </div>

@@ -40,15 +40,16 @@ const profilePic = document.getElementById('profile-pic');
 const nameInput = document.getElementById('name');
 const surnameInput = document.getElementById('surname');
 const countryInput = document.getElementById('country');
-const emailInput = document.getElementById('email');
+const apellido = document.getElementById('apellido');
 const editButton = document.getElementById('edit-button');
 
 let editMode = false;
 
+const id = localStorage.getItem('id');
+const token = localStorage.getItem("token");
+
 // Obtener datos del perfil desde Vercel
 document.addEventListener('DOMContentLoaded', async () => {
-    const id = localStorage.getItem('id');
-    const token = localStorage.getItem("token");
 
     try {
         const response = await fetch(`http://localhost:8000/user/user/${id}`, {
@@ -65,15 +66,37 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const data = await response.json();
 
-        document.getElementById('user-apellido').textContent = data.apellido;
-        document.getElementById('user-name').textContent = data.nombre;
-        document.getElementById('user-email').textContent = data.email;
-        document.getElementById('user-username').textContent = data.username;
+        apellido.value = data.apellido;
     } catch (err) {
         alert('Error al obtener los datos del usuario');
         console.error('Error al obtener los datos del usuario:', err);
     }
 }, false);
+
+editarApellido.addEventListener("click", async () => {
+    const nuevoApellido = apellido.value;
+
+    const formData = {
+        apellido: nuevoApellido
+    }
+
+    const response = await fetch (`http://localhost:8000/user/editApellido/${id}`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(formData)
+    })
+
+    if (!response.ok) {
+        throw new Error('Error al editar los datos del usuario');
+    }
+
+    else {
+        window.location.href = "perfil.html"
+    }
+})
 
 function toggleEditMode() {
     const nameInput = document.getElementById('name');
@@ -129,33 +152,6 @@ function validateProfileData() {
     return true;
 }
 
-// Función para guardar los datos del perfil
-async function saveProfileData() {
-    if (!validateProfileData()) {
-        return; // Si la validación falla, no continuar
-    }
-    const profileData = {
-        name: nameInput.value,
-        surname: surnameInput.value,
-        country: countryInput.value,
-        email: emailInput.value,
-    };
-
-    try {
-        await fetch('https://malaria-xi.vercel.app/user/editUser', { // Cambia por tu enlace real
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(profileData),
-        });
-        alert('Perfil actualizado exitosamente');
-    } catch (error) {
-        console.error('Error updating profile data:', error);
-    }
-
-    
-}
 
 // Cargar los datos del perfil al cargar la página
 
