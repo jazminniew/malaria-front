@@ -2,54 +2,44 @@ const continuarBtn = document.querySelector('.btn');
 
 // Agrega un evento de clic al botón
 continuarBtn.addEventListener('click', async () => {
-  // Obtén los valores de los campos de entrada
-  const nombre = document.getElementById('nombre').value.trim();
-  const apellido = document.getElementById('apellido').value.trim();
-  const fechaNacimiento = document.getElementById('fechaNacimiento').value; // Asume que es de tipo "date"
-  const pais = document.getElementById('pais').value; // Asume que es un campo select, no necesita trim()
-  const genero = document.getElementById('genero').value; // Asume que es un select o radio button
-  const email = document.getElementById('email').value.trim();
-  const telefono = document.getElementById('telefono').value.trim(); // Número de teléfono como texto
-  
-  // Verifica si todos los campos están completos
-  if (nombre && apellido && fechaNacimiento /*&& pais*/ && genero && email && telefono) {
-      const formData = new FormData();
-      formData.append('nombre', nombre);
-      formData.append('apellido', apellido);
-      formData.append('fechaNacimiento', fechaNacimiento);
-      formData.append('pais', pais);
-      formData.append('genero', genero);
-      formData.append('email', email);
-      formData.append('telefono', telefono);
+  const nombre = document.getElementById("nombre").value;
+  const apellido = document.getElementById("apellido").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("telefono").value;
 
-      const token = localStorage.getItem('token'); // Recupera el token de localStorage
+  console.log(
+    nombre,
+    apellido,
+    email,
+    phone
+  )
 
-
-      try {
-        const response = await fetch('https://malaria-xi.vercel.app/patients/registerPatient', {
-          method: 'POST',
-          headers: {
-              'Authorization': `Bearer ${token}`, // Agrega el token en el header
-          },
-          body: formData,
-      });
-          const result = await response.json();
-
-          if (response.ok) {
-              // Redirige a la página de home3.html
-              window.location.href = 'home3.html';
-          } else {
-              // Si hay un error, muestra un mensaje
-              alert(`Error: ${result.message}`);
-          }
-      } catch (error) {
-          alert(`Error al guardar los datos: ${error.message}`);
-      }
-  } else {
-      // Si falta algún campo, muestra un mensaje de error
-      alert('Por favor, completa todos los campos.');
+  const formData = {
+    nombre,
+    apellido,
+    email,
+    phone
   }
-});
+
+  const token = localStorage.getItem("token")
+
+  try {
+    const response = await fetch('http://localhost:8000/patients/registerPatient', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',  // Asegúrate de especificar el tipo de contenido
+          'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(formData),  // Convierte formData a JSON
+  });
+  const result = await response.json();
+
+  window.location.href = 'home3.html';
+} catch (error) {
+  alert(`Error al guardar los datos: ${error.message}`);
+}
+}
+);
 
 // Lista de países en formato JSON
 const countries = [
