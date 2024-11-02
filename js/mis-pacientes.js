@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    /*'Authorization': `Bearer ${token}` */
+                    'Authorization': `Bearer ${token}`
                 }
             });
     

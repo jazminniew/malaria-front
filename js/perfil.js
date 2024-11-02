@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem("token");
 
     try {
-        const response = await fetch(`http://localhost:8000/user/user/${id}`, {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

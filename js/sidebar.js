@@ -29,6 +29,34 @@ if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
     circulo.classList.add('prendido');
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const id = localStorage.getItem("id");
+    const token = localStorage.getItem("token");
+
+    try {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })
+
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos del usuario');
+        }
+
+        const data = await response.json();
+
+        document.getElementById("nombre-sidebar").textContent = data.nombre;
+        document.getElementById("mail-sidebar").textContent = data.email;
+    } catch (err) {
+        alert('Error al obtener los datos del usuario');
+        console.error('Error al obtener los datos del usuario:', err);
+    }
+})
+
 // Manejo del botón "Nuevo"
 btnNuevo.addEventListener('click', function () {
     botonesNuevosCard.classList.add('show');
