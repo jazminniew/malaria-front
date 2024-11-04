@@ -561,6 +561,7 @@ input[type="search"] {
     box-sizing: border-box;
     overflow-x: hidden;
     transition: height 0.5s ease, width 0.5s ease;
+    display: inline-flex;
 }
 .FONDOPACIENTES.expanded{
     width: 420%;

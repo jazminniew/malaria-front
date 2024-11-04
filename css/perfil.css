@@ -642,13 +642,12 @@ main.min-main{
     display: block;
 }
 
-.info-group {
-    margin-bottom: 35px; /* Aumenta el espaciado */
-}
+
 
 .info-group label {
     display: block;
     margin-bottom: 5px;
+    
 }
 
 .info-group input, .info-group select, .info-group textarea {
@@ -656,6 +655,7 @@ main.min-main{
     padding: 10px;
     border-radius: 10px;
     border: 1px solid var(--color-borde-input);
+    
 }
 
 .info-group input:disabled, .info-group select:disabled, .info-group textarea:disabled {
@@ -700,4 +700,39 @@ textarea {
 .info-group select:disabled,
 .info-group textarea:disabled {
     border: 1px solid var(--color-borde-input); /* Color original del borde */
+}
+
+.info-group:last-child {
+    border-bottom: none;
+}
+
+/* Texto del dato */
+.info-group span {
+    font-size: 16px;
+    color: #6e6e6e;
+}
+
+/* Estilo del enlace de edición */
+.info-group a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    transition: color 0.3s;
+    background-color: #7c3ed6;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.info-group a:hover {
+    color: #dfdfdf;
+    background-color: #5c2ea2;
+}
+
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+    
 }
