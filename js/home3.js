@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card_form">
                 
                     <span>${analis.resultados === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
-                    <img class="IMAGENANALISIS" src="${analis.imagen}">
+                    
                 </div>
                 <div class="card_data">
                     <div style="display: flex" class="data">
@@ -94,10 +94,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
+
         card.innerHTML = cardContent;
+document.body.appendChild(card); // Añade la tarjeta al DOM
+
+// Ahora seleccionamos el elemento `.card_form` dentro de la tarjeta recién creada
+const cardForm = card.querySelector(".card_form");
+
+// Cambiamos el background image
+cardForm.style.backgroundImage = `url('${analis.imagen}')`;
+cardForm.style.backgroundSize = "cover"; // También puedes probar con "contain"
+cardForm.style.backgroundPosition = "center"; // Para centrar la imagen en el contenedor
         return card;
     }
-  
+  //------------------abajo de span ------------------<img class="IMAGENANALISIS" src="${analis.imagen}">
     // Función para buscar pacientes
     async function searchPatients(query) {
         const patients = await getPatients();
