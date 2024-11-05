@@ -88,12 +88,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    
 }
 body{
     height: 100%;
     width: 100%;
     background-color: var(--background-color);
     overflow: hidden;
+    justify-content: center;
+    text-align: center;
 }
 
 .contenedor{
@@ -397,6 +400,8 @@ main{
     padding: 20px;
     transition: margin-left 0.5s ease;
     height: 100%;
+    width: 600px;
+    margin-left: 250px;
 }
 main.min-main{
     transition: margin-left 0.5s;
@@ -599,6 +604,26 @@ main.min-main{
 header h1 {
     color: var(--color-hola);
     padding: 0px;
+}
+
+h1{
+    color: #7c3ed6;
+    padding: 120px 0px 20px 0;
+    font-size: 80px;
+}
+
+h3{
+    color: #7c3ed6;
+    font-size: 25px;
+}
+
+p{
+    color: #676767;
+    padding-top: 20px;
+}
+
+contiene-main{
+    width: 100%;
 }
 
 header p{
