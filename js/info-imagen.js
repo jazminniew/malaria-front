@@ -13,10 +13,12 @@ continuarBtn.addEventListener('click', async () => {
 
     // Verifica si ambos campos están completos
     if (nombre && apellido && file) {
+        const id = localStorage.getItem('id');
         const formData = new FormData();
         formData.append('nombre', nombre);
         formData.append('apellido', apellido);
         formData.append('file', file);
+        formData.append('id', id);
 
         try {
             const response = await fetch('http://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL

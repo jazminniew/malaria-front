@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // Obtén el token del localStorage
             const token = localStorage.getItem('token');
+            const id = localStorage.getItem("id");
             if (!token) {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
+
+            console.log(id)
     
             // Realiza la petición con el token
-            const response = await fetch('http://localhost:8000/analyze/todosAnalisis', {
+            const response = await fetch(`http://localhost:8000/analyze/analisisPorUsuario/${id}`, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Aquí se añade el token al header
+                    'Content-Type': 'application/json'
                 }
             });
     
