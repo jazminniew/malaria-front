@@ -14,13 +14,24 @@ body {
     flex-direction: column; /* Alinea el contenido verticalmente */
 }
 
-.container {
+.container-loader {
     position: relative; /* Contenedor para el loader y el número */
     text-align: center; /* Centra el texto horizontalmente */
+    position: absolute;
+    z-index: 10000;
+    top: 20%;
+    background-color: #e7e7e7;
+    height: 300px;
+    width: 500px;
+    border-radius: 15px;
+    left: 0%;
 }
 
 .loader {
     transform: rotateX(70deg);
+    position: absolute;
+    left: 30%;
+    top: -15%;
 }
 
 .loader .element {
@@ -43,7 +54,8 @@ body {
 }
 
 #number {
-    margin-top: -100px; /* Espacio entre el loader y el número (ajustar este valor) */
+    margin-top: 250px; /* Espacio entre el loader y el número (ajustar este valor) */
+    margin-left: 220px;
 }
 
 #number h1 {

@@ -1,12 +1,19 @@
 // Selecciona el botón de continuar
 const continuarBtn = document.querySelector('.sp');
 
+const loadingScreen = document.getElementById("loading-container");
+
+
 document.getElementById('back-button').addEventListener('click', function () {
     window.history.back();
 });
+
+
 // Agrega un evento de clic al botón
 continuarBtn.addEventListener('click', async () => {
     // Obtén los valores de los campos de entrada
+    loadingScreen.style.display = 'flex';
+
     const nombre = document.getElementById('nombre').value.trim();
     const apellido = document.getElementById('apellido').value.trim();
     const file = document.getElementById('file').files[0];
@@ -29,9 +36,10 @@ continuarBtn.addEventListener('click', async () => {
 
             if (response.ok) {
                 // Redirige a la página de seleccionar-imagen.html
+                loadingScreen.style.display = 'none';
                 window.location.href = 'home3.html';
             } else {
-                // Si hay un error, muestra un mensaje
+                // si hay error, devolver un div/h3 que diga: hubo un error
                 alert(`Error: ${result.message}`);
             }
         } catch (error) {
@@ -123,3 +131,27 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+let progress = 0;
+const numberElement = document.getElementById("number").querySelector("h1");
+let progressInterval;
+
+// Función para incrementar el porcentaje de carga
+function incrementarPorcentaje() {
+    if (progress < 95) {
+        progress++;
+        numberElement.textContent = `${progress}%`;
+    }
+}
+
+// Iniciar la barra de progreso al hacer la solicitud
+function iniciarProgreso() {
+    progressInterval = setInterval(incrementarPorcentaje, 100); // Incrementa cada 100ms
+}
+
+// Detener el progreso al recibir la respuesta
+function detenerProgreso() {
+    clearInterval(progressInterval);
+    progress = 100;
+    numberElement.textContent = `${progress}%`;
+}

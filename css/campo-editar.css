@@ -751,3 +751,18 @@ textarea {
     border-radius: 5px;
     padding: 10px;
 }
+
+.bx-chevron-left {
+    color: #353535;
+    font-size: 70px;
+    left: 2%;
+    top: 2%;
+    cursor: pointer;
+    height: 20px;
+  }
+
+  .bx-chevron-left:hover{
+    color: #000000;
+    transition: 0.2s;
+    scale: 1.2;
+  }
