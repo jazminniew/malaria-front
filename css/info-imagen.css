@@ -539,3 +539,58 @@ button.sparkle-button{
       color: #dadada;
       transition: 0.5s;
     }
+
+
+    
+.container-loader {
+  position: relative; /* Contenedor para el loader y el número */
+  text-align: center; /* Centra el texto horizontalmente */
+  position: absolute;
+  top: 20%;
+  background-color: #e7e7e7;
+  width: 100em;
+  height: 100em;
+  top: -30%;
+  left: -100%;
+}
+
+.loader {
+  transform: rotateX(70deg);
+  position: absolute;
+  left: 40%;
+  top: 15%;
+}
+
+.loader .element {
+  display: flex;
+  border-left: 5px solid rgb(120, 47, 255);
+  border-right: 5px solid rgb(120, 47, 255);
+  border-top: dotted 2px rgb(92, 5, 114);
+  width: 10rem;
+  height: 1rem;
+  margin: 0.5rem;
+  perspective: 1000px;
+  animation: rotate 5s infinite linear;
+  animation-delay: calc(var(--i) * 0.2s);
+  left: -10%;
+}
+
+@keyframes rotate {
+  100% {
+      transform: rotateY(360deg);
+  }
+}
+
+#number {
+  margin-top: 250px; /* Espacio entre el loader y el número (ajustar este valor) */
+  top: 16%;
+  position: absolute;
+  left: 45%;
+}
+
+#number h1 {
+  font-weight: 600;
+  color: #7c3ed6;
+  font-size: 1.5rem; /* Tamaño del texto (ajustar este valor si es necesario) */
+  margin: 0; /* Elimina el margen por defecto del h1 */
+}

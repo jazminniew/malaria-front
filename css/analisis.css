@@ -1,0 +1,74 @@
+.bx-chevron-left {
+    color: #353535;
+    font-size: 70px;
+    left: 2%;
+    top: 2%;
+    cursor: pointer;
+    height: 20px;
+  }
+
+  .bx-chevron-left:hover{
+    color: #000000;
+    transition: 0.2s;
+    scale: 1.2;
+  }
+
+  /* Estilos generales */
+
+/* Barra lateral */
+
+
+/* Contenido principal */
+.main-content {
+    width: 70%;
+    padding: 40px;
+    display: flex;
+    height: 100vh;
+    background-color: #d9d9d9;
+}
+
+/* Contenedor del análisis */
+.analysis-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 200em;
+    height: 40em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen de análisis */
+.analysis-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Información del usuario */
+.user-info h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 5px 0;
+}
+
+.diagnosis {
+    font-size: 1em;
+    color: #555;
+    font-weight: bold;
+}
+
+.infected {
+    color: #e74c3c; /* Color rojo para infectado */
+}
+
+.not-infected {
+    color: #27ae60; /* Color verde para no infectado */
+}
+
+body{
+    background-color: #d9d9d9;
+}

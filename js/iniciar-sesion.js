@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Rellena los campos de email y password si existen en localStorage y marca la casilla de recordar
+    const savedEmail = localStorage.getItem('email');
+    const savedPassword = localStorage.getItem('password');
+    
+    if (savedEmail && savedPassword) {
+        document.getElementById('email').value = savedEmail;
+        document.getElementById('password').value = savedPassword;
+        document.getElementById('rememberMe').checked = true; // Marca la casilla de recordar
+    }
+});
+
 document.getElementById('registerForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 

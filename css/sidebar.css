@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+:root{
+    --fondo-sidebar: #f3f3f3;
+    --color-texto:rgb(0,0,0);
+    --color-texto-menu:rgb(134,136,144);
+    --color-menu-hover:rgb(236, 236, 236);
+    --color-menu-hover-texto:rgb (0,0,0);
+    --color-boton: #7c3ed6;
+    --color-boton-nuevo:rgb(255,255,255);
+    --color-linea:rgb(213, 213, 213);
+    --color-switch-base:rgb(201,202,206);
+    --color-switch-circulo:rgb(241,241,241);
+    --color-scroll:rgb(192,192,192);
+    --color-scroll-hover:rgb(134,134,134);
+    --fondo-flecha: #7c3ed6;
+    --flecha: #fff;
+    --fondo-botones-sidebar: #f3f3f3;
+    --color-subir-imagen:#000;
+    --fondo-user-hover: #bebebe;
+    --color-icono: #545454;
+}
+.dark-mode{
+    --fondo-sidebar: rgb(16, 16, 16);
+    --color-texto:rgb(255,255,255);
+    --color-texto-menu:rgb(110,110,107);
+    --color-menu-hover:rgb(8, 8, 8);
+    --color-menu-hover-texto:rgb(238,238,238);
+    --color-boton: #7c3ed6;
+    --color-boton-nuevo:rgb(0,0,0);
+    --color-linea:rgb(90,90,90);
+    --color-switch-base:rgb(39,205,64);
+    --color-switch-circulo:rgb(255,255,255);
+    --color-scroll:rgb(68,79,74);
+    --color-scroll-hover:rgb(85,85,85);
+    --fondo-flecha: #7c3ed6;
+    --flecha: #000;
+    --color-subir-imagen:#fff;
+    --fondo-botones-sidebar: #0f0f0f;
+    --fondo-user-hover: #262626;
+    --color-icono: #7c7c7c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+.contenedor{
+    display: flex;
+    height: 100vh;
+}
+
+/*-----------------Flecha-----------------------*/
+.barra-lateral .bx-chevron-left {
+    position: absolute;
+    top: 40px; 
+    left: 16.5%;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    background: var(--fondo-flecha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--flecha);
+    font-size: 16px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+.mini-flecha{
+    top: 7%; 
+    left: 6%;
+}
+
+/*------------Barra lateral----------------*/
+.barra-lateral{
+    width: 260px;
+    height: 100%;
+    background: var(--fondo-sidebar);
+    left: 0; 
+    top: 0; 
+    padding: 20px 15px;
+    z-index: 50; 
+    transition: width 0.5s ease, background-color 0.5s ease, left 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 10px 10px 0px;
+    /*justify-content: space-between;*/
+    display: flex;                   
+    flex-direction: column;            
+    gap: 10px;   
+    
+}
+.mini-barra-lateral{
+    width: 6%;
+    
+}
+
+div.barra-lateral.max-barra-lateral{
+    height: 100%;
+}
+.mini-barra-lateral .bx-chevron-left {
+    transform: translateX(-690%)  translateY(-50%) rotate(180deg);
+    transition: transform 0.5s ease;
+}
+.mini-barra-lateral .button-usuario:hover{ /*NO ME ANDA LA FOTO DE PERIL NO SE LE SALE EL HOVER*/
+    background-color: none;
+}
+
+.barra-lateral .nombre-pagina span.oculto{
+        opacity: 0;
+        display: none;
+        transition:  transform 0.5s ease;
+}
+/*Nombre de la pagina*/
+.barra-lateral .nombre-pagina{
+    width: 100%;
+    height: 7%; /* Cambia la altura fija */
+    color: var(--color-icono);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+/*Icono*/
+.barra-lateral .nombre-pagina img{
+    width: 20px;
+    height: 100%;
+    object-fit: contain; /* Esto asegura que la imagen se escale dentro del área sin recortarse */
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.barra-lateral .nombre-pagina span{
+    margin: 5px;
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+/*Texto botones barra lateral*/
+.barra-lateral span{
+    width: 100px;
+    white-space: nowrap;
+    font-size: 14px;
+    margin-left: 5px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease, width 0.5s ease;
+    display: flex;
+}
+.barra-lateral span.oculto{
+    opacity: 0;
+    width: 0;
+}
+/*-----Componente malarIA nombre pagina-------------*/ 
+.Malaria{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.3);
+    background: #222 -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(#222),
+        to(#222),
+        color-stop(0.5, #fff)
+    ) 0 0 no-repeat;
+    background-image: -webkit-linear-gradient(
+    -40deg,
+    transparent 0%,
+    transparent 40%,
+    #fff 50%,
+    transparent 60%,
+    transparent 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-background-size: 50px;
+    -webkit-animation: zezzz;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes zezzz {
+    0%,
+    10% {
+    background-position: -200px;
+    }
+    20% {
+    background-position: top left;
+    }
+    100% {
+    background-position: 200px;
+    }
+}
+/*-----------------------Boton------------------*/
+.barra-lateral .boton{
+    width: 100%;
+    min-height: 45px;
+    display:flex;
+    align-items: center;
+    padding: 0px;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-boton);
+    color: var(--color-boton-nuevo);
+    margin: 10px 0; /*RESPONSIVEE fijarse si se puede hacer sin esto que me caga lo respondive*/
+    cursor: pointer;
+}
+.barra-lateral .boton ion-icon{
+    min-width: 50px;
+    font-size: 25px;
+}
+.barra-lateral .navegacion {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.barra-lateral .navegacion::-webkit-scrollbar{
+    width: 5px;
+}
+.barra-lateral .navegacion::-webkit-scrollbar-thumb{
+    background-color: var(--color-scroll);
+    border-radius: 5px;
+}
+.barra-lateral .navegacion::-webkit-scrollbar-thumb:hover{
+    background-color: var(--color-scroll-hover);
+}
+.barra-lateral .navegacion a{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background: var(--fondo-botones-sidebar);
+    color: var(--color-texto-menu);
+    margin-top: 5px;
+}
+.barra-lateral .navegacion a:hover{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+.barra-lateral .navegacion ion-icon{
+    min-width: 50px;
+    font-size: 20px;
+}
+/*Linea*/
+.barra-lateral .linea{
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-linea);
+}
+/*Modo oscuro*/
+.barra-lateral .modo-oscuro{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.barra-lateral .modo-oscuro .info{
+    width: 150px;
+    height: 45px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-menu);
+}
+.barra-lateral .modo-oscuro ion-icon{
+    width: 50px;
+    font-size: 20px;
+}
+.barra-lateral .modo-oscuro ion-icon.sunny-outline {
+    opacity: 0;
+}
+body.barra-lateral .modo-oscuro ion-icon.sunny-outline {
+    opacity: 1;
+}
+/*-----------------------Switch-------------------------*/
+.barra-lateral .modo-oscuro .switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 45px;
+    cursor: pointer;
+}
+.barra-lateral .modo-oscuro .base{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: var(--color-switch-base);
+}
+.barra-lateral .modo-oscuro .circulo{
+    position: absolute;
+    width: 18px;
+    height: 90%;
+    border-radius: 50%;
+    right: 2px;
+    transition: right 0.5s ease;
+    background-color: var(--color-switch-circulo);
+}
+.barra-lateral .modo-oscuro .circulo.prendido{
+right: 15px;
+}
+
+/*---------------------------Usuario-------------------------*/
+.barra-lateral .usuario{
+    width: 100%;
+    display: flex;
+}
+.barra-lateral .usuario img{
+    width: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+}
+.barra-lateral .usuario .info-usuario{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-texto);
+    overflow: hidden;
+}
+.barra-lateral .usuario .nombre-email{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.barra-lateral .usuario .nombre{
+    font-size: 15px;
+    font-weight: 600;
+}
+.barra-lateral .usuario .email{
+    font-size: 13px;
+}
+#inbox{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+/*-------------------------------------------Main------------------------------------*/
+main{
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+    height: 100%;
+}
+main.min-main{
+    transition: margin-left 0.5s;
+}   
+.menu {
+    display: none;
+}
+
+/*CERRAR SESION*/
+.card_cerrar {
+    width: 300px;
+    height: fit-content;
+    position: fixed; /* Fijo en lugar de absoluto */
+    top: 50%;
+    left: 50%;
+    transform: translate(-190%, -50%) scale(0.8);
+    padding: 20px;
+    background: var(--carta-cerrar-back);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    opacity: 0;
+    z-index: 10000;
+    visibility: hidden;
+}
+
+.card_cerrar.show {
+    opacity: 1; 
+    visibility: visible;
+    transform: translate(-250%, -50%) scale(1); 
+    z-index: 10000000;
+    position: absolute;
+}
+
+.mini-barra-lateral .card_cerrar {
+    transform: translateX(100%) translateY(-50%); /* Ajuste aquí */
+    transition: transform 0.5s ease;
+    position: fixed;
+}
+
+.card-content {
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.card-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(27, 27, 27);
+}
+.card-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 100;
+    color: rgb(102, 102, 102);
+}
+.card-button-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.card-button {
+    width: 50%;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: rgb(255, 114, 109);
+    color: white;
+}
+.card-button:hover{
+    background-color: rgb(255, 73, 66);
+}
+.card-button.secondary {
+    background-color: #6c757d;
+    color: #ddd;
+}
+.card-button .secondary {
+    background-color: rgb(197, 197, 197);
+}
+.card-button.secondary:hover {
+    background-color: #313538da;
+}
+
+/*---------NUEVOO-----------*/
+.card-nuevo {
+    width: 250px;
+    height: fit-content;
+    transform: translate(-90%, 490%) scale(0.8); 
+    padding: 20px;
+    background: var(--carta-cerrar-back);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.card-nuevo.show {
+    opacity: 1; 
+    visibility: visible;
+    transform: translate(-101%, -500%) scale(1); 
+    z-index: 10000000;
+    position: absolute;
+}
+.card-content-nuevo {
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column; 
+    gap: 5px;
+}
+.card-heading-nuevo {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(27, 27, 27);
+}
+.card-description-nuevo {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 100;
+    color: rgb(102, 102, 102);
+}
+.card-button-wrapper-nuevo {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+}
+.card-button-nuevo {
+    width: 100%; 
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #9147ff8a;
+    color: white;
+}
+.card-button-nuevo:hover {
+    background-color: #7519ff8a;
+}
+.card-button-nuevo.secondary {
+    background-color: #6c757d;
+    color: #ddd;
+}
+.card-button-nuevo.secondary:hover {
+    background-color: #313538da;
+}
+
+/*BUTTON USUARIO*/
+.button-usuario{
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+}
+.button-usuario:hover{
+    background-color: var(--fondo-user-hover);
+}

@@ -13,6 +13,7 @@ document.getElementById('back-button').addEventListener('click', function () {
 continuarBtn.addEventListener('click', async () => {
     // Obtén los valores de los campos de entrada
     loadingScreen.style.display = 'flex';
+    iniciarProgreso(); 
 
     const nombre = document.getElementById('nombre').value.trim();
     const apellido = document.getElementById('apellido').value.trim();
@@ -36,17 +37,24 @@ continuarBtn.addEventListener('click', async () => {
 
             if (response.ok) {
                 // Redirige a la página de seleccionar-imagen.html
+                detenerProgreso();
                 loadingScreen.style.display = 'none';
                 window.location.href = 'home3.html';
             } else {
+                detenerProgreso();
                 // si hay error, devolver un div/h3 que diga: hubo un error
+                loadingScreen.style.display = 'none';
                 alert(`Error: ${result.message}`);
             }
         } catch (error) {
+            detenerProgreso();
+            loadingScreen.style.display = 'none';
             alert(`Error al guardar los datos: ${error.message}`);
         }
     } else {
         // Si falta algún campo, muestra un mensaje de error
+        detenerProgreso();
+        loadingScreen.style.display = 'none';
         alert('Por favor, completa todos los campos.');
         errorMessage.style.display = "block";
         errorMessage.textContent = "Por favor, completa todos los campos e incluye una imagen para subir.";
@@ -131,6 +139,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+
 
 let progress = 0;
 const numberElement = document.getElementById("number").querySelector("h1");

@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/sidebar.css">
-    <link rel="stylesheet" href="/css/campo-editar.css">
-    <link rel="icon" href="../images/LOGOVIOLETA16X16.ico" type="image/ico" sizes="32x32">
+    <link rel="stylesheet" href="/css/analisis.css">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MalarIa - Perfil</title>
+    <link rel="icon" href="../images/LOGOVIOLETA16X16.ico" type="image/ico" sizes="32x32">
+    <title>MalarIA - Home</title>
 </head>
 <body>
     <div class="contenedor">
@@ -31,7 +31,7 @@
             <!---------------------Navegacion----------------------------->
             <nav class="navegacion">
                 <ul>
-                    <li><a href="home3.html"><ion-icon name="analytics-outline"></ion-icon><span>Analisis de IA</span></a></li>
+                    <li><a id="inbox" href="home3.html"><ion-icon name="analytics-outline"></ion-icon><span>Analisis de IA</span></a></li>
                     <li><a href="mis-pacientes.html"><ion-icon name="person-outline"></ion-icon><span>Mis pacientes</span></a></li>
                     <li><a  href="comunidad.html"><ion-icon name="people-outline"></ion-icon><span>Comunidad</span></a></li>
                     <li><a href="#" id="logout-btn" class="Cerrar-sesion"><ion-icon name="log-out-outline"></ion-icon><span>Cerrar Sesion</span></a></li>
@@ -52,13 +52,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="button-usuario" onclick="location.href='perfil.html'" id="inbox">
+                <div class="button-usuario" onclick="location.href='perfil.html'">
                     <div class="usuario">
                         <img src="../images/userPrevisualizacion.jpeg" alt="imagen" class="usuario-imagen">
                         <div class="info-usuario">
                             <div class="nombre-email">
-                                <span class="nombre">Jazmin</span>
-                                <span class="email">Profesional</span>
+                                <span id="nombre-sidebar" class="nombre"></span>
+                                <span id="mail-sidebar" class="email">Profesional</span>
                             </div>
                         </div>
                     </div>
@@ -66,37 +66,38 @@
             </div>
         </div>
 
-        <main>
-<!---------------------NAVBAR----------------------------------------------------------------->
-<div class="FONDOPACIENTES" id="elements-container"> 
-    <i class='bx bx-chevron-left' id="back-button"></i>
-        <input class="input-editar" type="apellido" id="apellido" placeholder="Nuevo Apellido">
-        <button class="btnEditar" id="editarApellido">Editar</button>
-    </div>
-    
+        <main class="main-content">
+            <div class="analysis-container">
+                <!-- Imagen de análisis -->
+                <img src="/images/agua.png" alt="Imagen del análisis" class="analysis-image">
+                
+                <!-- Información del usuario y resultados -->
+                <div class="user-info">
+                    <h2>Nombre: Juan</h2>
+                    <h2>Apellido: Pérez</h2>
+                    <p class="diagnosis">Diagnóstico: <span class="infected">Infectado</span></p>
+                </div>
+            <!--------------------- Nuevo ---------------------------->
+            <div class="card-nuevo" id="botonesnuevosCard">
+                <div class="card-button-wrapper-nuevo">
+                    <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
+                    <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+                </div>
+            </div>
 
-    <!---------------------Cerrar sesion----------------------------->  
-    <div class="card_cerrar" id="logout-card">
-        <div class="card-button-wrapper">
-            <button class="card-button secondary" id="cancel-btn">Cancelar</button>
-            <button class="card-button primary" id="exit-btn">Salir</button>
-        </div>
+            <!--------------------- Cerrar sesion ----------------------------->
+            <div class="card_cerrar" id="logout-card">
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+                    <button class="card-button primary" id="exit-btn">Salir</button>
+                </div>
+            </div>
+
+        </main>
     </div>
-    <!---------------------Nuevo---------------------------->  
-    <div class="card-nuevo" id="botonesnuevosCard"> 
-        <div class="card-button-wrapper-nuevo">
-            <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
-            <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
-        </div>
-    </div>
-    <!---------------------Nuevo final---------------------------->  
-</div> 
-    </main>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/editar-apellido.js"></script>  
-    <script src="/js/sidebar.js"></script>  
-    </div>
-</div>
+    <script src="/js/sidebar.js"></script>
 </body>
 </html>
