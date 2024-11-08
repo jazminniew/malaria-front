@@ -552,6 +552,7 @@ button.sparkle-button{
   height: 100em;
   top: -30%;
   left: -100%;
+  z-index: 100000;
 }
 
 .loader {

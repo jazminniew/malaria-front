@@ -1,74 +1,60 @@
-.bx-chevron-left {
-    color: #353535;
-    font-size: 70px;
-    left: 2%;
-    top: 2%;
-    cursor: pointer;
-    height: 20px;
-  }
-
-  .bx-chevron-left:hover{
-    color: #000000;
-    transition: 0.2s;
-    scale: 1.2;
-  }
-
-  /* Estilos generales */
-
-/* Barra lateral */
-
-
-/* Contenido principal */
-.main-content {
-    width: 70%;
-    padding: 40px;
-    display: flex;
-    height: 100vh;
-    background-color: #d9d9d9;
-}
-
 /* Contenedor del análisis */
 .analysis-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #ffffff;
     padding: 20px;
-    width: 200em;
-    height: 40em;
+    width: 100%; /* Ocupa el ancho disponible */
+    height: 20em;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Imagen de análisis */
-.analysis-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    gap: 40px;
+    flex-wrap: nowrap; /* Evita el redoble de contenido */
 }
 
 /* Información del usuario */
-.user-info h2 {
-    font-size: 1.2em;
-    color: #333;
-    margin: 5px 0;
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    flex-grow: 1; /* Ocupa el espacio restante */
 }
 
-.diagnosis {
-    font-size: 1em;
-    color: #555;
-    font-weight: bold;
+/* Grupo de información del usuario */
+.info-group {
+    display: flex;
+    flex-direction: column;
 }
 
-.infected {
-    color: #e74c3c; /* Color rojo para infectado */
+.title-info {
+    font-weight: 500;
+    font-size: 1.1em;
+    color: rgb(117, 117, 117);
+    margin-bottom: 5px;
 }
 
-.not-infected {
-    color: #27ae60; /* Color verde para no infectado */
+/* Nombre y apellido */
+#user-name, 
+#user-apellido {
+    text-transform: capitalize;
+    background-color: #acacac;
+    color: #ffffff;
+    padding: 5px 20px;
+    border-radius: 4px;
+    display: inline-block; /* Para evitar problemas de ancho */
 }
+
 
 body{
     background-color: #d9d9d9;
+}
+
+.analysis-image {
+    width: 350px;
+    height: 100%; /* Ajusta la altura a la de su contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra completamente el espacio sin distorsionarse */
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Centra la imagen en caso de que sea más pequeña */
 }

@@ -69,13 +69,25 @@
         <main class="main-content">
             <div class="analysis-container">
                 <!-- Imagen de análisis -->
-                <img src="/images/agua.png" alt="Imagen del análisis" class="analysis-image">
+                <img src="/images/fondoLanding.jpg" alt="Imagen del análisis" class="analysis-image">
                 
                 <!-- Información del usuario y resultados -->
                 <div class="user-info">
-                    <h2>Nombre: Juan</h2>
-                    <h2>Apellido: Pérez</h2>
-                    <p class="diagnosis">Diagnóstico: <span class="infected">Infectado</span></p>
+                        <div class="info-group">
+                            <h3 class="title-info">Nombre</h3>
+                        <span id="user-name"></span>
+                    </div>
+    
+                    <div class="info-group">
+                        <h3 class="title-info">Apellido</h3>
+                        <span id="user-apellido"></span>
+                    </div>
+
+                    <div class="info-group">
+                        <h3 class="title-info">Diagnostico</h3>
+                        <span id="user-diagnostico"></span>  <span>Infectado</span>
+                    </div>
+                   
                 </div>
             <!--------------------- Nuevo ---------------------------->
             <div class="card-nuevo" id="botonesnuevosCard">
@@ -99,5 +111,6 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/js/sidebar.js"></script>
+    <script src="/js/analisis.js"></script>
 </body>
 </html>
