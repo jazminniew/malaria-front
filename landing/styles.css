@@ -795,3 +795,124 @@ font-size:16px;
     align-items: center;
     justify-content: space-around;
 }
+
+
+/* Dispositivos medianos (tablets en modo vertical, smartphones grandes) */
+@media (max-width: 768px) {
+    .imagen-recortada {
+        height: 500px; /* Reducir altura en dispositivos más pequeños */
+    }
+
+    .tituloHome {
+        font-size: 48px;
+    }
+
+    .start-btn {
+        padding: 10px 30px;
+        font-size: 16px;
+        margin-left: 0;
+    }
+
+    .estadisticas {
+        gap: 20px;
+    }
+
+    .cajaNumero {
+        width: 180px;
+        height: 150px;
+    }
+
+    .numero, .porcentaje {
+        font-size: 32px;
+    }
+
+    .collage {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        grid-template-rows: repeat(3, 150px); /* Filas más pequeñas */
+    }
+}
+
+/* Dispositivos pequeños (smartphones) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+    }
+
+    .logoTexto {
+        font-size: 18px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .home {
+        padding: 1rem;
+    }
+
+    .tituloHome {
+        font-size: 36px;
+        margin-top: 20px;
+    }
+
+    .start-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+        margin-left: 0;
+    }
+
+    .estadisticas {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cajaNumero {
+        width: 100%;
+        height: 120px;
+    }
+
+    .numero, .porcentaje {
+        font-size: 28px;
+    }
+
+    .collage {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 150px); /* Más filas para una sola columna */
+    }
+
+    .cardNosotros {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Dispositivos grandes (monitores de escritorio) */
+@media (min-width: 1200px) {
+    .tituloHome {
+        font-size: 72px;
+    }
+
+    .start-btn {
+        padding: 14px 60px;
+        font-size: 20px;
+    }
+
+    .estadisticas {
+        gap: 60px;
+    }
+
+    .cajaNumero {
+        width: 260px;
+        height: 200px;
+    }
+
+    .numero, .porcentaje {
+        font-size: 48px;
+    }
+
+    .collage {
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+        grid-template-rows: repeat(2, 250px); /* 2 filas de mayor tamaño */
+    }
+}
