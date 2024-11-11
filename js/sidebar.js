@@ -31,7 +31,7 @@ if (localStorage.getItem('darkMode') === 'enabled') {
 }
 
 const cerrarSesion = document.getElementById("logout");
-cerrarSesion.addEventListener("click", cerrarSesionFunction);
+/*cerrarSesion.addEventListener("click", cerrarSesionFunction);*/
 
 function cerrarSesionFunction() {
     localStorage.removeItem("token");
@@ -97,13 +97,15 @@ if (localStorage.getItem('sidebarState') === 'mini') {
     spans.forEach((span) => span.classList.remove("oculto"));
 }
 
-pacienteBtn.addEventListener('click', function () {
+/*pacienteBtn.addEventListener('click', function () {
     window.location.href = 'crear-paciente.html';
 });
 
 imagenBtn.addEventListener('click', function () {
     window.location.href = 'info-imagen.html';
 });
+
+*/
 
 document.addEventListener('click', function (event) {
     if (!botonesNuevosCard.contains(event.target) && !btnNuevo.contains(event.target)) {
@@ -115,6 +117,7 @@ document.addEventListener('click', function (event) {
 logoutBtn.addEventListener('click', function () {
     logoutCard.classList.add('show');
 });
+
 
 cancelBtn.addEventListener('click', function () {
     logoutCard.classList.remove('show');

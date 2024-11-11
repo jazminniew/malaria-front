@@ -523,13 +523,12 @@ transform: scale(0.6);
 #noResults {
     display: none; /* Cambiar esto según sea necesario */
     color: var(--texto-elemento);
-    margin-top: 12em;
-    justify-content: center;
-    text-align: center;
+    margin: 12em 20em;
+    position: absolute;
 }
 
 #noResults.expandido3 {
-    margin-left: 50px; /* Cambia a un valor más pequeño */
+    margin-left: 30em; /* Cambia a un valor más pequeño */
 }
 
 .IMAGENANALISIS{
