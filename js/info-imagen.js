@@ -39,7 +39,14 @@ continuarBtn.addEventListener('click', async () => {
                 // Redirige a la página de seleccionar-imagen.html
                 detenerProgreso();
                 loadingScreen.style.display = 'none';
-                window.location.href = 'home3.html';
+                //window.location.href = 'home3.html';
+                if (result.resultado === "positivo") {
+                    window.location.href = 'infectado.html';
+                } else if (result.resultado === "negativo") {
+                    window.location.href = 'no-infectado.html';
+                } else {
+                    alert("Error: Resultado del análisis desconocido.");
+                }
             } else {
                 detenerProgreso();
                 // si hay error, devolver un div/h3 que diga: hubo un error
@@ -141,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//---------------------------------------------------------------------------------------
 
 let progress = 0;
 const numberElement = document.getElementById("number").querySelector("h1");
