@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                             <div class="cube text_s">
                                 <label class="side front">${analis.nombre} ${analis.apellido}</label>
-                                <label onclick="location.href='imagen-accedida-posta.html?id=${analis.id}'" class="side top">Accederr</label>
+                                <label onclick="location.href='analisis.html?id=${analis.id}'" class="side top">Accederr</label>
                             </div>
                         </div>
                     </div>

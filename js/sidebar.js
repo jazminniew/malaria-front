@@ -97,7 +97,7 @@ if (localStorage.getItem('sidebarState') === 'mini') {
     spans.forEach((span) => span.classList.remove("oculto"));
 }
 
-/*pacienteBtn.addEventListener('click', function () {
+pacienteBtn.addEventListener('click', function () {
     window.location.href = 'crear-paciente.html';
 });
 
@@ -105,7 +105,6 @@ imagenBtn.addEventListener('click', function () {
     window.location.href = 'info-imagen.html';
 });
 
-*/
 
 document.addEventListener('click', function (event) {
     if (!botonesNuevosCard.contains(event.target) && !btnNuevo.contains(event.target)) {
