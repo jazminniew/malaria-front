@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/paciente.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/LOGOVIOLETA16X16.ico" type="image/ico" sizes="32x32">
+    <title>MalarIA - Home</title>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="menu">
+            <ion-icon name="menu-outline"></ion-icon>
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+
+
+        <!----------------------- Flecha y titulo --------------------------->
+        <div #id="flecha" class="barra-lateral max-barra-lateral">
+            <i class='bx bx-chevron-left toggle'></i>
+            <div class="nombre-pagina">
+                <img src="../images/logoMalarIA.png" alt="logo" class="img">
+                <span class="Malaria">MalarIA</span>
+            </div>
+            <button class="boton" id="buttonNuevo">
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Nuevo</span>
+            </button>
+
+
+            <!---------------------Navegacion----------------------------->
+            <nav class="navegacion">
+                <ul>
+                    <li><a id="inbox" href="home3.html"><ion-icon name="analytics-outline"></ion-icon><span>Analisis de IA</span></a></li>
+                    <li><a href="mis-pacientes.html"><ion-icon name="person-outline"></ion-icon><span>Mis pacientes</span></a></li>
+                    <li><a  href="comunidad.html"><ion-icon name="people-outline"></ion-icon><span>Comunidad</span></a></li>
+                    <li><a href="#" id="logout-btn" class="Cerrar-sesion"><ion-icon name="log-out-outline"></ion-icon><span>Cerrar Sesion</span></a></li>
+                </ul>
+            </nav>
+
+
+            <!---------------------Modo oscuro y perfil----------------------------->
+            <div class="FINALCOMPLETO">
+                <div class="linea"></div>
+                <div class="modo-oscuro">
+                    <div class="info">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <span>Modo Oscuro</span>
+                    </div>
+                    <div class="switch">
+                        <div class="base">
+                            <div class="circulo prendido"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-usuario" onclick="location.href='perfil.html'">
+                    <div class="usuario">
+                        <img src="../images/userPrevisualizacion.jpeg" alt="imagen" class="usuario-imagen">
+                        <div class="info-usuario">
+                            <div class="nombre-email">
+                                <span id="nombre-sidebar" class="nombre"></span>
+                                <span id="mail-sidebar" class="email">Profesional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <main class="main-content">
+            <div class="analysis-container">
+                <!-- Imagen de análisis -->
+                <img src="/images/fondoGeneral.png" alt="Imagen del análisis" class="analysis-image">
+                <!-- Información del usuario y resultados -->
+                <div class="user-info">
+                        <div class="info-group">
+                            <h3 class="title-info">Nombre</h3>
+                        <span id="user-name"></span>
+                    </div>
+   
+                    <div class="info-group">
+                        <h3 class="title-info">Apellido</h3>
+                        <span id="user-apellido"></span>
+                    </div>
+
+
+                    <div class="info-group">
+                        <h3 class="title-info">Fecha de nacimiento</h3>
+                        <span id="user-nacimiento"></span>
+                    </div>
+
+
+                    <div class="info-group">
+                        <h3 class="title-info">Pais</h3>
+                        <span id="user-pais"></span>
+                    </div>
+
+
+                    <div class="info-group">
+                        <h3 class="title-info">Genero</h3>
+                        <span id="user-genero"></span>
+                    </div>
+
+
+                    <div class="info-group">
+                        <h3 class="title-info">Telefono</h3>
+                        <span id="user-telefono"></span>
+                    </div>
+
+
+                   
+                </div>
+            <!--------------------- Nuevo ---------------------------->
+            <div class="card-nuevo" id="botonesnuevosCard">
+                <div class="card-button-wrapper-nuevo">
+                    <button class="card-button-nuevo primary-nuevo" id="imagen-btn">Generar Analisis</button>
+                    <button class="card-button-nuevo secondary-nuevo" id="paciente-btn">Crear Paciente</button>
+                </div>
+            </div>
+
+
+            <!--------------------- Cerrar sesion ----------------------------->
+            <div class="card_cerrar" id="logout-card">
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">Cancelar</button>
+                    <button class="card-button primary" id="exit-btn">Salir</button>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/paciente.js"></script>
+</body>
+</html>

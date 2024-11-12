@@ -1,0 +1,75 @@
+.analysis-container {
+    display: flex;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 1000px; /* Ocupa el ancho disponible */
+    height: 25em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 40px;
+    flex-wrap: nowrap; /* Evita el redoble de contenido */
+}
+
+
+/* Información del usuario */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    flex-grow: 1; /* Ocupa el espacio restante */
+}
+
+
+/* Grupo de información del usuario */
+.info-group {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.title-info {
+    font-weight: 500;
+    font-size: 1.1em;
+    color: rgb(117, 117, 117);
+    margin-bottom: 5px;
+}
+
+
+/* Nombre y apellido */
+#user-name,
+#user-apellido {
+    text-transform: capitalize;
+    background-color: #acacac;
+    color: #ffffff;
+    padding: 5px 20px;
+    border-radius: 4px;
+    display: inline-block; /* Para evitar problemas de ancho */
+}
+
+
+
+
+body{
+    background-color: #d9d9d9;
+}
+
+
+.analysis-image {
+    width: 400px;
+    height: 100%; /* Ajusta la altura a la de su contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra completamente el espacio sin distorsionarse */
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Centra la imagen en caso de que sea más pequeña */
+}
+
+
+h1{
+    color: white;
+    font-size: 2rem;
+    top: 200px;
+    left: 20%;
+    z-index: 100000;
+}

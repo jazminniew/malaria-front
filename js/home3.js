@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
     const searchBar = document.getElementById('searchBar');
+    const filterRadioButtons = document.querySelectorAll('input[name="filter"]'); // Filtros (todos, infectado, no infectado)
   
     // Función para obtener todos los pacientes desde la base de datos
     async function getPatients() {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Obtén el token del localStorage
             const token = localStorage.getItem('token');
             const id = localStorage.getItem("id");
-            if (!token) {
+            if (!token || !id) {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
 
@@ -121,17 +122,32 @@ cardForm.style.backgroundPosition = "center"; // Para centrar la imagen en el co
         displayPatients(filteredPatients);
     }
   
-    // Evento de la barra de búsqueda
-    searchBar.addEventListener('input', (e) => {
-        const query = e.target.value;
-        if (query.trim()) {
-            searchPatients(query); // Buscar pacientes
-        } else {
-            // Si la búsqueda está vacía, mostrar todos los pacientes
-            getPatients().then(displayPatients);
-        }
+// Función para filtrar pacientes por estado (infectado/no infectado)
+async function filterPatientsByStatus(status) {
+    const patients = await getPatients();
+    const filteredPatients = patients.filter(patient => 
+        status === 'all' || patient.resultados === status
+    );
+    displayPatients(filteredPatients);
+}
+  // Evento de la barra de búsqueda
+  searchBar.addEventListener('input', (e) => {
+    const query = e.target.value;
+    if (query.trim()) {
+        searchPatients(query); // Buscar pacientes
+    } else {
+        getPatients().then(displayPatients); // Mostrar todos los pacientes si no hay búsqueda
+    }
+});
+
+// Eventos de los filtros (infectado, no infectado, todos)
+filterRadioButtons.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+        const selectedFilter = e.target.value;
+        filterPatientsByStatus(selectedFilter);
     });
-  
-    // Mostrar todos los pacientes cuando la página se cargue
-    getPatients().then(displayPatients);
-  });
+});
+
+// Mostrar todos los pacientes cuando la página se cargue
+getPatients().then(displayPatients);
+});
