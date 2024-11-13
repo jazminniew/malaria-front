@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         let estado = "";
 
-        console.log(token);
-
         if (perfil.resultados) {
             estado = "Positivo";
         }

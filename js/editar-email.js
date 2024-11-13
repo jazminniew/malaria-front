@@ -5,14 +5,14 @@ const countries = [
     "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Barbados", "Bélgica", "Belice", "Benín", "Bielorrusia",
     "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botswana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi",
     "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Chad", "Chile", "China", "Chipre", "Colombia", "Comoras",
-    "Congo", "Congo (República Democrática del)", "Corea del Norte", "Corea del Sur", "Costa Rica", "Croacia", "Cuba", 
+    "Congo", "Congo (República Democrática del)", "Corea del Norte", "Corea del Sur", "Costa Rica", "Croacia", "Cuba",
     "Dinamarca", "Dominica", "República Dominicana", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos",
     "España", "Estados Unidos", "Estonia", "Eswatini", "Etiopía", "Fiji", "Filipinas", "Finlandia", "Francia",
     "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guinea", "Guinea-Bisáu", "Guinea Ecuatorial",
     "Guyana", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irán", "Iraq", "Irlanda", "Islas Marshall", "Islandia",
     "Islas Salomón", "Islas Seychelles", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia",
     "Kirguistán", "Kiribati", "Kuwait", "Laos", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania",
-    "Luxemburgo", "Madagascar", "Malasia", "Malawi", "Maldivas", "Malta", "Marruecos", "Mauricio", "Mauritania", 
+    "Luxemburgo", "Madagascar", "Malasia", "Malawi", "Maldivas", "Malta", "Marruecos", "Mauricio", "Mauritania",
     "México", "Micronesia", "Moldova", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru",
     "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos",
     "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana",
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Authorization': `Bearer ${token}`
             },
         });
-        
+
         if (!response.ok) {
             throw new Error('Error al obtener los datos del usuario');
         }
@@ -80,7 +80,7 @@ editarMail.addEventListener("click", async () => {
         email: nuevoEmail
     }
 
-    const response = await fetch (`http://localhost:8000/user/editEmail/${id}`, {
+    const response = await fetch(`http://localhost:8000/user/editEmail/${id}`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ function validateProfileData() {
     const emailInput = document.getElementById('email');
     const nameInput = document.getElementById('name');
     const surnameInput = document.getElementById('surname');
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validación de formato de email
 
     // Verificar que los campos obligatorios no estén vacíos
@@ -214,7 +214,7 @@ function startReply() {
 function enableProfilePicUpload() {
     const profilePicInput = document.getElementById('profile-pic-input');
     const nameInput = document.getElementById('name');
-    
+
     // Solo habilita la carga si está en modo de edición
     if (!nameInput.disabled) {
         profilePicInput.click();
@@ -226,7 +226,7 @@ function updateProfilePic(event) {
 
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             profilePic.src = e.target.result; // Cambia la fuente de la imagen
         };
         reader.readAsDataURL(file);

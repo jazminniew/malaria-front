@@ -7,18 +7,14 @@ continuarBtn.addEventListener('click', async () => {
   const email = document.getElementById("email").value;
   const phone = document.getElementById("telefono").value;
 
-  console.log(
-    nombre,
-    apellido,
-    email,
-    phone
-  )
+  const id_user = localStorage.getItem("id");
 
   const formData = {
     nombre,
     apellido,
     email,
-    phone
+    phone,
+    id_user
   }
 
   const token = localStorage.getItem("token")
@@ -27,17 +23,25 @@ continuarBtn.addEventListener('click', async () => {
     const response = await fetch('http://localhost:8000/patients/registerPatient', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json',  // Asegúrate de especificar el tipo de contenido
-          'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',  // Asegúrate de especificar el tipo de contenido
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(formData),  // Convierte formData a JSON
-  });
-  const result = await response.json();
+    });
+    const result = await response.json();
 
-  window.location.href = 'home3.html';
-} catch (error) {
-  alert(`Error al guardar los datos: ${error.message}`);
-}
+    const idNew = result.id;
+
+    if (!response.ok) {
+      throw new Error('Error al editar los datos del usuario');
+    }
+
+    else {
+      window.location.href = `/home3.html`
+    }
+  } catch (error) {
+    alert(`Error al guardar los datos: ${error.message}`);
+  }
 }
 );
 
@@ -78,7 +82,7 @@ countries.forEach(country => {
   selectElement.appendChild(option);
 });
 
-document.getElementById('back-button').addEventListener('click', function() {
+document.getElementById('back-button').addEventListener('click', function () {
   window.history.back();
 });
 

@@ -1,21 +1,23 @@
-
-
-// Obtener datos del perfil desde Vercel
 document.addEventListener('DOMContentLoaded', async () => {
     const id = localStorage.getItem('id');
     const token = localStorage.getItem("token");
 
+    const url = window.location.href;
+
+    const params = new URLSearchParams(new URL(url).search);
+
+    const idLink = params.get("id");
 
     try {
-        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`,//cambiar estoo
-             {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        });
-       
+        const response = await fetch(`http://localhost:8000/patients/pacientById/${idLink}`,//cambiar estoo
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            });
+
         if (!response.ok) {
             throw new Error('Error al obtener los datos del usuario');
         }
@@ -23,13 +25,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const data = await response.json();
 
+        const dataRequired = data[0];
 
-        document.getElementById('user-apellido').textContent = data.apellido;
-        document.getElementById('user-name').textContent = data.nombre;
-        document.getElementById('user-nacimiento').textContent = data.nacimiento;
-        document.getElementById('user-pais').textContent = data.pais;
-        document.getElementById('user-genero').textContent = data.genero;
-        document.getElementById('user-telefono').textContent = data.telefono;
+        console.log(dataRequired);
+
+
+        document.getElementById('user-apellido').textContent = dataRequired.apellido;
+        document.getElementById('user-name').textContent = dataRequired.nombre;
+        document.getElementById('user-telefono').textContent = dataRequired.phone;
 
 
     } catch (err) {

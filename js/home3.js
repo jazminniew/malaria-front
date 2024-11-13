@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     noResultsMessage.style.display = 'none';
     noResultsMessage.id = 'noResults';
     container.appendChild(noResultsMessage);  // Añadir el mensaje al contenedor
-  
-  
+
+
     const searchBar = document.getElementById('searchBar');
     const filterRadioButtons = document.querySelectorAll('input[name="filter"]'); // Filtros (todos, infectado, no infectado)
-  
+
     // Función para obtener todos los pacientes desde la base de datos
     async function getPatients() {
         try {
@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
 
-            console.log(id)
-    
             // Realiza la petición con el token
             const response = await fetch(`http://localhost:8000/analyze/analisisPorUsuario/${id}`, {
                 method: 'GET',
@@ -31,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 }
             });
-    
+
             if (!response.ok) {
                 throw new Error('Error al obtener los pacientes: ' + response.status);
             }
-    
+
             const analisisTodo = await response.json();
             const analisis = analisisTodo.rows;
             return Array.isArray(analisis) ? analisis : [];
@@ -44,22 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return [];
         }
     }
-    
-    
-  
+
+
+
     // Función para mostrar los resultados de la búsqueda
     function displayPatients(analisis) {
         // Limpiar el contenedor de pacientes
         container.innerHTML = '';
         container.appendChild(noResultsMessage); // Asegurarse de que el mensaje siempre esté presente
-  
+
         if (analisis.length === 0) {
             // Mostrar mensaje si no hay resultados
             noResultsMessage.style.display = 'block';
         } else {
             // Ocultar el mensaje de "No hay resultados"
             noResultsMessage.style.display = 'none';
-  
+
             // Crear cartas para cada paciente
             analisis.forEach(analis => {
                 const analisCard = createPatientCard(analis);
@@ -67,20 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-  
+
 
 
     // Función para crear una carta de paciente
     function createPatientCard(analis) {
         const card = document.createElement('div');
         card.classList.add('cartas-separadas');
-  
+        let estado = "";
+        if (analis.resultados) {
+            estado = "Positivo";
+        }
+        else {
+            estado = "Negativo";
+        }
+
         const cardContent = `
             <div class="card ${analis.status}" id="cartaa">
                 
                 <div class="card_form">
                 
-                    <span>${analis.resultados === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
+                    <span>${estado}</span>
                     
                 </div>
                 <div class="card_data">
@@ -90,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                             <div class="cube text_s">
                                 <label class="side front">${analis.nombre} ${analis.apellido}</label>
-                                <label onclick="location.href='analisis.html?id=${analis.id}'" class="side top">Accederr</label>
+                                <label onclick="location.href='analisis.html?id=${analis.id}'" class="side top">Acceder</label>
                             </div>
                         </div>
                     </div>
@@ -99,55 +104,55 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         card.innerHTML = cardContent;
-document.body.appendChild(card); // Añade la tarjeta al DOM
+        document.body.appendChild(card); // Añade la tarjeta al DOM
 
-// Ahora seleccionamos el elemento `.card_form` dentro de la tarjeta recién creada
-const cardForm = card.querySelector(".card_form");
+        // Ahora seleccionamos el elemento `.card_form` dentro de la tarjeta recién creada
+        const cardForm = card.querySelector(".card_form");
 
-// Cambiamos el background image
-cardForm.style.backgroundImage = `url('${analis.imagen}')`;
-cardForm.style.backgroundSize = "cover"; // También puedes probar con "contain"
-cardForm.style.backgroundPosition = "center"; // Para centrar la imagen en el contenedor
+        // Cambiamos el background image
+        cardForm.style.backgroundImage = `url('${analis.imagen}')`;
+        cardForm.style.backgroundSize = "cover"; // También puedes probar con "contain"
+        cardForm.style.backgroundPosition = "center"; // Para centrar la imagen en el contenedor
         return card;
     }
-  //------------------abajo de span ------------------<img class="IMAGENANALISIS" src="${analis.imagen}">
+    //------------------abajo de span ------------------<img class="IMAGENANALISIS" src="${analis.imagen}">
     // Función para buscar pacientes
     async function searchPatients(query) {
         const patients = await getPatients();
         // Filtrar los pacientes que coincidan con el nombre o apellido
         const filteredPatients = patients.filter(patient =>
-            patient.nombre.toLowerCase().includes(query.toLowerCase()) || 
+            patient.nombre.toLowerCase().includes(query.toLowerCase()) ||
             patient.apellido.toLowerCase().includes(query.toLowerCase())
         );
         displayPatients(filteredPatients);
     }
-  
-// Función para filtrar pacientes por estado (infectado/no infectado)
-async function filterPatientsByStatus(status) {
-    const patients = await getPatients();
-    const filteredPatients = patients.filter(patient => 
-        status === 'all' || patient.resultados === status
-    );
-    displayPatients(filteredPatients);
-}
-  // Evento de la barra de búsqueda
-  searchBar.addEventListener('input', (e) => {
-    const query = e.target.value;
-    if (query.trim()) {
-        searchPatients(query); // Buscar pacientes
-    } else {
-        getPatients().then(displayPatients); // Mostrar todos los pacientes si no hay búsqueda
+
+    // Función para filtrar pacientes por estado (infectado/no infectado)
+    async function filterPatientsByStatus(status) {
+        const patients = await getPatients();
+        const filteredPatients = patients.filter(patient =>
+            status === 'all' || patient.resultados === status
+        );
+        displayPatients(filteredPatients);
     }
-});
-
-// Eventos de los filtros (infectado, no infectado, todos)
-filterRadioButtons.forEach(radio => {
-    radio.addEventListener('change', (e) => {
-        const selectedFilter = e.target.value;
-        filterPatientsByStatus(selectedFilter);
+    // Evento de la barra de búsqueda
+    searchBar.addEventListener('input', (e) => {
+        const query = e.target.value;
+        if (query.trim()) {
+            searchPatients(query); // Buscar pacientes
+        } else {
+            getPatients().then(displayPatients); // Mostrar todos los pacientes si no hay búsqueda
+        }
     });
-});
 
-// Mostrar todos los pacientes cuando la página se cargue
-getPatients().then(displayPatients);
+    // Eventos de los filtros (infectado, no infectado, todos)
+    filterRadioButtons.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const selectedFilter = e.target.value;
+            filterPatientsByStatus(selectedFilter);
+        });
+    });
+
+    // Mostrar todos los pacientes cuando la página se cargue
+    getPatients().then(displayPatients);
 });

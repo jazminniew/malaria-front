@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!token) {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
+
+            const id_user = localStorage.getItem("id");
     
             // Realiza la petición con el token
-            const response = await fetch('http://localhost:8000/patients/allPacients', {
+            const response = await fetch(`http://localhost:8000/patients/pacientsByUser/${id_user}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
             const patients = await response.json();
             return Array.isArray(patients) ? patients : [];
+
+            console.log(patients);
         } catch (error) {
             console.error(error);
             return [];
