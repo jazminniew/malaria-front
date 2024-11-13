@@ -103,8 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>*/
 
-   
-
     // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);
 });
