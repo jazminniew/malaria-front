@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para mostrar los resultados de la búsqueda
     function displayPatients(patients) {
         // Limpiar el contenedor de pacientes y mostrar el mensaje de "no resultados"
-        container.innerHTML = '';
+         container.innerHTML = '';
         container.appendChild(noResultsMessage); // Asegurarse de que el mensaje siempre esté presente
 
         if (patients.length === 0) {
@@ -73,16 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('cartas-separadas');
 
         const cardContent = `
-            <div class="card ${patient.status}" id="cartaa">
-                <div class="card_form">
-                    <span>${patient.status === 'infectado' ? 'Infectado' : 'No Infectado'}</span>
-                </div>
+            <div class="card ${patient.status}" id="cartaa" onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'">
                 <div class="card_data">
                     <div style="display: flex" class="data">
                         <div class="text">
                             <div class="cube text_s">
                                 <label class="side front">${patient.nombre} ${patient.apellido}</label>
-                                <label onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'" class="side top">Acceder</label>
                             </div>
                         </div>
                     </div>
@@ -93,27 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // Función para buscar pacientes
-    async function searchPatients(query) {
-        const patients = await getPatients();
-        // Filtrar los pacientes que coincidan con el nombre o apellido
-        const filteredPatients = patients.filter(patient =>
-            patient.nombre.toLowerCase().includes(query.toLowerCase()) || 
-            patient.apellido.toLowerCase().includes(query.toLowerCase())
-        );
-        displayPatients(filteredPatients);
-    }
 
-    // Evento de la barra de búsqueda
-    searchBar.addEventListener('input', (e) => {
-        const query = e.target.value;
-        if (query.trim()) {
-            searchPatients(query); // Buscar pacientes
-        } else {
-            // Si la búsqueda está vacía, mostrar todos los pacientes
-            getPatients().then(displayPatients);
-        }
-    });
+    /*            <div class="card ${patient.status}" id="cartaa" onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'">
+                <div class="card_data">
+                    <div style="display: flex" class="data">
+                        <div class="text">
+                            <div class="cube text_s">
+                                <label class="side front">${patient.nombre} ${patient.apellido}</label>
+                                <label onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'" class="side top"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*/
+
+   
 
     // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);

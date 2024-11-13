@@ -224,18 +224,19 @@ input[type="search"] {
 }
 /*-----------------------Fondo elementos----------------------*/
 .FONDOPACIENTES{
+    display: flex;
     justify-content: flex-start;
     align-content: flex-start;
     flex-wrap: wrap; 
     flex-direction: row;
     align-items: normal;
-    width: 350%;
+    width: 1000px;
     height: 90%;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 10px 10px;
-    gap: 5px;
+    gap: 10px;
     margin: 15px 0px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     overflow-y: auto;
@@ -244,7 +245,7 @@ input[type="search"] {
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES.expanded{
-    width: 420%;
+    width: 1300px;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
@@ -269,7 +270,7 @@ input[type="search"] {
     display: flex;
     flex-direction: column;
     background-color: var(--element-back-color);
-    padding: 18px;
+    padding: 25px;
     border-radius: 6px;
     height: max-content;
     cursor: pointer;
@@ -384,10 +385,11 @@ margin-left: 10px;
     margin-top: 12em;
     justify-content: center;
     text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 38%;
 }
 
 #noResults.expandido3 {
     margin-left: 50px; /* Cambia a un valor más pequeño */
 }
-
-

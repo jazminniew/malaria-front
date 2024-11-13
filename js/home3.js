@@ -115,44 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardForm.style.backgroundPosition = "center"; // Para centrar la imagen en el contenedor
         return card;
     }
-    //------------------abajo de span ------------------<img class="IMAGENANALISIS" src="${analis.imagen}">
-    // Función para buscar pacientes
-    async function searchPatients(query) {
-        const patients = await getPatients();
-        // Filtrar los pacientes que coincidan con el nombre o apellido
-        const filteredPatients = patients.filter(patient =>
-            patient.nombre.toLowerCase().includes(query.toLowerCase()) ||
-            patient.apellido.toLowerCase().includes(query.toLowerCase())
-        );
-        displayPatients(filteredPatients);
-    }
-
-    // Función para filtrar pacientes por estado (infectado/no infectado)
-    async function filterPatientsByStatus(status) {
-        const patients = await getPatients();
-        const filteredPatients = patients.filter(patient =>
-            status === 'all' || patient.resultados === status
-        );
-        displayPatients(filteredPatients);
-    }
-    // Evento de la barra de búsqueda
-    searchBar.addEventListener('input', (e) => {
-        const query = e.target.value;
-        if (query.trim()) {
-            searchPatients(query); // Buscar pacientes
-        } else {
-            getPatients().then(displayPatients); // Mostrar todos los pacientes si no hay búsqueda
-        }
-    });
-
-    // Eventos de los filtros (infectado, no infectado, todos)
-    filterRadioButtons.forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            const selectedFilter = e.target.value;
-            filterPatientsByStatus(selectedFilter);
-        });
-    });
-
-    // Mostrar todos los pacientes cuando la página se cargue
+    
+   // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);
 });
