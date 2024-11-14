@@ -26,24 +26,20 @@ continuarBtn.addEventListener('click', async () => {
         'Content-Type': 'application/json',  // Asegúrate de especificar el tipo de contenido
         'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify(formData),  // Convierte formData a JSON
+      body: JSON.stringify(formData),
     });
-    const result = await response.json();
-
-    const idNew = result.id;
 
     if (!response.ok) {
       throw new Error('Error al editar los datos del usuario');
     }
 
-    else {
-      window.location.href = `/home3.html`
-    }
+    // Redirige a mis-pacientes.html si la respuesta es exitosa
+    window.location.href = '/mis-pacientes.html';
+
   } catch (error) {
     alert(`Error al guardar los datos: ${error.message}`);
   }
-}
-);
+});
 
 // Lista de países en formato JSON
 const countries = [
@@ -168,3 +164,30 @@ countries.forEach(country => {
     selectElement.appendChild(option);
 });
 */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nombreInput = document.getElementById("nombre");
+  const apellidoInput = document.getElementById("apellido");
+  const telefonoInput = document.getElementById("telefono");
+
+  // Capitalizar primera letra de Nombre y Apellido
+  nombreInput.addEventListener("input", () => {
+      nombreInput.value = nombreInput.value
+          .toLowerCase()
+          .replace(/^\w/, (c) => c.toUpperCase());
+  });
+
+  apellidoInput.addEventListener("input", () => {
+      apellidoInput.value = apellidoInput.value
+          .toLowerCase()
+          .replace(/^\w/, (c) => c.toUpperCase());
+  });
+
+  // Validar el formato de Teléfono
+  telefonoInput.addEventListener("input", () => {
+      telefonoInput.value = telefonoInput.value.replace(/[^0-9]/g, ""); // Solo permite números
+      if (telefonoInput.value.length > 10) {  // Ajusta el largo según el país si es necesario
+          telefonoInput.value = telefonoInput.value.slice(0, 10);
+      }
+  });
+});

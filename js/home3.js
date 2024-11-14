@@ -9,7 +9,56 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(noResultsMessage);  // Añadir el mensaje al contenedor
 
 
+    // Función para realizar la búsqueda en el servidor
     function buscarPerfiles() {
+        container.innerHTML = "";  // Limpiar los resultados anteriores
+        const searchInput = document.getElementById('searchBar').value.toLowerCase();  // Obtener el valor del buscador en minúsculas
+        const id = localStorage.getItem("id");
+        const token = localStorage.getItem("token");
+
+        if (!id || !token) {
+            console.error('No se encontró token de autenticación. Inicia sesión primero.');
+            return;
+        }
+
+        fetch(`http://localhost:8000/analyze/analisisPorUsuario/${id}?search=${encodeURIComponent(searchInput)}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (Array.isArray(data.message)) {
+                displayPatients(data.message);
+            } else {
+                console.error("La respuesta del servidor no es un array:", data);
+                displayPatients([]);  // Mostrar "No hay resultados"
+            }
+        })
+        .catch(error => {
+            console.error("Error al cargar perfiles:", error);
+            displayPatients([]);  // En caso de error, también mostrar "No hay resultados"
+        });
+    }
+
+    // Función para mostrar los resultados de la búsqueda
+    function displayPatients(analisis) {
+        container.innerHTML = '';
+        container.appendChild(noResultsMessage);
+
+        if (analisis.length === 0) {
+            noResultsMessage.style.display = 'block';
+        } else {
+            noResultsMessage.style.display = 'none';
+            analisis.forEach(analis => {
+                const analisCard = createPatientCard(analis);
+                container.appendChild(analisCard);
+            });
+        }
+    }
+
+   /* function buscarPerfiles() {
         document.getElementById("TodosPerfiles").innerHTML = "";
         const searchInput = document.getElementById('searchBar').value.toLowerCase(); // Obtener el valor del buscador en minúsculas
         fetch("http://localhost:8000/analyze/analisisPorUsuario/${id}" + searchInput) 
@@ -26,13 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error("Error al cargar perfiles:", error));
     }
 
+    */
 
 
 
     const filterRadioButtons = document.querySelectorAll('input[name="filter"]'); // Filtros (todos, infectado, no infectado)
 
     // Función para obtener todos los pacientes desde la base de datos
-    async function getPatients() {
+    async function getPatients(filter = 'Todos') {
         try {
             // Obtén el token del localStorage
             const token = localStorage.getItem('token');
@@ -41,11 +91,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
 
-            // Realiza la petición con el token
-            const response = await fetch(`http://localhost:8000/analyze/analisisPorUsuario/${id}`, {
+            // Construye la URL de acuerdo con el filtro seleccionado
+            let url = `http://localhost:8000/analyze/analisisPorUsuario/${id}`;
+            if (filter === 'Infectado') {
+                url += '?status=infectado';
+            } else if (filter === 'No Infectado') {
+                url += '?status=no_infectado';
+            }
+
+            const response = await fetch(url, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 }
             });
 
@@ -55,15 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const analisisTodo = await response.json();
             const analisis = analisisTodo.rows;
-            return Array.isArray(analisis) ? analisis : [];
+            displayPatients(Array.isArray(analisis) ? analisis : []);
         } catch (error) {
             console.error(error);
-            return [];
+            displayPatients([]);
         }
     }
-
-
-
+    
     // Función para mostrar los resultados de la búsqueda
     function displayPatients(analisis) {
         // Limpiar el contenedor de pacientes
@@ -138,3 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
    // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);
 });
+
+// Agregar el evento para la búsqueda
+document.getElementById('searchBar').addEventListener('input', buscarPerfiles);

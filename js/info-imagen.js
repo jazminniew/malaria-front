@@ -173,3 +173,22 @@ function detenerProgreso() {
     progress = 100;
     numberElement.textContent = `${progress}%`;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const nombreInput = document.getElementById('nombre');
+    const apellidoInput = document.getElementById('apellido');
+
+    // Función para capitalizar la primera letra de cada palabra
+    function capitalizeWords(text) {
+        return text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    // Evento para capitalizar la entrada en tiempo real
+    nombreInput.addEventListener('input', () => {
+        nombreInput.value = capitalizeWords(nombreInput.value);
+    });
+
+    apellidoInput.addEventListener('input', () => {
+        apellidoInput.value = capitalizeWords(apellidoInput.value);
+    });
+});
