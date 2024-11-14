@@ -9,7 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(noResultsMessage);  // Añadir el mensaje al contenedor
 
 
-    const searchBar = document.getElementById('searchBar');
+    function buscarPerfiles() {
+        document.getElementById("TodosPerfiles").innerHTML = "";
+        const searchInput = document.getElementById('searchBar').value.toLowerCase(); // Obtener el valor del buscador en minúsculas
+        fetch("http://localhost:8000/analyze/analisisPorUsuario/${id}" + searchInput) 
+            .then(response => response.json())
+            .then(data => {
+                console.log("Data recibida:", data);
+                if (Array.isArray(data.message)) {
+                    data.message.forEach(crearPerfil);
+                } else {
+                    console.log(data.message);
+                    console.error("La propiedad 'message' no es un array:", data);
+                }
+            })
+            .catch(error => console.error("Error al cargar perfiles:", error));
+    }
+
+
+
+
     const filterRadioButtons = document.querySelectorAll('input[name="filter"]'); // Filtros (todos, infectado, no infectado)
 
     // Función para obtener todos los pacientes desde la base de datos
