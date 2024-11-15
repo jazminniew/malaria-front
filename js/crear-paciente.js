@@ -34,7 +34,7 @@ continuarBtn.addEventListener('click', async () => {
     }
 
     // Redirige a mis-pacientes.html si la respuesta es exitosa
-    window.location.href = '/mis-pacientes.html';
+    window.location.href = 'mis-pacientes.html';
 
   } catch (error) {
     alert(`Error al guardar los datos: ${error.message}`);

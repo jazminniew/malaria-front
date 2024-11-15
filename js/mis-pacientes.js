@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('cartas-separadas');
 
         const cardContent = `
-            <div class="card ${patient.status}" id="cartaa" onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'">
+            <div class="card ${patient.status}" id="cartaa" onclick="location.href='paciente.html?id=${patient.id}'">
                 <div class="card_data">
                     <div style="display: flex" class="data">
                         <div class="text">
