@@ -1,6 +1,6 @@
 const continuarBtn = document.querySelector('.btn');
+const responseDiv = document.getElementById('response'); // Seleccionamos el div de respuesta
 
-// Agrega un evento de clic al botón
 continuarBtn.addEventListener('click', async () => {
   const nombre = document.getElementById("nombre").value;
   const apellido = document.getElementById("apellido").value;
@@ -23,23 +23,26 @@ continuarBtn.addEventListener('click', async () => {
     const response = await fetch('http://localhost:8000/patients/registerPatient', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',  // Asegúrate de especificar el tipo de contenido
+        'Content-Type': 'application/json', 
         'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(formData),
     });
 
     if (!response.ok) {
-      throw new Error('Error al editar los datos del usuario');
+      throw new Error('Error al registrar al paciente');
     }
 
     // Redirige a mis-pacientes.html si la respuesta es exitosa
     window.location.href = 'mis-pacientes.html';
 
   } catch (error) {
-    alert(`Error al guardar los datos: ${error.message}`);
+    // Muestra el mensaje de error en el div #response
+    responseDiv.textContent = `Error: ${error.message}`;
+    responseDiv.classList.add('show');  // Hacemos visible el div
   }
 });
+
 
 // Lista de países en formato JSON
 const countries = [

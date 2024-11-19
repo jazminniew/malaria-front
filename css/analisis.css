@@ -58,3 +58,19 @@ body{
     justify-content: flex-start;
     align-items: center; /* Centra la imagen en caso de que sea más pequeña */
 }
+
+#response {
+    font-size: 14px;
+    color: #d9534f; /* Color rojo suave para errores */
+    text-align: center;
+    background-color: #f8d7da; /* Fondo claro para error */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f5c6cb; /* Borde más oscuro para el error */
+    display: none; /* Para ocultarlo inicialmente */
+    max-width: 300px;
+  }
+  
+  #response.show {
+    display: block;
+  }

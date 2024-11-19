@@ -40,6 +40,7 @@
     --fondo-input:#f9f9f9;
     --color-borde-input: #ddd;
     --back-edit-input:#fff;
+    --background-input: #eeeeee;
 
 }
 .dark-mode{
@@ -83,6 +84,7 @@
     --fondo-input:#303030;
     --color-borde-input: #484848;
     --back-edit-input:#000;
+    --background-input: #555;
 }
 *{
     margin: 0;
@@ -210,14 +212,6 @@ main.min-main{
     
 }
 
-.info-group input:disabled, .info-group select:disabled, .info-group textarea:disabled {
-    background-color: var(--fondo-input);
-}
-
-.info-group input.edit-mode, .info-group select.edit-mode, .info-group textarea.edit-mode {
-    border: 1px solid #7c3ed6;
-    background-color: var(--back-edit-input);
-}
 
 .FONDOPACIENTES{
     gap: 30px;
@@ -274,6 +268,7 @@ textarea {
     background-color: #7c3ed6;
     padding: 10px 15px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .info-group a:hover {
@@ -298,12 +293,14 @@ textarea {
     background-color: #7c3ed6;
     padding: 10px 15px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .input-editar{
     border-radius: 5px;
     padding: 10px;
     margin-top: 20px;
+    background-color: var(--background-input);
 }
 
 .bx-chevron-left {
@@ -319,4 +316,20 @@ textarea {
     color: #000000;
     transition: 0.2s;
     scale: 1.2;
+  }
+
+  #response {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #d9534f; /* Color rojo suave para errores */
+    text-align: center;
+    background-color: #f8d7da; /* Fondo claro para error */
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f5c6cb; /* Borde más oscuro para el error */
+    display: none; /* Para ocultarlo inicialmente */
+  }
+  
+  #response.show {
+    display: block;
   }

@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadatos principales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIA - Crear Paciente</title>
+    <!-- Estilos principales -->
     <link rel="stylesheet" href="/css/crear-paciente.css">
+    <!-- Favicon del sitio web -->
     <link rel="icon" href="../images/LOGOVIOLETA16X16.ico" type="image/ico" sizes="32x32">
+    <!-- Iconos de Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    <!-- Botón para regresar -->
     <i class='bx bx-chevron-left' id="back-button"></i>
     <div class="wrapper">
+        <!-- Inicio del formulario -->
         <form id="crearPacienteForm">
+            <!-- Título del formulario -->
             <h1>Crear Paciente</h1>
-            <!--Contenedor para nombre y apellido-->
+            <!-- Contenedor para nombre y apellido -->
             <div class="flex-container">
-                <!--Nombre-->
+                <!-- Campo para el nombre -->
                 <div class="input-box half-width">
                     <input type="text" placeholder="Nombre" id="nombre" required>
                     <i class='bx bxs-user'></i>
                 </div>
-                <!--Apellido-->
+                <!-- Campo para el apellido -->
                 <div class="input-box half-width">
                     <input type="text" placeholder="Apellido" id="apellido" required>
                     <i class='bx bxs-user'></i>
                 </div>
             </div>
-            <!--Fecha de Nacimiento-->
+            <!-- Campo para la fecha de nacimiento -->
             <div class="input-box">
                 <input type="text" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required onfocus="(this.type='date')" onblur="(this.type='text')">
                 <i class='bx bxs-calendar'></i>
             </div>
-            <!--Contenedor para país y ocupación-->
+            <!-- Contenedor para país y género -->
             <div class="flex-container">
-<!-- País -->
-<div class="input-box">
-    <select id="pais" name="pais" required>
-        <option value="" disabled selected>País</option>
-        <!-- Lista de países generada por JavaScript -->
-    </select>
-    <i class='bx bx-world'></i>
-</div>
-
-                <!--genero-->
+                <!-- Campo para seleccionar el país -->
+                <div class="input-box">
+                    <select id="pais" name="pais" required>
+                        <option value="" disabled selected>País</option>
+                        <!-- Lista de países generada dinámicamente -->
+                    </select>
+                    <i class='bx bx-world'></i>
+                </div>
+                <!-- Campo para seleccionar el género -->
                 <div class="input-box half-width">
-                    <select id="genero" name="ocupacion" required>
-                        <option value="" disabled selected>Genero</option>
+                    <select id="genero" name="genero" required>
+                        <option value="" disabled selected>Género</option>
                         <option value="Mujer">Mujer</option>
                         <option value="Hombre">Hombre</option>
                         <option value="Otro">Otro</option>
                     </select>
-                    <i class='bx bxs-briefcase'></i>
+                    <i class='bx bxs-user'></i>
                 </div>
             </div>
-            <!--Email-->
+            <!-- Campo para el email -->
             <div class="input-box">
                 <input type="email" placeholder="Email" id="email" required>
                 <i class='bx bxl-gmail'></i>
             </div>
-            <!--telefono-->
+            <!-- Campo para el teléfono -->
             <div class="input-box">
-                <input  type="tel"  placeholder="Telefono"  id="telefono" required> 
+                <input type="tel" placeholder="Teléfono" id="telefono" required>
                 <i class='bx bxs-phone'></i>
             </div>
-            <!--Botón-->
+            <div id="response"></div>
+            <!-- Botón de envío -->
             <button type="submit" class="btn" id="continuarBtn">Continuar</button>
-
         </form>
     </div>
+    <!-- Script asociado al formulario -->
     <script src="/js/crear-paciente.js"></script>
-
 </body>
 </html>

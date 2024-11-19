@@ -40,6 +40,7 @@
     --fondo-input:#f9f9f9;
     --color-borde-input: #ddd;
     --back-edit-input:#fff;
+    --border-bottom: #ddd;
 
 }
 .dark-mode{
@@ -83,6 +84,7 @@
     --fondo-input:#303030;
     --color-borde-input: #484848;
     --back-edit-input:#000;
+    --border-bottom:#3a3a3a;
 }
 *{
     margin: 0;
@@ -346,6 +348,6 @@ textarea {
     justify-content: space-between;
     align-items: center;
     padding: 16px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-bottom);
     
 }

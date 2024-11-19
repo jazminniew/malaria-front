@@ -595,3 +595,19 @@ button.sparkle-button{
   font-size: 1.5rem; /* Tamaño del texto (ajustar este valor si es necesario) */
   margin: 0; /* Elimina el margen por defecto del h1 */
 }
+
+#response {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #d9534f; /* Color rojo suave para errores */
+  text-align: center;
+  background-color: #f8d7da; /* Fondo claro para error */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #f5c6cb; /* Borde más oscuro para el error */
+  display: none; /* Para ocultarlo inicialmente */
+}
+
+#response.show {
+  display: block;
+}

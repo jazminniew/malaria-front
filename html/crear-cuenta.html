@@ -1,59 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos principales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MalarIA - Crear Cuenta</title>
+    <!-- Estilo principal para la página -->
     <link rel="stylesheet" href="/css/crear-cuenta.css">
+    <!-- Favicon del sitio web -->
     <link rel="icon" href="../images/LOGOVIOLETA16X16.ico" type="image/ico" sizes="32x32">
+    <!-- Íconos de Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
   <div class="contenedorForm">
+    <!-- Contenedor principal del formulario -->
     <div class="wrapper">
+    <!-- Inicio del formulario -->
     <form id="registerForm">
+      <!-- Título del formulario -->
       <h1>Crear Cuenta</h1>
-            <!--Contenedor para nombre y apellido-->
+            <!-- Contenedor para agrupar campos de nombre y apellido -->
             <div class="flex-container">
-            <!--Nombre-->
+            <!-- Campo para el nombre -->
             <div class="input-box half-width">
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 <i class='bx bxs-user'></i>
             </div>
-            <!--Apellido-->
+            <!-- Campo para el apellido -->
             <div class="input-box half-width">
                 <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
                 <i class='bx bxs-user'></i>
             </div>
         </div>
 
-                        <!--User-->
-                        <div class="input-box">
-                            <input type="text" id="username" name="username" placeholder="Username" required>
-                            <i class='bx bxs-user'></i>
-                        </div>
-        <!--Email-->
+        <!-- Campo para el nombre de usuario -->
+        <div class="input-box">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <!-- Campo para el email -->
         <div class="input-box">
             <input type="email" id="email" name="email" placeholder="Email" required>
             <i class='bx bxl-gmail'></i>
         </div>
 
-        <!--Contraseña-->
+        <!-- Campo para la contraseña -->
         <div class="input-box">
             <input type="password" name="password" id="password" placeholder="Contraseña" required>
+            <!-- Ícono interactivo para la contraseña -->
             <i class='bx bxs-lock-alt' id="lockIcon" style="cursor: pointer;"></i>
         </div>
+        <!-- Contenedor para mostrar respuestas o mensajes -->
         <div id="response"></div>
-                <!--Botón-->
-            <button type="submit" class="btn">Continuar</button>
-            <!--Link para iniciar sesión-->
-            <div class="register-link">
-                <p>¿Ya tienes una cuenta? <a href="iniciar-sesion4.html">Iniciar Sesión</a></p>
-            </div>
+        <!-- Botón para enviar el formulario -->
+        <button type="submit" class="btn">Continuar</button>
+        <!-- Enlace para redirigir a iniciar sesión -->
+        <div class="register-link">
+            <p>¿Ya tienes una cuenta? <a href="iniciar-sesion4.html">Iniciar Sesión</a></p>
+        </div>
     </form>
     </div>
   </div>
-    <img src="../images/fondoRegister.png" alt="degrade" class="fondoDegrade">
-    <script src="/js/crear-cuenta.js"></script>
+  <!-- Imagen de fondo degradado -->
+  <img src="../images/fondoRegister.png" alt="degrade" class="fondoDegrade">
+  <!-- Script asociado al funcionamiento del formulario -->
+  <script src="/js/crear-cuenta.js"></script>
 </body>
 </html>
