@@ -1,5 +1,4 @@
-// script.js
-// Lista de países en formato HTML
+/*PARA MI NO SIRVE ESTO CHEQUEAR!!!!!------------------------------------------------------
 const countries = [
     "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina",
     "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Barbados", "Bélgica", "Belice", "Benín", "Bielorrusia",
@@ -34,69 +33,12 @@ function populateCountries() {
     });
 }
 
-//------------------------final paises----------------------------------------
 const profilePicInput = document.getElementById('profile-pic-input');
 const profilePic = document.getElementById('profile-pic');
 const nameInput = document.getElementById('name');
 const surnameInput = document.getElementById('surname');
 const countryInput = document.getElementById('country');
-const apellido = document.getElementById('apellido');
-const editButton = document.getElementById('edit-button');
 
-let editMode = false;
-
-const id = localStorage.getItem('id');
-const token = localStorage.getItem("token");
-
-// Obtener datos del perfil desde Vercel
-document.addEventListener('DOMContentLoaded', async () => {
-
-    try {
-        const response = await fetch(`http://localhost:8000/user/user/${id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        });
-        
-        if (!response.ok) {
-            throw new Error('Error al obtener los datos del usuario');
-        }
-
-        const data = await response.json();
-
-        apellido.value = data.apellido;
-    } catch (err) {
-        alert('Error al obtener los datos del usuario');
-        console.error('Error al obtener los datos del usuario:', err);
-    }
-}, false);
-
-editarApellido.addEventListener("click", async () => {
-    const nuevoApellido = apellido.value;
-
-    const formData = {
-        apellido: nuevoApellido
-    }
-
-    const response = await fetch (`http://localhost:8000/user/editApellido/${id}`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(formData)
-    })
-
-    if (!response.ok) {
-        throw new Error('Error al editar los datos del usuario');
-    }
-
-    else {
-        window.location.href = "perfil.html"
-    }
-})
 
 function toggleEditMode() {
     const nameInput = document.getElementById('name');
@@ -233,8 +175,76 @@ function updateProfilePic(event) {
     }
 }
 
-document.getElementById('back-button').addEventListener('click', function () {
-    window.history.back();
+*/ 
+const apellido = document.getElementById('apellido');
+const editButton = document.getElementById('edit-button');
+const backButton = document.getElementById('back-button'); // Referencia al botón "back"
+const responseDiv = document.getElementById('response'); // Referencia al div para los mensajes
+
+let editMode = false;
+
+const id = localStorage.getItem('id');
+const token = localStorage.getItem("token");
+
+// Función para mostrar mensajes en el responseDiv
+function mostrarMensaje(mensaje, tipo = 'error') {
+    responseDiv.innerHTML = `<div class="${tipo}">${mensaje}</div>`;
+    responseDiv.style.display = 'block';
+}
+
+// Obtener datos del perfil desde Vercel
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch(`http://localhost:8000/user/user/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos del usuario');
+        }
+
+        const data = await response.json();
+        apellido.value = data.apellido;
+    } catch (err) {
+        mostrarMensaje('Error al obtener los datos del usuario', 'error');
+        console.error('Error al obtener los datos del usuario:', err);
+    }
+}, false);
+
+// Editar apellido
+editarApellido.addEventListener("click", async () => {
+    try {
+        const nuevoApellido = apellido.value;
+
+        const formData = {
+            apellido: nuevoApellido
+        };
+
+        const response = await fetch(`http://localhost:8000/user/editApellido/${id}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al editar los datos del usuario');
+        } else {
+                window.location.href = "perfil.html";
+        }
+    } catch (err) {
+        mostrarMensaje('Error al editar los datos del usuario', 'error');
+        console.error(err);
+    }
 });
 
-
+// Volver a la página anterior
+backButton.addEventListener('click', function () {
+    window.history.back();
+});

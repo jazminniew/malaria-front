@@ -1,4 +1,4 @@
-// script.js
+/* script.js
 // Lista de países en formato HTML
 const countries = [
     "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina",
@@ -34,128 +34,11 @@ function populateCountries() {
     });
 }
 
-//------------------------final paises----------------------------------------
+
 const profilePicInput = document.getElementById('profile-pic-input');
 const profilePic = document.getElementById('profile-pic');
-const nameInput = document.getElementById('name');
-const surnameInput = document.getElementById('surname');
-const countryInput = document.getElementById('country');
-const emailInput = document.getElementById('email');
-const editButton = document.getElementById('edit-button');
 
-let editMode = false;
 
-// Obtener datos del perfil desde Vercel
-document.addEventListener('DOMContentLoaded', async () => {
-    const id = localStorage.getItem('id');
-    const token = localStorage.getItem("token");
-
-    try {
-        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        });
-        
-        if (!response.ok) {
-            throw new Error('Error al obtener los datos del usuario');
-        }
-
-        const data = await response.json();
-
-        document.getElementById('user-apellido').textContent = data.apellido;
-        document.getElementById('user-name').textContent = data.nombre;
-        document.getElementById('user-email').textContent = data.email;
-        document.getElementById('user-username').textContent = data.username;
-    } catch (err) {
-        alert('Error al obtener los datos del usuario');
-        console.error('Error al obtener los datos del usuario:', err);
-    }
-}, false);
-
-function toggleEditMode() {
-    const nameInput = document.getElementById('name');
-    const surnameInput = document.getElementById('surname');
-    const countrySelect = document.getElementById('country');
-    const emailInput = document.getElementById('email');
-    const editButton = document.getElementById('edit-button');
-
-    const isEditing = nameInput.disabled;
-
-    // Habilitar o deshabilitar campos
-    nameInput.disabled = !isEditing;
-    surnameInput.disabled = !isEditing;
-    countrySelect.disabled = !isEditing;
-    emailInput.disabled = !isEditing;
-
-    // Cambiar el texto del botón
-    editButton.textContent = isEditing ? 'Confirmar' : 'Editar';
-
-    // Cambiar el borde a violeta si está habilitado
-    if (isEditing) {
-        nameInput.classList.add('editable');
-        surnameInput.classList.add('editable');
-        countrySelect.classList.add('editable');
-        emailInput.classList.add('editable');
-    } else {
-        nameInput.classList.remove('editable');
-        surnameInput.classList.remove('editable');
-        countrySelect.classList.remove('editable');
-        emailInput.classList.remove('editable');
-    }
-}
-
-function validateProfileData() {
-    const emailInput = document.getElementById('email');
-    const nameInput = document.getElementById('name');
-    const surnameInput = document.getElementById('surname');
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validación de formato de email
-
-    // Verificar que los campos obligatorios no estén vacíos
-    if (!nameInput.value.trim() || !surnameInput.value.trim()) {
-        alert('Por favor, completa los campos obligatorios: Nombre y Apellido.');
-        return false;
-    }
-
-    // Verificar formato de email
-    if (!emailRegex.test(emailInput.value)) {
-        alert('Por favor, ingresa un email válido.');
-        return false;
-    }
-
-    return true;
-}
-
-// Función para guardar los datos del perfil
-async function saveProfileData() {
-    if (!validateProfileData()) {
-        return; // Si la validación falla, no continuar
-    }
-    const profileData = {
-        name: nameInput.value,
-        surname: surnameInput.value,
-        country: countryInput.value,
-        email: emailInput.value,
-    };
-
-    try {
-        await fetch('https://malaria-xi.vercel.app/user/editUser', { // Cambia por tu enlace real
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(profileData),
-        });
-        alert('Perfil actualizado exitosamente');
-    } catch (error) {
-        console.error('Error updating profile data:', error);
-    }
-
-    
-}
 
 // Cargar los datos del perfil al cargar la página
 
@@ -178,7 +61,7 @@ function sendReply() {
     const replyText = document.getElementById('reply-text').value;
 
     if (replyText.trim() === '') {
-        alert('Escribe un mensaje antes de enviar');
+        mostrarMensaje('Escribe un mensaje antes de enviar');
         return;
     }
 
@@ -238,3 +121,131 @@ function updateProfilePic(event) {
 }
 
 
+function toggleEditMode() {
+    const nameInput = document.getElementById('name');
+    const surnameInput = document.getElementById('surname');
+    const countrySelect = document.getElementById('country');
+    const emailInput = document.getElementById('email');
+    const editButton = document.getElementById('edit-button');
+
+    const isEditing = nameInput.disabled;
+
+    // Habilitar o deshabilitar campos
+    nameInput.disabled = !isEditing;
+    surnameInput.disabled = !isEditing;
+    countrySelect.disabled = !isEditing;
+    emailInput.disabled = !isEditing;
+
+    // Cambiar el texto del botón
+    editButton.textContent = isEditing ? 'Confirmar' : 'Editar';
+
+    // Cambiar el borde a violeta si está habilitado
+    if (isEditing) {
+        nameInput.classList.add('editable');
+        surnameInput.classList.add('editable');
+        countrySelect.classList.add('editable');
+        emailInput.classList.add('editable');
+    } else {
+        nameInput.classList.remove('editable');
+        surnameInput.classList.remove('editable');
+        countrySelect.classList.remove('editable');
+        emailInput.classList.remove('editable');
+    }
+}
+
+function validateProfileData() {
+    const emailInput = document.getElementById('email');
+    const nameInput = document.getElementById('name');
+    const surnameInput = document.getElementById('surname');
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validación de formato de email
+
+    // Verificar que los campos obligatorios no estén vacíos
+    if (!nameInput.value.trim() || !surnameInput.value.trim()) {
+        mostrarMensaje('Por favor, completa los campos obligatorios: Nombre y Apellido.');
+        return false;
+    }
+
+    // Verificar formato de email
+    if (!emailRegex.test(emailInput.value)) {
+        mostrarMensaje('Por favor, ingresa un email válido.');
+        return false;
+    }
+
+    return true;
+}
+
+// Función para guardar los datos del perfil
+async function saveProfileData() {
+    if (!validateProfileData()) {
+        return; // Si la validación falla, no continuar
+    }
+    const profileData = {
+        name: nameInput.value,
+        surname: surnameInput.value,
+        country: countryInput.value,
+        email: emailInput.value,
+    };
+
+    try {
+        await fetch('https://malaria-xi.vercel.app/user/editUser', { // Cambia por tu enlace real
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(profileData),
+        });
+        mostrarMensaje('Perfil actualizado exitosamente');
+    } catch (error) {
+        console.error('Error updating profile data:', error);
+    }
+
+    
+}
+
+
+*/
+const nameInput = document.getElementById('name');
+const surnameInput = document.getElementById('surname');
+const countryInput = document.getElementById('country');
+const emailInput = document.getElementById('email');
+const editButton = document.getElementById('edit-button');
+const responseDiv = document.getElementById('response');
+
+let editMode = false;
+
+// Función para mostrar mensajes en el responseDiv
+function mostrarMensaje(mensaje, tipo = 'error') {
+    responseDiv.innerHTML = `<div class="${tipo}">${mensaje}</div>`;
+    responseDiv.style.display = 'block';
+}
+
+// Obtener datos del perfil desde Vercel
+document.addEventListener('DOMContentLoaded', async () => {
+    const id = localStorage.getItem('id');
+    const token = localStorage.getItem("token");
+
+    try {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+        
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos del usuario');
+        }
+
+        const data = await response.json();
+
+        document.getElementById('user-apellido').textContent = data.apellido;
+        document.getElementById('user-name').textContent = data.nombre;
+        document.getElementById('user-email').textContent = data.email;
+        document.getElementById('user-username').textContent = data.username;
+    } catch (err) {
+        mostrarMensaje('Error al obtener los datos del usuario');
+        console.error('Error al obtener los datos del usuario:', err);
+    }
+}, false);
