@@ -17,7 +17,7 @@ function mostrarMensaje(mensaje, tipo = 'error') {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
 
-            const url = `http://localhost:8000/analyze/analisisPorNombre?nombre=${query}&id_usuario=${id}`;
+            const url = `https://malaria-xi.vercel.app/analyze/analisisPorNombre?nombre=${query}&id_usuario=${id}`;
 
             const response = await fetch(url, {
                 method: 'GET',
@@ -73,7 +73,7 @@ function mostrarMensaje(mensaje, tipo = 'error') {
             }
 
             // Construye la URL de acuerdo con el filtro seleccionado
-            let url = `http://localhost:8000/analyze/analisisPorUsuario/${id}`;
+            let url = `https://malaria-xi.vercel.app/analyze/analisisPorUsuario/${id}`;
             if (filter === 'Infectado') {
                 url += '?status=infectado';
             } else if (filter === 'No Infectado') {

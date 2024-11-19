@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     responseDiv.classList.remove('show'); // Limpia cualquier mensaje previo
 
     try {
-        const response = await fetch(`http://localhost:8000/analyze/analisisPorId/${idLink}`, {
+        const response = await fetch(`https://malaria-xi.vercel.app/analyze/analisisPorId/${idLink}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

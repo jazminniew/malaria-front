@@ -233,7 +233,7 @@ editarNombre.addEventListener("click", async () => {
             nombre: nuevoNombre
         };
 
-        const response = await fetch(`http://localhost:8000/user/editNombre/${id}`, {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/editNombre/${id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

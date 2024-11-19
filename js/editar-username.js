@@ -206,7 +206,7 @@ function mostrarMensaje(mensaje, tipo = 'error') {
 // Obtener datos del perfil desde Vercel
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch(`http://localhost:8000/user/user/${id}`, {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/user/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ editarUsername.addEventListener("click", async () => {
             username: nuevoUsername
         };
 
-        const response = await fetch(`http://localhost:8000/user/editUsername/${id}`, {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/editUsername/${id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

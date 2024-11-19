@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const idLink = params.get("id");
 
     try {
-        const response = await fetch(`http://localhost:8000/patients/pacientById/${idLink}`,//cambiar estoo
+        const response = await fetch(`https://malaria-xi.vercel.app/patients/pacientById/${idLink}`,//cambiar estoo
             {
                 method: 'GET',
                 headers: {

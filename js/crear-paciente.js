@@ -20,7 +20,7 @@ continuarBtn.addEventListener('click', async () => {
   const token = localStorage.getItem("token")
 
   try {
-    const response = await fetch('http://localhost:8000/patients/registerPatient', {
+    const response = await fetch('https://malaria-xi.vercel.app/patients/registerPatient', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', 

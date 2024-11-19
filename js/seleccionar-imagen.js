@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const formData = new FormData();
                 formData.append('image', file);
 
-                const response = await fetch('http://locahost:8000/analyze/uploadAnalyzePost', {
+                const response = await fetch('https://malaria-xi.vercel.app/analyze/uploadAnalyzePost', {
                     method: 'POST',
                     body: formData
                 });

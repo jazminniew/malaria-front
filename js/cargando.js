@@ -30,7 +30,7 @@ function detenerProgreso() {
 // Verificar el resultado de la IA periódicamente
 function verificarResultado() {
     const analyzeID = localStorage.getItem('analyzeID');
-    const apiUrl = `https://localhost:8000/analyze/checkResult/${analyzeID}`;
+    const apiUrl = `https://malaria-xi.vercel.app/analyze/checkResult/${analyzeID}`;
 
     fetch(apiUrl)
         .then(response => response.json())

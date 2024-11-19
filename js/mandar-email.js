@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.addEventListener('click', async () => {
         const email = emailInput.value;
         try {
-            const response = await fetch('http://localhost:8000/user/sendPasswordResetEmail', {
+            const response = await fetch('https://malaria-xi.vercel.app/user/sendPasswordResetEmail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
