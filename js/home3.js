@@ -2,6 +2,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
 
+    // Función para realizar la búsqueda en el servidor
+    async function searchPatients(query) {
+        try {
+            const token = localStorage.getItem('token');
+            const id = localStorage.getItem("id");
+            if (!token || !id) {
+                throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
+            }
+
+            const url = `http://localhost:8000/analyze/analisisPorNombre?nombre=${query}&id_usuario=${id}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al obtener los pacientes: ' + response.status);
+            }
+
+            const analisisTodo = await response.json();
+            const analisis = analisisTodo.rows;
+            console.log(analisis);
+            container.innerHTML = ''; // Limpiar resultados anteriores
+            analisis.forEach(analis => {
+                const analisCard = createPatientCard(analis);
+                container.appendChild(analisCard);
+            });
+            displayPatients(Array.isArray(analisis) ? analisis : []);
+        } catch (error) {
+            console.error(error);
+            displayPatients([]);
+        }
+    }
+
+    // Agregar el evento para la búsqueda
+    document.getElementById('searchBar').addEventListener('input', (event) => {
+        const query = event.target.value;
+        if (query.length >= 3) {
+            searchPatients(query);
+        } else {
+            getPatients(); // Cargar todos los pacientes si la búsqueda es vacía o muy corta
+        }
+    });
+
     const noResultsMessage = document.createElement('div');
     noResultsMessage.textContent = "No hay ningún análisis realizado";
     noResultsMessage.style.display = 'none';
@@ -51,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayPatients([]);
         }
     }
-    
+
     function createPatientCard(analis) {
         const card = document.createElement('div');
         card.classList.add('cartas-separadas');
@@ -93,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Función para mostrar los resultados de la búsqueda
-    
+
     // Mostrar todos los pacientes cuando la página se cargue
     getPatients().then(displayPatients);
 });
