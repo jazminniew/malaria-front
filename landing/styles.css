@@ -92,6 +92,7 @@ header nav ul li a {
 }
 .titleContenidoHome{
     display: flex;
+    margin-bottom: 50px;
 }
 
 .tituloHome {
