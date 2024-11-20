@@ -1,3 +1,113 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    // Contenedor de los pacientes
+    const container = document.getElementById('elements-container');
+    let allPatients = []; // Aquí se almacenarán todos los pacientes cargados inicialmente.
+
+    // Función para cargar pacientes desde el backend al inicio
+    async function getPatients() {
+        try {
+            const token = localStorage.getItem('token');
+            const id = localStorage.getItem("id");
+            if (!token || !id) {
+                throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
+            }
+
+            const url = `http://localhost:8000/analyze/analisisPorUsuario/${id}`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al obtener los pacientes: ' + response.status);
+            }
+
+            const analisisTodo = await response.json();
+            allPatients = analisisTodo.rows; // Guardar todos los pacientes en memoria.
+            displayPatients(allPatients); // Mostrar pacientes iniciales.
+        } catch (error) {
+            console.error(error);
+            container.innerHTML = '<div>Error al cargar los pacientes</div>';
+        }
+    }
+
+    // Función para mostrar pacientes en el contenedor
+    function displayPatients(patients) {
+        container.innerHTML = ''; // Limpiar el contenedor
+        if (patients.length === 0) {
+            container.innerHTML = '<div>No hay análisis que coincidan con la búsqueda</div>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        patients.forEach(patient => {
+            const patientCard = createPatientCard(patient);
+            fragment.appendChild(patientCard);
+        });
+        container.appendChild(fragment);
+    }
+
+    // Crear una tarjeta para cada paciente
+    function createPatientCard(patient) {
+        const card = document.createElement('div');
+        card.classList.add('cartas-separadas');
+
+        const estado = patient.resultados === "true" ? "Infectado" : "No Infectado";
+
+        card.innerHTML = `
+            <div class="card ${patient.status}" id="cartaa">
+                <div class="card_form"></div>
+                <div class="card_data">
+                    <div class="data">
+                        <div class="text">
+                            <div class="cube text_s">
+                                <label class="side front">${patient.nombre} ${patient.apellido}</label>
+                                <label onclick="location.href='analisis.html?id=${patient.id}'" class="side top">Acceder</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const cardForm = card.querySelector(".card_form");
+        cardForm.style.backgroundImage = `url('${patient.imagen}')`;
+        cardForm.style.backgroundSize = "cover";
+        cardForm.style.backgroundPosition = "center";
+
+        return card;
+    }
+
+    // Función para filtrar pacientes por nombre
+    function filterPatients(query) {
+        const filteredPatients = allPatients.filter(patient => 
+            patient.nombre.toLowerCase().includes(query.toLowerCase()) || 
+            patient.apellido.toLowerCase().includes(query.toLowerCase())
+        );
+        displayPatients(filteredPatients);
+    }
+
+    // Agregar evento para búsqueda
+    document.getElementById('searchBar').addEventListener('input', (event) => {
+        const query = event.target.value;
+        if (query.length >= 3) {
+            filterPatients(query); // Filtrar los pacientes en el frontend
+        } else {
+            displayPatients(allPatients); // Mostrar todos los pacientes si el texto de búsqueda es muy corto
+        }
+    });
+
+    // Cargar pacientes al inicio
+    await getPatients();
+});
+
+
+/* CODIGO QUE ANDABA ANTES SIN SEARCHBARRRR---------------------------------------------------
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
@@ -154,125 +264,6 @@ function mostrarMensaje(mensaje, tipo = 'error') {
 
 // Agregar el evento para la búsqueda
 document.getElementById('searchBar').addEventListener('input', buscarPerfiles);
-
-
-/*probar esto
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Contenedor de los pacientes
-    const container = document.getElementById('elements-container');
-    const responseDiv = document.getElementById('response');
-
-    // Mostrar mensaje
-    function mostrarMensaje(mensaje, tipo = 'error') {
-        responseDiv.innerHTML = `<div class="${tipo}">${mensaje}</div>`;
-        responseDiv.style.display = 'block';
-    }
-
-    // Consolidar solicitudes de pacientes
-    async function obtenerAnalisis(url) {
-        const token = localStorage.getItem('token');
-        const id = localStorage.getItem("id");
-
-        if (!token || !id) {
-            throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
-        }
-
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error al obtener los datos: ${response.status}`);
-        }
-
-        const data = await response.json();
-        return data.rows; // Retornar solo la lista de análisis
-    }
-
-    // Mostrar pacientes
-    async function mostrarAnalisis(query = '', filter = 'Todos') {
-        container.innerHTML = ''; // Limpiar contenedor
-        let url = `http://localhost:8000/analyze/analisisPorUsuario/${localStorage.getItem("id")}`;
-
-        if (query) {
-            url = `http://localhost:8000/analyze/analisisPorNombre?nombre=${query}&id_usuario=${localStorage.getItem("id")}`;
-        } else if (filter === 'Infectado') {
-            url += '?status=infectado';
-        } else if (filter === 'No Infectado') {
-            url += '?status=no_infectado';
-        }
-
-        try {
-            const analisis = await obtenerAnalisis(url);
-
-            if (analisis.length === 0) {
-                mostrarMensaje('No hay ningún análisis realizado', 'info');
-                return;
-            }
-
-            const fragment = document.createDocumentFragment();
-            analisis.forEach(analis => {
-                fragment.appendChild(createPatientCard(analis));
-            });
-            container.appendChild(fragment);
-            responseDiv.style.display = 'none'; // Ocultar mensajes previos si hay resultados
-        } catch (error) {
-            console.error(error);
-            mostrarMensaje('Error al cargar los análisis', 'error');
-        }
-    }
-
-    // Crear tarjeta de paciente
-    function createPatientCard(analis) {
-        const card = document.createElement('div');
-        card.classList.add('cartas-separadas');
-
-        const estado = analis.resultados === "true" ? "Infectado" : "No Infectado";
-
-        card.innerHTML = `
-            <div class="card ${analis.status}" id="cartaa">
-                <div class="card_form"></div>
-                <div class="card_data">
-                    <div class="data">
-                        <div class="text">
-                            <div class="cube text_s">
-                                <label class="side front">${analis.nombre} ${analis.apellido}</label>
-                                <label onclick="location.href='analisis.html?id=${analis.id}'" class="side top">Acceder</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        const cardForm = card.querySelector(".card_form");
-        cardForm.style.backgroundImage = `url('${analis.imagen}')`;
-        cardForm.style.backgroundSize = "cover";
-        cardForm.style.backgroundPosition = "center";
-
-        return card;
-    }
-
-    // Evento de búsqueda
-    document.getElementById('searchBar').addEventListener('input', (event) => {
-        const query = event.target.value;
-        if (query.length >= 3) {
-            mostrarAnalisis(query);
-        } else {
-            mostrarAnalisis();
-        }
-    });
-
-    // Cargar pacientes al inicio
-    mostrarAnalisis();
-});
 
 
 
