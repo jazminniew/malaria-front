@@ -226,7 +226,7 @@ input[type="search"] {
     flex-wrap: wrap; 
     flex-direction: row;
     align-items: normal;
-    width: 350%;    
+    width: 1000px;    
     height: 80%;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
@@ -290,7 +290,6 @@ margin: none;
 }
 .card_form span {
     font-size: 1.5em;
-    width: 150%;
     inset: 0;
     padding: 10px 20px 0px 5px; /*Es lo que hace que el fondo de "infectado" cambie*/
     color: #fff;

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contenedor de los pacientes
     const container = document.getElementById('elements-container');
 
-    //Crear y configurar el mensaje "No hay ningún análisis realizado"
+    // Crear y configurar el mensaje "No hay ningún análisis realizado"
     const noResultsMessage = document.createElement('div');
     noResultsMessage.textContent = "No hay ningún paciente";
     noResultsMessage.style.display = 'none'; // Ocultar inicialmente
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.querySelector('.input'); // Usar la clase .input para obtener la barra de búsqueda
 
     // Función para obtener todos los pacientes desde la base de datos
-
     async function getPatients() {
         try {
             // Obtén el token del localStorage
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para mostrar los resultados de la búsqueda
     function displayPatients(patients) {
         // Limpiar el contenedor de pacientes y mostrar el mensaje de "no resultados"
-         container.innerHTML = '';
+        container.innerHTML = '';
         container.appendChild(noResultsMessage); // Asegurarse de que el mensaje siempre esté presente
 
         if (patients.length === 0) {
@@ -89,22 +88,32 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
+    // Función para filtrar pacientes por nombre o estado
+    function filterPatients(query) {
+        let filteredPatients = allPatients;
 
-    /*            <div class="card ${patient.status}" id="cartaa" onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'">
-                <div class="card_data">
-                    <div style="display: flex" class="data">
-                        <div class="text">
-                            <div class="cube text_s">
-                                <label class="side front">${patient.nombre} ${patient.apellido}</label>
-                                <label onclick="location.href='imagen-accedida-posta.html?id=${patient.id}'" class="side top"></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>*/
+        // Filtrar por nombre
+        if (query) {
+            filteredPatients = filteredPatients.filter(patient =>
+                patient.nombre.toLowerCase().includes(query.toLowerCase()) ||
+                patient.apellido.toLowerCase().includes(query.toLowerCase())
+            );
+        }
 
-    // Mostrar todos los pacientes cuando la página se cargue
-    getPatients().then(displayPatients);
+        // Mostrar los pacientes filtrados
+        displayPatients(filteredPatients);
+    }
+
+    // Agregar evento para búsqueda
+    searchBar.addEventListener('input', (event) => {
+        const query = event.target.value;
+        filterPatients(query);
+    });
+
+    // Cargar pacientes al inicio
+    let allPatients = [];
+    getPatients().then(patients => {
+        allPatients = patients;
+        displayPatients(allPatients);
+    });
 });
-
-//------------------------------------------------------------------------

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             displayPatients(allPatients); // Mostrar pacientes iniciales.
         } catch (error) {
             console.error(error);
-            container.innerHTML = '<div>Error al cargar los pacientes</div>';
+            displayPatients(allPatients);
         }
     }
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const fragment = document.createDocumentFragment();
         patients.forEach(patient => {
-            const patientCard = createPatientCard(patient);
+            const patientCard = createPatientCard(patient); // Crear la tarjeta del paciente
             fragment.appendChild(patientCard);
         });
         container.appendChild(fragment);
@@ -55,13 +55,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         const card = document.createElement('div');
         card.classList.add('cartas-separadas');
 
-        const estado = patient.resultados === "true" ? "Infectado" : "No Infectado";
+        // Asegurarnos de que "resultados" sea un valor booleano o comparable para determinar el estado
+        const estado = (patient.resultados === "true" || patient.resultados === true) ? "Infectado" : "No Infectado";
 
-        card.innerHTML = `
+        // Añadir el estado al DOM correctamente
+        card.innerHTML  = `
             <div class="card ${patient.status}" id="cartaa">
-                <div class="card_form"></div>
+                <div class="card_form">
+                    <span>${estado}</span> <!-- Mostrar el estado correctamente -->
+                </div>
                 <div class="card_data">
-                    <div class="data">
+                    <div style="display: flex" class="data">
                         <div class="text">
                             <div class="cube text_s">
                                 <label class="side front">${patient.nombre} ${patient.apellido}</label>
@@ -81,28 +85,52 @@ document.addEventListener('DOMContentLoaded', async () => {
         return card;
     }
 
-    // Función para filtrar pacientes por nombre
-    function filterPatients(query) {
-        const filteredPatients = allPatients.filter(patient => 
-            patient.nombre.toLowerCase().includes(query.toLowerCase()) || 
-            patient.apellido.toLowerCase().includes(query.toLowerCase())
-        );
-        displayPatients(filteredPatients);
+    // Función para filtrar pacientes por nombre o estado
+    function filterPatients(query, estadoFilter) {
+        let filteredPatients = allPatients;
+
+        // Filtrar por nombre
+        if (query) {
+            filteredPatients = filteredPatients.filter(patient => 
+                patient.nombre.toLowerCase().includes(query.toLowerCase()) || 
+                patient.apellido.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+
+        // Filtrar por estado (Infectado / No Infectado)
+        if (estadoFilter) {
+            filteredPatients = filteredPatients.filter(patient => {
+                const estado = (patient.resultados === "true" || patient.resultados === true) ? "Infectado" : "No Infectado";
+                return estado === estadoFilter;
+            });
+        }
+
+        displayPatients(filteredPatients); // Volver a mostrar los pacientes filtrados
     }
 
     // Agregar evento para búsqueda
     document.getElementById('searchBar').addEventListener('input', (event) => {
         const query = event.target.value;
-        if (query.length >= 3) {
-            filterPatients(query); // Filtrar los pacientes en el frontend
-        } else {
-            displayPatients(allPatients); // Mostrar todos los pacientes si el texto de búsqueda es muy corto
-        }
+        const estadoFilter = document.querySelector('input[name="estado"]:checked')?.value; // Obtener el filtro de estado (Infectado / No Infectado)
+
+        filterPatients(query, estadoFilter); // Filtrar pacientes por nombre y estado
+    });
+
+    // Agregar evento para filtrar por estado (Infectado / No Infectado)
+    const estadoRadios = document.querySelectorAll('input[name="estado"]');
+    estadoRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            const query = document.getElementById('searchBar').value;
+            const estadoFilter = document.querySelector('input[name="estado"]:checked')?.value;
+            filterPatients(query, estadoFilter); // Filtrar por estado y nombre
+        });
     });
 
     // Cargar pacientes al inicio
     await getPatients();
 });
+
+
 
 
 /* CODIGO QUE ANDABA ANTES SIN SEARCHBARRRR---------------------------------------------------
