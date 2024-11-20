@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         let estado = "";
 
         if (perfil.resultados) {
-            estado = "Positivo";
+            estado = "Positivo en Malaria";
         } else {
-            estado = "Negativo";
+            estado = "Negativo en Malaria";
         }
 
         document.getElementById('user-apellido').textContent = perfil.apellido;

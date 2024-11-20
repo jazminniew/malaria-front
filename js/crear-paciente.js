@@ -201,3 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 });
+
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/\s/g, ''); // Reemplaza todos los espacios
+  });
+});

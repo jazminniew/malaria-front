@@ -58,9 +58,9 @@ continuarBtn.addEventListener('click', async () => {
                 loadingScreen.style.display = 'none';
 
                 if (result.prediccion) {
-                    window.location.href = 'infectado.html';
-                } else if (!result.prediccion) {
                     window.location.href = 'no-infectado.html';
+                } else if (!result.prediccion) {
+                    window.location.href = 'infectado.html';
                 } else {
                     mostrarError("Error: Resultado del análisis desconocido.");
                 }

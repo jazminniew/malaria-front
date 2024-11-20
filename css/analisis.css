@@ -74,3 +74,8 @@ body{
   #response.show {
     display: block;
   }
+
+  .card_cerrar{
+    margin-left: 350px;
+    background-color: #fff;
+  }
