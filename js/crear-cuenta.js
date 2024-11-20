@@ -9,6 +9,13 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
         password: document.getElementById('password').value,
     };
 
+
+        // Validar que la contraseña tenga al menos 8 caracteres
+        if (formData.password.length < 8) {
+            document.getElementById('response').innerText = 'La contraseña debe tener al menos 8 caracteres';
+            return; // Detener el envío del formulario si la contraseña no es válida
+        }
+        
     try {
         const response = await fetch('https://malaria-xi.vercel.app/user/register', {
             method: 'POST',

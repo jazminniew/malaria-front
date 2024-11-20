@@ -558,7 +558,7 @@ button.sparkle-button{
 .loader {
   transform: rotateX(70deg);
   position: absolute;
-  left: 40%;
+  left: 41%;
   top: 15%;
 }
 

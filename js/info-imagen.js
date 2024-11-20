@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const nombreInput = document.getElementById('nombre');
+    const apellidoInput = document.getElementById('apellido');
+
+    // Función para capitalizar las palabras
+    function capitalizeWords(text) {
+        return text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    // Capitaliza nombre y apellido al escribir
+    nombreInput.addEventListener('input', () => {
+        nombreInput.value = capitalizeWords(nombreInput.value);
+    });
+
+    apellidoInput.addEventListener('input', () => {
+        apellidoInput.value = capitalizeWords(apellidoInput.value);
+    });
+});
+
 // Obtener el contenedor de errores
 const responseDiv = document.getElementById('response');
 
@@ -34,6 +53,23 @@ continuarBtn.addEventListener('click', async () => {
     const nombre = document.getElementById('nombre').value.trim();
     const apellido = document.getElementById('apellido').value.trim();
     const file = document.getElementById('file').files[0];
+
+    // Validar que nombre y apellido sean al menos de 3 caracteres y sin espacios
+    const nameRegex = /^[A-Za-záéíóúÁÉÍÓÚñÑ]+$/; // Permitir solo letras sin espacios
+
+    if (nombre.length < 3 || apellido.length < 3) {
+        mostrarError("El nombre y apellido deben tener al menos 3 caracteres.");
+        loadingScreen.style.display = 'none';
+        detenerProgreso();
+        return;
+    }
+
+    if (!nameRegex.test(nombre) || !nameRegex.test(apellido)) {
+        mostrarError("El nombre y apellido no pueden contener espacios ni caracteres especiales.");
+        loadingScreen.style.display = 'none';
+        detenerProgreso();
+        return;
+    }
 
     if (nombre && apellido && file) {
         ocultarError(); // Oculta cualquier error previo
@@ -170,20 +206,3 @@ function detenerProgreso() {
     progress = 100;
     numberElement.textContent = `${progress}%`;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const nombreInput = document.getElementById('nombre');
-    const apellidoInput = document.getElementById('apellido');
-
-    function capitalizeWords(text) {
-        return text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
-    }
-
-    nombreInput.addEventListener('input', () => {
-        nombreInput.value = capitalizeWords(nombreInput.value);
-    });
-
-    apellidoInput.addEventListener('input', () => {
-        apellidoInput.value = capitalizeWords(apellidoInput.value);
-    });
-});

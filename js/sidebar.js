@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("nombre-sidebar").textContent = data.nombre;
             document.getElementById("mail-sidebar").textContent = data.email;
         } catch (err) {
-            alert('Error al obtener los datos del usuario');
             console.error('Error al obtener los datos del usuario:', err);
         }
     }
