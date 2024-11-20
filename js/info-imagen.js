@@ -46,7 +46,7 @@ continuarBtn.addEventListener('click', async () => {
         formData.append('id', id);
 
         try {
-            const response = await fetch('https://malaria-xi.vercel.app/analyze/uploadAnalyzePost', { // Corrected URL
+            const response = await fetch('http://localhost:8000/analyze/uploadAnalyzePost', { // Corrected URL
                 method: 'POST',
                 body: formData
             });

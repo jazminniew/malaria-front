@@ -874,6 +874,9 @@ font-size:16px;
     .estrellas2{
         display: none;
     }
+    .estrellas{
+        display:nome;
+    }
 
     .rompecabezas{
         display: none;

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id_user = localStorage.getItem("id");
     
             // Realiza la petición con el token
-            const response = await fetch(`https://malaria-xi.vercel.app/patients/pacientsByUser/${id_user}`, {
+            const response = await fetch(`http://localhost:8000/patients/pacientsByUser/${id_user}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
