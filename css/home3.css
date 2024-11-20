@@ -558,5 +558,11 @@ transform: scale(0.6);
 
   }
 
+  .respuesta{
+    color: var(--texto-input);
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 250px;
+  }
 
   

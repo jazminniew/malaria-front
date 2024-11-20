@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function displayPatients(patients) {
         container.innerHTML = ''; // Limpiar el contenedor
         if (patients.length === 0) {
-            container.innerHTML = '<div>No hay análisis que coincidan con la búsqueda</div>';
+            container.innerHTML = '<div class="respuesta">No hay análisis que coincidan con la búsqueda</div>';
             return;
         }
 

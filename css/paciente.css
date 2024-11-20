@@ -1,6 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+:root{
+    --color-barra-lateral: #f3f3f3;
+    --color-texto:rgb(0,0,0);
+    --color-texto-menu:rgb(134,136,144);
+    --color-menu-hover:rgb(236, 236, 236);
+    --color-menu-hover-texto:rgb (0,0,0);
+    --color-boton: #7c3ed6;
+    --color-boton-texto:rgb(255,255,255);
+    --color-linea:rgb(213, 213, 213);
+    --color-switch-base:rgb(201,202,206);
+    --color-switch-circulo:rgb(241,241,241);
+    --color-scroll:rgb(192,192,192);
+    --color-scroll-hover:rgb(134,134,134);
+    --background-color:#d9d9d9;
+    --fondo-flecha: #7c3ed6;
+    --flecha: #fff;
+    --fondo-botones-sidebar: #f3f3f3;
+    --fondo-filtro-boton: #e6eef9;
+    --color-texto-filtros: #000;
+    --fondo-filtros: #fff;
+    --color-subir-imagen:#000;
+    --file-name: #5d5d5d;
+    --nuevo: #000;
+    --back-color-nuevo:#ececec;
+    --back-elements-color:#dddddd;
+    --fondo-elementos:#f3f3f3;
+    --input-bg: #c1c1c1;
+    --lupa: #646487;
+    --element-back-color:#d6d6d6;
+    --carta-cerrar-back: rgb(255, 255, 255);
+    --color-boton-acceder: #9147ff;
+    --fondo-scrollbar: #f1f1f1;
+    --element-back-color-hover:#fafafa;
+    --color-texto-elementoss: #7c3ed6;
+    --color-texto-elementoss-hover: #9249ff;
+    --fondo-user-hover: #bebebe;
+    --color-icono: #545454;
+    --texto-elemento: #363636;
+    --texto-input:#000;
+}
+.dark-mode{
+    --color-barra-lateral: rgb(16, 16, 16);
+    --color-texto:rgb(255,255,255);
+    --color-icono: #7c7c7c;
+    --color-texto-menu:rgb(110,110,107);
+    --color-menu-hover:rgb(8, 8, 8);
+    --color-menu-hover-texto:rgb(238,238,238);
+    --color-boton: #7c3ed6;
+    --color-boton-texto:rgb(0,0,0);
+    --color-linea:rgb(90,90,90);
+    --color-switch-base:rgb(39,205,64);
+    --color-switch-circulo:rgb(255,255,255);
+    --color-scroll:rgb(68,79,74);
+    --color-scroll-hover:rgb(85,85,85);
+    --background-color:rgb(37, 37, 37);
+    --fondo-flecha: #7c3ed6;
+    --flecha: #000;
+    --fondo-filtro-boton: #2f2f2f;
+    --color-texto-filtros: #fff;
+    --fondo-filtros: #151515;
+    --color-subir-imagen:#fff;
+    --file-name: #a8a8a8;
+    --nuevo: #ffffff;
+    --back-color-nuevo:#686868;
+    --back-elements-color:#404040;
+    --fondo-elementos:#1d1d1d;
+    --input-bg: #242424;
+    --lupa-texto: #a5a5a5;
+    --fondo-botones-sidebar: #0f0f0f;
+    --element-back-color:#272727;
+    --element-back-color-hover:#2e2e2e;
+    --carta-cerrar-back: rgb(21, 21, 21);
+    --color-boton-acceder: #181818;
+    --fondo-scrollbar: #141414;
+    --color-texto-elementoss: #f2f2f2;
+    --color-texto-elementoss-hover: #212121;
+    --fondo-user-hover: #262626;
+    --texto-elemento: #d2d2d2;
+    --texto-input:#fff;
+}
 .analysis-container {
     display: flex;
-    background-color: #ffffff;
+    background-color: var(--element-back-color-hover);
     padding: 20px;
     width: 1000px; /* Ocupa el ancho disponible */
     height: 25em;
@@ -40,7 +121,7 @@
 #user-name,
 #user-apellido {
     text-transform: capitalize;
-    background-color: #acacac;
+    background-color: var(--input-bg);
     color: #ffffff;
     padding: 5px 20px;
     border-radius: 4px;
@@ -51,7 +132,7 @@
 
 
 body{
-    background-color: #d9d9d9;
+    background-color: var(--background-color);
 }
 
 
@@ -63,6 +144,10 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center; /* Centra la imagen en caso de que sea más pequeña */
+}
+
+#user-telefono{
+    color: var(--texto-elemento);
 }
 
 
