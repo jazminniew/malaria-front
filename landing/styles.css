@@ -851,6 +851,10 @@ font-size:16px;
         padding: 1rem;
     }
 
+    .paloIzq{
+        height: 150px;
+    }
+
     .tituloHome {
         font-size: 36px;
         margin-top: 20px;
@@ -859,16 +863,55 @@ font-size:16px;
     .start-btn {
         padding: 8px 20px;
         font-size: 14px;
-        margin-left: 0;
+        margin-left: 20px;
     }
 
-    .estadisticas {
-        flex-direction: column;
-        gap: 15px;
+    .infoProyecto{
+        display: block;
+        width: 1000px;
     }
+
+    .estrellas2{
+        display: none;
+    }
+
+    .rompecabezas{
+        display: none;
+    }
+
+    .cardInfo{
+        margin-bottom: 40px;
+        z-index: 1000000;
+    }
+    .gradient2{
+        display: none;
+    }
+    #prevencionMalaria{
+        margin: 0;
+        max-width: 800px;
+    }
+
+    .titulo-prevent3{
+        margin-top: 100px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    #youtube-video{
+        width: 300px;
+        margin-left: 40px;
+        height: 200px;
+    }
+
+
+
 
     .cajaNumero {
-        width: 100%;
+        width: 80%;
+        margin-left: 20px;
         height: 120px;
     }
 
@@ -876,6 +919,26 @@ font-size:16px;
         font-size: 28px;
     }
 
+    #prevencionMalaria{
+        margin: 0;
+        padding-top: 0;
+    }
+
+    #youtube-video{
+       /*MANEJAR TAMAÑO DEL VIDEO*/
+    }
+
+    .imagenesIA{
+        display: block;
+               /*MANEJAR TAMAÑO DEL coso*/
+
+    }
+
+    .cardContent{
+        height: 300px;
+        margin-bottom: 0;
+        /*agregar margin left*/
+    }
     .collage {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 150px); /* Más filas para una sola columna */
@@ -885,6 +948,11 @@ font-size:16px;
         width: 100%;
         height: auto;
     }
+
+    footer{
+        width: 500px;
+    }
+    
 }
 
 /* Dispositivos grandes (monitores de escritorio) */
