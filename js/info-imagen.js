@@ -206,3 +206,23 @@ function detenerProgreso() {
     progress = 100;
     numberElement.textContent = `${progress}%`;
 }
+
+
+
+
+
+
+/*  if (response.ok) {
+                if (result.prediccion === true) {
+                    // Redirige a página de "No infectado"
+                    window.location.href = 'no-infectado.html';
+                } else if (result.prediccion === false) {
+                    // Redirige a página de "Infectado"
+                    window.location.href = 'infectado.html';
+                } else {
+                    mostrarError("Error: Resultado del análisis desconocido. Por favor, intenta nuevamente.");
+                }
+            } else {
+                mostrarError(`Error: ${result.message}`);
+            }
+                 */
