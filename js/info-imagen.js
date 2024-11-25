@@ -89,6 +89,30 @@ continuarBtn.addEventListener('click', async () => {
 
             const result = await response.json();
 
+            
+
+        /* if (response.ok) {
+                if (result.prediccion === true) {
+                 detenerProgreso();
+                loadingScreen.style.display = 'none';
+                    // Redirige a página de "No infectado"
+                    window.location.href = 'no-infectado.html';
+                } else if (result.prediccion === false) {
+                  detenerProgreso();
+                loadingScreen.style.display = 'none';
+                    // Redirige a página de "Infectado"
+                    window.location.href = 'infectado.html';
+                } else {
+                    mostrarError("Error: Resultado del análisis desconocido. Por favor, intenta nuevamente.");
+                }
+            } else {
+             detenerProgreso();
+                loadingScreen.style.display = 'none';
+                mostrarError(`Error: ${result.message}`);
+            }
+                 */
+
+
             if (response.ok) {
                 detenerProgreso();
                 loadingScreen.style.display = 'none';
@@ -105,6 +129,8 @@ continuarBtn.addEventListener('click', async () => {
                 loadingScreen.style.display = 'none';
                 mostrarError(`Error: ${result.message}`);
             }
+
+            
         } catch (error) {
             detenerProgreso();
             loadingScreen.style.display = 'none';
@@ -210,19 +236,3 @@ function detenerProgreso() {
 
 
 
-
-
-/*  if (response.ok) {
-                if (result.prediccion === true) {
-                    // Redirige a página de "No infectado"
-                    window.location.href = 'no-infectado.html';
-                } else if (result.prediccion === false) {
-                    // Redirige a página de "Infectado"
-                    window.location.href = 'infectado.html';
-                } else {
-                    mostrarError("Error: Resultado del análisis desconocido. Por favor, intenta nuevamente.");
-                }
-            } else {
-                mostrarError(`Error: ${result.message}`);
-            }
-                 */

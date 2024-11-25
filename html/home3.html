@@ -76,7 +76,7 @@
                         </svg>
                     </button>
                     <input class="input" id="searchBar" placeholder="Ingrese el nombre o apellido del paciente" required="" type="text">
-                    <button class="reset" type="reset">
+                    <button class="reset" type="reset" id="id="clearSearch"">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -86,11 +86,11 @@
                 <!--------------------- Filtros ----------------------------->
                 <div class="container" id="buttons">
                     <div class="tabs">
-                        <input type="radio" id="radio-1" name="filter" value="all" checked>
+                        <input type="radio" id="radio-1" name="estado" value="Todos" checked>
                         <label class="tab" for="radio-1">Todos</label>
-                        <input type="radio" id="radio-2" name="filter" value="infectado">
+                        <input type="radio" id="radio-2" name="estado" value="Infectado">
                         <label id="tiene" class="tab" for="radio-2">Infectado</label>
-                        <input type="radio" id="radio-3" name="filter" value="no-infectado">
+                        <input type="radio" id="radio-3" name="estado" value="No Infectado">
                         <label class="tab" for="radio-3">No infectado</label>
                         <span class="glider"></span>
                     </div>
