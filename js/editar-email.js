@@ -235,7 +235,7 @@ editarMail.addEventListener("click", async () => {
             email: nuevoEmail
         };
 
-        const response = await fetch(`http://localhost:8000/user/editEmail/${id}`, {
+        const response = await fetch(`https://malaria-xi.vercel.app/user/editEmail/${id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

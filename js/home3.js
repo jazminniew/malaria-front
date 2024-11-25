@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 throw new Error('No se encontró token de autenticación. Inicia sesión primero.');
             }
 
-            const url = `http://localhost:8000/analyze/analisisPorUsuario/${id}`;
+            const url = `https://malaria-xi.vercel.app/analyze/analisisPorUsuario/${id}`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {

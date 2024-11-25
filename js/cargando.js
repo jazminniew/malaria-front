@@ -30,7 +30,7 @@ function detenerProgreso() {
 // Verificar el resultado de la IA periódicamente
 function verificarResultado() {
     const analyzeID = localStorage.getItem('analyzeID');
-    const apiUrl = `http://localhost:8000/analyze/checkResult/${analyzeID}`;
+    const apiUrl = `https://malaria-xi.vercel.app/analyze/checkResult/${analyzeID}`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function verificarMalaria() {
     iniciarProgreso(); // Iniciar el progreso al hacer la solicitud
 
-    const apiUrl = 'http://localhost:8000/user/login'; /*ACAAAAA */
+    const apiUrl = 'https://malaria-xi.vercel.app/user/login'; /*ACAAAAA */
 
     const options = {
         method: 'POST', // Cambia según la API
