@@ -90,7 +90,7 @@ continuarBtn.addEventListener('click', async () => {
             const result = await response.json();
 
             
-
+        /*
  if (response.ok) {
                 if (result.prediccion === true) {
                  detenerProgreso();
@@ -110,9 +110,9 @@ continuarBtn.addEventListener('click', async () => {
                 loadingScreen.style.display = 'none';
                 mostrarError(`Error: ${result.message}`);
             }
+                 */
 
 
-        /*
             if (response.ok) {
                 detenerProgreso();
                 loadingScreen.style.display = 'none';
@@ -129,7 +129,7 @@ continuarBtn.addEventListener('click', async () => {
                 loadingScreen.style.display = 'none';
                 mostrarError(`Error: ${result.message}`);
             }
-                 */
+
             
         } catch (error) {
             detenerProgreso();
