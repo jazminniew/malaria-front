@@ -226,7 +226,7 @@ input[type="search"] {
     flex-wrap: wrap; 
     flex-direction: row;
     align-items: normal;
-    width: 1000px;    
+    width: 940px;    
     height: 80%;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
@@ -242,7 +242,7 @@ input[type="search"] {
     display: inline-flex;
 }
 .FONDOPACIENTES.expanded{
-    width: 1300px;
+    width: 1240px;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
