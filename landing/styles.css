@@ -215,15 +215,19 @@ div.prevencion {
 
 .preventInfo {
     color: #7C3ED6;
-    font-size: 16px;
-    padding: 20px 0;
+    font-size: 35px;
+    padding: 30px 0;
     flex-basis: calc(33.33% - 40px); /* Un tercio del ancho, restando el gap */
     text-align: center;
     box-sizing: border-box;
-
-
+    max-width: 800px;
 }
 
+.imagenesIA{
+    display: flex;
+    justify-content: ;
+
+}
 .preventInfo img {
     width: 60px; /* Ajusta el tamaño de las imágenes según sea necesario */
     height: auto;
@@ -367,7 +371,7 @@ footer nav a:hover {
   .cardContent {
     width: 100%;
     height: 100%;
-    border-radius: inherit;
+    border-radius: 40px;
   }
   
   .cardContent .front-content {
@@ -842,10 +846,10 @@ font-size:16px;
     }
 
     .logoTexto {
-        font-size: 40px;
+        font-size: 80px;
     }
     .imagenLogo {
-        width: 350px;
+        width: 500px;
         margin-right: 10px;
         margin-bottom: 30px;
     }
@@ -881,11 +885,12 @@ font-size:16px;
         display: none;
     }
 
-    .cardInfo{
+    /*cartas de objetivos y eso*/
+    .cardInfo{ 
         z-index: 1000000;
         margin-top: 100px;
-        width: 1000px;
-        height: 600px;
+        width: 1200px;
+        height: 800px;
         border-radius: 50px;
 
     }
@@ -909,16 +914,17 @@ font-size:16px;
     .cardInfo img {
         width: 180px;
         margin-bottom: 1rem;
+        margin-top: 50px;
     }
     
     .cardTitle {
-        font-size: 4rem;
+        font-size: 5rem;
         margin-bottom: 0.5rem;
         color: #fff;
     }
     
     .cardSubtitle {
-        font-size: 2.2rem;
+        font-size: 3rem;
         color: #b3b3b3;
         text-align: center;
         margin-top: 20px;
@@ -943,9 +949,9 @@ font-size:16px;
     }
 
     #youtube-video{
-      width: 150vh;
-      height: 50vh;
+display: none;
     }
+
 
     .stat{
         padding: 60px;
@@ -969,9 +975,36 @@ font-size:16px;
     }
 
     .imagenesIA{
-        display: block;
-               /*MANEJAR TAMAÑO DEL coso*/
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 250px;
 
+    }
+
+    .imgfiltro{
+        width: 1000px;
+        height: 1000px;
+        margin-bottom: 200px;
+    }
+
+    .cardNosotros{
+        max-width: 800px;
+        margin-left: 400px;
+        height: 600px;
+        margin-bottom: 200px;
+
+    }
+
+    .containerDeCartas{
+        display: block;
+        flex-direction: column;
+    }
+
+    .imgenfoque{
+        width: 1000px;
+        height: 1000px;
     }
     .textoEstadisticas{
         font-size: 45px;
@@ -985,8 +1018,16 @@ font-size:16px;
     }
 
     #prevencionMalaria{
-        margin-top: 400px;
-        max-width: 1500px;
+        margin-top: 300px;
+        max-width: 200vh;
+    }
+
+    .titulo-prevent{
+        font-size: 40px;
+        margin-top: 100px;
+        display: flex;
+        padding-left: 0px;
+        margin-left: 0px;
     }
 
 .parrafoObjetivo{
@@ -1001,11 +1042,11 @@ font-size:16px;
 }
 
 .prevencion{
-    max-width: 600vh;
+    max-width: 1300px;
 }
 
     .cardContent{
-        height: 300px;
+        height: 900px;
         margin-bottom: 0;
         /*agregar margin left*/
     }
@@ -1030,7 +1071,28 @@ font-size:16px;
     html{
         width: 1700px;
     }
-    
+    .cardContent .backContent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+        background: linear-gradient(-45deg, #251242 0%, #9954ff 100% );
+        color: #e8e8e8;
+        padding: 20px;
+        line-height: 1.5;
+        border-radius: 40px;
+        pointer-events: none;
+        transform: translateY(96%);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        font-size: 45px;
+    }
     .imagen-recortada{
         width: 1700px;
         height: 1500px;
@@ -1069,9 +1131,9 @@ font-size:16px;
         margin-bottom: 300px;
     }
 
-
+ /*contenendor que contiene lo de los objetivos*/
     .infoProyecto{
-        margin-left: 300px;
+        margin-left: 225px;
         width: 1500px;
         height: 2000px;
     }
@@ -1101,7 +1163,7 @@ font-size:16px;
         letter-spacing: 3px;
         font-weight: bold;
         text-decoration: none;
-        margin-left: 20px;
+        margin-left: 40px;
     }
 
 }
