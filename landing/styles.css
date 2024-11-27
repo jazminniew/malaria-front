@@ -842,25 +842,21 @@ font-size:16px;
     }
 
     .logoTexto {
-        font-size: 18px;
+        font-size: 40px;
+    }
+    .imagenLogo {
+        width: 350px;
+        margin-right: 10px;
+        margin-bottom: 30px;
     }
 
     nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 60px;
     }
 
     .home {
         padding: 1rem;
-    }
-
-    .paloIzq{
-        height: 150px;
-    }
-
-    .tituloHome {
-        font-size: 36px;
-        margin-top: 20px;
     }
 
     .start-btn {
@@ -886,8 +882,12 @@ font-size:16px;
     }
 
     .cardInfo{
-        margin-bottom: 40px;
         z-index: 1000000;
+        margin-top: 100px;
+        width: 1000px;
+        height: 600px;
+        border-radius: 50px;
+
     }
     .gradient2{
         display: none;
@@ -906,7 +906,24 @@ font-size:16px;
         height: 200px;
     }
 
-
+    .cardInfo img {
+        width: 180px;
+        margin-bottom: 1rem;
+    }
+    
+    .cardTitle {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+        color: #fff;
+    }
+    
+    .cardSubtitle {
+        font-size: 2.2rem;
+        color: #b3b3b3;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
 
 
     .cajaNumero {
@@ -926,7 +943,29 @@ font-size:16px;
     }
 
     #youtube-video{
-       /*MANEJAR TAMAÑO DEL VIDEO*/
+      width: 150vh;
+      height: 50vh;
+    }
+
+    .stat{
+        padding: 60px;
+    }
+
+
+    .numero{
+        font-size:70px;
+    }
+    .porcentaje{
+        font-size: 70px;
+    }
+    .cajaNumero{
+        padding: 160px 100px;
+
+    }
+
+    .estadisticas{
+        max-width: 1500px;
+        margin-left: 50px;
     }
 
     .imagenesIA{
@@ -934,6 +973,36 @@ font-size:16px;
                /*MANEJAR TAMAÑO DEL coso*/
 
     }
+    .textoEstadisticas{
+        font-size: 45px;
+        max-width: 500px;
+    }
+
+    .titulo-prevent2{
+        font-size: 10rem;
+        margin-top: 200px;
+        margin-bottom: 20px;
+    }
+
+    #prevencionMalaria{
+        margin-top: 400px;
+        max-width: 1500px;
+    }
+
+.parrafoObjetivo{
+    font-size: 45px;
+    max-width: 600vh;
+}
+
+.titulo-prevent2{
+    font-size: 400px;
+    font-size: 45px;
+    max-width: 600vh;
+}
+
+.prevencion{
+    max-width: 600vh;
+}
 
     .cardContent{
         height: 300px;
@@ -951,20 +1020,20 @@ font-size:16px;
     }
 
     footer{
-        width: 500px;
+        width: 180vh;
     }
 
     body{
-        width: 100vh;
+        width: 1700px;
     }
 
     html{
-        width: 100vh;
+        width: 1700px;
     }
     
     .imagen-recortada{
-        width: 100vh;
-        height: 100vh;
+        width: 1700px;
+        height: 1500px;
     }
 
     .home{
@@ -989,14 +1058,17 @@ font-size:16px;
     }
 
     .tituloHome{
-        max-width: 400px;
-        font-size: 50px;
+        max-width: 2000px;
+        font-size: 150px;
     }
 
     .contenidoHome{
-        margin-top: 100px;
-        margin-left: 60px;
+        margin-top: 300px;
+        margin-left: 100px;
+        max-width: 1000vh;
+        margin-bottom: 300px;
     }
+
 
     .infoProyecto{
         margin-left: 300px;
@@ -1009,6 +1081,27 @@ font-size:16px;
 
     .brillitos3{
         display: none;
+    }
+
+    .paloIzq{
+        width: 250px;
+        height: 400px;
+        margin-bottom: 100px;
+        margin-left: 0;
+    }
+
+    .start-btn{
+        background-color: #7C3ED6;
+        color: rgb(39, 39, 39);
+        padding: 40px 80px;
+        border-radius: 15px;
+        font-size: 50px;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 3px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 20px;
     }
 
 }
