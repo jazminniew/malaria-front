@@ -230,13 +230,13 @@ input[type="search"] {
     flex-wrap: wrap; 
     flex-direction: row;
     align-items: normal;
-    width: 1000px;
+    width: 1025px;
     height: 90%;
     background: var(--fondo-elementos);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 10px 10px;
-    gap: 10px;
+    gap: 0px;
     margin: 15px 0px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
     overflow-y: auto;
@@ -245,7 +245,7 @@ input[type="search"] {
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES.expanded{
-    width: 1300px;
+    width: 1270px;
     transition: height 0.5s ease, width 0.5s ease;
 }
 .FONDOPACIENTES::-webkit-scrollbar {
@@ -282,7 +282,7 @@ input[type="search"] {
 .cartas-separadas{
 margin: 3.5px;
 align-items: center;
-height: 12%;
+height: 10%;
 margin-left: 10px;
 }
 

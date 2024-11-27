@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('user-apellido').textContent = dataRequired.apellido;
         document.getElementById('user-name').textContent = dataRequired.nombre;
         document.getElementById('user-telefono').textContent = dataRequired.phone;
+        document.getElementById('user-email').textContent = dataRequired.email;
+        document.getElementById('user-descripcion').textContent = dataRequired.descripcion;
 
 
     } catch (err) {

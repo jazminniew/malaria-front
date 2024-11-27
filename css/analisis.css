@@ -38,6 +38,8 @@
     --color-icono: #545454;
     --texto-elemento: #363636;
     --texto-input:#000;
+    --trashIcon: #575757;
+    --trashIconHover: #757575;
 }
 .dark-mode{
     --color-barra-lateral: rgb(16, 16, 16);
@@ -78,6 +80,8 @@
     --fondo-user-hover: #262626;
     --texto-elemento: #d2d2d2;
     --texto-input:#fff;
+    --trashIcon: #fff;
+    --trashIconHover: #dbdbdb;
 }
 
 
@@ -154,7 +158,8 @@ body{
     border-radius: 10px;
     border: 1px solid #f5c6cb; /* Borde más oscuro para el error */
     display: none; /* Para ocultarlo inicialmente */
-    max-width: 300px;
+    max-width: 500px;
+    margin: 10px 0 10px 0;
   }
   
   #response.show {
@@ -165,3 +170,21 @@ body{
     margin-left: 350px;
     background-color: #fff;
   }
+
+  .eliminar{
+position: absolute;
+top: 39%;
+left: 74%;
+
+  }
+
+.bx{
+    color: var(--trashIcon);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.bx:hover{
+    color: var(--trashIconHover);
+}
+
