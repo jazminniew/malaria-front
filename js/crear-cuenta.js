@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(formData),
             });
 
+            console.log(response);  // Añade este log para verificar la respuesta
             const result = await response.json();
 
             if (response.ok) {

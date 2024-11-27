@@ -87,6 +87,7 @@ continuarBtn.addEventListener('click', async () => {
                 body: formData
             });
 
+            console.log(response);
             const result = await response.json();
 
             
