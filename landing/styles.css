@@ -984,6 +984,33 @@ font-size:16px;
         padding-left: 0;
     }
 
+    .estrellas{
+        display: none;
+    }
+
+    .tituloHome{
+        max-width: 400px;
+        font-size: 50px;
+    }
+
+    .contenidoHome{
+        margin-top: 100px;
+        margin-left: 60px;
+    }
+
+    .infoProyecto{
+        margin-left: 300px;
+        width: 1500px;
+        height: 2000px;
+    }
+    .gradient1{
+        display: none;
+    }
+
+    .brillitos3{
+        display: none;
+    }
+
 }
 
 /* Dispositivos grandes (monitores de escritorio) */
