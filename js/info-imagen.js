@@ -1,6 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
+    // Selecciona los elementos necesarios
+const resetButton = document.querySelector('.bx-reset');
+const fileInput = document.getElementById('file');
+const imgArea = document.querySelector('.img-area');
+
+// Evento para el botón de reset
+resetButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Evita que el formulario completo se resetee
+    
+    // Limpia el campo de archivo
+    fileInput.value = '';
+    
+    // Reinicia el área de imagen
+    imgArea.innerHTML = `
+        <i class='bx bxs-cloud-upload'></i>
+        <h3>Arrastra la imagen o <a class="select-image">búscala</a></h3>
+        <p>El tamaño de la imagen debe ser menor a <span>2MB</span></p>
+    `;
+    
+    // Vuelve a asignar el evento para seleccionar la imagen
+    const selectImage = imgArea.querySelector('.select-image');
+    selectImage.addEventListener('click', () => {
+        fileInput.click();
+    });
+});
+
+// Procesar imagen como antes
+fileInput.addEventListener('change', function () {
+    const file = fileInput.files[0];
+    processImage(file);
+});
+
+    
 
     // Función para capitalizar las palabras
     function capitalizeWords(text) {

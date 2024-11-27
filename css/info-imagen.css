@@ -611,3 +611,16 @@ button.sparkle-button{
 #response.show {
   display: block;
 }
+
+.bx.bx-reset{
+  position: absolute;
+  left: 91%;
+  top: 3%;
+  color: #e0e0e0;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.bx.bx-reset:hover{
+  color: #fff;
+}
