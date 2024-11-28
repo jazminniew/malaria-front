@@ -44,6 +44,8 @@ continuarBtn.addEventListener('click', async () => {
     const result = await response.json();  // Añadir esta línea para ver la respuesta del servidor
 console.log('Paciente registrado:', result);  // Mostrar la respuesta
 console.log("Descripción:", descripcion);
+console.log('Respuesta del servidor:', result);
+
 
     // Redirige a mis-pacientes.html si la respuesta es exitosa   window.location.href = 'mis-pacientes.html';
    
