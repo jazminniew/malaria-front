@@ -45,8 +45,8 @@ continuarBtn.addEventListener('click', async () => {
 console.log('Paciente registrado:', result);  // Mostrar la respuesta
 console.log("Descripción:", descripcion);
 
-    // Redirige a mis-pacientes.html si la respuesta es exitosa
-    window.location.href = 'mis-pacientes.html';
+    // Redirige a mis-pacientes.html si la respuesta es exitosa   window.location.href = 'mis-pacientes.html';
+   
 
   } catch (error) {
     // Muestra el mensaje de error en el div #response
