@@ -39,28 +39,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         responseDiv.classList.add('show');
         console.error('Error al obtener los datos del usuario:', err);
     }
-}, false);
-// Eliminar análisis
-document.addEventListener('DOMContentLoaded', () => {
-    const deleteIcon = document.querySelector('.bx.bxs-trash-alt');
-    const idLink = new URLSearchParams(new URL(window.location.href).search).get("id");
-    const token = localStorage.getItem("token");
 
-    const responseDiv = document.getElementById('response'); // Div para mostrar mensajes de error
-    responseDiv.classList.remove('show'); // Limpia cualquier mensaje previo
-
-    if (deleteIcon) {
-        deleteIcon.addEventListener('click', async () => {
+    // Agregar evento para eliminar análisis
+    const deleteDiv = document.getElementById('delete');
+    if (deleteDiv) {
+        deleteDiv.addEventListener('click', async () => {
             try {
-                const response = await fetch(`https://malaria-xi.vercel.app/analyze/deleteAnalyze/${idLink}`, { // URL de localhost
+                const deleteResponse = await fetch(`https://malaria-xi.vercel.app/analyze/deleteAnalyze/${idLink}`, {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+                        'Content-Type': 'application/json'
                     },
                 });
 
-                if (!response.ok) {
+                if (!deleteResponse.ok) {
                     throw new Error('Error al eliminar el análisis');
                 }
 
@@ -74,4 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+}, false);
