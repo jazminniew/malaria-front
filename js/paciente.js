@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const data = await response.json();
 
-        const dataRequired = data[0];
 
-        console.log(dataRequired);
 
 
         document.getElementById('user-apellido').textContent = dataRequired.apellido;
@@ -36,6 +34,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('user-email').textContent = dataRequired.email;
         document.getElementById('user-descripcion').textContent = dataRequired.descripcion;
 
+
+        const dataRequired = data[0];
+
+        console.log(dataRequired);
 
     } catch (err) {
         alert('Error al obtener los datos del usuario');

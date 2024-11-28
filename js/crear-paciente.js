@@ -47,7 +47,8 @@ console.log("Descripción:", descripcion);
 console.log('Respuesta del servidor:', result);
 
 
-    // Redirige a mis-pacientes.html si la respuesta es exitosa   window.location.href = 'mis-pacientes.html';
+    // Redirige a mis-pacientes.html si la respuesta es exitosa 
+      window.location.href = 'mis-pacientes.html';
    
 
   } catch (error) {
