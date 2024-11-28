@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log(dataRequired);
 
+        console.log(data)
 
         document.getElementById('user-apellido').textContent = dataRequired.apellido;
         document.getElementById('user-name').textContent = dataRequired.nombre;
