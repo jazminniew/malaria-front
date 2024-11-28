@@ -27,11 +27,50 @@ resetButton.addEventListener('click', (event) => {
     });
 });
 
-// Procesar imagen como antes
-fileInput.addEventListener('change', function () {
-    const file = fileInput.files[0];
-    processImage(file);
+// Función para procesar la imagen
+const processImage = async (file) => {
+    if (file) {
+        const fileType = file.type;
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+        if (!validImageTypes.includes(fileType)) {
+            mostrarError('Por favor, selecciona un archivo de imagen válido (JPEG, PNG).');
+            return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) { // 2MB
+            mostrarError('El tamaño de la imagen debe ser menor a 2MB.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            const allImg = imgArea.querySelectorAll('img');
+            allImg.forEach(img => img.remove());
+
+            const imgUrl = reader.result;
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            imgArea.appendChild(img);
+            imgArea.classList.add('active');
+            imgArea.dataset.img = file.name;
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
+// Resto del código
+document.addEventListener('DOMContentLoaded', function () {
+    const fileInput = document.getElementById('file');
+    const imgArea = document.querySelector('.img-area');
+
+    if (fileInput) {
+        fileInput.addEventListener('change', function () {
+            const file = fileInput.files[0];
+            processImage(file); // Ahora `processImage` está definida
+        });
+    }
 });
+
 
     
 
