@@ -69,6 +69,12 @@
                 <input type="tel" placeholder="Teléfono" id="telefono" required>
                 <i class='bx bxs-phone'></i>
             </div>
+
+             <!-- Campo para el teléfono -->
+             <div class="input-box">
+                <input type="text" placeholder="Descripción" id="descripcion" required>
+                <i class='bx bxs-edit' ></i>
+            </div>
             <div id="response"></div>
             <!-- Botón de envío -->
             <button type="submit" class="btn" id="continuarBtn">Continuar</button>
@@ -78,83 +84,3 @@
     <script src="/js/crear-paciente.js"></script>
 </body>
 </html>
-
-
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MalarIA - Crear Paciente</title>
-    <link rel="stylesheet" href="/css/crear-paciente.css">
-    
-    <link rel="icon" href="../images/LOGOVIOLETA16X16.ico" type="image/ico" sizes="32x32"
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-    <i class='bx bx-chevron-left' id="back-button"></i>
-    <div class="wrapper">
-        
-        <form id="crearPacienteForm">
-            
-            <h1>Crear Paciente</h1>
-            
-            <div class="flex-container">
-            
-                <div class="input-box half-width">
-                    <input type="text" placeholder="Nombre" id="nombre" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-
-                <div class="input-box half-width">
-                    <input type="text" placeholder="Apellido" id="apellido" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-            </div>
-
-            <div class="input-box">
-                <input type="text" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required onfocus="(this.type='date')" onblur="(this.type='text')">
-                <i class='bx bxs-calendar'></i>
-            </div>
-
-            <div class="flex-container">
-
-                <div class="input-box">
-                    <select id="pais" name="pais" required>
-                        <option value="" disabled selected>País</option>
-                     
-                    </select>
-                    <i class='bx bx-world'></i>
-                </div>
-               
-                <div class="input-box half-width">
-                    <select id="genero" name="genero" required>
-                        <option value="" disabled selected>Género</option>
-                        <option value="Mujer">Mujer</option>
-                        <option value="Hombre">Hombre</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                    <i class='bx bxs-user'></i>
-                </div>
-            </div>
-
-            <div class="input-box">
-                <input type="email" placeholder="Email" id="email" required>
-                <i class='bx bxl-gmail'></i>
-            </div>
-
-            <div class="input-box">
-                <input type="tel" placeholder="Teléfono" id="telefono" required>
-                <i class='bx bxs-phone'></i>
-            </div>
-            <div id="response"></div>
-
-            <button type="submit" class="btn" id="continuarBtn">Continuar</button>
-        </form>
-    </div>
-
-    <script src="/js/crear-paciente.js"></script>
-</body>
-</html>
--->

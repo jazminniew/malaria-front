@@ -7,6 +7,7 @@ continuarBtn.addEventListener('click', async () => {
   const apellido = document.getElementById("apellido").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("telefono").value;
+  const descripcion = document.getElementById("descripcion").value;
 
   if (!nombre || !apellido || !email || !phone) {
     responseDiv.textContent = "Por favor, completa todos los campos obligatorios.";
@@ -21,6 +22,7 @@ continuarBtn.addEventListener('click', async () => {
     apellido,
     email,
     phone,
+    descripcion,
     id_user
   }
 

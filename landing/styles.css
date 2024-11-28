@@ -163,7 +163,7 @@ h2.titulo-prevent{
     font-size: 40px;
     margin-top: 100px;
     display: flex;
-    padding-left: 150px;
+    padding-left: 0px;
 }
 
 h2.titulo-prevent2{
@@ -215,7 +215,7 @@ div.prevencion {
 
 .preventInfo {
     color: #7C3ED6;
-    font-size: 35px;
+    font-size: 16px;
     padding: 30px 0;
     flex-basis: calc(33.33% - 40px); /* Un tercio del ancho, restando el gap */
     text-align: center;
