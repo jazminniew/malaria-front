@@ -9,7 +9,7 @@ continuarBtn.addEventListener('click', async () => {
   const phone = document.getElementById("telefono").value;
   const descripcion = document.getElementById("descripcion").value;
 
-  if (!nombre || !apellido || !email || !phone) {
+  if (!nombre || !apellido || !email || !phone || !descripcion) {
     responseDiv.textContent = "Por favor, completa todos los campos obligatorios.";
     responseDiv.classList.add('show'); // Muestra el mensaje de error
     return; // Detener el envío
