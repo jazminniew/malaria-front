@@ -154,10 +154,20 @@ continuarBtn.addEventListener('click', async () => {
         formData.append('id', id);
 
         try {
-            const response = await fetch('https://malaria-xi.vercel.app/analyze/uploadAnalyzePost', { // Corrected URL
+           const token = localStorage.getItem('token'); // Recuperás el token
+                if (!token) {
+                    mostrarError("Sesión expirada. Por favor, volvé a iniciar sesión.");
+                    loadingScreen.style.display = 'none';
+                    detenerProgreso();
+                    return;}
+            const response = await fetch('https://malaria-xi.vercel.app/analyze/uploadAnalyzePost', {
                 method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
                 body: formData
             });
+
 
             console.log(response);
             const result = await response.json();
