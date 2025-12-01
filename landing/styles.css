@@ -773,6 +773,10 @@ font-size:16px;
     max-width: 550px;
 }
 
+.parrafoObjetivo strong {
+    color: #a259ff;
+}
+
 .estrellas2{
     width: 120px;
     margin-left: 30px;
@@ -841,368 +845,433 @@ font-size:16px;
 }
 
 
-/* Dispositivos medianos (tablets en modo vertical, smartphones grandes) */
-@media (max-width: 768px) {
-    .imagen-recortada {
-        height: 500px; /* Reducir altura en dispositivos más pequeños */
-    }
+/* ===== RESPONSIVE DESIGN ===== */
 
+/* Tablets y dispositivos medianos */
+@media (max-width: 1024px) {
     .tituloHome {
         font-size: 48px;
     }
+    
+    .descripcion-malaria,
+    .intro-ia {
+        margin: 40px 60px;
+    }
+    
+    .subtitulo-estadisticas {
+        margin-left: 60px;
+    }
+    
+    h2.titulo-prevent3,
+    h2.titulo-prevent4 {
+        padding-left: 60px;
+    }
+}
 
+/* Tablets pequeñas */
+@media (max-width: 768px) {
+    .imagenLogo {
+        width: 100px;
+    }
+    
+    .tituloHome {
+        font-size: 36px;
+    }
+    
+    .paloIzq {
+        width: 60px;
+        height: 120px;
+    }
+    
     .start-btn {
         padding: 10px 30px;
         font-size: 16px;
         margin-left: 0;
     }
-
-    .estadisticas {
+    
+    .infoProyecto {
+        flex-direction: column;
+        margin: 20px;
         gap: 20px;
     }
-
-    .cajaNumero {
-        width: 180px;
-        height: 150px;
+    
+    .cardInfo {
+        width: 100%;
     }
-
+    
+    .descripcion-malaria,
+    .intro-ia {
+        margin: 20px;
+        padding: 20px;
+        font-size: 14px;
+    }
+    
+    .subtitulo-estadisticas {
+        margin-left: 20px;
+        font-size: 22px;
+    }
+    
+    h2.titulo-prevent3,
+    h2.titulo-prevent4,
+    h2.titulo-prevent2 {
+        padding-left: 20px;
+        margin-left: 20px;
+        font-size: 32px;
+    }
+    
+    #prevencionMalaria {
+        padding: 20px;
+        padding-left: 20px;
+    }
+    
+    .cajaNumero {
+        width: 160px;
+        height: 140px;
+    }
+    
     .numero, .porcentaje {
         font-size: 32px;
     }
-
-    .collage {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-        grid-template-rows: repeat(3, 150px); /* Filas más pequeñas */
+    
+    .textoEstadisticas {
+        font-size: 16px;
+    }
+    
+    .videoDemo {
+        padding: 20px;
+    }
+    
+    .imagenesIA {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .imgfiltro,
+    .imgenfoque {
+        height: auto;
+        max-width: 100%;
+    }
+    
+    .containerDeCartas {
+        gap: 20px;
+    }
+    
+    .cardNosotros {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .contenedorRoles {
+        gap: 30px;
+    }
+    
+    .estrellas,
+    .estrellas2,
+    .brillitos3,
+    .rompecabezas,
+    .gradient1,
+    .gradient2 {
+        display: none;
     }
 }
 
-/* Dispositivos pequeños (smartphones) */
+/* Móviles */
 @media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+    
     header {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 1rem 20px;
     }
-
+    
     .logoTexto {
-        font-size: 80px;
+        flex: 0 0 auto;
     }
+    
     .imagenLogo {
-        width: 500px;
-        margin-right: 10px;
-        margin-bottom: 30px;
+        width: 70px;
     }
-
+    
     nav {
-        flex-direction: column;
-        gap: 60px;
+        flex: 0 0 auto;
     }
-
+    
+    nav ul {
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+    }
+    
+    nav ul li {
+        padding: 0;
+    }
+    
+    .crear-cuenta,
+    .iniciar-sesion {
+        padding: 8px 8px;
+        font-size: 12px;
+        gap: 0;
+        margin-left: -15px;
+    }
+    
+    .iniciar-sesion {
+        margin-left: -20px;
+    }
+    
     .home {
-        padding: 1rem;
+        padding: 1rem 30px;
+        overflow-x: hidden;
     }
-
+    
+    .contenidoHome {
+        margin-top: 60px;
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .titleContenidoHome {
+        align-items: flex-start;
+        margin-bottom: 8px;
+    }
+    
+    .tituloHome {
+        font-size: 38px;
+        margin-left: 0;
+    }
+    
+    .paloIzq {
+        width: 60px;
+        height: 130px;
+    }
+    
     .start-btn {
-        padding: 8px 20px;
-        font-size: 14px;
-        margin-left: 20px;
+        padding: 14px 40px;
+        font-size: 16px;
+        margin-left: 10px;
+        margin-top: 0px;
+        display: inline-block;
     }
-
-    .infoProyecto{
-        display: block;
-        width: 1000px;
+    
+    .infoProyecto {
+        padding: 0 20px;
     }
-
-    .estrellas2{
-        display: none;
+    
+    .cardInfo {
+        width: 100%;
     }
-    .estrellas{
-        display:nome;
-    }
-
-    .rompecabezas{
-        display: none;
-    }
-
-    /*cartas de objetivos y eso*/
-    .cardInfo{ 
-        z-index: 1000000;
-        margin-top: 100px;
-        width: 1200px;
-        height: 800px;
-        border-radius: 50px;
-
-    }
-    .gradient2{
-        display: none;
-    }
-    #prevencionMalaria{
-        margin: 0;
-        max-width: 800px;
-        justify-content: center;
-    }
-
-
-
-    #youtube-video{
-        width: 300px;
-        margin-left: 40px;
-        height: 200px;
-    }
-
+    
     .cardInfo img {
-        width: 180px;
-        margin-bottom: 1rem;
-        margin-top: 50px;
+        width: 40px;
     }
     
     .cardTitle {
-        font-size: 5rem;
-        margin-bottom: 0.5rem;
-        color: #fff;
+        font-size: 1.2rem;
     }
     
     .cardSubtitle {
-        font-size: 3rem;
-        color: #b3b3b3;
-        text-align: center;
-        margin-top: 20px;
+        font-size: 0.9rem;
     }
     
-
-
-    .cajaNumero {
-        width: 80%;
+    /* Nuestro objetivo con diseño igual a descripción malaria */
+    .parrafoObjetivo {
+        font-size: 14px;
+        color: #aeaeae;
+        margin: 20px 20px;
+        padding: 20px;
+        background: rgba(44, 20, 70, 0.7);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px 0 rgba(162,89,255,0.10);
+        line-height: 1.6;
+    }
+    
+    h2.titulo-prevent2 {
+        padding-left: 0;
         margin-left: 20px;
+        margin-top: 60px;
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+    
+    .descripcion-malaria,
+    .intro-ia {
+        margin: 20px 20px;
+        padding: 20px;
+        font-size: 14px;
+    }
+    
+    .intro-ia {
+        width: calc(100% - 40px);
+        box-sizing: border-box;
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
+    
+    .titulo-ia {
+        font-size: 22px;
+    }
+    
+    .texto-ia {
+        font-size: 14px;
+    }
+    
+    .subtitulo-estadisticas {
+        margin-left: 20px;
+        font-size: 20px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    
+    h2.titulo-prevent3 {
+        padding-left: 0;
+        margin-left: 20px;
+        margin-top: 60px;
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+    
+    h2.titulo-prevent4 {
+        display: none; /* Ocultar "¿Cómo funciona nuestro proyecto?" */
+    }
+    
+    h2.titulo-prevent {
+        font-size: 24px;
+        margin-left: 20px;
+        padding-left: 0;
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    
+    #prevencionMalaria {
+        padding: 20px;
+        padding-left: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .preventInfo p {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .estadisticas {
+        gap: 15px;
+        padding-top: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .cajaNumero {
+        width: 140px;
         height: 120px;
     }
-
+    
     .numero, .porcentaje {
         font-size: 28px;
     }
-
-    #prevencionMalaria{
-        margin: 0;
-        padding-top: 0;
-        
+    
+    .textoEstadisticas {
+        font-size: 14px;
+        max-width: 140px;
     }
-
-    #youtube-video{
-display: none;
+    
+    .preventInfo {
+        flex-basis: 100%;
+        padding: 15px 0;
     }
-
-
-    .stat{
-        padding: 60px;
+    
+    .videoDemo {
+        display: none; /* Ocultar video en mobile */
     }
-
-
-    .numero{
-        font-size:70px;
+    
+    .imagenesIA {
+        margin-bottom: 60px;
+        padding: 0 20px;
     }
-    .porcentaje{
-        font-size: 70px;
-    }
-    .cajaNumero{
-        padding: 160px 100px;
-
-    }
-
-    .estadisticas{
-        max-width: 1500px;
-        margin-left: 50px;
-    }
-
-    .imagenesIA{
-        flex-direction: column;
-        gap: 40px;
-        align-items: center;
-        justify-content: space-around;
-        margin-bottom: 250px;
-
-    }
-
-    .imgfiltro{
-        width: 1000px;
-        height: 1000px;
-        margin-bottom: 200px;
-    }
-
-    .cardNosotros{
-        max-width: 800px;
-        margin-left: 400px;
-        height: 600px;
-        margin-bottom: 200px;
-
-    }
-
-    .containerDeCartas{
-        display: block;
-        flex-direction: column;
-    }
-
-    .imgenfoque{
-        width: 1000px;
-        height: 1000px;
-    }
-    .textoEstadisticas{
-        font-size: 45px;
-        max-width: 500px;
-    }
-
-    .titulo-prevent2{
-        font-size: 10rem;
-        margin-top: 200px;
-        margin-bottom: 20px;
-    }
-
-    #prevencionMalaria{
-        margin-top: 300px;
-        max-width: 200vh;
-    }
-
-    .titulo-prevent{
-        font-size: 40px;
-        margin-top: 100px;
-        display: flex;
-        padding-left: 0px;
-        margin-left: 0px;
-    }
-
-.parrafoObjetivo{
-    font-size: 45px;
-    max-width: 600vh;
-}
-
-.titulo-prevent2{
-    font-size: 400px;
-    font-size: 45px;
-    max-width: 600vh;
-}
-
-.prevencion{
-    max-width: 1300px;
-}
-
-    .cardContent{
-        height: 900px;
-        margin-bottom: 0;
-        /*agregar margin left*/
-    }
-    .collage {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 150px); /* Más filas para una sola columna */
-    }
-
-    .cardNosotros {
-        width: 100%;
+    
+    .imgfiltro,
+    .imgenfoque {
+        max-width: 85%;
         height: auto;
     }
-
-    footer{
-        width: 180vh;
+    
+    .cardNosotros {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 60px;
     }
-
-    body{
-        width: 1700px;
+    
+    .cardContent .front-content p {
+        font-size: 24px;
     }
-
-    html{
-        width: 1700px;
-    }
+    
     .cardContent .backContent {
-        position: absolute;
-        top: 0;
-        left: 0;
+        font-size: 11px;
+    }
+    
+    .cardContent .backContent .heading {
+        font-size: 13px;
+    }
+    
+    /* Ocultar logo central en roles */
+    .center-logo {
+        display: none;
+    }
+    
+    .contenedorRoles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 30px 20px;
+        margin-bottom: 60px;
+        justify-items: center;
+    }
+    
+    .item {
+        width: 160px;
+        height: 200px;
+    }
+    
+    .item::before {
+        width: 165px;
+        height: 205px;
+    }
+    
+    .titleItem {
+        font-size: 16px;
+    }
+    
+    .headingItem {
+        font-size: 12px;
+    }
+    
+    .name {
+        font-size: 13px;
+    }
+    
+    /* Footer con curva menos marcada */
+    .curved-section {
+        clip-path: ellipse(80% 100% at 50% 0);
+    }
+    
+    .footer-content {
+        padding: 40px 20px;
+    }
+    
+    .derechos {
+        padding: 0 30px;
+    }
+    
+    footer {
         width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 10px;
-        background: linear-gradient(-45deg, #251242 0%, #9954ff 100% );
-        color: #e8e8e8;
-        padding: 20px;
-        line-height: 1.5;
-        border-radius: 40px;
-        pointer-events: none;
-        transform: translateY(96%);
-        transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-        font-size: 45px;
     }
-    .imagen-recortada{
-        width: 1700px;
-        height: 1500px;
+    
+    .collage {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 150px);
     }
-
-    .home{
-        padding: 0;
-    }
-
-    header{
-        padding-top: 100px;
-        display: flex;
-        gap: 50px;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        top: 0; 
-        z-index: 10; 
-        margin-left: 0;
-        padding-left: 0;
-    }
-
-    .estrellas{
-        display: none;
-    }
-
-    .tituloHome{
-        max-width: 2000px;
-        font-size: 150px;
-    }
-
-    .contenidoHome{
-        margin-top: 300px;
-        margin-left: 100px;
-        max-width: 1000vh;
-        margin-bottom: 300px;
-    }
-
- /*contenendor que contiene lo de los objetivos*/
-    .infoProyecto{
-        margin-left: 225px;
-        width: 1500px;
-        height: 2000px;
-    }
-    .gradient1{
-        display: none;
-    }
-
-    .brillitos3{
-        display: none;
-    }
-
-    .paloIzq{
-        width: 250px;
-        height: 400px;
-        margin-bottom: 100px;
-        margin-left: 0;
-    }
-
-    .start-btn{
-        background-color: #7C3ED6;
-        color: rgb(39, 39, 39);
-        padding: 40px 80px;
-        border-radius: 15px;
-        font-size: 50px;
-        border: none;
-        cursor: pointer;
-        letter-spacing: 3px;
-        font-weight: bold;
-        text-decoration: none;
-        margin-left: 40px;
-    }
-
 }
 
 /* Dispositivos grandes (monitores de escritorio) */
