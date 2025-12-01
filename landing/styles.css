@@ -107,7 +107,7 @@ header nav ul li a {
     background-color: #7C3ED6;
     color: rgb(39, 39, 39);
     padding: 12px 50px;
-    border-radius: 10px;
+    border-radius: 30px;
     font-size: 18px;
     border: none;
     cursor: pointer;
@@ -115,9 +115,14 @@ header nav ul li a {
     font-weight: bold;
     text-decoration: none;
     margin-left: 20px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 .start-btn:hover {
-    background-color: #8845ee;
+    background-color: #a259ff;
+    color: #fff;
+    box-shadow: 0 8px 32px 0 rgba(162,89,255,0.35), 0 0 0 4px rgba(162,89,255,0.15);
+    transform: scale(1.07) translateY(-2px);
+    filter: brightness(1.1) drop-shadow(0 0 12px #a259ff88);
 }
 
 .estadisticas {
@@ -322,9 +327,13 @@ footer nav a:hover {
     cursor: pointer;
     border: none;
     font-weight: bold;
-    font-size: 14px
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
 }
-
+.iniciar-sesion:hover {
+    background: #a259ff;
+    color: white;
+}
 
 .crear-cuenta{
     border: 2px solid white;
@@ -335,6 +344,12 @@ footer nav a:hover {
     font-size: 14px;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+}
+.crear-cuenta:hover {
+    background: rgba(162,89,255,0.15);
+    color: #a259ff;
+    border-color: #a259ff;
 }
 
 .estrellas{
@@ -683,6 +698,28 @@ font-size:16px;
     font-size: 1rem;
     color: #b3b3b3;
     text-align: center;
+}
+
+.descripcion-malaria {
+    color: #aeaeae;
+    font-size: 22px;
+    margin: 40px 160px;
+    padding: 24px 32px;
+    background: rgba(44, 20, 70, 0.7);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(162,89,255,0.10);
+    line-height: 1.6;
+}
+.descripcion-malaria strong {
+    color: #a259ff;
+}
+.subtitulo-estadisticas {
+    color: #a259ff;
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 160px;
+    margin-top: 80px;
+    letter-spacing: 1px;
 }
 
 
@@ -1196,4 +1233,37 @@ display: none;
         grid-template-columns: repeat(5, 1fr); /* 5 columnas */
         grid-template-rows: repeat(2, 250px); /* 2 filas de mayor tamaño */
     }
+}
+
+/* Estilos para la sección de IA y imágenes técnicas */
+.intro-ia {
+    margin: 60px 180px;
+    background: rgba(44, 20, 70, 0.7);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(162,89,255,0.10);
+    padding: 32px 40px;
+}
+.titulo-ia {
+    color: #a259ff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+.texto-ia {
+    color: #aeaeae;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+.imagenes-tecnicas {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+.img-tecnica {
+    max-width: 340px;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px 0 rgba(162,89,255,0.10);
 }
